@@ -1,0 +1,2530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Great Controversy: The Game - Episode 9</title>
+    <meta name="description" content="Episode 9: The Early Church. Pentecost to Persecution. The Spirit descends and the world turns upside down.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #030508;
+            --bg-medium: #080a10;
+            --bg-light: #0a0c14;
+            --flame-orange: #ff6b35;
+            --flame-red: #dc2626;
+            --flame-gold: #ffd700;
+            --spirit-white: #fffaf0;
+            --spirit-blue: #4a90d9;
+            --pentecost-purple: #6b3fa0;
+            --upper-room: #2a1f0a;
+            --jerusalem-gold: #c9a227;
+            --martyr-red: #8b0000;
+            --glory-white: #fffaf0;
+            --glory-gold: #ffd700;
+            --stone-gray: #4a4a4a;
+            --prison-dark: #1a1a1a;
+            --text-primary: #f0e8f8;
+            --text-secondary: #b8a8c8;
+            --text-dim: #7a6a8a;
+            --text-flame: #ff6b35;
+            --danger: #c44536;
+            --success: #6b8e4e;
+            --warning: #d4a03a;
+            --faith-color: #ffd700;
+            --wisdom-color: #9b59b6;
+            --courage-color: #e74c3c;
+            --love-color: #e91e63;
+            --truth-color: #3498db;
+            --patience-color: #1abc9c;
+            --hope-color: #f39c12;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Crimson Pro', Georgia, serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Background Themes */
+        .celestial-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            transition: all 1.5s ease;
+        }
+
+        .celestial-bg.upper-room::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 50% 30%, rgba(42, 31, 10, 0.4) 0%, transparent 50%),
+                linear-gradient(180deg, #080505 0%, #0a0805 40%, #050503 100%);
+        }
+
+        .celestial-bg.pentecost::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 50% 0%, rgba(255, 107, 53, 0.3) 0%, transparent 50%),
+                radial-gradient(ellipse at 30% 30%, rgba(255, 215, 0, 0.2) 0%, transparent 40%),
+                radial-gradient(ellipse at 70% 30%, rgba(255, 215, 0, 0.2) 0%, transparent 40%),
+                linear-gradient(180deg, #0a0505 0%, #100805 40%, #080503 100%);
+            animation: pentecostFire 2s ease-in-out infinite;
+        }
+
+        @keyframes pentecostFire {
+            0%, 100% { opacity: 0.85; }
+            50% { opacity: 1; }
+        }
+
+        .celestial-bg.jerusalem::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 50% 50%, rgba(201, 162, 39, 0.15) 0%, transparent 50%),
+                linear-gradient(180deg, #080805 0%, #0a0a08 40%, #050505 100%);
+        }
+
+        .celestial-bg.temple::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 50% 30%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 70%, rgba(74, 74, 74, 0.15) 0%, transparent 40%),
+                linear-gradient(180deg, #0a0808 0%, #080808 40%, #050505 100%);
+        }
+
+        .celestial-bg.sanhedrin::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 50% 50%, rgba(74, 74, 74, 0.2) 0%, transparent 50%),
+                linear-gradient(180deg, #050505 0%, #080808 40%, #030303 100%);
+        }
+
+        .celestial-bg.martyrdom::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 50% 0%, rgba(255, 250, 240, 0.15) 0%, transparent 40%),
+                radial-gradient(ellipse at 50% 80%, rgba(139, 0, 0, 0.2) 0%, transparent 50%),
+                linear-gradient(180deg, #0a0808 0%, #080505 40%, #050303 100%);
+        }
+
+        .celestial-bg.scatter::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 20% 30%, rgba(255, 107, 53, 0.1) 0%, transparent 30%),
+                radial-gradient(ellipse at 80% 50%, rgba(255, 107, 53, 0.1) 0%, transparent 30%),
+                radial-gradient(ellipse at 50% 80%, rgba(255, 107, 53, 0.1) 0%, transparent 30%),
+                linear-gradient(180deg, #080508 0%, #0a0808 40%, #050505 100%);
+        }
+
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, rgba(255, 250, 240, 0.5), transparent),
+                radial-gradient(2px 2px at 40px 70px, rgba(255, 250, 240, 0.3), transparent),
+                radial-gradient(1px 1px at 90px 40px, rgba(255, 250, 240, 0.4), transparent),
+                radial-gradient(2px 2px at 130px 80px, rgba(255, 215, 0, 0.3), transparent);
+            background-size: 250px 250px;
+            animation: twinkle 5s ease-in-out infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+
+        /* Flame overlay for Pentecost */
+        .flame-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 30% 20%, rgba(255, 107, 53, 0.15) 0%, transparent 25%),
+                radial-gradient(ellipse at 50% 15%, rgba(255, 215, 0, 0.2) 0%, transparent 20%),
+                radial-gradient(ellipse at 70% 20%, rgba(255, 107, 53, 0.15) 0%, transparent 25%);
+            opacity: 0;
+            transition: opacity 1s ease;
+            pointer-events: none;
+            animation: flameFlicker 0.5s ease-in-out infinite;
+        }
+
+        @keyframes flameFlicker {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-2px); }
+        }
+
+        .flame-overlay.active {
+            opacity: 1;
+        }
+
+        /* Glory overlay for Stephen's vision */
+        .glory-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 50% 0%, rgba(255, 250, 240, 0.2) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 1s ease;
+            pointer-events: none;
+        }
+
+        .glory-overlay.active {
+            opacity: 1;
+            animation: gloryPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes gloryPulse {
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 1; }
+        }
+
+        .game-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .game-header {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255, 107, 53, 0.3);
+            margin-bottom: 20px;
+        }
+
+        .game-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--flame-orange);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 0 0 30px rgba(255, 107, 53, 0.4);
+            margin-bottom: 5px;
+        }
+
+        .game-subtitle {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            color: var(--flame-gold);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+
+        .screen {
+            display: none;
+            flex: 1;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .screen.active {
+            display: flex;
+            flex-direction: column;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Title Screen */
+        .title-screen {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .episode-number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            color: var(--flame-orange);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 10px;
+        }
+
+        .main-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--flame-gold);
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 50px rgba(255, 215, 0, 0.4);
+            animation: flameGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes flameGlow {
+            0%, 100% { text-shadow: 0 0 30px rgba(255, 215, 0, 0.3); }
+            50% { text-shadow: 0 0 60px rgba(255, 107, 53, 0.5), 0 0 100px rgba(255, 215, 0, 0.3); }
+        }
+
+        .main-subtitle {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        .tagline {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.1rem;
+            color: var(--text-dim);
+            font-style: italic;
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+
+        .episode-intro {
+            background: rgba(255, 107, 53, 0.08);
+            border: 1px solid rgba(255, 107, 53, 0.3);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            max-width: 600px;
+            text-align: left;
+        }
+
+        .episode-intro p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .episode-intro p:last-child {
+            margin-bottom: 0;
+        }
+
+        .title-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 280px;
+        }
+
+        .btn {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--flame-orange) 0%, var(--flame-red) 100%);
+            color: var(--text-primary);
+            box-shadow: 0 4px 20px rgba(255, 107, 53, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(255, 107, 53, 0.6);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--flame-gold);
+            border: 1px solid var(--flame-orange);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 107, 53, 0.1);
+        }
+
+        .btn-secondary:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .btn-flame {
+            background: linear-gradient(135deg, var(--flame-gold) 0%, var(--flame-orange) 100%);
+            color: var(--bg-dark);
+            box-shadow: 0 4px 20px rgba(255, 215, 0, 0.4);
+        }
+
+        .btn-flame:hover {
+            box-shadow: 0 6px 30px rgba(255, 215, 0, 0.6);
+        }
+
+        /* Import Screen */
+        .import-section {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 30px 0;
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6rem;
+            color: var(--flame-gold);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .import-options {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .import-option {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 107, 53, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .import-option:hover {
+            border-color: var(--flame-gold);
+            background: rgba(255, 107, 53, 0.1);
+        }
+
+        .import-option h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--flame-gold);
+            margin-bottom: 10px;
+        }
+
+        .import-option p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .import-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .import-stat {
+            text-align: center;
+        }
+
+        .import-stat-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.6rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+        }
+
+        .import-stat-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        /* Stats Panel */
+        .stats-panel {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 107, 53, 0.3);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stats-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .character-name {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            color: var(--flame-gold);
+        }
+
+        .episode-indicator {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.65rem;
+            color: var(--flame-orange);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.55rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .stat-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .stat-faith { color: var(--faith-color); }
+        .stat-wisdom { color: var(--wisdom-color); }
+        .stat-courage { color: var(--courage-color); }
+        .stat-love { color: var(--love-color); }
+        .stat-truth { color: var(--truth-color); }
+        .stat-patience { color: var(--patience-color); }
+        .stat-hope { color: var(--hope-color); }
+
+        /* Flame Panel */
+        .flame-panel {
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.15) 0%, rgba(255, 215, 0, 0.1) 100%);
+            border: 1px solid rgba(255, 107, 53, 0.4);
+            border-radius: 8px;
+            padding: 12px 20px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .flame-label {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            color: var(--flame-orange);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .flame-value {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            color: var(--flame-gold);
+            font-weight: 600;
+        }
+
+        .phase-indicator {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            color: var(--text-flame);
+        }
+
+        /* Influence Panel */
+        .influence-panel {
+            background: rgba(255, 107, 53, 0.08);
+            border: 1px solid rgba(255, 107, 53, 0.3);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .influence-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            color: var(--flame-gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .influence-title::before {
+            content: '🔥';
+            font-size: 1rem;
+        }
+
+        .influence-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .influence-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 12px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+        }
+
+        .influence-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .influence-avatar.apostle { background: linear-gradient(135deg, var(--flame-orange), var(--flame-gold)); }
+        .influence-avatar.church { background: linear-gradient(135deg, var(--spirit-blue), var(--pentecost-purple)); }
+        .influence-avatar.martyr { background: linear-gradient(135deg, var(--martyr-red), var(--glory-gold)); }
+        .influence-avatar.enemy { background: linear-gradient(135deg, var(--stone-gray), var(--prison-dark)); }
+
+        .influence-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .influence-name {
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            color: var(--text-primary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .influence-status {
+            font-size: 0.7rem;
+            color: var(--text-dim);
+        }
+
+        .influence-bar {
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            margin-top: 4px;
+            overflow: hidden;
+        }
+
+        .influence-fill {
+            height: 100%;
+            border-radius: 2px;
+            transition: width 0.5s ease;
+        }
+
+        .influence-fill.flame { background: var(--flame-orange); }
+        .influence-fill.spirit { background: var(--spirit-blue); }
+        .influence-fill.glory { background: var(--glory-gold); }
+        .influence-fill.dark { background: var(--stone-gray); }
+
+        /* Story Panel */
+        .story-panel {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .story-content {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 107, 53, 0.2);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 20px;
+            flex: 1;
+            transition: all 0.5s ease;
+        }
+
+        .story-content.upper-room-scene {
+            border-color: rgba(42, 31, 10, 0.5);
+            background: rgba(15, 10, 5, 0.6);
+        }
+
+        .story-content.pentecost-scene {
+            border-color: rgba(255, 107, 53, 0.5);
+            background: rgba(20, 10, 5, 0.6);
+        }
+
+        .story-content.jerusalem-scene {
+            border-color: rgba(201, 162, 39, 0.4);
+            background: rgba(15, 12, 8, 0.5);
+        }
+
+        .story-content.sanhedrin-scene {
+            border-color: rgba(74, 74, 74, 0.5);
+            background: rgba(10, 10, 10, 0.6);
+        }
+
+        .story-content.martyrdom-scene {
+            border-color: rgba(255, 250, 240, 0.3);
+            background: rgba(15, 10, 10, 0.6);
+        }
+
+        .story-content.scatter-scene {
+            border-color: rgba(255, 107, 53, 0.4);
+            background: rgba(12, 10, 12, 0.5);
+        }
+
+        .scene-location {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            color: var(--flame-orange);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .scene-location::before,
+        .scene-location::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.3), transparent);
+        }
+
+        .story-text {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: var(--text-primary);
+            margin-bottom: 25px;
+        }
+
+        .story-text p {
+            margin-bottom: 15px;
+        }
+
+        .story-text .speaker {
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+        }
+
+        .story-text .speaker.peter {
+            color: var(--flame-orange);
+        }
+
+        .story-text .speaker.stephen {
+            color: var(--glory-gold);
+        }
+
+        .story-text .speaker.crowd {
+            color: var(--text-secondary);
+        }
+
+        .story-text .speaker.sanhedrin {
+            color: var(--stone-gray);
+        }
+
+        .story-text .speaker.saul {
+            color: var(--martyr-red);
+        }
+
+        .story-text em {
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .story-text .flame {
+            color: var(--flame-orange);
+            text-shadow: 0 0 8px rgba(255, 107, 53, 0.4);
+        }
+
+        .story-text .spirit {
+            color: var(--spirit-blue);
+            text-shadow: 0 0 8px rgba(74, 144, 217, 0.4);
+        }
+
+        .story-text .glory {
+            color: var(--glory-gold);
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+        }
+
+        .story-text .holy {
+            color: var(--glory-white);
+            text-shadow: 0 0 10px rgba(255, 250, 240, 0.5);
+        }
+
+        .story-text .power {
+            color: var(--flame-gold);
+            font-weight: 500;
+        }
+
+        .story-text .number {
+            color: var(--flame-orange);
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        /* Phase Marker */
+        .phase-marker {
+            background: rgba(255, 107, 53, 0.15);
+            border: 1px solid rgba(255, 107, 53, 0.4);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .phase-marker h4 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            color: var(--flame-orange);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+
+        .phase-marker .phase-name {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6rem;
+            color: var(--flame-gold);
+            font-weight: 700;
+        }
+
+        .phase-marker p {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        /* Choices */
+        .choices-container {
+            margin-top: auto;
+        }
+
+        .choices-label {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .choice-btn {
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: 18px 20px;
+            margin-bottom: 10px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 107, 53, 0.3);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.05rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .choice-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--flame-orange);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .choice-btn:hover {
+            background: rgba(255, 107, 53, 0.15);
+            border-color: var(--flame-gold);
+            transform: translateX(5px);
+        }
+
+        .choice-btn:hover::before {
+            opacity: 1;
+        }
+
+        .choice-btn.flame-choice {
+            border-color: rgba(255, 215, 0, 0.4);
+            background: rgba(255, 215, 0, 0.08);
+        }
+
+        .choice-btn.flame-choice:hover {
+            background: rgba(255, 215, 0, 0.15);
+        }
+
+        .choice-btn.flame-choice::before {
+            background: var(--flame-gold);
+        }
+
+        .choice-letter {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.75rem;
+            color: var(--flame-gold);
+            margin-right: 12px;
+        }
+
+        .choice-preview {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            margin-top: 8px;
+            padding-left: 25px;
+            font-style: italic;
+        }
+
+        /* Consequence Display */
+        .consequence-display {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 107, 53, 0.3);
+            border-radius: 12px;
+            padding: 30px;
+            margin: 20px 0;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .consequence-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            color: var(--flame-gold);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .stat-changes {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stat-change {
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .stat-change.positive {
+            background: rgba(107, 142, 78, 0.2);
+            border: 1px solid var(--success);
+            color: var(--success);
+        }
+
+        .stat-change.flame {
+            background: rgba(255, 107, 53, 0.2);
+            border: 1px solid var(--flame-orange);
+            color: var(--flame-orange);
+        }
+
+        .flame-notice {
+            background: rgba(255, 215, 0, 0.15);
+            border: 1px solid rgba(255, 215, 0, 0.4);
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .flame-notice h4 {
+            font-family: 'Cinzel', serif;
+            color: var(--flame-gold);
+            margin-bottom: 8px;
+        }
+
+        .flame-notice p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        .continue-btn {
+            display: block;
+            width: 100%;
+            max-width: 300px;
+            margin: 20px auto 0;
+        }
+
+        /* Summary Screen */
+        .episode-summary {
+            padding: 30px 0;
+        }
+
+        .summary-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .summary-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            color: var(--flame-gold);
+            margin-bottom: 10px;
+        }
+
+        .summary-subtitle {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            color: var(--flame-orange);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .summary-section {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 107, 53, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        .summary-section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            color: var(--flame-gold);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .final-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 15px;
+        }
+
+        .final-stat {
+            text-align: center;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+        }
+
+        .final-stat-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .final-stat-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .final-stat-change {
+            font-size: 0.75rem;
+            margin-top: 4px;
+        }
+
+        .church-journey {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 20px 0;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .journey-phase {
+            text-align: center;
+        }
+
+        .journey-phase .icon {
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+
+        .journey-phase .name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.65rem;
+            color: var(--text-secondary);
+        }
+
+        .journey-arrow {
+            color: var(--flame-orange);
+            font-size: 1.2rem;
+        }
+
+        .flame-decoration {
+            text-align: center;
+            padding: 25px;
+            margin: 20px 0;
+        }
+
+        .flame-symbol {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            animation: flameDance 1s ease-in-out infinite;
+        }
+
+        @keyframes flameDance {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .flame-inscription {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            color: var(--flame-gold);
+            letter-spacing: 2px;
+        }
+
+        .flame-decoration p {
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-top: 10px;
+        }
+
+        .narrative-summary {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+
+        .narrative-summary p {
+            margin-bottom: 15px;
+        }
+
+        .to-be-continued {
+            text-align: center;
+            padding: 30px;
+            margin-top: 20px;
+        }
+
+        .to-be-continued h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: var(--flame-gold);
+            margin-bottom: 10px;
+        }
+
+        .to-be-continued p {
+            color: var(--text-dim);
+            font-style: italic;
+        }
+
+        /* Menu */
+        .menu-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 44px;
+            height: 44px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 107, 53, 0.4);
+            border-radius: 8px;
+            color: var(--flame-gold);
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 100;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .menu-btn:hover {
+            background: rgba(255, 107, 53, 0.2);
+        }
+
+        .menu-btn.visible {
+            display: flex;
+        }
+
+        .menu-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 200;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .menu-modal.active {
+            display: flex;
+        }
+
+        .menu-content {
+            background: var(--bg-medium);
+            border: 1px solid rgba(255, 107, 53, 0.4);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            max-width: 350px;
+            width: 90%;
+        }
+
+        .menu-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: var(--flame-gold);
+            margin-bottom: 25px;
+        }
+
+        .menu-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .menu-buttons .btn {
+            width: 100%;
+        }
+
+        /* Footer */
+        .game-footer {
+            text-align: center;
+            padding: 20px 0;
+            margin-top: auto;
+            border-top: 1px solid rgba(255, 107, 53, 0.2);
+        }
+
+        .footer-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.6rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .footer-text a {
+            color: var(--flame-gold);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2rem;
+                letter-spacing: 3px;
+            }
+
+            .main-subtitle {
+                font-size: 1rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 5px;
+            }
+
+            .stat-name {
+                font-size: 0.5rem;
+            }
+
+            .stat-value {
+                font-size: 0.9rem;
+            }
+
+            .influence-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .story-content {
+                padding: 20px;
+            }
+
+            .story-text {
+                font-size: 1.05rem;
+            }
+
+            .choice-btn {
+                padding: 15px;
+                font-size: 0.95rem;
+            }
+
+            .final-stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .import-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .church-journey {
+                flex-direction: column;
+            }
+
+            .journey-arrow {
+                transform: rotate(90deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="celestial-bg upper-room" id="bgLayer">
+        <div class="stars"></div>
+        <div class="flame-overlay" id="flameOverlay"></div>
+        <div class="glory-overlay" id="gloryOverlay"></div>
+    </div>
+
+    <button class="menu-btn" id="menuBtn" onclick="toggleMenu()">☰</button>
+
+    <div class="menu-modal" id="menuModal">
+        <div class="menu-content">
+            <h2 class="menu-title">Game Menu</h2>
+            <div class="menu-buttons">
+                <button class="btn btn-secondary" onclick="saveGame()">Save Progress</button>
+                <button class="btn btn-secondary" onclick="toggleMenu()">Resume Game</button>
+                <button class="btn btn-secondary" onclick="restartEpisode()">Restart Episode</button>
+                <button class="btn btn-secondary" onclick="returnToTitle()">Main Menu</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="game-container">
+        <header class="game-header">
+            <h1 class="game-title">The Great Controversy</h1>
+            <p class="game-subtitle">Episode 9: The Early Church</p>
+        </header>
+
+        <!-- Title Screen -->
+        <div class="screen active" id="titleScreen">
+            <div class="title-screen">
+                <div class="episode-number">Episode IX</div>
+                <h1 class="main-title">The Early Church</h1>
+                <h2 class="main-subtitle">Tongues of Fire, Hearts of Flame</h2>
+                <p class="tagline">"These that have turned the world upside down are come hither also." — Acts 17:6</p>
+                
+                <div class="episode-intro">
+                    <p>Fifty days after the Cross. One hundred twenty disciples in an upper room. They have obeyed the command: "Wait for the promise." They do not know what is coming.</p>
+                    <p>Then it comes. A sound like rushing wind. Tongues of fire resting on each head. Galilean fishermen speaking languages they never learned. Three thousand converted in a single day.</p>
+                    <p>The Church is born in fire. And fire spreads.</p>
+                </div>
+
+                <div class="title-buttons">
+                    <button class="btn btn-flame" onclick="showImportScreen()">Begin Episode 9</button>
+                    <button class="btn btn-secondary" id="continueBtn" onclick="continueGame()" disabled>Continue Saved Game</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Import Screen -->
+        <div class="screen" id="importScreen">
+            <div class="import-section">
+                <h2 class="section-title">Character Import</h2>
+                
+                <div class="import-options">
+                    <div class="import-option" id="importFromPrev" onclick="importFromPrevious()">
+                        <h3>Import from Previous Episodes</h3>
+                        <p>Continue with your character from the Cross. The tomb is empty. Now the Spirit descends.</p>
+                        <div class="import-stats" id="prevStats" style="display: none;"></div>
+                    </div>
+
+                    <div class="import-option" onclick="startFresh()">
+                        <h3>Start Fresh</h3>
+                        <p>Begin Episode 9 with default stats. You have witnessed resurrection. Now witness Pentecost.</p>
+                        <div class="import-stats">
+                            <div class="import-stat">
+                                <div class="import-stat-name">Faith</div>
+                                <div class="import-stat-value stat-faith">88</div>
+                            </div>
+                            <div class="import-stat">
+                                <div class="import-stat-name">Courage</div>
+                                <div class="import-stat-value stat-courage">85</div>
+                            </div>
+                            <div class="import-stat">
+                                <div class="import-stat-name">Love</div>
+                                <div class="import-stat-value stat-love">90</div>
+                            </div>
+                            <div class="import-stat">
+                                <div class="import-stat-name">Hope</div>
+                                <div class="import-stat-value stat-hope">90</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="import-option" onclick="showNameInput()">
+                        <h3>Custom Character</h3>
+                        <p>Enter a name and stand with the apostles as fire falls from heaven.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Name Input Screen -->
+        <div class="screen" id="nameScreen">
+            <div class="import-section">
+                <h2 class="section-title">Name Your Character</h2>
+                <div style="max-width: 400px; margin: 0 auto;">
+                    <label style="display: block; font-family: Orbitron, sans-serif; font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px;">Your Name</label>
+                    <input type="text" id="customName" placeholder="Enter your angelic name..." maxlength="20" style="width: 100%; padding: 15px 20px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 107, 53, 0.3); border-radius: 4px; color: var(--text-primary); font-family: Crimson Pro, serif; font-size: 1.1rem;">
+                    <button class="btn btn-flame" style="width: 100%; margin-top: 20px;" onclick="confirmCustomName()">Begin Episode 9</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div class="screen" id="gameScreen">
+            <div class="stats-panel" id="statsPanel">
+                <div class="stats-header">
+                    <span class="character-name" id="displayName">-</span>
+                    <span class="episode-indicator">Episode 9: The Early Church</span>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-name">Faith</div>
+                        <div class="stat-value stat-faith" id="statFaith">50</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-name">Wisdom</div>
+                        <div class="stat-value stat-wisdom" id="statWisdom">50</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-name">Courage</div>
+                        <div class="stat-value stat-courage" id="statCourage">50</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-name">Love</div>
+                        <div class="stat-value stat-love" id="statLove">50</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-name">Truth</div>
+                        <div class="stat-value stat-truth" id="statTruth">50</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-name">Patience</div>
+                        <div class="stat-value stat-patience" id="statPatience">50</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-name">Hope</div>
+                        <div class="stat-value stat-hope" id="statHope">50</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-name">Flame</div>
+                        <div class="stat-value" style="color: var(--flame-orange);" id="statFlame">0</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flame-panel" id="flamePanel">
+                <span class="flame-label">Spirit's Fire</span>
+                <span class="flame-value" id="flameDisplay">0</span>
+                <span class="phase-indicator" id="currentPhase">Waiting</span>
+            </div>
+
+            <div class="influence-panel" id="influencePanel">
+                <div class="influence-title">Those in Your Sphere</div>
+                <div class="influence-grid" id="influenceGrid"></div>
+            </div>
+
+            <div class="story-panel">
+                <div class="story-content" id="storyContent"></div>
+                <div class="choices-container" id="choicesContainer"></div>
+            </div>
+        </div>
+
+        <!-- Consequence Screen -->
+        <div class="screen" id="consequenceScreen">
+            <div class="consequence-display" id="consequenceDisplay"></div>
+        </div>
+
+        <!-- Summary Screen -->
+        <div class="screen" id="summaryScreen">
+            <div class="episode-summary" id="episodeSummary"></div>
+        </div>
+
+        <footer class="game-footer">
+            <p class="footer-text">Seven Cubed Seven Labs | <a href="https://sevencubedseven.com">7³×7 = 2,401</a></p>
+        </footer>
+    </div>
+
+    <script>
+        // ==========================================
+        // THE GREAT CONTROVERSY: THE GAME
+        // Episode 9: The Early Church
+        // ==========================================
+
+        var STATE = {
+            screen: 'title',
+            characterName: '',
+            stats: {
+                faith: 88,
+                wisdom: 82,
+                courage: 85,
+                love: 90,
+                truth: 85,
+                patience: 80,
+                hope: 90
+            },
+            baseStats: {},
+            flamePoints: 0,
+            currentPhase: 'Waiting',
+            currentScene: 0,
+            choices: [],
+            beings: [
+                { name: 'Peter', status: 'waiting', influence: 75, avatar: '🔥', type: 'apostle' },
+                { name: 'The 120', status: 'praying', influence: 65, avatar: '🕊', type: 'church' },
+                { name: 'Stephen', status: 'serving', influence: 70, avatar: '✨', type: 'martyr' },
+                { name: 'Saul', status: 'persecuting', influence: 40, avatar: '⚔', type: 'enemy' }
+            ],
+            episodeComplete: false
+        };
+
+        var SCENES = [
+            // Scene 0: The Upper Room - Waiting
+            {
+                location: 'Jerusalem — The Upper Room',
+                locationClass: 'upper-room',
+                contentClass: 'upper-room-scene',
+                phase: 'Waiting',
+                phaseMarker: true,
+                content: '<p><em>Fifty days since Passover. Ten days since Jesus ascended from Olivet. One hundred twenty disciples crowded into an upper room, waiting for something they cannot name.</em></p><p><em>"Tarry ye in Jerusalem," He said, "until ye be endued with power from on high."</em></p><p><em>They have waited. They have prayed. They have confessed. Old rivalries have dissolved. Peter and John, once competing for position, now share a single heart. Mary the mother and Mary Magdalene pray side by side.</em></p><p><em>The room smells of oil lamps and expectation. No one knows what form the promise will take. They only know — it is coming.</em></p><p><em>And then...</em></p>',
+                choices: [
+                    {
+                        letter: 'A',
+                        text: 'Watch the unity form. One hundred twenty individuals becoming one body. This is the prerequisite for power.',
+                        preview: 'Witness the preparation',
+                        effects: { love: 15, wisdom: 12, patience: 10 },
+                        influence: { target: 'The 120', change: 10, type: 'spirit' },
+                        isFlame: true,
+                        response: 'The Spirit cannot fill divided vessels. Before the flame falls, the vessels must be unified. What happens in the Upper Room BEFORE Pentecost enables what happens AT Pentecost.'
+                    },
+                    {
+                        letter: 'B',
+                        text: '"They continued with one accord in prayer." Ten days of preparation for ten seconds of fire. The ratio matters.',
+                        preview: 'Honor the waiting',
+                        effects: { patience: 18, faith: 12, wisdom: 10 },
+                        influence: { target: 'The 120', change: 10, type: 'spirit' },
+                        isFlame: true,
+                        response: 'Ten days of prayer. Ten seconds of fire. The preparation time exceeds the event by orders of magnitude. God is rarely in a hurry, but never late.'
+                    },
+                    {
+                        letter: 'C',
+                        text: 'Note who is present: Peter who denied, Thomas who doubted, James and John who argued for position. All restored. All waiting.',
+                        preview: 'See the restored failures',
+                        effects: { hope: 15, love: 12, faith: 10 },
+                        influence: { target: 'Peter', change: 12, type: 'flame' },
+                        isFlame: true,
+                        response: 'The Church will be built on failures who found grace. Peter\'s denial is forgiven. Thomas\'s doubt is answered. The fire falls on restored sinners, not sinless saints.'
+                    },
+                    {
+                        letter: 'D',
+                        text: 'Pray: "Father, we wait with them. Whatever You send, send it. Whatever You ask, we will do."',
+                        preview: 'Join the waiting',
+                        effects: { faith: 15, hope: 15, love: 12 },
+                        influence: { target: 'The 120', change: 12, type: 'spirit' },
+                        influenceSecondary: { target: 'Peter', change: 10, type: 'flame' },
+                        isPrayer: true,
+                        isFlame: true,
+                        response: 'Your prayer rises with theirs. The heavens lean close. Something is about to break through that will change everything.'
+                    }
+                ]
+            },
+            // Scene 1: Pentecost
+            {
+                location: 'Jerusalem — Pentecost',
+                locationClass: 'pentecost',
+                contentClass: 'pentecost-scene',
+                phase: 'Pentecost',
+                phaseMarker: true,
+                content: '<p><em>Suddenly — a sound from heaven like a rushing mighty wind. It fills the entire house. And then they see it:</em></p><p><span class="flame">Tongues of fire — dividing, resting on each head. Not burning but illuminating. Not destroying but empowering.</span></p><p><em>And they were all filled with the Holy Ghost, and began to <span class="power">speak with other tongues</span>, as the Spirit gave them utterance.</em></p><p><em>Outside, Jews from every nation hear the commotion. Parthians, Medes, Elamites, residents of Mesopotamia, Judea, Cappadocia, Pontus, Asia, Phrygia, Pamphylia, Egypt, Libya, Rome, Crete, Arabia — </em></p><p><span class="speaker crowd">"We do hear them speak in our tongues the wonderful works of God!"</span></p><p><em>Some mock: "They are full of new wine."</em></p><p><em>Peter stands. The denier becomes the proclaimer.</em></p>',
+                choices: [
+                    {
+                        letter: 'A',
+                        text: 'Watch the fire rest on each head. Not on Peter alone — on each one. The Spirit democratizes power.',
+                        preview: 'See the distributed flame',
+                        effects: { wisdom: 18, truth: 12, love: 12 },
+                        influence: { target: 'The 120', change: 15, type: 'spirit' },
+                        isFlame: true,
+                        response: 'Each head receives fire. Not hierarchy but distribution. The same Spirit, different gifts, one body. This is the Church\'s constitution — power shared, not hoarded.'
+                    },
+                    {
+                        letter: 'B',
+                        text: 'They speak languages they never learned. The curse of Babel is reversed. What sin scattered, grace gathers.',
+                        preview: 'See Babel reversed',
+                        effects: { wisdom: 18, hope: 15, truth: 10 },
+                        influence: { target: 'The 120', change: 12, type: 'spirit' },
+                        isFlame: true,
+                        response: 'Babel divided by confusing tongues. Pentecost unites by clarifying them. The gospel will cross every language barrier because the Spirit speaks them all.'
+                    },
+                    {
+                        letter: 'C',
+                        text: 'Watch Peter stand. Fifty days ago he cowered before a servant girl. Now he faces thousands. The Spirit makes cowards bold.',
+                        preview: 'Witness the transformation',
+                        effects: { courage: 20, faith: 15, hope: 12 },
+                        influence: { target: 'Peter', change: 20, type: 'flame' },
+                        isFlame: true,
+                        response: 'This is the same Peter who denied three times. But fire has fallen. Fear has fled. The Spirit turns fishermen into flamethrowers.'
+                    },
+                    {
+                        letter: 'D',
+                        text: 'Worship: "The Spirit has come! The promise is fulfilled! Emmanuel by another name — God WITH us, God IN us."',
+                        preview: 'Worship the descending Spirit',
+                        effects: { faith: 20, love: 15, hope: 15 },
+                        influence: { target: 'The 120', change: 15, type: 'spirit' },
+                        influenceSecondary: { target: 'Peter', change: 15, type: 'flame' },
+                        isPrayer: true,
+                        isFlame: true,
+                        response: 'Jesus said "I will not leave you comfortless." Now you see what He meant. Not absent but CLOSER than when He walked in flesh. In them. In us.'
+                    }
+                ]
+            },
+            // Scene 2: Peter's Sermon - 3,000 Saved
+            {
+                location: 'Jerusalem — The First Sermon',
+                locationClass: 'jerusalem',
+                contentClass: 'jerusalem-scene',
+                phase: 'Proclamation',
+                content: '<p><span class="speaker peter">Peter:</span> "Ye men of Israel, hear these words; <span class="power">Jesus of Nazareth, a man approved of God among you</span> by miracles and wonders and signs... Him, being delivered by the determinate counsel and foreknowledge of God, ye have taken, and by wicked hands have crucified and slain."</p><p><em>The crowd that cried "Crucify!" now listens to the same charge. Peter pulls no punches.</em></p><p><span class="speaker peter">"Therefore let all the house of Israel know assuredly, that God hath made that same Jesus, whom ye have crucified, <span class="glory">both Lord and Christ</span>."</span></p><p><em>Now when they heard this, they were pricked in their heart, and said unto Peter and to the rest of the apostles:</em></p><p><span class="speaker crowd">"Men and brethren, <span class="flame">what shall we do?</span>"</span></p><p><span class="speaker peter">"Repent, and be baptized every one of you in the name of Jesus Christ for the remission of sins, and ye shall receive the gift of the Holy Ghost."</span></p><p><em>That day, <span class="number">three thousand souls</span> were added to them.</em></p>',
+                choices: [
+                    {
+                        letter: 'A',
+                        text: '"What shall we do?" — the most important question a human can ask. The Spirit creates this question before answering it.',
+                        preview: 'Hear the awakened question',
+                        effects: { wisdom: 15, truth: 15, hope: 12 },
+                        influence: { target: 'The 120', change: 12, type: 'spirit' },
+                        isFlame: true,
+                        response: '"What shall we do?" Conviction precedes conversion. The Spirit\'s first work is not comfort but conviction. Hearts must be pricked before they can be healed.'
+                    },
+                    {
+                        letter: 'B',
+                        text: 'Three thousand saved in one sermon. The same crowd that chose Barabbas now chooses Christ. No one is beyond reach.',
+                        preview: 'Count the harvest',
+                        effects: { hope: 20, faith: 15, love: 12 },
+                        influence: { target: 'The 120', change: 15, type: 'spirit' },
+                        isFlame: true,
+                        response: 'Three thousand. Some of these were in the crowd at Calvary. Some shouted "Crucify!" Now they cry "What shall we do?" No sin is too great for grace.'
+                    },
+                    {
+                        letter: 'C',
+                        text: 'Peter preaches the Cross plainly: "Whom ye have crucified." No softening. The offense is the entry point to grace.',
+                        preview: 'Hear the uncompromised gospel',
+                        effects: { truth: 18, courage: 15, wisdom: 10 },
+                        influence: { target: 'Peter', change: 15, type: 'flame' },
+                        isFlame: true,
+                        response: 'Peter doesn\'t comfort — he confronts. "Whom YE have crucified." The gospel is not flattery. Sin must be named before grace can heal. Truth precedes mercy.'
+                    },
+                    {
+                        letter: 'D',
+                        text: 'Pray: "Father, do it again. In our day, in our cities. Pentecostal fire, Pentecostal harvest."',
+                        preview: 'Pray for repeat',
+                        effects: { faith: 18, hope: 18, courage: 12 },
+                        influence: { target: 'The 120', change: 15, type: 'spirit' },
+                        isPrayer: true,
+                        isFlame: true,
+                        response: 'The prayer of the ages: "Do it again." What happened once can happen again. The Spirit is not diminished. The gospel is not weakened. Pentecost awaits every generation willing to pay the price.'
+                    }
+                ]
+            },
+            // Scene 3: The Church Life
+            {
+                location: 'Jerusalem — The Fellowship',
+                locationClass: 'jerusalem',
+                contentClass: 'jerusalem-scene',
+                phase: 'Fellowship',
+                phaseMarker: true,
+                content: '<p><em>And they continued stedfastly in the apostles\' doctrine and fellowship, and in breaking of bread, and in prayers.</em></p><p><em>And all that believed were together, and <span class="power">had all things common</span>; and sold their possessions and goods, and parted them to all men, as every man had need.</em></p><p><em>And they, continuing daily with one accord in the temple, and breaking bread from house to house, did eat their meat with gladness and singleness of heart, <span class="glory">praising God, and having favour with all the people</span>.</em></p><p><em>And the Lord added to the church daily such as should be saved.</em></p><p><em>This is the Church in its first flame — before tradition hardened, before politics corrupted, before love grew cold. This is what the Spirit produces when unhindered.</em></p>',
+                choices: [
+                    {
+                        letter: 'A',
+                        text: '"Had all things common" — not communism but community. No one claimed private ownership because love made possession feel selfish.',
+                        preview: 'See the economics of love',
+                        effects: { love: 20, wisdom: 12, patience: 10 },
+                        influence: { target: 'The 120', change: 15, type: 'spirit' },
+                        isFlame: true,
+                        response: 'They sold and shared not by compulsion but by love. This isn\'t political system but spiritual fruit. When hearts are filled, hands open naturally.'
+                    },
+                    {
+                        letter: 'B',
+                        text: 'Four pillars: doctrine, fellowship, breaking bread, prayers. The pattern for every healthy church in every age.',
+                        preview: 'Learn the pillars',
+                        effects: { wisdom: 18, truth: 15, faith: 10 },
+                        influence: { target: 'The 120', change: 12, type: 'spirit' },
+                        isFlame: true,
+                        response: 'The early church blueprint: DOCTRINE (truth), FELLOWSHIP (relationship), BREAKING BREAD (communion), PRAYERS (dependence). Neglect any pillar and the structure tilts.'
+                    },
+                    {
+                        letter: 'C',
+                        text: '"The Lord added daily." Growth was God\'s business. They just lived the life, and attraction did the rest.',
+                        preview: 'See supernatural growth',
+                        effects: { faith: 15, hope: 15, patience: 12 },
+                        influence: { target: 'The 120', change: 12, type: 'spirit' },
+                        isFlame: true,
+                        response: 'They didn\'t run programs — they lived transformed lives. Growth came not from strategy but from Spirit. The Lord added. Daily. Such as should be saved.'
+                    },
+                    {
+                        letter: 'D',
+                        text: 'Grieve: this picture is rare now. Pray that it will be restored before the end.',
+                        preview: 'Lament and hope',
+                        effects: { hope: 18, love: 15, faith: 12 },
+                        influence: { target: 'The 120', change: 12, type: 'spirit' },
+                        isPrayer: true,
+                        isFlame: true,
+                        response: 'What was normal then is exceptional now. But the Spirit has not changed. The early rain fell; the latter rain is promised. The Church will return to this before the end.'
+                    }
+                ]
+            },
+            // Scene 4: Before the Sanhedrin
+            {
+                location: 'Jerusalem — The Sanhedrin',
+                locationClass: 'sanhedrin',
+                contentClass: 'sanhedrin-scene',
+                phase: 'Persecution',
+                phaseMarker: true,
+                content: '<p><em>A lame man healed at the Temple gate. Thousands more believe. And the authorities who crucified Jesus now arrest His followers.</em></p><p><span class="speaker sanhedrin">"By what power, or by what name, have ye done this?"</span></p><p><span class="speaker peter">Peter, filled with the Holy Ghost:</span> "By the name of Jesus Christ of Nazareth, whom ye crucified, whom God raised from the dead... <span class="power">Neither is there salvation in any other: for there is none other name under heaven given among men, whereby we must be saved.</span>"</p><p><em>Now when they saw the boldness of Peter and John, and perceived that they were unlearned and ignorant men, they marvelled; and they took knowledge of them, <span class="glory">that they had been with Jesus</span>.</em></p><p><em>They command them to speak no more in that name. The apostles answer:</em></p><p><span class="speaker peter">"<span class="flame">We cannot but speak the things which we have seen and heard.</span>"</span></p>',
+                choices: [
+                    {
+                        letter: 'A',
+                        text: '"Neither is there salvation in any other." Peter draws the exclusive line. One name. One way. No options. This is why they are persecuted.',
+                        preview: 'Hear the exclusive claim',
+                        effects: { truth: 20, courage: 15, faith: 12 },
+                        influence: { target: 'Peter', change: 15, type: 'flame' },
+                        isFlame: true,
+                        response: 'The scandal of particularity. Not "a way" but "THE way." Not "a name among many" but "no other name." This claim costs everything and saves everyone who receives it.'
+                    },
+                    {
+                        letter: 'B',
+                        text: '"They took knowledge of them, that they had been with Jesus." The transformation is visible. Time with Jesus leaves marks.',
+                        preview: 'See the Jesus residue',
+                        effects: { love: 18, wisdom: 12, hope: 12 },
+                        influence: { target: 'Peter', change: 15, type: 'flame' },
+                        influenceSecondary: { target: 'The 120', change: 10, type: 'spirit' },
+                        isFlame: true,
+                        response: 'Unlearned and ignorant men — but marked by Jesus. Education can\'t produce this. Only proximity. The Sanhedrin sees something they cannot explain except by reference to Him.'
+                    },
+                    {
+                        letter: 'C',
+                        text: '"We cannot but speak." Not "we will not" but "we CANNOT." The fire inside makes silence impossible.',
+                        preview: 'Understand the compulsion',
+                        effects: { courage: 20, truth: 15, faith: 12 },
+                        influence: { target: 'Peter', change: 18, type: 'flame' },
+                        isFlame: true,
+                        response: 'CANNOT. The flame makes silence impossible. Jeremiah said it was fire shut up in his bones. True witnesses cannot be silenced — only killed. And even that spreads the fire.'
+                    },
+                    {
+                        letter: 'D',
+                        text: 'Pray: "Father, give Your servants such boldness. We cannot but speak — make that our testimony too."',
+                        preview: 'Pray for compulsion',
+                        effects: { courage: 18, faith: 15, hope: 12 },
+                        influence: { target: 'Peter', change: 15, type: 'flame' },
+                        isPrayer: true,
+                        isFlame: true,
+                        response: 'Your prayer echoes theirs. After this event, they prayed for boldness — and the place was shaken. God answers prayers for courage with earthquakes of opportunity.'
+                    }
+                ]
+            },
+            // Scene 5: Stephen's Trial
+            {
+                location: 'Jerusalem — Stephen\'s Trial',
+                locationClass: 'sanhedrin',
+                contentClass: 'sanhedrin-scene',
+                phase: 'Martyrdom',
+                content: '<p><em>Stephen — full of faith and power — performs wonders among the people. Unable to resist his wisdom, his enemies suborn false witnesses:</em></p><p><span class="speaker sanhedrin">"This man ceaseth not to speak blasphemous words against this holy place, and the law."</span></p><p><em>All that sat in the council, looking stedfastly on him, <span class="glory">saw his face as it had been the face of an angel</span>.</em></p><p><em>Stephen delivers the longest sermon in Acts — a history of Israel\'s rejection of God\'s messengers, building to its climax:</em></p><p><span class="speaker stephen">"Ye stiffnecked and uncircumcised in heart and ears, ye do always resist the Holy Ghost: as your fathers did, so do ye. Which of the prophets have your fathers not persecuted? ... <span class="flame">of whom ye have been now the betrayers and murderers.</span>"</span></p><p><em>They gnash their teeth in fury.</em></p>',
+                choices: [
+                    {
+                        letter: 'A',
+                        text: '"His face as the face of an angel." Even enemies see the glory. The Spirit on a person is visible to all, regardless of their response.',
+                        preview: 'See the angelic face',
+                        effects: { wisdom: 15, love: 12, hope: 15 },
+                        influence: { target: 'Stephen', change: 15, type: 'glory' },
+                        isFlame: true,
+                        response: 'The glow of glory. Moses had it after Sinai. Stephen has it before martyrdom. Proximity to God leaves visible marks that even enemies must acknowledge.'
+                    },
+                    {
+                        letter: 'B',
+                        text: 'Stephen doesn\'t defend himself — he prosecutes them. "Betrayers and murderers." Truth spoken to power, cost be damned.',
+                        preview: 'Hear the fearless prosecution',
+                        effects: { courage: 20, truth: 18, faith: 10 },
+                        influence: { target: 'Stephen', change: 15, type: 'glory' },
+                        isFlame: true,
+                        response: 'No apology. No diplomacy. No mitigation. Stephen gives them the history they know and the charge they deny. Prophets don\'t make comfortable witnesses.'
+                    },
+                    {
+                        letter: 'C',
+                        text: '"As your fathers did, so do ye." The pattern is ancient: Israel kills its prophets. The Son was murdered; now the servants will be.',
+                        preview: 'See the pattern repeating',
+                        effects: { wisdom: 18, truth: 15, patience: 10 },
+                        influence: { target: 'Stephen', change: 12, type: 'glory' },
+                        isFlame: true,
+                        response: 'Every generation thinks it would have received the prophets. Every generation proves it wouldn\'t by killing the current ones. Stephen becomes another stone in the pattern.'
+                    },
+                    {
+                        letter: 'D',
+                        text: 'Prepare: Stephen is about to die. But watch what he sees — and what the witnesses will become.',
+                        preview: 'Anticipate the death',
+                        effects: { faith: 15, hope: 15, courage: 12 },
+                        influence: { target: 'Stephen', change: 15, type: 'glory' },
+                        influenceSecondary: { target: 'Saul', change: 5, type: 'dark' },
+                        isFlame: true,
+                        response: 'The stones are being gathered. But death is not defeat. What Stephen sees while dying will haunt Saul until Damascus. Seeds are planted in blood.'
+                    }
+                ]
+            },
+            // Scene 6: Stephen's Martyrdom
+            {
+                location: 'Outside Jerusalem — The First Martyr',
+                locationClass: 'martyrdom',
+                contentClass: 'martyrdom-scene',
+                phase: 'Martyrdom',
+                phaseMarker: true,
+                content: '<p><em>But Stephen, being full of the Holy Ghost, looked up stedfastly into heaven, and saw:</em></p><p><span class="speaker stephen">"Behold, <span class="holy">I see the heavens opened, and the Son of man standing on the right hand of God</span>."</span></p><p><em>Standing. Not sitting. Jesus stands to receive His first martyr.</em></p><p><em>They cry out, stop their ears, rush upon him with one accord, cast him out of the city, and stone him. The witnesses lay down their clothes at the feet of <span class="speaker saul">a young man named Saul</span>.</em></p><p><em>And as the stones fall —</em></p><p><span class="speaker stephen">"<span class="glory">Lord Jesus, receive my spirit</span>."</span></p><p><span class="speaker stephen">"<span class="holy">Lord, lay not this sin to their charge.</span>"</span></p><p><em>And when he had said this, he fell asleep.</em></p>',
+                choices: [
+                    {
+                        letter: 'A',
+                        text: 'Jesus is STANDING. In all other visions, He sits at the Father\'s right hand. For Stephen, He rises. Heaven salutes the first martyr.',
+                        preview: 'See the standing Savior',
+                        effects: { faith: 25, hope: 20, courage: 15 },
+                        influence: { target: 'Stephen', change: 20, type: 'glory' },
+                        isFlame: true,
+                        response: 'Jesus stands. For Stephen. The King rises from His throne to receive the first one to die for His name. This is the welcome awaiting every martyr.'
+                    },
+                    {
+                        letter: 'B',
+                        text: '"Lord, lay not this sin to their charge." His last words echo Christ\'s: forgiveness for murderers while being murdered.',
+                        preview: 'Hear the dying forgiveness',
+                        effects: { love: 25, faith: 15, hope: 15 },
+                        influence: { target: 'Stephen', change: 20, type: 'glory' },
+                        influenceSecondary: { target: 'Saul', change: 10, type: 'spirit' },
+                        isFlame: true,
+                        response: 'Stephen\'s final breath is intercession for his killers. Like Master, like servant. And one of those killers — holding coats, approving death — will never forget this prayer.'
+                    },
+                    {
+                        letter: 'C',
+                        text: 'Watch Saul watching. The coats at his feet. The approval in his heart. But Stephen\'s death is planting seeds he cannot yet feel.',
+                        preview: 'See Saul watching',
+                        effects: { wisdom: 20, hope: 18, patience: 12 },
+                        influence: { target: 'Saul', change: 15, type: 'spirit' },
+                        isFlame: true,
+                        response: 'Saul watches. Approves. Holds coats. But something is happening in him that won\'t surface until Damascus. Stephen\'s death is a seed planted in Saul\'s conscience. It will grow.'
+                    },
+                    {
+                        letter: 'D',
+                        text: 'Weep and worship. The first martyr falls asleep. But "the blood of the martyrs is the seed of the church."',
+                        preview: 'Grieve the victory',
+                        effects: { love: 20, faith: 18, hope: 18 },
+                        influence: { target: 'Stephen', change: 20, type: 'glory' },
+                        influenceSecondary: { target: 'The 120', change: 15, type: 'spirit' },
+                        isPrayer: true,
+                        isFlame: true,
+                        response: 'The first martyr. Not the last. But Stephen falls asleep — not into darkness but into glory. The heavens are open. The Savior stands. And the blood cries out for harvest.'
+                    }
+                ]
+            },
+            // Scene 7: Scatter to Spread
+            {
+                location: 'Beyond Jerusalem — The Scattering',
+                locationClass: 'scatter',
+                contentClass: 'scatter-scene',
+                phase: 'Scattering',
+                phaseMarker: true,
+                content: '<p><em>And at that time there was a great persecution against the church which was at Jerusalem; and they were all scattered abroad throughout the regions of Judaea and Samaria, except the apostles.</em></p><p><em>As for Saul, he made havock of the church, entering into every house, and haling men and women committed them to prison.</em></p><p><em>But here is the divine reversal:</em></p><p><span class="power">Therefore they that were scattered abroad went every where preaching the word.</span></p><p><em>Persecution scatters. Scattering spreads. What Saul means for destruction becomes the mechanism of expansion. Philip goes to Samaria. The gospel crosses boundaries. The fire cannot be contained.</em></p><p><em>"The more they afflicted them, the more they multiplied."</em></p>',
+                choices: [
+                    {
+                        letter: 'A',
+                        text: 'Persecution scattered them — and they preached wherever they landed. Suffering became strategy. Pain became platform.',
+                        preview: 'See suffering become strategy',
+                        effects: { wisdom: 20, hope: 18, faith: 15 },
+                        influence: { target: 'The 120', change: 18, type: 'spirit' },
+                        isFlame: true,
+                        response: 'They didn\'t scatter in silence. Every refugee became a missionary. Every exile became an evangelist. Satan\'s persecution became God\'s propagation.'
+                    },
+                    {
+                        letter: 'B',
+                        text: 'Saul means to destroy. He becomes the mechanism of spread. The enemy\'s greatest weapon is recruited for the opposite purpose.',
+                        preview: 'See the divine reversal',
+                        effects: { wisdom: 18, hope: 20, faith: 15 },
+                        influence: { target: 'Saul', change: 15, type: 'spirit' },
+                        isFlame: true,
+                        response: 'Every house Saul raids, every believer he arrests, every family he tears apart — it all spreads the fire. And soon, the persecutor himself will be persecuted for the same faith.'
+                    },
+                    {
+                        letter: 'C',
+                        text: 'Philip goes to Samaria — Jews speaking to Samaritans. The gospel breaks ethnic barriers that existed for centuries.',
+                        preview: 'Watch the barriers break',
+                        effects: { love: 18, hope: 15, truth: 12 },
+                        influence: { target: 'The 120', change: 15, type: 'spirit' },
+                        isFlame: true,
+                        response: 'Jew to Samaritan. Unthinkable before. Natural after Pentecost. The fire doesn\'t respect boundaries. It burns through walls that religion built.'
+                    },
+                    {
+                        letter: 'D',
+                        text: 'Pray: "Father, use our scatterings too. Every displacement, every disruption — let it spread the flame."',
+                        preview: 'Consecrate the scattering',
+                        effects: { faith: 20, hope: 20, courage: 15 },
+                        influence: { target: 'The 120', change: 18, type: 'spirit' },
+                        isPrayer: true,
+                        isFlame: true,
+                        response: 'Your prayer reaches beyond the first century. Every exile, every refugee, every scattered believer — becomes a fire-carrier. What looks like defeat is distribution.'
+                    }
+                ]
+            }
+        ];
+
+        // Initialize
+        function init() {
+            checkSavedGame();
+            checkPreviousSaves();
+        }
+
+        function checkSavedGame() {
+            var saved = localStorage.getItem('gcg_ep9_save');
+            if (saved) {
+                document.getElementById('continueBtn').disabled = false;
+            }
+        }
+
+        function checkPreviousSaves() {
+            var prevEps = ['gcg_ep8_save', 'gcg_ep7_save', 'gcg_ep6_save', 'gcg_ep5_save', 'gcg_ep4_save', 'gcg_ep3_save', 'gcg_ep2_save', 'gcg_save'];
+            var epNames = ['Episode 8', 'Episode 7', 'Episode 6', 'Episode 5', 'Episode 4', 'Episode 3', 'Episode 2', 'Episode 1'];
+            
+            for (var i = 0; i < prevEps.length; i++) {
+                var saved = localStorage.getItem(prevEps[i]);
+                if (saved) {
+                    var data = JSON.parse(saved);
+                    if (data.episodeComplete) {
+                        displayPrevStats(data, epNames[i]);
+                        return;
+                    }
+                }
+            }
+        }
+
+        function displayPrevStats(data, epName) {
+            var statsDiv = document.getElementById('prevStats');
+            statsDiv.style.display = 'grid';
+            statsDiv.innerHTML = 
+                '<div class="import-stat"><div class="import-stat-name">Faith</div><div class="import-stat-value stat-faith">' + data.stats.faith + '</div></div>' +
+                '<div class="import-stat"><div class="import-stat-name">Courage</div><div class="import-stat-value stat-courage">' + data.stats.courage + '</div></div>' +
+                '<div class="import-stat"><div class="import-stat-name">Love</div><div class="import-stat-value stat-love">' + data.stats.love + '</div></div>' +
+                '<div class="import-stat"><div class="import-stat-name">Hope</div><div class="import-stat-value stat-hope">' + data.stats.hope + '</div></div>';
+            document.getElementById('importFromPrev').querySelector('p').innerHTML = 
+                'Continue as <strong>' + data.characterName + '</strong> from ' + epName + '.';
+        }
+
+        // Screen Management
+        function showScreen(screenId) {
+            var screens = document.querySelectorAll('.screen');
+            for (var i = 0; i < screens.length; i++) {
+                screens[i].classList.remove('active');
+            }
+            document.getElementById(screenId).classList.add('active');
+            STATE.screen = screenId;
+
+            var menuBtn = document.getElementById('menuBtn');
+            if (screenId === 'gameScreen' || screenId === 'consequenceScreen') {
+                menuBtn.classList.add('visible');
+            } else {
+                menuBtn.classList.remove('visible');
+            }
+        }
+
+        function showImportScreen() {
+            showScreen('importScreen');
+        }
+
+        function importFromPrevious() {
+            var prevEps = ['gcg_ep8_save', 'gcg_ep7_save', 'gcg_ep6_save', 'gcg_ep5_save', 'gcg_ep4_save', 'gcg_ep3_save', 'gcg_ep2_save', 'gcg_save'];
+            
+            for (var i = 0; i < prevEps.length; i++) {
+                var saved = localStorage.getItem(prevEps[i]);
+                if (saved) {
+                    var data = JSON.parse(saved);
+                    if (data.episodeComplete) {
+                        useImportedData(data);
+                        return;
+                    }
+                }
+            }
+            alert('No completed previous episode found. Please complete an earlier episode first, or start fresh.');
+        }
+
+        function useImportedData(data) {
+            STATE.characterName = data.characterName;
+            STATE.stats = JSON.parse(JSON.stringify(data.stats));
+            STATE.baseStats = JSON.parse(JSON.stringify(data.stats));
+            startGame();
+        }
+
+        function startFresh() {
+            STATE.characterName = 'Faithful One';
+            STATE.stats = {
+                faith: 88,
+                wisdom: 82,
+                courage: 85,
+                love: 90,
+                truth: 85,
+                patience: 80,
+                hope: 90
+            };
+            STATE.baseStats = JSON.parse(JSON.stringify(STATE.stats));
+            startGame();
+        }
+
+        function showNameInput() {
+            showScreen('nameScreen');
+        }
+
+        function confirmCustomName() {
+            var name = document.getElementById('customName').value.trim() || 'Faithful One';
+            STATE.characterName = name;
+            STATE.stats = {
+                faith: 88,
+                wisdom: 82,
+                courage: 85,
+                love: 90,
+                truth: 85,
+                patience: 80,
+                hope: 90
+            };
+            STATE.baseStats = JSON.parse(JSON.stringify(STATE.stats));
+            startGame();
+        }
+
+        function startGame() {
+            STATE.currentScene = 0;
+            STATE.choices = [];
+            STATE.episodeComplete = false;
+            STATE.flamePoints = 0;
+            STATE.currentPhase = 'Waiting';
+            STATE.beings = [
+                { name: 'Peter', status: 'waiting', influence: 75, avatar: '🔥', type: 'apostle' },
+                { name: 'The 120', status: 'praying', influence: 65, avatar: '🕊', type: 'church' },
+                { name: 'Stephen', status: 'serving', influence: 70, avatar: '✨', type: 'martyr' },
+                { name: 'Saul', status: 'persecuting', influence: 40, avatar: '⚔', type: 'enemy' }
+            ];
+            showScreen('gameScreen');
+            updateStatsDisplay();
+            updateInfluenceDisplay();
+            updateFlameDisplay();
+            displayScene(0);
+        }
+
+        function continueGame() {
+            var saved = localStorage.getItem('gcg_ep9_save');
+            if (saved) {
+                STATE = JSON.parse(saved);
+                updateStatsDisplay();
+                updateInfluenceDisplay();
+                updateFlameDisplay();
+                updateBackground();
+                if (STATE.episodeComplete) {
+                    showSummary();
+                } else {
+                    showScreen('gameScreen');
+                    displayScene(STATE.currentScene);
+                }
+            }
+        }
+
+        // Display Functions
+        function updateStatsDisplay() {
+            document.getElementById('statFaith').textContent = STATE.stats.faith;
+            document.getElementById('statWisdom').textContent = STATE.stats.wisdom;
+            document.getElementById('statCourage').textContent = STATE.stats.courage;
+            document.getElementById('statLove').textContent = STATE.stats.love;
+            document.getElementById('statTruth').textContent = STATE.stats.truth;
+            document.getElementById('statPatience').textContent = STATE.stats.patience;
+            document.getElementById('statHope').textContent = STATE.stats.hope;
+            document.getElementById('statFlame').textContent = STATE.flamePoints;
+            document.getElementById('displayName').textContent = STATE.characterName;
+        }
+
+        function updateFlameDisplay() {
+            document.getElementById('flameDisplay').textContent = STATE.flamePoints;
+            document.getElementById('currentPhase').textContent = STATE.currentPhase;
+        }
+
+        function updateBackground() {
+            var bg = document.getElementById('bgLayer');
+            var flameOverlay = document.getElementById('flameOverlay');
+            var gloryOverlay = document.getElementById('gloryOverlay');
+            
+            bg.classList.remove('upper-room', 'pentecost', 'jerusalem', 'temple', 'sanhedrin', 'martyrdom', 'scatter');
+            flameOverlay.classList.remove('active');
+            gloryOverlay.classList.remove('active');
+            
+            var scene = SCENES[STATE.currentScene];
+            if (scene) {
+                bg.classList.add(scene.locationClass);
+                if (scene.locationClass === 'pentecost') {
+                    flameOverlay.classList.add('active');
+                }
+                if (scene.locationClass === 'martyrdom') {
+                    gloryOverlay.classList.add('active');
+                }
+            } else {
+                bg.classList.add('upper-room');
+            }
+        }
+
+        function updateInfluenceDisplay() {
+            var grid = document.getElementById('influenceGrid');
+            var html = '';
+            
+            for (var i = 0; i < STATE.beings.length; i++) {
+                var being = STATE.beings[i];
+                var fillClass = 'spirit';
+                if (being.type === 'apostle') fillClass = 'flame';
+                if (being.type === 'martyr') fillClass = 'glory';
+                if (being.type === 'enemy') fillClass = being.influence > 50 ? 'spirit' : 'dark';
+                
+                html += '<div class="influence-item">';
+                html += '<div class="influence-avatar ' + being.type + '">' + being.avatar + '</div>';
+                html += '<div class="influence-info">';
+                html += '<div class="influence-name">' + being.name + '</div>';
+                html += '<div class="influence-status">' + being.status + '</div>';
+                html += '<div class="influence-bar"><div class="influence-fill ' + fillClass + '" style="width: ' + being.influence + '%;"></div></div>';
+                html += '</div></div>';
+            }
+            grid.innerHTML = html;
+        }
+
+        function displayScene(sceneIndex) {
+            if (sceneIndex >= SCENES.length) {
+                STATE.episodeComplete = true;
+                saveGame();
+                showSummary();
+                return;
+            }
+
+            var scene = SCENES[sceneIndex];
+            var storyContent = document.getElementById('storyContent');
+            var choicesContainer = document.getElementById('choicesContainer');
+
+            // Update phase
+            STATE.currentPhase = scene.phase;
+            updateFlameDisplay();
+
+            // Update background
+            updateBackground();
+
+            // Update beings status based on scene
+            updateBeingsForScene(sceneIndex);
+
+            // Update story content class
+            storyContent.classList.remove('upper-room-scene', 'pentecost-scene', 'jerusalem-scene', 'sanhedrin-scene', 'martyrdom-scene', 'scatter-scene');
+            if (scene.contentClass) storyContent.classList.add(scene.contentClass);
+
+            var storyHtml = '<div class="scene-location">' + scene.location + '</div>';
+            
+            // Add phase marker if applicable
+            if (scene.phaseMarker) {
+                var desc = '';
+                if (scene.phase === 'Waiting') desc = 'One hundred twenty in prayer';
+                if (scene.phase === 'Pentecost') desc = 'Tongues of fire descend';
+                if (scene.phase === 'Fellowship') desc = 'The Church in first flame';
+                if (scene.phase === 'Persecution') desc = 'The world pushes back';
+                if (scene.phase === 'Martyrdom') desc = 'Blood becomes seed';
+                if (scene.phase === 'Scattering') desc = 'What scatters, spreads';
+                
+                storyHtml += '<div class="phase-marker">';
+                storyHtml += '<h4>Phase</h4>';
+                storyHtml += '<div class="phase-name">' + scene.phase + '</div>';
+                storyHtml += '<p>' + desc + '</p>';
+                storyHtml += '</div>';
+            }
+            
+            storyHtml += '<div class="story-text">' + scene.content + '</div>';
+            storyContent.innerHTML = storyHtml;
+
+            var choicesHtml = '<div class="choices-label">How do you respond?</div>';
+            for (var i = 0; i < scene.choices.length; i++) {
+                var choice = scene.choices[i];
+                var btnClass = choice.isFlame ? 'choice-btn flame-choice' : 'choice-btn';
+                choicesHtml += '<button class="' + btnClass + '" onclick="makeChoice(' + sceneIndex + ', ' + i + ')">';
+                choicesHtml += '<span class="choice-letter">[' + choice.letter + ']</span>';
+                choicesHtml += choice.text;
+                if (choice.preview) {
+                    var prefix = '';
+                    if (choice.isPrayer) prefix += '🙏 ';
+                    if (choice.isFlame) prefix += '🔥 ';
+                    choicesHtml += '<span class="choice-preview">' + prefix + choice.preview + '</span>';
+                }
+                choicesHtml += '</button>';
+            }
+            choicesContainer.innerHTML = choicesHtml;
+        }
+
+        function updateBeingsForScene(sceneIndex) {
+            var peter = STATE.beings.find(function(b) { return b.name === 'Peter'; });
+            var church = STATE.beings.find(function(b) { return b.name === 'The 120'; });
+            var stephen = STATE.beings.find(function(b) { return b.name === 'Stephen'; });
+            var saul = STATE.beings.find(function(b) { return b.name === 'Saul'; });
+            
+            if (sceneIndex >= 1) { // After Pentecost
+                if (peter) peter.status = 'filled';
+                if (church) church.status = 'Spirit-filled';
+            }
+            if (sceneIndex >= 2) { // After sermon
+                if (peter) peter.status = 'proclaiming';
+                if (church) church.status = '3,000 added';
+            }
+            if (sceneIndex >= 4) { // After Sanhedrin
+                if (peter) peter.status = 'bold';
+            }
+            if (sceneIndex >= 5) { // Stephen's trial
+                if (stephen) stephen.status = 'on trial';
+                if (saul) saul.status = 'watching';
+            }
+            if (sceneIndex >= 6) { // Stephen's martyrdom
+                if (stephen) stephen.status = 'martyred ✝';
+                if (saul) saul.status = 'holding coats';
+            }
+            if (sceneIndex >= 7) { // Scattering
+                if (church) church.status = 'scattered/spreading';
+                if (saul) saul.status = 'persecuting';
+            }
+            
+            updateInfluenceDisplay();
+        }
+
+        function makeChoice(sceneIndex, choiceIndex) {
+            var scene = SCENES[sceneIndex];
+            var choice = scene.choices[choiceIndex];
+
+            STATE.choices.push({
+                scene: sceneIndex,
+                choice: choiceIndex,
+                letter: choice.letter,
+                isPrayer: choice.isPrayer || false,
+                isFlame: choice.isFlame || false
+            });
+
+            if (choice.isFlame) {
+                STATE.flamePoints++;
+            }
+
+            // Apply stat effects
+            var statChanges = [];
+            if (choice.effects) {
+                for (var stat in choice.effects) {
+                    if (choice.effects.hasOwnProperty(stat)) {
+                        var change = choice.effects[stat];
+                        STATE.stats[stat] = Math.max(0, Math.min(100, STATE.stats[stat] + change));
+                        if (change !== 0) {
+                            statChanges.push({ stat: stat, change: change });
+                        }
+                    }
+                }
+            }
+
+            // Apply influence effects
+            var influenceChanges = [];
+            if (choice.influence) {
+                applyInfluence(choice.influence.target, choice.influence.change, choice.influence.type);
+                influenceChanges.push(choice.influence);
+            }
+            if (choice.influenceSecondary) {
+                applyInfluence(choice.influenceSecondary.target, choice.influenceSecondary.change, choice.influenceSecondary.type);
+                influenceChanges.push(choice.influenceSecondary);
+            }
+
+            showConsequence(choice, statChanges, influenceChanges, sceneIndex);
+        }
+
+        function applyInfluence(targetName, change, type) {
+            for (var i = 0; i < STATE.beings.length; i++) {
+                if (STATE.beings[i].name === targetName) {
+                    STATE.beings[i].influence = Math.max(0, Math.min(100, STATE.beings[i].influence + change));
+                    break;
+                }
+            }
+        }
+
+        function showConsequence(choice, statChanges, influenceChanges, sceneIndex) {
+            showScreen('consequenceScreen');
+            var display = document.getElementById('consequenceDisplay');
+
+            var title = 'The Spirit Moves';
+            if (choice.isPrayer) title = 'Prayer Ascending';
+            if (choice.isFlame && !choice.isPrayer) title = 'Flame Kindled';
+
+            var html = '<h3 class="consequence-title">' + title + '</h3>';
+
+            if (statChanges.length > 0) {
+                html += '<div class="stat-changes">';
+                for (var i = 0; i < statChanges.length; i++) {
+                    var sc = statChanges[i];
+                    var sign = sc.change > 0 ? '+' : '';
+                    var cls = sc.change > 0 ? 'positive' : 'flame';
+                    var statName = sc.stat.charAt(0).toUpperCase() + sc.stat.slice(1);
+                    html += '<div class="stat-change ' + cls + '">' + statName + ' ' + sign + sc.change + '</div>';
+                }
+                html += '</div>';
+            }
+
+            html += '<p style="text-align: center; color: var(--text-secondary); font-size: 1.05rem; line-height: 1.8; margin: 20px 0;">' + choice.response + '</p>';
+
+            // Add flame notice
+            if (choice.isFlame) {
+                html += '<div class="flame-notice"><h4>🔥 Flame Point Kindled</h4><p>The fire spreads through you. What burns in you will burn through you.</p></div>';
+            }
+
+            html += '<button class="btn btn-flame continue-btn" onclick="continueStory(' + (sceneIndex + 1) + ')">Continue</button>';
+
+            display.innerHTML = html;
+            updateStatsDisplay();
+            updateInfluenceDisplay();
+            updateFlameDisplay();
+            saveGame();
+        }
+
+        function continueStory(nextScene) {
+            STATE.currentScene = nextScene;
+            showScreen('gameScreen');
+            displayScene(nextScene);
+        }
+
+        function showSummary() {
+            showScreen('summaryScreen');
+            var summary = document.getElementById('episodeSummary');
+
+            // Reset background
+            var bg = document.getElementById('bgLayer');
+            var flameOverlay = document.getElementById('flameOverlay');
+            var gloryOverlay = document.getElementById('gloryOverlay');
+            bg.classList.remove('upper-room', 'jerusalem', 'sanhedrin', 'martyrdom');
+            bg.classList.add('pentecost');
+            flameOverlay.classList.add('active');
+            gloryOverlay.classList.remove('active');
+
+            // Calculate results
+            var baseStats = STATE.baseStats || { faith: 88, wisdom: 82, courage: 85, love: 90, truth: 85, patience: 80, hope: 90 };
+            
+            // Determine ending
+            var endingTitle = 'Witness of Pentecost';
+            var endingDesc = 'You watched fire fall and the Church be born. From one hundred twenty to thousands, from upper room to world. The flame spreads.';
+
+            if (STATE.flamePoints >= 7) {
+                endingTitle = 'Carrier of the Flame';
+                endingDesc = 'You carry the Pentecostal fire. Through every phase — waiting, descending, proclaiming, persecuting, martyring, scattering — you witnessed and were changed. The same Spirit that fell then lives in you now.';
+            } else if (STATE.stats.courage >= 100) {
+                endingTitle = 'Voice of the Sanhedrin Stand';
+                endingDesc = '"We cannot but speak." You understand the compulsion that makes silence impossible. The fire inside is hotter than any fire outside.';
+            } else if (STATE.stats.love >= 100) {
+                endingTitle = 'Heart of the Fellowship';
+                endingDesc = 'You have seen what the Church can be — one heart, one soul, all things common. The fellowship of the first flame burns in your memory as hope for what will be again.';
+            } else if (STATE.stats.hope >= 100) {
+                endingTitle = 'Child of the Scattering';
+                endingDesc = 'What scatters, spreads. You have learned the divine reversal — persecution becomes propagation, suffering becomes strategy. The enemy cannot win.';
+            }
+
+            var html = '<div class="summary-header">';
+            html += '<h2 class="summary-title">Episode Complete</h2>';
+            html += '<p class="summary-subtitle">The Early Church</p>';
+            html += '</div>';
+
+            // Flame decoration
+            html += '<div class="flame-decoration">';
+            html += '<div class="flame-symbol">🔥</div>';
+            html += '<div class="flame-inscription">TONGUES OF FIRE</div>';
+            html += '<p>"And they were all filled with the Holy Ghost"</p>';
+            html += '</div>';
+
+            // Ending Card
+            html += '<div class="summary-section" style="text-align: center; border-color: var(--flame-orange);">';
+            html += '<h3 style="font-family: Cinzel, serif; font-size: 1.5rem; color: var(--flame-gold); margin-bottom: 15px;">' + endingTitle + '</h3>';
+            html += '<p style="color: var(--text-secondary); line-height: 1.8;">' + endingDesc + '</p>';
+            html += '</div>';
+
+            // Flame counter
+            html += '<div class="summary-section" style="text-align: center;">';
+            html += '<div style="font-family: Cinzel, serif; font-size: 3rem; color: var(--flame-orange);">' + STATE.flamePoints + '</div>';
+            html += '<div style="color: var(--text-secondary);">Flame Points Kindled</div>';
+            html += '<p style="margin-top: 15px; color: var(--text-dim); font-style: italic;">The fire that fell at Pentecost has touched you. Now carry it forward.</p>';
+            html += '</div>';
+
+            // Church journey
+            html += '<div class="summary-section">';
+            html += '<h4 class="summary-section-title">🔥 The Church\'s Journey</h4>';
+            html += '<div class="church-journey">';
+            html += '<div class="journey-phase"><div class="icon">🕯</div><div class="name">Waiting</div></div>';
+            html += '<div class="journey-arrow">→</div>';
+            html += '<div class="journey-phase"><div class="icon">🔥</div><div class="name">Pentecost</div></div>';
+            html += '<div class="journey-arrow">→</div>';
+            html += '<div class="journey-phase"><div class="icon">💬</div><div class="name">Proclaim</div></div>';
+            html += '<div class="journey-arrow">→</div>';
+            html += '<div class="journey-phase"><div class="icon">⛓</div><div class="name">Persecution</div></div>';
+            html += '<div class="journey-arrow">→</div>';
+            html += '<div class="journey-phase"><div class="icon">🌍</div><div class="name">Scatter</div></div>';
+            html += '</div></div>';
+
+            // Stats
+            html += '<div class="summary-section">';
+            html += '<h4 class="summary-section-title">🔥 Transformed by Fire</h4>';
+            html += '<div class="final-stats-grid">';
+            var statNames = ['faith', 'wisdom', 'courage', 'love', 'truth', 'patience', 'hope'];
+            var statColors = ['#ffd700', '#9b59b6', '#e74c3c', '#e91e63', '#3498db', '#1abc9c', '#f39c12'];
+            for (var s = 0; s < statNames.length; s++) {
+                var sName = statNames[s];
+                var sVal = STATE.stats[sName];
+                var sBase = baseStats[sName] || 85;
+                var sChange = sVal - sBase;
+                var changeStr = sChange >= 0 ? '+' + sChange : '' + sChange;
+                var changeColor = sChange >= 0 ? 'var(--success)' : 'var(--flame-orange)';
+                html += '<div class="final-stat">';
+                html += '<div class="final-stat-name" style="color: ' + statColors[s] + ';">' + sName.charAt(0).toUpperCase() + sName.slice(1) + '</div>';
+                html += '<div class="final-stat-value" style="color: ' + statColors[s] + ';">' + sVal + '</div>';
+                html += '<div class="final-stat-change" style="color: ' + changeColor + ';">' + changeStr + '</div>';
+                html += '</div>';
+            }
+            html += '</div></div>';
+
+            // Beings
+            html += '<div class="summary-section">';
+            html += '<h4 class="summary-section-title">🔥 The Witnesses</h4>';
+            html += '<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">';
+            
+            for (var b = 0; b < STATE.beings.length; b++) {
+                var being = STATE.beings[b];
+                html += '<div style="padding: 15px; background: rgba(0,0,0,0.2); border-radius: 8px; text-align: center;">';
+                html += '<div style="font-size: 1.5rem; margin-bottom: 5px;">' + being.avatar + '</div>';
+                html += '<div style="font-family: Cinzel, serif; color: var(--flame-gold);">' + being.name + '</div>';
+                html += '<div style="font-size: 0.8rem; color: var(--text-dim);">' + being.status + '</div>';
+                html += '</div>';
+            }
+            
+            html += '</div></div>';
+
+            // Narrative
+            html += '<div class="summary-section">';
+            html += '<h4 class="summary-section-title">🔥 What You Witnessed</h4>';
+            html += '<div class="narrative-summary">' + generateNarrative() + '</div>';
+            html += '</div>';
+
+            // Next Episode
+            html += '<div class="to-be-continued">';
+            html += '<h3>The Story Continues...</h3>';
+            html += '<p>Episode 10: The Dark Ages — Coming Soon</p>';
+            html += '<p style="margin-top: 10px; color: var(--text-dim);">The flame goes underground. Through centuries of persecution, a faithful remnant keeps the truth alive in wilderness and cave.</p>';
+            html += '<button class="btn btn-primary" style="margin-top: 20px;" onclick="returnToTitle()">Return to Title</button>';
+            html += '</div>';
+
+            summary.innerHTML = html;
+        }
+
+        function generateNarrative() {
+            var narrative = '<p>As ' + STATE.characterName + ', you witnessed the birth of the Church — from upper room to world, from one hundred twenty to uncountable thousands.</p>';
+
+            narrative += '<p>You saw fire fall at Pentecost. Tongues of flame resting on each head. Galilean fishermen speaking languages they never learned. Three thousand converted by sunset.</p>';
+
+            if (STATE.stats.courage >= 95) {
+                narrative += '<p>You watched Peter stand before the Sanhedrin — the same Peter who denied three times — and declare: "We cannot but speak." The Spirit makes cowards bold.</p>';
+            }
+
+            if (STATE.stats.love >= 95) {
+                narrative += '<p>You saw the fellowship in its first flame: all things common, daily gathering, glad and single hearts. This is what the Church can be when the Spirit is unhindered.</p>';
+            }
+
+            narrative += '<p>You stood at Stephen\'s martyrdom. His face like an angel. His vision of Jesus standing — STANDING — to receive him. His final prayer forgiving his murderers. And young Saul, holding coats, not knowing that Stephen\'s blood would seed his own conversion.</p>';
+
+            narrative += '<p>What scatters, spreads. The persecution meant to destroy became the mechanism of multiplication. The fire cannot be contained. It only spreads.</p>';
+
+            return narrative;
+        }
+
+        // Menu Functions
+        function toggleMenu() {
+            document.getElementById('menuModal').classList.toggle('active');
+        }
+
+        function saveGame() {
+            localStorage.setItem('gcg_ep9_save', JSON.stringify(STATE));
+        }
+
+        function restartEpisode() {
+            if (confirm('Restart Episode 9? All progress will be lost.')) {
+                localStorage.removeItem('gcg_ep9_save');
+                location.reload();
+            }
+        }
+
+        function returnToTitle() {
+            var modal = document.getElementById('menuModal');
+            if (modal.classList.contains('active')) {
+                modal.classList.remove('active');
+            }
+            showScreen('titleScreen');
+            checkSavedGame();
+            // Reset background
+            var bg = document.getElementById('bgLayer');
+            var flameOverlay = document.getElementById('flameOverlay');
+            var gloryOverlay = document.getElementById('gloryOverlay');
+            bg.classList.remove('pentecost', 'jerusalem', 'sanhedrin', 'martyrdom', 'scatter');
+            bg.classList.add('upper-room');
+            flameOverlay.classList.remove('active');
+            gloryOverlay.classList.remove('active');
+        }
+
+        // Init
+        init();
+    </script>
+</body>
+</html>
