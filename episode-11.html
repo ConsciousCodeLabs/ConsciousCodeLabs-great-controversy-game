@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Great Controversy: The Game - Episode 11</title>
+    <meta name="description" content="Episode 11: The Reformation. Here I stand. I can do no other. God help me.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #050505;
+            --bg-medium: #080808;
+            --reformation-gold: #d4a03a;
+            --reformation-amber: #c9a227;
+            --thesis-white: #f5f0e6;
+            --wittenberg-brown: #4a3728;
+            --worms-red: #8b2500;
+            --wartburg-stone: #5a5a5a;
+            --scripture-light: #fff8dc;
+            --rome-purple: #4a1f6b;
+            --fire-orange: #ff6b35;
+            --ink-black: #1a1a1a;
+            --parchment: #d4c4a8;
+            --text-primary: #e8e0d8;
+            --text-secondary: #b8a898;
+            --text-dim: #7a6a5a;
+            --text-gold: #d4a03a;
+            --success: #4a6a4a;
+            --faith-color: #ffd700;
+            --wisdom-color: #9b59b6;
+            --courage-color: #e74c3c;
+            --love-color: #e91e63;
+            --truth-color: #3498db;
+            --patience-color: #1abc9c;
+            --hope-color: #f39c12;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Crimson Pro', Georgia, serif; background: var(--bg-dark); color: var(--text-primary); min-height: 100vh; overflow-x: hidden; }
+        .celestial-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden; transition: all 1.5s ease; }
+        .celestial-bg.wittenberg::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at 50% 30%, rgba(74, 55, 40, 0.2) 0%, transparent 50%), linear-gradient(180deg, #0a0805 0%, #080705 40%, #050403 100%); }
+        .celestial-bg.rome::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at 50% 30%, rgba(74, 31, 107, 0.2) 0%, transparent 50%), linear-gradient(180deg, #0a0508 0%, #080508 40%, #050305 100%); }
+        .celestial-bg.worms::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at 50% 50%, rgba(139, 37, 0, 0.15) 0%, transparent 40%), linear-gradient(180deg, #080505 0%, #0a0605 40%, #050303 100%); }
+        .celestial-bg.wartburg::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at 50% 50%, rgba(90, 90, 90, 0.1) 0%, transparent 40%), linear-gradient(180deg, #0a0a0a 0%, #080808 40%, #050505 100%); }
+        .celestial-bg.printing::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at 50% 50%, rgba(212, 160, 58, 0.1) 0%, transparent 40%), linear-gradient(180deg, #080805 0%, #0a0a08 40%, #050503 100%); }
+        .celestial-bg.martyrdom::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at 50% 70%, rgba(255, 107, 53, 0.15) 0%, transparent 40%), linear-gradient(180deg, #080505 0%, #0a0605 40%, #050303 100%); }
+        .celestial-bg.dawn::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at 50% 100%, rgba(212, 160, 58, 0.2) 0%, transparent 50%), linear-gradient(180deg, #080808 0%, #0a0808 40%, #080505 100%); }
+        .stars { position: absolute; width: 100%; height: 100%; background-image: radial-gradient(1px 1px at 20px 30px, rgba(212, 160, 58, 0.3), transparent), radial-gradient(1px 1px at 90px 40px, rgba(212, 160, 58, 0.3), transparent); background-size: 200px 200px; animation: twinkle 8s ease-in-out infinite; }
+        @keyframes twinkle { 0%, 100% { opacity: 0.3; } 50% { opacity: 0.5; } }
+        .hammer-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at 50% 50%, rgba(212, 160, 58, 0.1) 0%, transparent 30%); opacity: 0; pointer-events: none; }
+        .hammer-overlay.active { animation: hammerStrike 0.5s ease-out; }
+        @keyframes hammerStrike { 0% { opacity: 0; transform: scale(0.8); } 50% { opacity: 1; transform: scale(1.1); } 100% { opacity: 0; transform: scale(1); } }
+        .fire-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at 50% 80%, rgba(255, 107, 53, 0.15) 0%, transparent 40%); opacity: 0; transition: opacity 1s ease; pointer-events: none; }
+        .fire-overlay.active { opacity: 1; }
+        .game-container { max-width: 900px; margin: 0 auto; padding: 20px; min-height: 100vh; display: flex; flex-direction: column; }
+        .game-header { text-align: center; padding: 20px 0; border-bottom: 1px solid rgba(212, 160, 58, 0.3); margin-bottom: 20px; }
+        .game-title { font-family: 'Cinzel', serif; font-size: 1.8rem; font-weight: 600; color: var(--reformation-gold); text-transform: uppercase; letter-spacing: 3px; text-shadow: 0 0 30px rgba(212, 160, 58, 0.3); margin-bottom: 5px; }
+        .game-subtitle { font-family: 'Orbitron', sans-serif; font-size: 0.7rem; color: var(--reformation-amber); text-transform: uppercase; letter-spacing: 4px; }
+        .screen { display: none; flex: 1; animation: fadeIn 0.5s ease-out; }
+        .screen.active { display: flex; flex-direction: column; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .title-screen { justify-content: center; align-items: center; text-align: center; }
+        .episode-number { font-family: 'Orbitron', sans-serif; font-size: 0.9rem; color: var(--reformation-gold); text-transform: uppercase; letter-spacing: 4px; margin-bottom: 10px; }
+        .main-title { font-family: 'Cinzel', serif; font-size: 2.8rem; font-weight: 700; color: var(--reformation-gold); text-transform: uppercase; letter-spacing: 6px; margin-bottom: 10px; text-shadow: 0 0 50px rgba(212, 160, 58, 0.3); }
+        .main-subtitle { font-family: 'Cinzel', serif; font-size: 1.3rem; color: var(--text-secondary); margin-bottom: 30px; }
+        .tagline { font-family: 'Crimson Pro', serif; font-size: 1.1rem; color: var(--text-dim); font-style: italic; margin-bottom: 30px; max-width: 500px; }
+        .episode-intro { background: rgba(212, 160, 58, 0.08); border: 1px solid rgba(212, 160, 58, 0.3); border-radius: 8px; padding: 25px; margin-bottom: 30px; max-width: 600px; text-align: left; }
+        .episode-intro p { color: var(--text-secondary); line-height: 1.8; margin-bottom: 15px; }
+        .episode-intro p:last-child { margin-bottom: 0; }
+        .title-buttons { display: flex; flex-direction: column; gap: 15px; width: 280px; }
+        .btn { font-family: 'Orbitron', sans-serif; font-size: 0.85rem; padding: 15px 30px; border: none; border-radius: 4px; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; transition: all 0.3s ease; }
+        .btn-primary { background: linear-gradient(135deg, var(--reformation-gold) 0%, var(--reformation-amber) 100%); color: var(--bg-dark); box-shadow: 0 4px 20px rgba(212, 160, 58, 0.3); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 30px rgba(212, 160, 58, 0.5); }
+        .btn-secondary { background: transparent; color: var(--reformation-gold); border: 1px solid var(--reformation-gold); }
+        .btn-secondary:hover { background: rgba(212, 160, 58, 0.1); }
+        .btn-secondary:disabled { opacity: 0.3; cursor: not-allowed; }
+        .btn-reformation { background: linear-gradient(135deg, var(--reformation-gold) 0%, #b8860b 100%); color: var(--bg-dark); box-shadow: 0 4px 20px rgba(212, 160, 58, 0.3); }
+        .import-section { max-width: 500px; margin: 0 auto; padding: 30px 0; }
+        .section-title { font-family: 'Cinzel', serif; font-size: 1.6rem; color: var(--reformation-gold); text-align: center; margin-bottom: 30px; }
+        .import-options { display: flex; flex-direction: column; gap: 20px; }
+        .import-option { background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(212, 160, 58, 0.3); border-radius: 12px; padding: 25px; cursor: pointer; transition: all 0.3s ease; }
+        .import-option:hover { border-color: var(--reformation-gold); background: rgba(212, 160, 58, 0.1); }
+        .import-option h3 { font-family: 'Cinzel', serif; color: var(--reformation-gold); margin-bottom: 10px; }
+        .import-option p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; }
+        .import-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+        .import-stat { text-align: center; }
+        .import-stat-name { font-family: 'Orbitron', sans-serif; font-size: 0.6rem; color: var(--text-dim); text-transform: uppercase; }
+        .import-stat-value { font-family: 'Orbitron', sans-serif; font-size: 1rem; font-weight: 600; }
+        .stats-panel { background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(212, 160, 58, 0.3); border-radius: 8px; padding: 15px; margin-bottom: 20px; }
+        .stats-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        .character-name { font-family: 'Cinzel', serif; font-size: 1.1rem; color: var(--reformation-gold); }
+        .episode-indicator { font-family: 'Orbitron', sans-serif; font-size: 0.65rem; color: var(--reformation-amber); text-transform: uppercase; letter-spacing: 1px; }
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+        .stat-item { text-align: center; }
+        .stat-name { font-family: 'Orbitron', sans-serif; font-size: 0.55rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+        .stat-value { font-family: 'Orbitron', sans-serif; font-size: 1.1rem; font-weight: 600; }
+        .stat-faith { color: var(--faith-color); }
+        .stat-wisdom { color: var(--wisdom-color); }
+        .stat-courage { color: var(--courage-color); }
+        .stat-love { color: var(--love-color); }
+        .stat-truth { color: var(--truth-color); }
+        .stat-patience { color: var(--patience-color); }
+        .stat-hope { color: var(--hope-color); }
+        .reformation-panel { background: linear-gradient(135deg, rgba(212, 160, 58, 0.1) 0%, rgba(201, 162, 39, 0.05) 100%); border: 1px solid rgba(212, 160, 58, 0.4); border-radius: 8px; padding: 12px 20px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; }
+        .reformation-label { font-family: 'Orbitron', sans-serif; font-size: 0.7rem; color: var(--reformation-gold); text-transform: uppercase; letter-spacing: 2px; }
+        .reformation-value { font-family: 'Cinzel', serif; font-size: 1.1rem; color: var(--reformation-gold); font-weight: 600; }
+        .phase-indicator { font-family: 'Orbitron', sans-serif; font-size: 0.8rem; color: var(--text-gold); }
+        .influence-panel { background: rgba(212, 160, 58, 0.08); border: 1px solid rgba(212, 160, 58, 0.3); border-radius: 8px; padding: 15px; margin-bottom: 20px; }
+        .influence-title { font-family: 'Orbitron', sans-serif; font-size: 0.7rem; color: var(--reformation-gold); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+        .influence-title::before { content: '🔨'; font-size: 1rem; }
+        .influence-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+        .influence-item { display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: rgba(0, 0, 0, 0.2); border-radius: 4px; }
+        .influence-avatar { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; flex-shrink: 0; }
+        .influence-avatar.reformer { background: linear-gradient(135deg, var(--reformation-gold), #b8860b); }
+        .influence-avatar.martyr { background: linear-gradient(135deg, var(--fire-orange), var(--reformation-gold)); }
+        .influence-avatar.enemy { background: linear-gradient(135deg, var(--rome-purple), #8b0000); }
+        .influence-avatar.people { background: linear-gradient(135deg, var(--parchment), var(--wittenberg-brown)); }
+        .influence-info { flex: 1; min-width: 0; }
+        .influence-name { font-family: 'Cinzel', serif; font-size: 0.85rem; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .influence-status { font-size: 0.7rem; color: var(--text-dim); }
+        .influence-bar { width: 100%; height: 4px; background: rgba(255, 255, 255, 0.1); border-radius: 2px; margin-top: 4px; overflow: hidden; }
+        .influence-fill { height: 100%; border-radius: 2px; transition: width 0.5s ease; }
+        .influence-fill.gold { background: var(--reformation-gold); }
+        .influence-fill.flame { background: var(--fire-orange); }
+        .influence-fill.dark { background: var(--rome-purple); }
+        .influence-fill.parchment { background: var(--parchment); }
+        .story-panel { flex: 1; display: flex; flex-direction: column; }
+        .story-content { background: rgba(0, 0, 0, 0.4); border: 1px solid rgba(212, 160, 58, 0.2); border-radius: 12px; padding: 30px; margin-bottom: 20px; flex: 1; transition: all 0.5s ease; }
+        .story-content.wittenberg-scene { border-color: rgba(74, 55, 40, 0.4); background: rgba(10, 8, 5, 0.6); }
+        .story-content.rome-scene { border-color: rgba(74, 31, 107, 0.4); background: rgba(10, 5, 15, 0.6); }
+        .story-content.worms-scene { border-color: rgba(139, 37, 0, 0.4); background: rgba(12, 8, 5, 0.6); }
+        .story-content.wartburg-scene { border-color: rgba(90, 90, 90, 0.4); background: rgba(8, 8, 8, 0.6); }
+        .story-content.printing-scene { border-color: rgba(212, 160, 58, 0.4); background: rgba(10, 10, 8, 0.6); }
+        .story-content.martyrdom-scene { border-color: rgba(255, 107, 53, 0.4); background: rgba(12, 8, 5, 0.6); }
+        .story-content.dawn-scene { border-color: rgba(212, 160, 58, 0.4); background: rgba(10, 10, 8, 0.6); }
+        .scene-location { font-family: 'Orbitron', sans-serif; font-size: 0.7rem; color: var(--reformation-gold); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+        .scene-location::before, .scene-location::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(212, 160, 58, 0.3), transparent); }
+        .story-text { font-size: 1.15rem; line-height: 1.9; color: var(--text-primary); margin-bottom: 25px; }
+        .story-text p { margin-bottom: 15px; }
+        .story-text .speaker { font-family: 'Cinzel', serif; font-weight: 600; }
+        .story-text .speaker.luther { color: var(--reformation-gold); }
+        .story-text .speaker.pope { color: var(--rome-purple); }
+        .story-text .speaker.emperor { color: var(--worms-red); }
+        .story-text .speaker.tyndale { color: var(--fire-orange); }
+        .story-text em { color: var(--text-secondary); font-style: italic; }
+        .story-text .reformation { color: var(--reformation-gold); text-shadow: 0 0 8px rgba(212, 160, 58, 0.4); }
+        .story-text .scripture { color: var(--scripture-light); text-shadow: 0 0 8px rgba(255, 248, 220, 0.4); }
+        .story-text .latin { font-style: italic; color: var(--rome-purple); }
+        .story-text .german { font-style: italic; color: var(--reformation-gold); }
+        .story-text .fire { color: var(--fire-orange); }
+        .story-text .stand { color: var(--reformation-gold); font-weight: 700; text-shadow: 0 0 10px rgba(212, 160, 58, 0.5); }
+        .story-text .number { color: var(--reformation-gold); font-weight: 600; font-size: 1.1em; }
+        .phase-marker { background: rgba(212, 160, 58, 0.15); border: 1px solid rgba(212, 160, 58, 0.4); border-radius: 8px; padding: 15px; margin: 20px 0; text-align: center; }
+        .phase-marker h4 { font-family: 'Orbitron', sans-serif; font-size: 0.8rem; color: var(--reformation-gold); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 5px; }
+        .phase-marker .phase-name { font-family: 'Cinzel', serif; font-size: 1.6rem; color: var(--reformation-gold); font-weight: 700; }
+        .phase-marker p { color: var(--text-dim); font-size: 0.9rem; margin-top: 8px; font-style: italic; }
+        .choices-container { margin-top: auto; }
+        .choices-label { font-family: 'Orbitron', sans-serif; font-size: 0.7rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; }
+        .choice-btn { display: block; width: 100%; text-align: left; padding: 18px 20px; margin-bottom: 10px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(212, 160, 58, 0.3); border-radius: 8px; color: var(--text-primary); font-family: 'Crimson Pro', serif; font-size: 1.05rem; cursor: pointer; transition: all 0.3s ease; position: relative; overflow: hidden; }
+        .choice-btn::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--reformation-gold); opacity: 0; transition: opacity 0.3s ease; }
+        .choice-btn:hover { background: rgba(212, 160, 58, 0.15); border-color: var(--reformation-gold); transform: translateX(5px); }
+        .choice-btn:hover::before { opacity: 1; }
+        .choice-btn.reformation-choice { border-color: rgba(212, 160, 58, 0.5); background: rgba(212, 160, 58, 0.08); }
+        .choice-btn.reformation-choice:hover { background: rgba(212, 160, 58, 0.15); }
+        .choice-letter { font-family: 'Orbitron', sans-serif; font-size: 0.75rem; color: var(--reformation-gold); margin-right: 12px; }
+        .choice-preview { display: block; font-size: 0.8rem; color: var(--text-dim); margin-top: 8px; padding-left: 25px; font-style: italic; }
+        .consequence-display { background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(212, 160, 58, 0.3); border-radius: 12px; padding: 30px; margin: 20px 0; animation: slideIn 0.5s ease-out; }
+        @keyframes slideIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .consequence-title { font-family: 'Cinzel', serif; font-size: 1.2rem; color: var(--reformation-gold); text-align: center; margin-bottom: 20px; }
+        .stat-changes { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-bottom: 20px; }
+        .stat-change { padding: 8px 16px; border-radius: 20px; font-family: 'Orbitron', sans-serif; font-size: 0.75rem; display: flex; align-items: center; gap: 6px; }
+        .stat-change.positive { background: rgba(107, 142, 78, 0.2); border: 1px solid var(--success); color: var(--success); }
+        .stat-change.reformation { background: rgba(212, 160, 58, 0.2); border: 1px solid var(--reformation-gold); color: var(--reformation-gold); }
+        .reformation-notice { background: rgba(212, 160, 58, 0.15); border: 1px solid rgba(212, 160, 58, 0.4); border-radius: 8px; padding: 15px; margin-top: 15px; text-align: center; }
+        .reformation-notice h4 { font-family: 'Cinzel', serif; color: var(--reformation-gold); margin-bottom: 8px; }
+        .reformation-notice p { color: var(--text-secondary); font-size: 0.9rem; font-style: italic; }
+        .continue-btn { display: block; width: 100%; max-width: 300px; margin: 20px auto 0; }
+        .episode-summary { padding: 30px 0; }
+        .summary-header { text-align: center; margin-bottom: 40px; }
+        .summary-title { font-family: 'Cinzel', serif; font-size: 2rem; color: var(--reformation-gold); margin-bottom: 10px; }
+        .summary-subtitle { font-family: 'Orbitron', sans-serif; font-size: 0.8rem; color: var(--reformation-amber); text-transform: uppercase; letter-spacing: 3px; }
+        .summary-section { background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(212, 160, 58, 0.3); border-radius: 12px; padding: 25px; margin-bottom: 20px; }
+        .summary-section-title { font-family: 'Cinzel', serif; font-size: 1.1rem; color: var(--reformation-gold); margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        .final-stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 15px; }
+        .final-stat { text-align: center; padding: 15px; background: rgba(255, 255, 255, 0.03); border-radius: 8px; }
+        .final-stat-name { font-family: 'Orbitron', sans-serif; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        .final-stat-value { font-family: 'Orbitron', sans-serif; font-size: 1.5rem; font-weight: 600; }
+        .final-stat-change { font-size: 0.75rem; margin-top: 4px; }
+        .phase-journey { display: flex; justify-content: space-around; align-items: center; padding: 20px 0; flex-wrap: wrap; gap: 10px; }
+        .journey-phase { text-align: center; }
+        .journey-phase .icon { font-size: 2rem; margin-bottom: 5px; }
+        .journey-phase .name { font-family: 'Orbitron', sans-serif; font-size: 0.65rem; color: var(--text-secondary); }
+        .journey-arrow { color: var(--reformation-gold); font-size: 1.2rem; }
+        .hammer-decoration { text-align: center; padding: 25px; margin: 20px 0; }
+        .hammer-symbol { font-size: 3rem; margin-bottom: 10px; }
+        .hammer-inscription { font-family: 'Cinzel', serif; font-size: 1.2rem; color: var(--reformation-gold); letter-spacing: 2px; }
+        .hammer-decoration p { color: var(--text-secondary); font-style: italic; margin-top: 10px; }
+        .narrative-summary { font-size: 1.05rem; line-height: 1.8; color: var(--text-secondary); }
+        .narrative-summary p { margin-bottom: 15px; }
+        .to-be-continued { text-align: center; padding: 30px; margin-top: 20px; }
+        .to-be-continued h3 { font-family: 'Cinzel', serif; font-size: 1.3rem; color: var(--reformation-gold); margin-bottom: 10px; }
+        .to-be-continued p { color: var(--text-dim); font-style: italic; }
+        .menu-btn { position: fixed; top: 20px; right: 20px; width: 44px; height: 44px; background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(212, 160, 58, 0.4); border-radius: 8px; color: var(--reformation-gold); font-size: 1.2rem; cursor: pointer; z-index: 100; display: none; align-items: center; justify-content: center; transition: all 0.3s ease; }
+        .menu-btn:hover { background: rgba(212, 160, 58, 0.2); }
+        .menu-btn.visible { display: flex; }
+        .menu-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.9); z-index: 200; display: none; align-items: center; justify-content: center; }
+        .menu-modal.active { display: flex; }
+        .menu-content { background: var(--bg-medium); border: 1px solid rgba(212, 160, 58, 0.4); border-radius: 12px; padding: 30px; text-align: center; max-width: 350px; width: 90%; }
+        .menu-title { font-family: 'Cinzel', serif; font-size: 1.3rem; color: var(--reformation-gold); margin-bottom: 25px; }
+        .menu-buttons { display: flex; flex-direction: column; gap: 12px; }
+        .menu-buttons .btn { width: 100%; }
+        .game-footer { text-align: center; padding: 20px 0; margin-top: auto; border-top: 1px solid rgba(212, 160, 58, 0.2); }
+        .footer-text { font-family: 'Orbitron', sans-serif; font-size: 0.6rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 2px; }
+        .footer-text a { color: var(--reformation-gold); text-decoration: none; }
+        @media (max-width: 768px) {
+            .main-title { font-size: 2rem; letter-spacing: 3px; }
+            .stats-grid { grid-template-columns: repeat(4, 1fr); gap: 5px; }
+            .stat-name { font-size: 0.5rem; }
+            .stat-value { font-size: 0.9rem; }
+            .influence-grid { grid-template-columns: 1fr; }
+            .story-content { padding: 20px; }
+            .story-text { font-size: 1.05rem; }
+            .choice-btn { padding: 15px; font-size: 0.95rem; }
+            .final-stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .phase-journey { flex-direction: column; }
+            .journey-arrow { transform: rotate(90deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="celestial-bg wittenberg" id="bgLayer">
+        <div class="stars"></div>
+        <div class="hammer-overlay" id="hammerOverlay"></div>
+        <div class="fire-overlay" id="fireOverlay"></div>
+    </div>
+    <button class="menu-btn" id="menuBtn" onclick="toggleMenu()">☰</button>
+    <div class="menu-modal" id="menuModal">
+        <div class="menu-content">
+            <h2 class="menu-title">Game Menu</h2>
+            <div class="menu-buttons">
+                <button class="btn btn-secondary" onclick="saveGame()">Save Progress</button>
+                <button class="btn btn-secondary" onclick="toggleMenu()">Resume Game</button>
+                <button class="btn btn-secondary" onclick="restartEpisode()">Restart Episode</button>
+                <button class="btn btn-secondary" onclick="returnToTitle()">Main Menu</button>
+            </div>
+        </div>
+    </div>
+    <div class="game-container">
+        <header class="game-header">
+            <h1 class="game-title">The Great Controversy</h1>
+            <p class="game-subtitle">Episode 11: The Reformation</p>
+        </header>
+        <div class="screen active" id="titleScreen">
+            <div class="title-screen">
+                <div class="episode-number">Episode XI</div>
+                <h1 class="main-title">The Reformation</h1>
+                <h2 class="main-subtitle">Here I Stand</h2>
+                <p class="tagline">"Here I stand. I can do no other. God help me. Amen." — Martin Luther, 1521</p>
+                <div class="episode-intro">
+                    <p>A German monk reads Romans by candlelight. "The just shall live by faith." His heart burns. The truth the Waldenses preserved in darkness is about to explode into light.</p>
+                    <p>95 theses nailed to a church door. An empire summoned to silence one man. A castle where the Bible is unchained from Latin and given to the people.</p>
+                    <p>The hammer strikes. The chains break. The Word is free.</p>
+                </div>
+                <div class="title-buttons">
+                    <button class="btn btn-reformation" onclick="showImportScreen()">Begin Episode 11</button>
+                    <button class="btn btn-secondary" id="continueBtn" onclick="continueGame()" disabled>Continue Saved Game</button>
+                </div>
+            </div>
+        </div>
+        <div class="screen" id="importScreen">
+            <div class="import-section">
+                <h2 class="section-title">Character Import</h2>
+                <div class="import-options">
+                    <div class="import-option" id="importFromPrev" onclick="importFromPrevious()">
+                        <h3>Import from Previous Episodes</h3>
+                        <p>Continue your journey. The darkness is ending. The Reformation begins.</p>
+                        <div class="import-stats" id="prevStats" style="display: none;"></div>
+                    </div>
+                    <div class="import-option" onclick="startFresh()">
+                        <h3>Start Fresh</h3>
+                        <p>Begin Episode 11 with default stats. Stand with Luther at the dawn of truth.</p>
+                        <div class="import-stats">
+                            <div class="import-stat"><div class="import-stat-name">Faith</div><div class="import-stat-value stat-faith">92</div></div>
+                            <div class="import-stat"><div class="import-stat-name">Courage</div><div class="import-stat-value stat-courage">90</div></div>
+                            <div class="import-stat"><div class="import-stat-name">Truth</div><div class="import-stat-value stat-truth">90</div></div>
+                            <div class="import-stat"><div class="import-stat-name">Hope</div><div class="import-stat-value stat-hope">94</div></div>
+                        </div>
+                    </div>
+                    <div class="import-option" onclick="showNameInput()">
+                        <h3>Custom Character</h3>
+                        <p>Enter a name and witness the breaking of chains.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="screen" id="nameScreen">
+            <div class="import-section">
+                <h2 class="section-title">Name Your Character</h2>
+                <div style="max-width: 400px; margin: 0 auto;">
+                    <label style="display: block; font-family: Orbitron, sans-serif; font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px;">Your Name</label>
+                    <input type="text" id="customName" placeholder="Enter your name..." maxlength="20" style="width: 100%; padding: 15px 20px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(212, 160, 58, 0.3); border-radius: 4px; color: var(--text-primary); font-family: Crimson Pro, serif; font-size: 1.1rem;">
+                    <button class="btn btn-reformation" style="width: 100%; margin-top: 20px;" onclick="confirmCustomName()">Begin Episode 11</button>
+                </div>
+            </div>
+        </div>
+        <div class="screen" id="gameScreen">
+            <div class="stats-panel" id="statsPanel">
+                <div class="stats-header">
+                    <span class="character-name" id="displayName">-</span>
+                    <span class="episode-indicator">Episode 11: The Reformation</span>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-item"><div class="stat-name">Faith</div><div class="stat-value stat-faith" id="statFaith">50</div></div>
+                    <div class="stat-item"><div class="stat-name">Wisdom</div><div class="stat-value stat-wisdom" id="statWisdom">50</div></div>
+                    <div class="stat-item"><div class="stat-name">Courage</div><div class="stat-value stat-courage" id="statCourage">50</div></div>
+                    <div class="stat-item"><div class="stat-name">Love</div><div class="stat-value stat-love" id="statLove">50</div></div>
+                    <div class="stat-item"><div class="stat-name">Truth</div><div class="stat-value stat-truth" id="statTruth">50</div></div>
+                    <div class="stat-item"><div class="stat-name">Patience</div><div class="stat-value stat-patience" id="statPatience">50</div></div>
+                    <div class="stat-item"><div class="stat-name">Hope</div><div class="stat-value stat-hope" id="statHope">50</div></div>
+                    <div class="stat-item"><div class="stat-name">Reform</div><div class="stat-value" style="color: var(--reformation-gold);" id="statReform">0</div></div>
+                </div>
+            </div>
+            <div class="reformation-panel" id="reformationPanel">
+                <span class="reformation-label">Reformation Points</span>
+                <span class="reformation-value" id="reformationDisplay">0</span>
+                <span class="phase-indicator" id="currentPhase">Discovery</span>
+            </div>
+            <div class="influence-panel" id="influencePanel">
+                <div class="influence-title">Those in Your Sphere</div>
+                <div class="influence-grid" id="influenceGrid"></div>
+            </div>
+            <div class="story-panel">
+                <div class="story-content" id="storyContent"></div>
+                <div class="choices-container" id="choicesContainer"></div>
+            </div>
+        </div>
+        <div class="screen" id="consequenceScreen">
+            <div class="consequence-display" id="consequenceDisplay"></div>
+        </div>
+        <div class="screen" id="summaryScreen">
+            <div class="episode-summary" id="episodeSummary"></div>
+        </div>
+        <footer class="game-footer">
+            <p class="footer-text">Seven Cubed Seven Labs | <a href="https://sevencubedseven.com">7³×7 = 2,401</a></p>
+        </footer>
+    </div>
+    <script>
+        var STATE = {
+            screen: 'title', characterName: '', stats: { faith: 92, wisdom: 88, courage: 90, love: 88, truth: 90, patience: 88, hope: 94 },
+            baseStats: {}, reformationPoints: 0, currentPhase: 'Discovery', currentScene: 0, choices: [],
+            beings: [
+                { name: 'Martin Luther', status: 'seeking', influence: 75, avatar: '🔨', type: 'reformer' },
+                { name: 'The Reformers', status: 'awakening', influence: 65, avatar: '📜', type: 'reformer' },
+                { name: 'Rome', status: 'threatened', influence: 80, avatar: '⚔', type: 'enemy' },
+                { name: 'The People', status: 'in darkness', influence: 50, avatar: '👥', type: 'people' }
+            ],
+            episodeComplete: false
+        };
+        var SCENES = [
+            { location: 'Wittenberg — A Monk Reads Romans', locationClass: 'wittenberg', contentClass: 'wittenberg-scene', phase: 'Discovery', phaseMarker: true,
+                content: '<p><em>1515. A German monk named <span class="reformation">Martin Luther</span> sits in his tower cell, tormented by guilt. No amount of fasting, confession, or penance can give him peace.</em></p><p><em>He opens Paul\'s letter to the Romans. Chapter 1, verse 17:</em></p><p><span class="scripture">"The just shall live by faith."</span></p><p><em>The words explode in his heart. Not by works. Not by payments. Not by priests. <span class="reformation">By faith alone.</span></em></p><p><span class="speaker luther">Luther:</span> "I felt myself to be reborn and to have gone through open doors into paradise. This passage of Paul became to me a gate to heaven."</p><p><em>What the Waldenses preserved in caves for a thousand years — justification by faith alone — has found its champion.</em></p>',
+                choices: [
+                    { letter: 'A', text: '"The just shall live by faith" — the same truth Waldenses died for. Now it ignites a German monk. The seed preserved in darkness blooms in light.', preview: 'See the connection', effects: { wisdom: 18, faith: 15, truth: 12 }, influence: { target: 'Martin Luther', change: 15, type: 'gold' }, isReformation: true, response: 'The Waldenses copied this verse by candlelight. Now it sets Luther\'s soul on fire. Truth preserved becomes truth proclaimed. The chain continues.' },
+                    { letter: 'B', text: 'Luther sought peace through works and found only guilt. Grace alone, through faith alone, gives what works never could: assurance.', preview: 'See the gospel discovered', effects: { faith: 20, hope: 15, wisdom: 12 }, influence: { target: 'Martin Luther', change: 18, type: 'gold' }, isReformation: true, response: 'No amount of fasting, confession, or penance could give Luther peace. One verse gave what a thousand works could not. This is the gospel: grace through faith.' },
+                    { letter: 'C', text: 'From this tower cell, the world will change. One monk, one verse, one revelation — and empires will tremble.', preview: 'See the ripple begin', effects: { hope: 18, wisdom: 15, courage: 12 }, influence: { target: 'The People', change: 12, type: 'parchment' }, isReformation: true, response: 'A tower cell becomes a launch pad. One man\'s discovery will crack the foundations of medieval Europe. The ripple becomes a tsunami.' },
+                    { letter: 'D', text: 'Pray: "Father, thank You for the gospel that sets prisoners free. Let Luther\'s discovery become the world\'s inheritance."', preview: 'Pray for multiplication', effects: { faith: 18, love: 15, hope: 15 }, influence: { target: 'Martin Luther', change: 18, type: 'gold' }, influenceSecondary: { target: 'The Reformers', change: 12, type: 'gold' }, isPrayer: true, isReformation: true, response: 'Your prayer joins the groaning of centuries. The truth locked in Latin will be unchained. The gospel kept from the people will flood Europe.' }
+                ]
+            },
+            { location: 'Wittenberg — The 95 Theses', locationClass: 'wittenberg', contentClass: 'wittenberg-scene', phase: 'Proclamation', phaseMarker: true,
+                content: '<p><em>October 31, 1517. A Dominican friar named Tetzel sells indulgences near Wittenberg: "As soon as the coin in the coffer rings, the soul from purgatory springs!"</em></p><p><em>Luther\'s blood boils. Salvation is not for sale.</em></p><p><em>He takes a hammer. He takes <span class="number">95 theses</span> — arguments against indulgences. He walks to the Castle Church door.</em></p><p><em>BANG. BANG. BANG.</em></p><p><em>The hammer strikes. The theses are posted. The Reformation has begun.</em></p><p><span class="speaker luther">"Out of love for the truth and from desire to elucidate it, the following propositions will be discussed at Wittenberg..."</span></p><p><em>Within weeks, the printing press spreads Luther\'s theses across Europe. <span class="reformation">The hammer blow heard round the world.</span></em></p>',
+                choices: [
+                    { letter: 'A', text: 'The hammer strikes the door. The sound echoes through centuries. One act of courage becomes a continental earthquake.', preview: 'Witness the moment', effects: { courage: 22, truth: 18, hope: 12 }, influence: { target: 'Martin Luther', change: 18, type: 'gold' }, isReformation: true, response: 'That hammer blow still echoes. One man, one door, one moment of courage — and the medieval world begins to crumble. This is how revolutions begin.' },
+                    { letter: 'B', text: '"Salvation is not for sale." Rome monetized grace. Luther proclaimed it free. The gospel cannot be bought — only received.', preview: 'See the offense', effects: { truth: 20, faith: 18, wisdom: 12 }, influence: { target: 'The People', change: 18, type: 'parchment' }, isReformation: true, response: 'Indulgences exposed Rome\'s corruption: salvation for sale. Luther\'s theses proclaimed the scandal of free grace. What cannot be earned cannot be bought.' },
+                    { letter: 'C', text: 'The printing press spreads the theses like fire. What might have stayed local goes continental. Technology serves truth.', preview: 'See the multiplication', effects: { wisdom: 20, hope: 15, truth: 12 }, influence: { target: 'The People', change: 18, type: 'parchment' }, influenceSecondary: { target: 'The Reformers', change: 12, type: 'gold' }, isReformation: true, response: 'Gutenberg\'s press — invented sixty years earlier — was waiting for this moment. What took months to copy by hand now reaches millions in weeks. Providence prepared the technology.' },
+                    { letter: 'D', text: 'Stand with Luther at the door. "Lord, give us courage to strike our own hammer blows for truth in our generation."', preview: 'Pray for courage', effects: { courage: 20, faith: 18, hope: 15 }, influence: { target: 'Martin Luther', change: 20, type: 'gold' }, isPrayer: true, isReformation: true, response: 'Every generation needs its hammer blows. Luther struck his. What will yours be? The door stands open. The hammer is in your hand.' }
+                ]
+            },
+            { location: 'Rome — The Papal Bull', locationClass: 'rome', contentClass: 'rome-scene', phase: 'Confrontation', phaseMarker: true,
+                content: '<p><em>1520. Pope Leo X issues the bull <span class="latin">Exsurge Domine</span> — "Arise, O Lord." Luther has 60 days to recant or be excommunicated.</em></p><p><span class="speaker pope">Pope Leo X:</span> "A wild boar has invaded the Lord\'s vineyard. Arise, O Peter. Arise, O Paul. The whole church is shaken by this one friar."</span></p><p><em>The bull arrives in Wittenberg. Luther reads Rome\'s ultimatum. He has a choice: submit or stand.</em></p><p><em>Luther gathers his students. He builds a bonfire. He throws the papal bull into the flames.</em></p><p><span class="speaker luther">"Because you have confounded the truth of God, today the Lord confounds you. Into the fire with you!"</span></p><p><em>The crowd gasps. <span class="fire">Luther has burned the Pope\'s decree.</span> There is no going back.</em></p>',
+                choices: [
+                    { letter: 'A', text: 'Luther burns the papal bull. The point of no return. Some bridges must be burned to walk into destiny.', preview: 'See the commitment', effects: { courage: 25, faith: 18, truth: 15 }, influence: { target: 'Martin Luther', change: 20, type: 'gold' }, influence2: { target: 'Rome', change: -10, type: 'dark' }, isReformation: true, response: 'Burning the bull burned his boats. Luther could not go back. Sometimes commitment requires destroying the option of retreat. This is total surrender to truth.' },
+                    { letter: 'B', text: '"A wild boar has invaded the vineyard." Rome calls truth invasion. The system that sold salvation calls grace an offense.', preview: 'See Rome\'s blindness', effects: { wisdom: 20, truth: 18, patience: 12 }, influence: { target: 'The Reformers', change: 15, type: 'gold' }, isReformation: true, response: 'Rome saw Luther as invader, not liberator. The institution that chained the Bible called freedom rebellion. This is how darkness describes light.' },
+                    { letter: 'C', text: '"The whole church is shaken by this one friar." The Pope admits what God is doing. One man with truth outweighs an empire with power.', preview: 'See the disproportion', effects: { hope: 20, faith: 18, courage: 12 }, influence: { target: 'The People', change: 15, type: 'parchment' }, isReformation: true, response: 'One friar shakes the whole church. This is the divine mathematics: one plus God is a majority. Truth needs no armies — only witnesses.' },
+                    { letter: 'D', text: 'Pray: "Father, give us Luther\'s courage to burn what must be burned — our compromises, our fears, our allegiance to false systems."', preview: 'Pray for fire', effects: { courage: 22, faith: 18, truth: 15 }, influence: { target: 'Martin Luther', change: 18, type: 'gold' }, isPrayer: true, isReformation: true, response: 'What papal bulls need burning in your life? What decrees of false authority? Luther\'s bonfire invites your own. Some things must burn for truth to live.' }
+                ]
+            },
+            { location: 'Worms — The Diet of Worms', locationClass: 'worms', contentClass: 'worms-scene', phase: 'The Stand', phaseMarker: true,
+                content: '<p><em>April 1521. The Imperial Diet at Worms. Emperor Charles V, the most powerful ruler in Europe, summons Luther to answer for his writings.</em></p><p><em>Luther enters the hall. His books lie on a table. The question is simple: Will you recant?</em></p><p><span class="speaker emperor">Imperial Official:</span> "Martin Luther, do you acknowledge these books as yours? Will you recant what you have written?"</p><p><em>Luther asks for time to consider. He is given one night.</em></p><p><em>The next day, he returns. The hall is packed. Emperor, princes, bishops — all waiting.</em></p><p><span class="speaker luther">"Unless I am convinced by Scripture and plain reason — I do not accept the authority of popes and councils, for they have contradicted each other — my conscience is captive to the Word of God. <span class="stand">I cannot and I will not recant anything, for to go against conscience is neither right nor safe.</span></span></p><p><span class="speaker luther"><span class="stand">"Here I stand. I can do no other. God help me. Amen."</span></span></p>',
+                choices: [
+                    { letter: 'A', text: '"Here I stand. I can do no other." The most famous words of the Reformation. Conscience captive to God\'s Word cannot yield to human authority.', preview: 'Hear the stand', effects: { courage: 28, faith: 22, truth: 18 }, influence: { target: 'Martin Luther', change: 25, type: 'gold' }, isReformation: true, response: 'These words still thunder through centuries. One man before an empire. Conscience bound to Scripture. "I can do no other." This is the Reformation in five words.' },
+                    { letter: 'B', text: '"I do not accept the authority of popes and councils, for they have contradicted each other." Sola Scriptura — Scripture alone is the final authority.', preview: 'See the principle', effects: { truth: 25, wisdom: 20, faith: 15 }, influence: { target: 'The Reformers', change: 20, type: 'gold' }, isReformation: true, response: 'Luther struck the root: tradition contradicts itself. Scripture alone stands consistent. Sola Scriptura — the bedrock of the Reformation. All Protestant truth flows from this.' },
+                    { letter: 'C', text: 'Emperor, princes, bishops — all the power of Europe — versus one monk with a Bible. And the monk wins. This is how God works.', preview: 'See the divine reversal', effects: { hope: 22, faith: 20, courage: 15 }, influence: { target: 'The People', change: 20, type: 'parchment' }, isReformation: true, response: 'The empire had the power. Luther had the truth. Power could kill his body. It could not touch his conscience. Truth always outlasts empire.' },
+                    { letter: 'D', text: 'Pray: "Father, give us Luther\'s stand. When our moment comes, let us say \'Here I stand\' without wavering."', preview: 'Pray for your stand', effects: { courage: 25, faith: 20, hope: 18 }, influence: { target: 'Martin Luther', change: 22, type: 'gold' }, influenceSecondary: { target: 'The People', change: 15, type: 'parchment' }, isPrayer: true, isReformation: true, response: 'Your Worms is coming. Every faithful soul faces a moment when empire demands recantation. When your moment comes, may these words rise from your heart: "Here I stand."' }
+                ]
+            },
+            { location: 'Wartburg Castle — The Bible Unchained', locationClass: 'wartburg', contentClass: 'wartburg-scene', phase: 'Translation', phaseMarker: true,
+                content: '<p><em>Luther is "kidnapped" by friends and hidden in Wartburg Castle. The empire cannot find him. He grows a beard, takes a false name: "Knight George."</em></p><p><em>But Luther has work to do. For a thousand years, the Bible has been locked in Latin — a language the common people cannot read.</em></p><p><em>In eleven weeks, Luther translates the entire New Testament into German.</em></p><p><span class="speaker luther">"I have undertaken to translate the Bible into German. This was good for me; otherwise I might have died with the notion that I was a learned man."</span></p><p><em>When printed, his German Bible sells 5,000 copies in two weeks. The Word of God — in the language of the people. <span class="scripture">The chains are broken.</span></em></p><p><em>What the Waldenses hid in bread, Luther puts on every table.</em></p>',
+                choices: [
+                    { letter: 'A', text: 'Eleven weeks. The entire New Testament. God\'s Word unchained from Latin and given to the people. This changes everything.', preview: 'See the speed of grace', effects: { wisdom: 22, truth: 20, hope: 15 }, influence: { target: 'The People', change: 25, type: 'parchment' }, isReformation: true, response: 'Eleven weeks for a thousand years of chains to break. The Spirit empowered supernatural productivity. What Rome kept locked, Luther unleashed in weeks.' },
+                    { letter: 'B', text: 'The Waldenses copied Scripture by candlelight. Luther mass-produces it. What one generation preserves, another distributes. The chain continues.', preview: 'See the generational handoff', effects: { hope: 20, wisdom: 18, faith: 15 }, influence: { target: 'The Reformers', change: 18, type: 'gold' }, isReformation: true, response: 'The Waldenses preserved the seed. Luther planted it across Europe. Each generation plays its part. Preservation leads to proclamation leads to transformation.' },
+                    { letter: 'C', text: '"Knight George" — hidden from empire, revealed to God. Sometimes the greatest work happens in hiding. God uses our wilderness seasons.', preview: 'See the hidden work', effects: { patience: 20, wisdom: 18, faith: 15 }, influence: { target: 'Martin Luther', change: 15, type: 'gold' }, isReformation: true, response: 'Wartburg was not exile — it was commission. What seemed like hiding was equipping. Sometimes God removes us from public view to give the world something that will last.' },
+                    { letter: 'D', text: 'Pray: "Father, may Your Word be unchained in every language, in every heart. Let no translation barrier keep souls from Scripture."', preview: 'Pray for the Word', effects: { love: 20, faith: 18, hope: 18 }, influence: { target: 'The People', change: 22, type: 'parchment' }, isPrayer: true, isReformation: true, response: 'Your prayer echoes the Great Commission. The Word in every tongue. What Luther began continues — missionaries translate still. Every language deserves the Bible.' }
+                ]
+            },
+            { location: 'England — Tyndale\'s Sacrifice', locationClass: 'martyrdom', contentClass: 'martyrdom-scene', phase: 'Martyrdom', phaseMarker: true,
+                content: '<p><em>1536. William Tyndale, who gave England its first printed English Bible, is captured and condemned.</em></p><p><em>He was smuggled out of England to translate Scripture. He lived in exile for years. He was betrayed by a friend.</em></p><p><span class="speaker tyndale">"Lord, open the King of England\'s eyes!"</span></p><p><em>These are his last words before the flames.</em></p><p><em>Within three years, King Henry VIII authorizes an English Bible in every church — based largely on Tyndale\'s translation.</em></p><p><em><span class="fire">Tyndale\'s prayer was answered.</span> His body burned. His words endure. 90% of the King James Bible comes from Tyndale.</em></p><p><em>The Reformation is not just about ideas. It is written in blood.</em></p>',
+                choices: [
+                    { letter: 'A', text: '"Lord, open the King of England\'s eyes!" — a prayer for his persecutor as he dies. Martyrs pray for those who kill them. This is the pattern.', preview: 'Hear the final prayer', effects: { love: 25, faith: 22, courage: 15 }, influence: { target: 'The Reformers', change: 20, type: 'flame' }, isReformation: true, response: 'Like Stephen. Like Jesus. The martyrs pray for their killers. "Lord, open his eyes." This is love that conquers death. This is faith fire cannot burn.' },
+                    { letter: 'B', text: 'Within three years, his prayer was answered. The King authorized what he murdered Tyndale for doing. God uses even hostile kings.', preview: 'See the answered prayer', effects: { hope: 22, faith: 20, wisdom: 15 }, influence: { target: 'The People', change: 20, type: 'parchment' }, isReformation: true, response: 'The king who killed him authorized his work. Divine irony. God bends even hostile rulers to serve His purposes. What man murders, God multiplies.' },
+                    { letter: 'C', text: '90% of the King James Bible comes from Tyndale. The man they burned lives in every English Bible. Martyrdom multiplies what it meant to destroy.', preview: 'See the multiplication', effects: { hope: 22, wisdom: 18, truth: 15 }, influence: { target: 'The Reformers', change: 18, type: 'flame' }, isReformation: true, response: 'They burned the translator. They could not burn the translation. Every English Bible carries Tyndale\'s words. His body is ash. His gift is eternal.' },
+                    { letter: 'D', text: 'Weep for Tyndale. Pray for those who sacrifice everything so we can read Scripture in our own language.', preview: 'Honor the sacrifice', effects: { love: 22, faith: 18, courage: 18 }, influence: { target: 'The Reformers', change: 22, type: 'flame' }, isPrayer: true, isReformation: true, response: 'Your English Bible cost blood. Tyndale\'s blood. And others\'. Every page is purchased. May we never read carelessly what they died to give us.' }
+                ]
+            },
+            { location: 'Europe — The Counter-Reformation', locationClass: 'rome', contentClass: 'rome-scene', phase: 'Counter-Attack',
+                content: '<p><em>Rome strikes back. The Council of Trent. The Jesuits. The Inquisition intensified.</em></p><p><span class="speaker pope">"The heresy must be extinguished. The reformers must be destroyed. The Church must be purified — of Protestantism."</span></p><p><em>Thousands die across Europe. Wars of religion tear the continent apart. The Reformation is not a peaceful transition — it is a battle.</em></p><p><em>But for every martyr, ten believers rise. For every Bible burned, a hundred are printed. Rome cannot stop what God has started.</em></p><p><em><span class="scripture">"If God be for us, who can be against us?"</span></em></p>',
+                choices: [
+                    { letter: 'A', text: 'Rome strikes back — Trent, Jesuits, Inquisition. The dragon wages war on the woman. But persecution has never stopped truth; it only spreads it.', preview: 'See the counter-attack', effects: { wisdom: 20, courage: 15, truth: 15 }, influence: { target: 'Rome', change: 10, type: 'dark' }, isReformation: true, response: 'Every reformation faces counter-reformation. Rome\'s response was predictable — Revelation 12 foretold it. The dragon cannot create; he can only destroy. But God builds from ashes.' },
+                    { letter: 'B', text: 'For every martyr, ten believers rise. For every Bible burned, a hundred printed. This is the divine mathematics Rome never understood.', preview: 'See the multiplication principle', effects: { hope: 22, faith: 18, wisdom: 12 }, influence: { target: 'The People', change: 18, type: 'parchment' }, isReformation: true, response: 'The blood of the martyrs is the seed of the church — again. Rome\'s violence recruits for the Reformation. What they kill multiplies. This is the pattern they never learn.' },
+                    { letter: 'C', text: '"If God be for us, who can be against us?" The Reformers faced empires, inquisitions, armies. They had something better: truth and the Spirit.', preview: 'See the confidence', effects: { faith: 22, courage: 18, hope: 15 }, influence: { target: 'The Reformers', change: 18, type: 'gold' }, isReformation: true, response: 'Councils, armies, empires — arrayed against the Reformation. But one plus God is a majority. The gates of hell shall not prevail. This promise held through every fire.' },
+                    { letter: 'D', text: 'Pray: "Father, strengthen those who face counter-attack. In our day, when truth is opposed, let us stand like the Reformers stood."', preview: 'Pray for endurance', effects: { courage: 20, faith: 18, patience: 18 }, influence: { target: 'The Reformers', change: 20, type: 'gold' }, isPrayer: true, isReformation: true, response: 'Counter-reformation is coming again. When the final test arrives, God\'s people will need Reformation courage. The same Spirit that sustained them is available to you.' }
+                ]
+            },
+            { location: 'The Protestant World — Dawn of a New Era', locationClass: 'dawn', contentClass: 'dawn-scene', phase: 'Legacy', phaseMarker: true,
+                content: '<p><em>The Reformation\'s principles spread across Europe and eventually the world:</em></p><p><em><span class="reformation">Sola Scriptura</span> — Scripture alone is the final authority.<br><span class="reformation">Sola Fide</span> — Faith alone saves.<br><span class="reformation">Sola Gratia</span> — Grace alone is the source of salvation.<br><span class="reformation">Solus Christus</span> — Christ alone is the mediator.<br><span class="reformation">Soli Deo Gloria</span> — To God alone be the glory.</em></p><p><em>But the Reformation is not complete. Luther still kept Sunday. He still held to some Catholic doctrines. The work continues.</em></p><p><em>God is not finished. There is more light to break forth from His Word.</em></p><p><span class="scripture">"The path of the just is as the shining light, that shineth more and more unto the perfect day."</span></p>',
+                choices: [
+                    { letter: 'A', text: 'The Five Solas — the foundation of Protestant faith. Scripture, Faith, Grace, Christ, God\'s Glory. All else is built on these.', preview: 'See the foundation', effects: { truth: 22, wisdom: 20, faith: 15 }, influence: { target: 'The Reformers', change: 18, type: 'gold' }, isReformation: true, response: 'The Five Solas stand as the Reformation\'s permanent contribution. Every Protestant denomination builds on these pillars. Luther struck; generations built.' },
+                    { letter: 'B', text: 'The Reformation is not complete. Luther kept Sunday. More truth awaits discovery. The light shines "more and more unto the perfect day."', preview: 'See the continuing work', effects: { wisdom: 22, hope: 20, truth: 15 }, influence: { target: 'The People', change: 18, type: 'parchment' }, isReformation: true, response: 'Present truth is progressive truth. Luther recovered justification. Others will recover the Sabbath. Still others the sanctuary. Each generation adds light until the full day.' },
+                    { letter: 'C', text: 'From one monk in a tower to millions across continents. The gospel unchained transforms worlds. This is what truth does when set free.', preview: 'See the scope', effects: { hope: 22, faith: 18, love: 15 }, influence: { target: 'The People', change: 20, type: 'parchment' }, isReformation: true, response: 'One tower cell. One open Bible. One discovery of grace. And millions transformed across centuries. This is the compound interest of faithfulness.' },
+                    { letter: 'D', text: 'Pray: "Father, we receive the Reformers\' inheritance. May we be faithful to add our light to theirs. Finish the work they began."', preview: 'Pray for completion', effects: { faith: 22, hope: 22, truth: 18 }, influence: { target: 'The Reformers', change: 20, type: 'gold' }, influenceSecondary: { target: 'The People', change: 20, type: 'parchment' }, isPrayer: true, isReformation: true, response: 'The Reformation continues. Each generation receives and adds. What will your contribution be? The light shines more and more. Add your flame.' }
+                ]
+            }
+        ];
+        function init() { checkSavedGame(); checkPreviousSaves(); }
+        function checkSavedGame() { var saved = localStorage.getItem('gcg_ep11_save'); if (saved) { document.getElementById('continueBtn').disabled = false; } }
+        function checkPreviousSaves() {
+            var prevEps = ['gcg_ep10_save', 'gcg_ep9_save', 'gcg_ep8_save', 'gcg_ep7_save', 'gcg_ep6_save', 'gcg_ep5_save', 'gcg_ep4_save', 'gcg_ep3_save', 'gcg_ep2_save', 'gcg_save'];
+            var epNames = ['Episode 10', 'Episode 9', 'Episode 8', 'Episode 7', 'Episode 6', 'Episode 5', 'Episode 4', 'Episode 3', 'Episode 2', 'Episode 1'];
+            for (var i = 0; i < prevEps.length; i++) { var saved = localStorage.getItem(prevEps[i]); if (saved) { var data = JSON.parse(saved); if (data.episodeComplete) { displayPrevStats(data, epNames[i]); return; } } }
+        }
+        function displayPrevStats(data, epName) {
+            var statsDiv = document.getElementById('prevStats'); statsDiv.style.display = 'grid';
+            statsDiv.innerHTML = '<div class="import-stat"><div class="import-stat-name">Faith</div><div class="import-stat-value stat-faith">' + data.stats.faith + '</div></div><div class="import-stat"><div class="import-stat-name">Courage</div><div class="import-stat-value stat-courage">' + data.stats.courage + '</div></div><div class="import-stat"><div class="import-stat-name">Truth</div><div class="import-stat-value stat-truth">' + data.stats.truth + '</div></div><div class="import-stat"><div class="import-stat-name">Hope</div><div class="import-stat-value stat-hope">' + data.stats.hope + '</div></div>';
+            document.getElementById('importFromPrev').querySelector('p').innerHTML = 'Continue as <strong>' + data.characterName + '</strong> from ' + epName + '.';
+        }
+        function showScreen(screenId) { var screens = document.querySelectorAll('.screen'); for (var i = 0; i < screens.length; i++) { screens[i].classList.remove('active'); } document.getElementById(screenId).classList.add('active'); STATE.screen = screenId; var menuBtn = document.getElementById('menuBtn'); if (screenId === 'gameScreen' || screenId === 'consequenceScreen') { menuBtn.classList.add('visible'); } else { menuBtn.classList.remove('visible'); } }
+        function showImportScreen() { showScreen('importScreen'); }
+        function importFromPrevious() { var prevEps = ['gcg_ep10_save', 'gcg_ep9_save', 'gcg_ep8_save', 'gcg_ep7_save', 'gcg_ep6_save', 'gcg_ep5_save', 'gcg_ep4_save', 'gcg_ep3_save', 'gcg_ep2_save', 'gcg_save']; for (var i = 0; i < prevEps.length; i++) { var saved = localStorage.getItem(prevEps[i]); if (saved) { var data = JSON.parse(saved); if (data.episodeComplete) { useImportedData(data); return; } } } alert('No completed previous episode found.'); }
+        function useImportedData(data) { STATE.characterName = data.characterName; STATE.stats = JSON.parse(JSON.stringify(data.stats)); STATE.baseStats = JSON.parse(JSON.stringify(data.stats)); startGame(); }
+        function startFresh() { STATE.characterName = 'Faithful One'; STATE.stats = { faith: 92, wisdom: 88, courage: 90, love: 88, truth: 90, patience: 88, hope: 94 }; STATE.baseStats = JSON.parse(JSON.stringify(STATE.stats)); startGame(); }
+        function showNameInput() { showScreen('nameScreen'); }
+        function confirmCustomName() { var name = document.getElementById('customName').value.trim() || 'Faithful One'; STATE.characterName = name; STATE.stats = { faith: 92, wisdom: 88, courage: 90, love: 88, truth: 90, patience: 88, hope: 94 }; STATE.baseStats = JSON.parse(JSON.stringify(STATE.stats)); startGame(); }
+        function startGame() { STATE.currentScene = 0; STATE.choices = []; STATE.episodeComplete = false; STATE.reformationPoints = 0; STATE.currentPhase = 'Discovery'; STATE.beings = [ { name: 'Martin Luther', status: 'seeking', influence: 75, avatar: '🔨', type: 'reformer' }, { name: 'The Reformers', status: 'awakening', influence: 65, avatar: '📜', type: 'reformer' }, { name: 'Rome', status: 'threatened', influence: 80, avatar: '⚔', type: 'enemy' }, { name: 'The People', status: 'in darkness', influence: 50, avatar: '👥', type: 'people' } ]; showScreen('gameScreen'); updateStatsDisplay(); updateInfluenceDisplay(); updateReformationDisplay(); displayScene(0); }
+        function continueGame() { var saved = localStorage.getItem('gcg_ep11_save'); if (saved) { STATE = JSON.parse(saved); updateStatsDisplay(); updateInfluenceDisplay(); updateReformationDisplay(); updateBackground(); if (STATE.episodeComplete) { showSummary(); } else { showScreen('gameScreen'); displayScene(STATE.currentScene); } } }
+        function updateStatsDisplay() { document.getElementById('statFaith').textContent = STATE.stats.faith; document.getElementById('statWisdom').textContent = STATE.stats.wisdom; document.getElementById('statCourage').textContent = STATE.stats.courage; document.getElementById('statLove').textContent = STATE.stats.love; document.getElementById('statTruth').textContent = STATE.stats.truth; document.getElementById('statPatience').textContent = STATE.stats.patience; document.getElementById('statHope').textContent = STATE.stats.hope; document.getElementById('statReform').textContent = STATE.reformationPoints; document.getElementById('displayName').textContent = STATE.characterName; }
+        function updateReformationDisplay() { document.getElementById('reformationDisplay').textContent = STATE.reformationPoints; document.getElementById('currentPhase').textContent = STATE.currentPhase; }
+        function updateBackground() { var bg = document.getElementById('bgLayer'); var fireOverlay = document.getElementById('fireOverlay'); bg.classList.remove('wittenberg', 'rome', 'worms', 'wartburg', 'printing', 'martyrdom', 'dawn'); fireOverlay.classList.remove('active'); var scene = SCENES[STATE.currentScene]; if (scene) { bg.classList.add(scene.locationClass); if (scene.locationClass === 'martyrdom') { fireOverlay.classList.add('active'); } } else { bg.classList.add('wittenberg'); } }
+        function updateInfluenceDisplay() { var grid = document.getElementById('influenceGrid'); var html = ''; for (var i = 0; i < STATE.beings.length; i++) { var being = STATE.beings[i]; var fillClass = 'gold'; if (being.type === 'martyr') fillClass = 'flame'; if (being.type === 'enemy') fillClass = 'dark'; if (being.type === 'people') fillClass = 'parchment'; html += '<div class="influence-item"><div class="influence-avatar ' + being.type + '">' + being.avatar + '</div><div class="influence-info"><div class="influence-name">' + being.name + '</div><div class="influence-status">' + being.status + '</div><div class="influence-bar"><div class="influence-fill ' + fillClass + '" style="width: ' + being.influence + '%;"></div></div></div></div>'; } grid.innerHTML = html; }
+        function displayScene(sceneIndex) { if (sceneIndex >= SCENES.length) { STATE.episodeComplete = true; saveGame(); showSummary(); return; } var scene = SCENES[sceneIndex]; var storyContent = document.getElementById('storyContent'); var choicesContainer = document.getElementById('choicesContainer'); STATE.currentPhase = scene.phase; updateReformationDisplay(); updateBackground(); updateBeingsForScene(sceneIndex); storyContent.classList.remove('wittenberg-scene', 'rome-scene', 'worms-scene', 'wartburg-scene', 'printing-scene', 'martyrdom-scene', 'dawn-scene'); if (scene.contentClass) storyContent.classList.add(scene.contentClass); var storyHtml = '<div class="scene-location">' + scene.location + '</div>'; if (scene.phaseMarker) { var desc = ''; if (scene.phase === 'Discovery') desc = 'Truth rediscovered'; if (scene.phase === 'Proclamation') desc = 'The hammer strikes'; if (scene.phase === 'Confrontation') desc = 'Rome responds'; if (scene.phase === 'The Stand') desc = 'Conscience over empire'; if (scene.phase === 'Translation') desc = 'The Word unchained'; if (scene.phase === 'Martyrdom') desc = 'Blood becomes seed'; if (scene.phase === 'Counter-Attack') desc = 'The dragon fights back'; if (scene.phase === 'Legacy') desc = 'Light shines on'; storyHtml += '<div class="phase-marker"><h4>Phase</h4><div class="phase-name">' + scene.phase + '</div><p>' + desc + '</p></div>'; } storyHtml += '<div class="story-text">' + scene.content + '</div>'; storyContent.innerHTML = storyHtml; var choicesHtml = '<div class="choices-label">How do you respond?</div>'; for (var i = 0; i < scene.choices.length; i++) { var choice = scene.choices[i]; var btnClass = choice.isReformation ? 'choice-btn reformation-choice' : 'choice-btn'; choicesHtml += '<button class="' + btnClass + '" onclick="makeChoice(' + sceneIndex + ', ' + i + ')"><span class="choice-letter">[' + choice.letter + ']</span>' + choice.text; if (choice.preview) { var prefix = ''; if (choice.isPrayer) prefix += '🙏 '; if (choice.isReformation) prefix += '🔨 '; choicesHtml += '<span class="choice-preview">' + prefix + choice.preview + '</span>'; } choicesHtml += '</button>'; } choicesContainer.innerHTML = choicesHtml; }
+        function updateBeingsForScene(sceneIndex) { var luther = STATE.beings.find(function(b) { return b.name === 'Martin Luther'; }); var reformers = STATE.beings.find(function(b) { return b.name === 'The Reformers'; }); var rome = STATE.beings.find(function(b) { return b.name === 'Rome'; }); var people = STATE.beings.find(function(b) { return b.name === 'The People'; }); if (sceneIndex >= 1) { if (luther) luther.status = 'proclaiming'; if (people) people.status = 'awakening'; } if (sceneIndex >= 2) { if (luther) luther.status = 'defying'; if (rome) rome.status = 'enraged'; } if (sceneIndex >= 3) { if (luther) luther.status = 'standing'; if (reformers) reformers.status = 'growing'; } if (sceneIndex >= 4) { if (luther) luther.status = 'translating'; if (people) people.status = 'reading'; } if (sceneIndex >= 5) { if (reformers) reformers.status = 'dying/multiplying'; } if (sceneIndex >= 7) { if (luther) luther.status = 'legacy'; if (reformers) reformers.status = 'triumphant'; if (people) people.status = 'transformed'; if (rome) rome.status = 'diminished'; } updateInfluenceDisplay(); }
+        function makeChoice(sceneIndex, choiceIndex) { var scene = SCENES[sceneIndex]; var choice = scene.choices[choiceIndex]; STATE.choices.push({ scene: sceneIndex, choice: choiceIndex, letter: choice.letter, isPrayer: choice.isPrayer || false, isReformation: choice.isReformation || false }); if (choice.isReformation) { STATE.reformationPoints++; } var statChanges = []; if (choice.effects) { for (var stat in choice.effects) { if (choice.effects.hasOwnProperty(stat)) { var change = choice.effects[stat]; STATE.stats[stat] = Math.max(0, Math.min(100, STATE.stats[stat] + change)); if (change !== 0) { statChanges.push({ stat: stat, change: change }); } } } } if (choice.influence) { applyInfluence(choice.influence.target, choice.influence.change, choice.influence.type); } if (choice.influenceSecondary) { applyInfluence(choice.influenceSecondary.target, choice.influenceSecondary.change, choice.influenceSecondary.type); } if (choice.influence2) { applyInfluence(choice.influence2.target, choice.influence2.change, choice.influence2.type); } showConsequence(choice, statChanges, sceneIndex); }
+        function applyInfluence(targetName, change, type) { for (var i = 0; i < STATE.beings.length; i++) { if (STATE.beings[i].name === targetName) { STATE.beings[i].influence = Math.max(0, Math.min(100, STATE.beings[i].influence + change)); break; } } }
+        function showConsequence(choice, statChanges, sceneIndex) { showScreen('consequenceScreen'); var display = document.getElementById('consequenceDisplay'); var title = 'Truth Advances'; if (choice.isPrayer) title = 'Prayer of Reformation'; if (choice.isReformation && !choice.isPrayer) title = 'The Light Spreads'; var html = '<h3 class="consequence-title">' + title + '</h3>'; if (statChanges.length > 0) { html += '<div class="stat-changes">'; for (var i = 0; i < statChanges.length; i++) { var sc = statChanges[i]; var sign = sc.change > 0 ? '+' : ''; var cls = sc.change > 0 ? 'positive' : 'reformation'; var statName = sc.stat.charAt(0).toUpperCase() + sc.stat.slice(1); html += '<div class="stat-change ' + cls + '">' + statName + ' ' + sign + sc.change + '</div>'; } html += '</div>'; } html += '<p style="text-align: center; color: var(--text-secondary); font-size: 1.05rem; line-height: 1.8; margin: 20px 0;">' + choice.response + '</p>'; if (choice.isReformation) { html += '<div class="reformation-notice"><h4>🔨 Reformation Point Earned</h4><p>You stand with those who broke the chains of darkness.</p></div>'; } html += '<button class="btn btn-reformation continue-btn" onclick="continueStory(' + (sceneIndex + 1) + ')">Continue</button>'; display.innerHTML = html; updateStatsDisplay(); updateInfluenceDisplay(); updateReformationDisplay(); saveGame(); }
+        function continueStory(nextScene) { STATE.currentScene = nextScene; showScreen('gameScreen'); displayScene(nextScene); }
+        function showSummary() { showScreen('summaryScreen'); var summary = document.getElementById('episodeSummary'); var bg = document.getElementById('bgLayer'); bg.classList.remove('wittenberg', 'rome', 'worms', 'wartburg', 'martyrdom'); bg.classList.add('dawn'); document.getElementById('fireOverlay').classList.remove('active'); var baseStats = STATE.baseStats || { faith: 92, wisdom: 88, courage: 90, love: 88, truth: 90, patience: 88, hope: 94 }; var endingTitle = 'Witness of the Reformation'; var endingDesc = 'You watched the chains break. Luther stood. Tyndale burned. The Word was freed. The light continues to shine.'; if (STATE.reformationPoints >= 7) { endingTitle = 'Hammer of Truth'; endingDesc = 'Through every phase — discovery, proclamation, confrontation, martyrdom — you stood with the Reformers. Their courage is your inheritance. Their work continues in you.'; } else if (STATE.stats.courage >= 100) { endingTitle = 'Spirit of Luther'; endingDesc = '"Here I stand. I can do no other." Luther\'s courage lives in you. When your Worms comes, you will not flinch. Conscience captive to God\'s Word is invincible.'; } else if (STATE.stats.truth >= 100) { endingTitle = 'Guardian of Sola Scriptura'; endingDesc = 'Scripture alone. The principle Luther articulated, you have absorbed. No tradition, no council, no human authority can supersede the Word of God.'; } else if (STATE.stats.hope >= 100) { endingTitle = 'Bearer of Progressive Light'; endingDesc = 'The light shines more and more unto the perfect day. The Reformation is not finished. You carry the torch forward, ready to receive more truth.'; } var html = '<div class="summary-header"><h2 class="summary-title">Episode Complete</h2><p class="summary-subtitle">The Reformation</p></div>'; html += '<div class="hammer-decoration"><div class="hammer-symbol">🔨</div><div class="hammer-inscription">HERE I STAND</div><p>"I can do no other. God help me."</p></div>'; html += '<div class="summary-section" style="text-align: center; border-color: var(--reformation-gold);"><h3 style="font-family: Cinzel, serif; font-size: 1.5rem; color: var(--reformation-gold); margin-bottom: 15px;">' + endingTitle + '</h3><p style="color: var(--text-secondary); line-height: 1.8;">' + endingDesc + '</p></div>'; html += '<div class="summary-section" style="text-align: center;"><div style="font-family: Cinzel, serif; font-size: 3rem; color: var(--reformation-gold);">' + STATE.reformationPoints + '</div><div style="color: var(--text-secondary);">Reformation Points Earned</div><p style="margin-top: 15px; color: var(--text-dim); font-style: italic;">The hammer struck. The chains broke. The Word was freed. You were there.</p></div>'; html += '<div class="summary-section"><h4 class="summary-section-title">🔨 Through the Reformation</h4><div class="phase-journey"><div class="journey-phase"><div class="icon">📖</div><div class="name">Discovery</div></div><div class="journey-arrow">→</div><div class="journey-phase"><div class="icon">🔨</div><div class="name">Proclamation</div></div><div class="journey-arrow">→</div><div class="journey-phase"><div class="icon">🔥</div><div class="name">Confrontation</div></div><div class="journey-arrow">→</div><div class="journey-phase"><div class="icon">⚔</div><div class="name">The Stand</div></div><div class="journey-arrow">→</div><div class="journey-phase"><div class="icon">🌅</div><div class="name">Legacy</div></div></div></div>'; html += '<div class="summary-section"><h4 class="summary-section-title">🔨 Refined by Fire</h4><div class="final-stats-grid">'; var statNames = ['faith', 'wisdom', 'courage', 'love', 'truth', 'patience', 'hope']; var statColors = ['#ffd700', '#9b59b6', '#e74c3c', '#e91e63', '#3498db', '#1abc9c', '#f39c12']; for (var s = 0; s < statNames.length; s++) { var sName = statNames[s]; var sVal = STATE.stats[sName]; var sBase = baseStats[sName] || 90; var sChange = sVal - sBase; var changeStr = sChange >= 0 ? '+' + sChange : '' + sChange; var changeColor = sChange >= 0 ? 'var(--success)' : 'var(--reformation-gold)'; html += '<div class="final-stat"><div class="final-stat-name" style="color: ' + statColors[s] + ';">' + sName.charAt(0).toUpperCase() + sName.slice(1) + '</div><div class="final-stat-value" style="color: ' + statColors[s] + ';">' + sVal + '</div><div class="final-stat-change" style="color: ' + changeColor + ';">' + changeStr + '</div></div>'; } html += '</div></div>'; html += '<div class="summary-section"><h4 class="summary-section-title">🔨 The Reformers</h4><div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">'; for (var b = 0; b < STATE.beings.length; b++) { var being = STATE.beings[b]; html += '<div style="padding: 15px; background: rgba(0,0,0,0.2); border-radius: 8px; text-align: center;"><div style="font-size: 1.5rem; margin-bottom: 5px;">' + being.avatar + '</div><div style="font-family: Cinzel, serif; color: var(--reformation-gold);">' + being.name + '</div><div style="font-size: 0.8rem; color: var(--text-dim);">' + being.status + '</div></div>'; } html += '</div></div>'; html += '<div class="summary-section"><h4 class="summary-section-title">🔨 What You Witnessed</h4><div class="narrative-summary"><p>As ' + STATE.characterName + ', you witnessed the breaking of a thousand years of chains. You saw Luther discover grace in Romans, nail theses to a door, burn the papal bull, and stand before emperor and empire.</p><p>"Here I stand. I can do no other. God help me."</p><p>You watched Tyndale pray for his persecutor\'s eyes to open — and three years later, they did. You saw the Five Solas established as the foundation of Protestant faith.</p><p>But the light shines more and more. The Reformation is not finished. The Sabbath waits to be recovered. The sanctuary waits to be understood. The final message waits to be proclaimed.</p></div></div>'; html += '<div class="to-be-continued"><h3>The Story Continues...</h3><p>Episode 12: The Advent Movement — Coming Soon</p><p style="margin-top: 10px; color: var(--text-dim);">"Unto two thousand and three hundred days; then shall the sanctuary be cleansed."</p><button class="btn btn-primary" style="margin-top: 20px;" onclick="returnToTitle()">Return to Title</button></div>'; summary.innerHTML = html; }
+        function toggleMenu() { document.getElementById('menuModal').classList.toggle('active'); }
+        function saveGame() { localStorage.setItem('gcg_ep11_save', JSON.stringify(STATE)); }
+        function restartEpisode() { if (confirm('Restart Episode 11? All progress will be lost.')) { localStorage.removeItem('gcg_ep11_save'); location.reload(); } }
+        function returnToTitle() { var modal = document.getElementById('menuModal'); if (modal.classList.contains('active')) { modal.classList.remove('active'); } showScreen('titleScreen'); checkSavedGame(); var bg = document.getElementById('bgLayer'); bg.classList.remove('rome', 'worms', 'wartburg', 'martyrdom', 'dawn'); bg.classList.add('wittenberg'); document.getElementById('fireOverlay').classList.remove('active'); }
+        init();
+    </script>
+</body>
+</html>
