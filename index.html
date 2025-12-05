@@ -1,0 +1,1865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Great Controversy: The Game</title>
+    <meta name="description" content="A game about choices, consequences, and cosmic war. Experience the Great Controversy through interactive storytelling.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0a0a12;
+            --bg-medium: #12121f;
+            --bg-light: #1a1a2e;
+            --gold: #d4af37;
+            --gold-light: #f4e4a6;
+            --gold-dim: #8b7355;
+            --celestial-blue: #4a90d9;
+            --celestial-cyan: #00d4ff;
+            --celestial-purple: #8b5cf6;
+            --heaven-white: #f8f4ff;
+            --text-primary: #e8e4f0;
+            --text-secondary: #a8a4b8;
+            --text-dim: #6a6680;
+            --danger: #ff4757;
+            --success: #2ed573;
+            --warning: #ffa502;
+            --faith-color: #ffd700;
+            --wisdom-color: #9b59b6;
+            --courage-color: #e74c3c;
+            --love-color: #e91e63;
+            --truth-color: #3498db;
+            --patience-color: #1abc9c;
+            --hope-color: #f39c12;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Crimson Pro', Georgia, serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Celestial Background */
+        .celestial-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .celestial-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 20% 20%, rgba(74, 144, 217, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(212, 175, 55, 0.05) 0%, transparent 70%),
+                linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-medium) 50%, var(--bg-light) 100%);
+        }
+
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.8), transparent),
+                radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.5), transparent),
+                radial-gradient(1px 1px at 90px 40px, rgba(255,255,255,0.6), transparent),
+                radial-gradient(2px 2px at 130px 80px, rgba(255,255,255,0.4), transparent),
+                radial-gradient(1px 1px at 160px 120px, rgba(255,255,255,0.7), transparent);
+            background-size: 200px 200px;
+            animation: twinkle 8s ease-in-out infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        /* Main Container */
+        .game-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        .game-header {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            margin-bottom: 20px;
+        }
+
+        .game-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+            margin-bottom: 5px;
+        }
+
+        .game-subtitle {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+
+        /* Screens */
+        .screen {
+            display: none;
+            flex: 1;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .screen.active {
+            display: flex;
+            flex-direction: column;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Title Screen */
+        .title-screen {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .main-title {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 50px rgba(212, 175, 55, 0.4);
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 30px rgba(212, 175, 55, 0.3); }
+            50% { text-shadow: 0 0 60px rgba(212, 175, 55, 0.6), 0 0 100px rgba(212, 175, 55, 0.3); }
+        }
+
+        .main-subtitle {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: var(--celestial-blue);
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        .tagline {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 50px;
+            max-width: 500px;
+        }
+
+        .title-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 280px;
+        }
+
+        /* Buttons */
+        .btn {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+            color: var(--bg-dark);
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(212, 175, 55, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--gold);
+            border: 1px solid var(--gold);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .btn-secondary:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        /* Character Creation */
+        .character-creation {
+            padding: 30px 0;
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6rem;
+            color: var(--gold);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .creation-form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-label {
+            display: block;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 4px;
+            color: var(--text-primary);
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+        }
+
+        .form-input::placeholder {
+            color: var(--text-dim);
+        }
+
+        .role-description {
+            background: rgba(74, 144, 217, 0.1);
+            border: 1px solid rgba(74, 144, 217, 0.3);
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .role-description h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--celestial-blue);
+            margin-bottom: 10px;
+        }
+
+        .role-description p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        /* Stats Display */
+        .stats-panel {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stats-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .character-name {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            color: var(--gold);
+        }
+
+        .episode-indicator {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.65rem;
+            color: var(--celestial-cyan);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.55rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .stat-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .stat-faith { color: var(--faith-color); }
+        .stat-wisdom { color: var(--wisdom-color); }
+        .stat-courage { color: var(--courage-color); }
+        .stat-love { color: var(--love-color); }
+        .stat-truth { color: var(--truth-color); }
+        .stat-patience { color: var(--patience-color); }
+        .stat-hope { color: var(--hope-color); }
+
+        /* Influence Panel */
+        .influence-panel {
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .influence-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            color: var(--celestial-purple);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .influence-title::before {
+            content: '⟡';
+            font-size: 1rem;
+        }
+
+        .influence-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .influence-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 12px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+        }
+
+        .influence-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .influence-avatar.loyal { background: linear-gradient(135deg, var(--celestial-blue), var(--celestial-cyan)); }
+        .influence-avatar.wavering { background: linear-gradient(135deg, var(--warning), #ff6b6b); }
+        .influence-avatar.lucifer { background: linear-gradient(135deg, #2c2c2c, #1a1a1a); border: 1px solid var(--danger); }
+
+        .influence-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .influence-name {
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            color: var(--text-primary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .influence-status {
+            font-size: 0.7rem;
+            color: var(--text-dim);
+        }
+
+        .influence-bar {
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            margin-top: 4px;
+            overflow: hidden;
+        }
+
+        .influence-fill {
+            height: 100%;
+            border-radius: 2px;
+            transition: width 0.5s ease;
+        }
+
+        .influence-fill.positive { background: var(--success); }
+        .influence-fill.negative { background: var(--danger); }
+        .influence-fill.neutral { background: var(--warning); }
+
+        /* Story Panel */
+        .story-panel {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .story-content {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        .scene-location {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            color: var(--celestial-cyan);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .scene-location::before,
+        .scene-location::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.3), transparent);
+        }
+
+        .story-text {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: var(--text-primary);
+            margin-bottom: 25px;
+        }
+
+        .story-text p {
+            margin-bottom: 15px;
+        }
+
+        .story-text .speaker {
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .story-text .speaker.lucifer {
+            color: var(--danger);
+        }
+
+        .story-text .speaker.divine {
+            color: var(--celestial-cyan);
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+        }
+
+        .story-text em {
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        /* Choices */
+        .choices-container {
+            margin-top: auto;
+        }
+
+        .choices-label {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .choice-btn {
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: 18px 20px;
+            margin-bottom: 10px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.05rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .choice-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--gold);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .choice-btn:hover {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: var(--gold);
+            transform: translateX(5px);
+        }
+
+        .choice-btn:hover::before {
+            opacity: 1;
+        }
+
+        .choice-letter {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.75rem;
+            color: var(--gold);
+            margin-right: 12px;
+        }
+
+        .choice-preview {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            margin-top: 8px;
+            padding-left: 25px;
+            font-style: italic;
+        }
+
+        /* Consequence Display */
+        .consequence-display {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 12px;
+            padding: 30px;
+            margin: 20px 0;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .consequence-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            color: var(--gold);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .stat-changes {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stat-change {
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .stat-change.positive {
+            background: rgba(46, 213, 115, 0.2);
+            border: 1px solid var(--success);
+            color: var(--success);
+        }
+
+        .stat-change.negative {
+            background: rgba(255, 71, 87, 0.2);
+            border: 1px solid var(--danger);
+            color: var(--danger);
+        }
+
+        .influence-change {
+            text-align: center;
+            padding: 15px;
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .influence-change-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            color: var(--celestial-purple);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .influence-change-text {
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .influence-change-text .name {
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
+        }
+
+        /* Continue Button */
+        .continue-btn {
+            display: block;
+            width: 100%;
+            max-width: 300px;
+            margin: 20px auto 0;
+        }
+
+        /* Episode Summary */
+        .episode-summary {
+            padding: 30px 0;
+        }
+
+        .summary-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .summary-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        .summary-subtitle {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            color: var(--celestial-cyan);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .summary-section {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        .summary-section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            color: var(--gold);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .final-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 15px;
+        }
+
+        .final-stat {
+            text-align: center;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+        }
+
+        .final-stat-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .final-stat-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .final-stat-change {
+            font-size: 0.75rem;
+            margin-top: 4px;
+        }
+
+        .souls-influenced {
+            text-align: center;
+        }
+
+        .souls-count {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            color: var(--celestial-purple);
+            text-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
+        }
+
+        .souls-label {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-top: 10px;
+        }
+
+        .souls-detail {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .soul-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .soul-name {
+            font-family: 'Cinzel', serif;
+            color: var(--text-primary);
+        }
+
+        .soul-status {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            padding: 4px 12px;
+            border-radius: 12px;
+        }
+
+        .soul-status.strengthened {
+            background: rgba(46, 213, 115, 0.2);
+            color: var(--success);
+        }
+
+        .soul-status.wavering {
+            background: rgba(255, 165, 2, 0.2);
+            color: var(--warning);
+        }
+
+        .soul-status.lost {
+            background: rgba(255, 71, 87, 0.2);
+            color: var(--danger);
+        }
+
+        .narrative-summary {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+
+        .narrative-summary p {
+            margin-bottom: 15px;
+        }
+
+        .to-be-continued {
+            text-align: center;
+            padding: 30px;
+            margin-top: 20px;
+        }
+
+        .to-be-continued h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        .to-be-continued p {
+            color: var(--text-dim);
+            font-style: italic;
+        }
+
+        /* Menu Button */
+        .menu-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 44px;
+            height: 44px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 8px;
+            color: var(--gold);
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 100;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .menu-btn:hover {
+            background: rgba(212, 175, 55, 0.2);
+        }
+
+        .menu-btn.visible {
+            display: flex;
+        }
+
+        /* Menu Modal */
+        .menu-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 200;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .menu-modal.active {
+            display: flex;
+        }
+
+        .menu-content {
+            background: var(--bg-medium);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            max-width: 350px;
+            width: 90%;
+        }
+
+        .menu-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: var(--gold);
+            margin-bottom: 25px;
+        }
+
+        .menu-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .menu-buttons .btn {
+            width: 100%;
+        }
+
+        /* Footer */
+        .game-footer {
+            text-align: center;
+            padding: 20px 0;
+            margin-top: auto;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .footer-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.6rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .footer-text a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2rem;
+                letter-spacing: 3px;
+            }
+
+            .main-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 5px;
+            }
+
+            .stat-name {
+                font-size: 0.5rem;
+            }
+
+            .stat-value {
+                font-size: 0.9rem;
+            }
+
+            .influence-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .story-content {
+                padding: 20px;
+            }
+
+            .story-text {
+                font-size: 1.05rem;
+            }
+
+            .choice-btn {
+                padding: 15px;
+                font-size: 0.95rem;
+            }
+
+            .final-stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .game-title {
+                font-size: 1.3rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="celestial-bg">
+        <div class="stars"></div>
+    </div>
+
+    <button class="menu-btn" id="menuBtn" onclick="toggleMenu()">☰</button>
+
+    <div class="menu-modal" id="menuModal">
+        <div class="menu-content">
+            <h2 class="menu-title">Game Menu</h2>
+            <div class="menu-buttons">
+                <button class="btn btn-secondary" onclick="saveGame()">Save Progress</button>
+                <button class="btn btn-secondary" onclick="toggleMenu()">Resume Game</button>
+                <button class="btn btn-secondary" onclick="restartGame()">Restart Episode</button>
+                <button class="btn btn-secondary" onclick="returnToTitle()">Main Menu</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="game-container">
+        <header class="game-header">
+            <h1 class="game-title">The Great Controversy</h1>
+            <p class="game-subtitle">A Game of Eternal Choices</p>
+        </header>
+
+        <!-- Title Screen -->
+        <div class="screen active" id="titleScreen">
+            <div class="title-screen">
+                <h1 class="main-title">The Great Controversy</h1>
+                <h2 class="main-subtitle">The Game</h2>
+                <p class="tagline">"A game about choices, consequences, and cosmic war. Every decision shapes eternity — yours and others."</p>
+                <div class="title-buttons">
+                    <button class="btn btn-primary" onclick="startNewGame()">New Game</button>
+                    <button class="btn btn-secondary" id="continueBtn" onclick="continueGame()" disabled>Continue</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Character Creation -->
+        <div class="screen" id="characterScreen">
+            <div class="character-creation">
+                <h2 class="section-title">Create Your Character</h2>
+                <div class="creation-form">
+                    <div class="form-group">
+                        <label class="form-label">Your Name</label>
+                        <input type="text" class="form-input" id="characterName" placeholder="Enter your angelic name..." maxlength="20">
+                    </div>
+                    <div class="role-description">
+                        <h3>Your Role</h3>
+                        <p>You are an angel in Heaven, serving in the presence of the Almighty. The courts of glory ring with songs of praise, and perfect harmony reigns among the heavenly host. But whispers have begun to circulate — questions that have never before been asked. Your choices in the days ahead will shape not only your own destiny, but influence the eternal fate of those around you.</p>
+                    </div>
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 25px;" onclick="createCharacter()">Begin Your Journey</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div class="screen" id="gameScreen">
+            <div class="stats-panel" id="statsPanel">
+                <div class="stats-header">
+                    <span class="character-name" id="displayName">-</span>
+                    <span class="episode-indicator">Episode 1: Heaven Before the Fall</span>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-name">Faith</div>
+                        <div class="stat-value stat-faith" id="statFaith">50</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-name">Wisdom</div>
+                        <div class="stat-value stat-wisdom" id="statWisdom">50</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-name">Courage</div>
+                        <div class="stat-value stat-courage" id="statCourage">50</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-name">Love</div>
+                        <div class="stat-value stat-love" id="statLove">50</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-name">Truth</div>
+                        <div class="stat-value stat-truth" id="statTruth">50</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-name">Patience</div>
+                        <div class="stat-value stat-patience" id="statPatience">50</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-name">Hope</div>
+                        <div class="stat-value stat-hope" id="statHope">50</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-name">Influence</div>
+                        <div class="stat-value" style="color: var(--celestial-purple);" id="statInfluence">0</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="influence-panel" id="influencePanel">
+                <div class="influence-title">Souls in Your Sphere</div>
+                <div class="influence-grid" id="influenceGrid">
+                    <!-- Dynamically populated -->
+                </div>
+            </div>
+
+            <div class="story-panel">
+                <div class="story-content" id="storyContent">
+                    <!-- Story content dynamically inserted -->
+                </div>
+                <div class="choices-container" id="choicesContainer">
+                    <!-- Choices dynamically inserted -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Consequence Screen -->
+        <div class="screen" id="consequenceScreen">
+            <div class="consequence-display" id="consequenceDisplay">
+                <!-- Consequence content dynamically inserted -->
+            </div>
+        </div>
+
+        <!-- Summary Screen -->
+        <div class="screen" id="summaryScreen">
+            <div class="episode-summary" id="episodeSummary">
+                <!-- Summary content dynamically inserted -->
+            </div>
+        </div>
+
+        <footer class="game-footer">
+            <p class="footer-text">Seven Cubed Seven Labs | <a href="https://sevencubedseven.com">7³×7 = 2,401</a></p>
+        </footer>
+    </div>
+
+    <script>
+        // ==========================================
+        // THE GREAT CONTROVERSY: THE GAME
+        // Episode 1: Heaven Before the Fall
+        // ==========================================
+
+        // Game State
+        var STATE = {
+            screen: 'title',
+            characterName: '',
+            stats: {
+                faith: 50,
+                wisdom: 50,
+                courage: 50,
+                love: 50,
+                truth: 50,
+                patience: 50,
+                hope: 50
+            },
+            totalInfluence: 0,
+            currentScene: 0,
+            choices: [],
+            angels: [
+                { name: 'Seraphiel', status: 'loyal', influence: 50, avatar: '✦' },
+                { name: 'Auriel', status: 'wavering', influence: 50, avatar: '◇' },
+                { name: 'Thamiel', status: 'wavering', influence: 45, avatar: '○' },
+                { name: 'Lucifer', status: 'lucifer', influence: 50, avatar: '★' }
+            ],
+            episodeComplete: false
+        };
+
+        // Story Scenes
+        var SCENES = [
+            // Scene 0: Introduction
+            {
+                location: 'The Courts of Heaven',
+                content: '<p><em>Light beyond description fills the infinite expanse. You stand among countless angels, each one radiating glory, yet all glory flows toward the throne at the center of all existence.</em></p><p>The morning songs of praise have just concluded. As you turn from the throne room, a fellow angel named <span class="speaker">Auriel</span> approaches you.</p><p><span class="speaker">Auriel:</span> "Have you heard the whispers? Lucifer, the covering cherub, has been gathering angels for private discussions. Some say he raises... questions."</p><p><em>Auriel\'s light flickers almost imperceptibly — something you\'ve never witnessed before.</em></p>',
+                choices: [
+                    {
+                        letter: 'A',
+                        text: '"Questions? What kind of questions could arise in Heaven?"',
+                        preview: 'Express genuine curiosity',
+                        effects: { wisdom: 3 },
+                        influence: { target: 'Auriel', change: 5, type: 'positive' },
+                        response: 'Your openness puts Auriel at ease. Perhaps together you can understand what\'s happening.'
+                    },
+                    {
+                        letter: 'B',
+                        text: '"We should be careful about rumors. Have you spoken to Lucifer directly?"',
+                        preview: 'Encourage direct communication',
+                        effects: { wisdom: 5, truth: 3 },
+                        influence: { target: 'Auriel', change: 3, type: 'positive' },
+                        response: 'Auriel nods thoughtfully. Your counsel toward truth and clarity strengthens their resolve.'
+                    },
+                    {
+                        letter: 'C',
+                        text: '"I trust the Father completely. Whatever questions arise, He will address them."',
+                        preview: 'Express unwavering faith',
+                        effects: { faith: 8, hope: 3 },
+                        influence: { target: 'Auriel', change: 8, type: 'positive' },
+                        response: 'Your faith radiates visibly, and Auriel\'s flickering light stabilizes. Your trust is contagious.'
+                    },
+                    {
+                        letter: 'D',
+                        text: '"Perhaps we should attend one of these gatherings to hear for ourselves."',
+                        preview: 'Suggest investigating directly',
+                        effects: { courage: 5, wisdom: -3 },
+                        influence: { target: 'Auriel', change: -5, type: 'negative' },
+                        response: 'Auriel hesitates. Your suggestion to engage with questionable gatherings plants a seed of curiosity — and uncertainty.'
+                    }
+                ]
+            },
+            // Scene 1: The Garden Encounter
+            {
+                location: 'The Gardens of Paradise',
+                content: '<p><em>You walk through gardens that stretch beyond comprehension. Every flower sings, every tree whispers praise. Here, in a secluded grove, you encounter </em><span class="speaker">Seraphiel</span><em>, a loyal angel known for deep contemplation.</em></p><p><span class="speaker">Seraphiel:</span> "Friend, I am troubled. Thamiel spoke with Lucifer yesterday and returned... different. There\'s a shadow in their countenance I\'ve never seen."</p><p><em>Seraphiel\'s six wings fold close, a gesture of distress.</em></p><p><span class="speaker">Seraphiel:</span> "I don\'t know whether to confront Thamiel or report this to the Father. What would you counsel?"</p>',
+                choices: [
+                    {
+                        letter: 'A',
+                        text: '"Approach Thamiel with love. Ask them directly what troubles their heart."',
+                        preview: 'Counsel compassionate confrontation',
+                        effects: { love: 8, courage: 3, wisdom: 3 },
+                        influence: { target: 'Seraphiel', change: 5, type: 'positive' },
+                        influenceSecondary: { target: 'Thamiel', change: 8, type: 'positive' },
+                        response: 'Seraphiel brightens. "Yes, love must be our first response." Your counsel may save Thamiel from drifting further.'
+                    },
+                    {
+                        letter: 'B',
+                        text: '"The Father already knows all things. Trust Him to work in Thamiel\'s heart."',
+                        preview: 'Trust divine intervention',
+                        effects: { faith: 8, patience: 5 },
+                        influence: { target: 'Seraphiel', change: 3, type: 'positive' },
+                        response: 'Seraphiel\'s anxiety eases, but Thamiel remains unwarned. Sometimes faith requires action alongside trust.'
+                    },
+                    {
+                        letter: 'C',
+                        text: '"We should both speak with Thamiel together. There is strength in unity."',
+                        preview: 'Suggest combined approach',
+                        effects: { courage: 5, love: 5, wisdom: 5 },
+                        influence: { target: 'Seraphiel', change: 8, type: 'positive' },
+                        influenceSecondary: { target: 'Thamiel', change: 12, type: 'positive' },
+                        response: 'United witness carries greater weight. Your decision to stand together may be the intervention Thamiel needs.'
+                    },
+                    {
+                        letter: 'D',
+                        text: '"Perhaps we should observe Thamiel before acting. We need more information."',
+                        preview: 'Counsel cautious observation',
+                        effects: { wisdom: 3, courage: -5, love: -3 },
+                        influence: { target: 'Seraphiel', change: -3, type: 'negative' },
+                        influenceSecondary: { target: 'Thamiel', change: -8, type: 'negative' },
+                        response: 'Delay often masquerades as wisdom. While you observe, Thamiel drifts further into shadow.'
+                    }
+                ]
+            },
+            // Scene 2: Lucifer's Approach
+            {
+                location: 'The Mountain of Congregation',
+                content: '<p><em>You ascend the holy mountain for evening meditation. The view encompasses all of Heaven\'s glory. But you are not alone.</em></p><p><span class="speaker lucifer">Lucifer</span><em>, the covering cherub, stands before you. His beauty surpasses all others — every precious stone adorns him, and his presence radiates power.</em></p><p><span class="speaker lucifer">Lucifer:</span> "Ah, ' + (STATE.characterName || 'friend') + '. I\'ve noticed you. Your light burns with genuine devotion. Tell me — have you ever wondered why the Son receives equal honor with the Father? Why His glory matches that of the Eternal One?"</p><p><em>His words carry subtle poison wrapped in velvet.</em></p>',
+                choices: [
+                    {
+                        letter: 'A',
+                        text: '"The Son IS one with the Father. There is no division, only perfect unity."',
+                        preview: 'Affirm divine truth directly',
+                        effects: { faith: 10, truth: 10, courage: 8 },
+                        influence: { target: 'Lucifer', change: -15, type: 'negative' },
+                        response: 'Lucifer\'s beauty flickers with something dark. He sees he cannot sway you easily. You have made an enemy — but remained faithful.'
+                    },
+                    {
+                        letter: 'B',
+                        text: '"I confess I don\'t fully understand the mystery, but I trust what the Father reveals."',
+                        preview: 'Admit limitation while affirming trust',
+                        effects: { faith: 8, wisdom: 5, truth: 3 },
+                        influence: { target: 'Lucifer', change: -5, type: 'negative' },
+                        response: 'Humility with faith. Lucifer sees no foothold in your honest admission. Truth wrapped in trust is a fortress.'
+                    },
+                    {
+                        letter: 'C',
+                        text: '"Why do you raise such questions, Lucifer? What are you truly seeking?"',
+                        preview: 'Turn the question back',
+                        effects: { wisdom: 8, courage: 5 },
+                        influence: { target: 'Lucifer', change: -8, type: 'negative' },
+                        response: 'Your discernment strikes deep. For a moment, Lucifer\'s mask slips, revealing the pride beneath. He will remember this.'
+                    },
+                    {
+                        letter: 'D',
+                        text: '"Your words intrigue me. I have wondered about these things myself..."',
+                        preview: 'Express shared curiosity',
+                        effects: { faith: -15, truth: -10, wisdom: -8 },
+                        influence: { target: 'Lucifer', change: 15, type: 'positive' },
+                        angelLost: true,
+                        response: 'Lucifer\'s smile widens. He has found a potential convert. Your words will be used to sway others: "Even ' + (STATE.characterName || 'they') + ' questions these things..."'
+                    }
+                ]
+            },
+            // Scene 3: The Wavering Friend
+            {
+                location: 'The Crystal Sea',
+                content: '<p><em>The crystal sea reflects infinite dimensions of glory. Here, where angels often come for reflection, you find </em><span class="speaker">Thamiel</span><em> sitting alone. The shadow Seraphiel mentioned is clearly visible now — a dimness in their light.</em></p><p><span class="speaker">Thamiel:</span> "' + (STATE.characterName || 'Friend') + '... I don\'t know what to believe anymore. Lucifer speaks with such conviction. He says the Father is withholding freedom from us, that we could be so much more..."</p><p><em>Thamiel\'s voice trembles. They are at a crossroads.</em></p><p><span class="speaker">Thamiel:</span> "You\'ve always walked in light. Tell me — what should I do?"</p>',
+                choices: [
+                    {
+                        letter: 'A',
+                        text: '"Thamiel, what freedom could we lack? We exist in perfect love. Lucifer offers chains disguised as liberation."',
+                        preview: 'Expose the deception directly',
+                        effects: { truth: 10, wisdom: 8, love: 5 },
+                        influence: { target: 'Thamiel', change: 15, type: 'positive' },
+                        response: 'Your words pierce the fog. Thamiel\'s light flickers, then slowly strengthens. "You speak truth. I nearly forgot what real freedom feels like."'
+                    },
+                    {
+                        letter: 'B',
+                        text: '"Come with me to the throne. Let us bring your questions to the Father together."',
+                        preview: 'Invite them to seek divine counsel',
+                        effects: { faith: 10, love: 8, courage: 5 },
+                        influence: { target: 'Thamiel', change: 20, type: 'positive' },
+                        response: 'Thamiel hesitates, then nods. "Yes... I\'ve been avoiding His presence. Perhaps that\'s why the shadows grew." You may have saved an eternal soul.'
+                    },
+                    {
+                        letter: 'C',
+                        text: '"I cannot tell you what to choose. But I will stand with you whatever you decide."',
+                        preview: 'Offer support without direction',
+                        effects: { love: 5, patience: 5, truth: -5 },
+                        influence: { target: 'Thamiel', change: 3, type: 'neutral' },
+                        response: 'Your kindness comforts but doesn\'t guide. Thamiel appreciates your presence, but remains at the crossroads. Love without truth is incomplete.'
+                    },
+                    {
+                        letter: 'D',
+                        text: '"You must make your own choice. I will not interfere with your free will."',
+                        preview: 'Respect autonomy completely',
+                        effects: { patience: 3, truth: -8, love: -8 },
+                        influence: { target: 'Thamiel', change: -10, type: 'negative' },
+                        response: 'Your distance feels like abandonment. Thamiel\'s light dims further. Free will is sacred, but so is the responsibility to shine truth into darkness.'
+                    }
+                ]
+            },
+            // Scene 4: The Growing Storm
+            {
+                location: 'The Assembly Hall',
+                content: '<p><em>The heavenly assembly gathers. There is tension now where once only harmony reigned. You sense it — a division forming, lines being drawn. Lucifer stands with a growing company of angels, their lights tinged with an unfamiliar shade.</em></p><p><span class="speaker divine">A Voice</span><em> — gentle yet infinite — resonates through the hall:</em></p><p><span class="speaker divine">"My children, I know the questions that trouble some hearts. Come to Me. Let us reason together. There is nothing hidden that cannot be revealed in love."</span></p><p><em>The invitation hangs in the air. Lucifer\'s faction stirs uneasily. This is a pivotal moment.</em></p>',
+                choices: [
+                    {
+                        letter: 'A',
+                        text: 'Move immediately toward the throne, demonstrating your choice openly.',
+                        preview: 'Public declaration of loyalty',
+                        effects: { faith: 10, courage: 12, hope: 8 },
+                        influence: { target: 'Auriel', change: 10, type: 'positive' },
+                        influenceSecondary: { target: 'Seraphiel', change: 8, type: 'positive' },
+                        influenceTertiary: { target: 'Thamiel', change: 5, type: 'positive' },
+                        response: 'Your movement breaks the paralysis. Others follow. Your courage becomes a beacon that draws wavering angels toward the light.'
+                    },
+                    {
+                        letter: 'B',
+                        text: 'Reach out to Auriel and Thamiel, inviting them to approach the throne with you.',
+                        preview: 'Gather the wavering ones first',
+                        effects: { love: 12, courage: 8, wisdom: 5 },
+                        influence: { target: 'Auriel', change: 15, type: 'positive' },
+                        influenceSecondary: { target: 'Thamiel', change: 15, type: 'positive' },
+                        response: 'You extend hands to those on the edge. Both grasp you. Together, you move toward the throne — none left behind. This is love in action.'
+                    },
+                    {
+                        letter: 'C',
+                        text: 'Watch to see what others do before making your move visible.',
+                        preview: 'Observe before acting',
+                        effects: { wisdom: -5, courage: -10, faith: -5 },
+                        influence: { target: 'Auriel', change: -8, type: 'negative' },
+                        influenceSecondary: { target: 'Thamiel', change: -10, type: 'negative' },
+                        response: 'Your hesitation is noted — by both sides. Those who looked to you for guidance now doubt. In cosmic conflict, neutrality aids darkness.'
+                    },
+                    {
+                        letter: 'D',
+                        text: 'Approach Lucifer\'s group to make one last appeal before they harden their hearts.',
+                        preview: 'Attempt to reach the rebels',
+                        effects: { love: 8, courage: 15, wisdom: -3 },
+                        influence: { target: 'Lucifer', change: -5, type: 'negative' },
+                        response: 'Brave, perhaps foolish. Lucifer\'s followers jeer, but one or two hesitate at your words. Even in darkness, light can penetrate — but at great risk.'
+                    }
+                ]
+            },
+            // Scene 5: The Final Choice
+            {
+                location: 'The Throne Room',
+                content: '<p><em>The moment has come. Lucifer stands before the throne, his beauty now twisted with pride. Behind him, a third of heaven\'s angels have gathered. Before the throne, the faithful remain — including those your choices have influenced.</em></p><p><span class="speaker lucifer">Lucifer:</span> "I will ascend above the heights of the clouds. I will be like the Most High!"</p><p><em>The declaration echoes through eternity. There is no turning back now. Every angel must choose.</em></p><p><em>Several angels near you — including those you\'ve interacted with throughout this day — look to you. Your influence has positioned you as a voice they trust. Your final choice will carry weight beyond yourself.</em></p>',
+                choices: [
+                    {
+                        letter: 'A',
+                        text: '"Lucifer was given everything — beauty, position, honor. His rebellion proves that pride corrupts even the highest gifts. I stand with the Father, the Son, and all who love truth."',
+                        preview: 'Public declaration with explanation',
+                        effects: { faith: 15, truth: 15, courage: 15, wisdom: 10, love: 10, hope: 10, patience: 5 },
+                        influence: { target: 'Auriel', change: 20, type: 'positive' },
+                        influenceSecondary: { target: 'Seraphiel', change: 15, type: 'positive' },
+                        influenceTertiary: { target: 'Thamiel', change: 20, type: 'positive' },
+                        response: 'Your voice rings clear. Angels who wavered find courage in your conviction. Your words become a rallying point for the faithful.'
+                    },
+                    {
+                        letter: 'B',
+                        text: 'Kneel before the throne in silent worship, letting your action speak louder than words.',
+                        preview: 'Worship as witness',
+                        effects: { faith: 15, love: 15, patience: 10, hope: 12 },
+                        influence: { target: 'Auriel', change: 12, type: 'positive' },
+                        influenceSecondary: { target: 'Seraphiel', change: 12, type: 'positive' },
+                        influenceTertiary: { target: 'Thamiel', change: 10, type: 'positive' },
+                        response: 'Your reverent worship creates a stark contrast to Lucifer\'s pride. Others join you, drawn by the beauty of humble devotion.'
+                    },
+                    {
+                        letter: 'C',
+                        text: 'Weep for Lucifer and those following him, interceding even for enemies.',
+                        preview: 'Intercession for the fallen',
+                        effects: { love: 20, faith: 10, patience: 10, hope: 8 },
+                        influence: { target: 'Auriel', change: 10, type: 'positive' },
+                        influenceSecondary: { target: 'Thamiel', change: 15, type: 'positive' },
+                        response: 'Your tears reveal a heart like the Father\'s — grieving over every lost one. This is the highest love: weeping for those who make themselves enemies.'
+                    },
+                    {
+                        letter: 'D',
+                        text: 'Remain silent, processing the enormity of what\'s happening.',
+                        preview: 'Overwhelmed silence',
+                        effects: { wisdom: -8, courage: -15, faith: -5 },
+                        influence: { target: 'Auriel', change: -5, type: 'negative' },
+                        influenceSecondary: { target: 'Thamiel', change: -8, type: 'negative' },
+                        response: 'Your silence, though understandable, fails those looking to you. In moments of crisis, even imperfect words outweigh perfect silence.'
+                    }
+                ]
+            }
+        ];
+
+        // Initialize
+        function init() {
+            checkSavedGame();
+        }
+
+        function checkSavedGame() {
+            var saved = localStorage.getItem('gcg_save');
+            if (saved) {
+                document.getElementById('continueBtn').disabled = false;
+            }
+        }
+
+        // Screen Management
+        function showScreen(screenId) {
+            var screens = document.querySelectorAll('.screen');
+            for (var i = 0; i < screens.length; i++) {
+                screens[i].classList.remove('active');
+            }
+            document.getElementById(screenId).classList.add('active');
+            STATE.screen = screenId;
+
+            var menuBtn = document.getElementById('menuBtn');
+            if (screenId === 'gameScreen' || screenId === 'consequenceScreen') {
+                menuBtn.classList.add('visible');
+            } else {
+                menuBtn.classList.remove('visible');
+            }
+        }
+
+        // Game Start
+        function startNewGame() {
+            STATE = {
+                screen: 'character',
+                characterName: '',
+                stats: {
+                    faith: 50,
+                    wisdom: 50,
+                    courage: 50,
+                    love: 50,
+                    truth: 50,
+                    patience: 50,
+                    hope: 50
+                },
+                totalInfluence: 0,
+                currentScene: 0,
+                choices: [],
+                angels: [
+                    { name: 'Seraphiel', status: 'loyal', influence: 50, avatar: '✦' },
+                    { name: 'Auriel', status: 'wavering', influence: 50, avatar: '◇' },
+                    { name: 'Thamiel', status: 'wavering', influence: 45, avatar: '○' },
+                    { name: 'Lucifer', status: 'lucifer', influence: 50, avatar: '★' }
+                ],
+                episodeComplete: false
+            };
+            showScreen('characterScreen');
+        }
+
+        function continueGame() {
+            var saved = localStorage.getItem('gcg_save');
+            if (saved) {
+                STATE = JSON.parse(saved);
+                updateStatsDisplay();
+                updateInfluenceDisplay();
+                if (STATE.episodeComplete) {
+                    showSummary();
+                } else {
+                    showScreen('gameScreen');
+                    displayScene(STATE.currentScene);
+                }
+            }
+        }
+
+        function createCharacter() {
+            var nameInput = document.getElementById('characterName');
+            var name = nameInput.value.trim();
+            if (!name) {
+                name = 'Faithful One';
+            }
+            STATE.characterName = name;
+            document.getElementById('displayName').textContent = name;
+            showScreen('gameScreen');
+            updateStatsDisplay();
+            updateInfluenceDisplay();
+            displayScene(0);
+        }
+
+        // Display Functions
+        function updateStatsDisplay() {
+            document.getElementById('statFaith').textContent = STATE.stats.faith;
+            document.getElementById('statWisdom').textContent = STATE.stats.wisdom;
+            document.getElementById('statCourage').textContent = STATE.stats.courage;
+            document.getElementById('statLove').textContent = STATE.stats.love;
+            document.getElementById('statTruth').textContent = STATE.stats.truth;
+            document.getElementById('statPatience').textContent = STATE.stats.patience;
+            document.getElementById('statHope').textContent = STATE.stats.hope;
+            document.getElementById('statInfluence').textContent = STATE.totalInfluence;
+            document.getElementById('displayName').textContent = STATE.characterName;
+        }
+
+        function updateInfluenceDisplay() {
+            var grid = document.getElementById('influenceGrid');
+            var html = '';
+            for (var i = 0; i < STATE.angels.length; i++) {
+                var angel = STATE.angels[i];
+                var statusClass = angel.status;
+                var fillClass = angel.influence >= 60 ? 'positive' : (angel.influence <= 40 ? 'negative' : 'neutral');
+                var statusText = angel.influence >= 70 ? 'Faithful' : (angel.influence >= 50 ? 'Standing' : (angel.influence >= 30 ? 'Wavering' : 'Falling'));
+                if (angel.status === 'lucifer') {
+                    statusText = angel.influence >= 50 ? 'Hostile' : 'Opposed';
+                    fillClass = 'negative';
+                }
+                html += '<div class="influence-item">';
+                html += '<div class="influence-avatar ' + statusClass + '">' + angel.avatar + '</div>';
+                html += '<div class="influence-info">';
+                html += '<div class="influence-name">' + angel.name + '</div>';
+                html += '<div class="influence-status">' + statusText + '</div>';
+                html += '<div class="influence-bar"><div class="influence-fill ' + fillClass + '" style="width: ' + angel.influence + '%;"></div></div>';
+                html += '</div></div>';
+            }
+            grid.innerHTML = html;
+        }
+
+        function displayScene(sceneIndex) {
+            if (sceneIndex >= SCENES.length) {
+                STATE.episodeComplete = true;
+                saveGame();
+                showSummary();
+                return;
+            }
+
+            var scene = SCENES[sceneIndex];
+            var storyContent = document.getElementById('storyContent');
+            var choicesContainer = document.getElementById('choicesContainer');
+
+            // Replace character name placeholder in content
+            var content = scene.content.replace(/\$\{STATE\.characterName\}/g, STATE.characterName);
+
+            var storyHtml = '<div class="scene-location">' + scene.location + '</div>';
+            storyHtml += '<div class="story-text">' + content + '</div>';
+            storyContent.innerHTML = storyHtml;
+
+            var choicesHtml = '<div class="choices-label">What do you do?</div>';
+            for (var i = 0; i < scene.choices.length; i++) {
+                var choice = scene.choices[i];
+                choicesHtml += '<button class="choice-btn" onclick="makeChoice(' + sceneIndex + ', ' + i + ')">';
+                choicesHtml += '<span class="choice-letter">[' + choice.letter + ']</span>';
+                choicesHtml += choice.text;
+                if (choice.preview) {
+                    choicesHtml += '<span class="choice-preview">' + choice.preview + '</span>';
+                }
+                choicesHtml += '</button>';
+            }
+            choicesContainer.innerHTML = choicesHtml;
+        }
+
+        function makeChoice(sceneIndex, choiceIndex) {
+            var scene = SCENES[sceneIndex];
+            var choice = scene.choices[choiceIndex];
+
+            // Record choice
+            STATE.choices.push({
+                scene: sceneIndex,
+                choice: choiceIndex,
+                letter: choice.letter
+            });
+
+            // Apply stat effects
+            var statChanges = [];
+            if (choice.effects) {
+                for (var stat in choice.effects) {
+                    if (choice.effects.hasOwnProperty(stat)) {
+                        var change = choice.effects[stat];
+                        STATE.stats[stat] = Math.max(0, Math.min(100, STATE.stats[stat] + change));
+                        if (change !== 0) {
+                            statChanges.push({ stat: stat, change: change });
+                        }
+                    }
+                }
+            }
+
+            // Apply influence effects
+            var influenceChanges = [];
+            if (choice.influence) {
+                applyInfluence(choice.influence.target, choice.influence.change, choice.influence.type);
+                influenceChanges.push(choice.influence);
+            }
+            if (choice.influenceSecondary) {
+                applyInfluence(choice.influenceSecondary.target, choice.influenceSecondary.change, choice.influenceSecondary.type);
+                influenceChanges.push(choice.influenceSecondary);
+            }
+            if (choice.influenceTertiary) {
+                applyInfluence(choice.influenceTertiary.target, choice.influenceTertiary.change, choice.influenceTertiary.type);
+                influenceChanges.push(choice.influenceTertiary);
+            }
+
+            // Show consequence
+            showConsequence(choice, statChanges, influenceChanges, sceneIndex);
+        }
+
+        function applyInfluence(targetName, change, type) {
+            for (var i = 0; i < STATE.angels.length; i++) {
+                if (STATE.angels[i].name === targetName) {
+                    STATE.angels[i].influence = Math.max(0, Math.min(100, STATE.angels[i].influence + change));
+                    if (type === 'positive' && change > 0) {
+                        STATE.totalInfluence += Math.abs(change);
+                    }
+                    break;
+                }
+            }
+        }
+
+        function showConsequence(choice, statChanges, influenceChanges, sceneIndex) {
+            showScreen('consequenceScreen');
+            var display = document.getElementById('consequenceDisplay');
+
+            var html = '<h3 class="consequence-title">Consequence</h3>';
+
+            // Stat changes
+            if (statChanges.length > 0) {
+                html += '<div class="stat-changes">';
+                for (var i = 0; i < statChanges.length; i++) {
+                    var sc = statChanges[i];
+                    var sign = sc.change > 0 ? '+' : '';
+                    var cls = sc.change > 0 ? 'positive' : 'negative';
+                    var statName = sc.stat.charAt(0).toUpperCase() + sc.stat.slice(1);
+                    html += '<div class="stat-change ' + cls + '">' + statName + ' ' + sign + sc.change + '</div>';
+                }
+                html += '</div>';
+            }
+
+            // Response text
+            html += '<p style="text-align: center; color: var(--text-secondary); font-size: 1.05rem; line-height: 1.7; margin: 20px 0;">' + choice.response + '</p>';
+
+            // Influence changes
+            if (influenceChanges.length > 0) {
+                html += '<div class="influence-change">';
+                html += '<div class="influence-change-title">Souls Affected</div>';
+                html += '<div class="influence-change-text">';
+                for (var j = 0; j < influenceChanges.length; j++) {
+                    var ic = influenceChanges[j];
+                    var effect = ic.type === 'positive' ? 'strengthened' : (ic.type === 'negative' ? 'weakened' : 'unchanged');
+                    html += '<span class="name">' + ic.target + '</span>\'s faith was ' + effect + '. ';
+                }
+                html += '</div></div>';
+            }
+
+            html += '<button class="btn btn-primary continue-btn" onclick="continueStory(' + (sceneIndex + 1) + ')">Continue</button>';
+
+            display.innerHTML = html;
+            updateStatsDisplay();
+            updateInfluenceDisplay();
+            saveGame();
+        }
+
+        function continueStory(nextScene) {
+            STATE.currentScene = nextScene;
+            showScreen('gameScreen');
+            displayScene(nextScene);
+        }
+
+        function showSummary() {
+            showScreen('summaryScreen');
+            var summary = document.getElementById('episodeSummary');
+
+            // Calculate souls influenced positively
+            var soulsStrengthened = 0;
+            var soulsWavering = 0;
+            var soulsLost = 0;
+
+            for (var i = 0; i < STATE.angels.length; i++) {
+                var angel = STATE.angels[i];
+                if (angel.status !== 'lucifer') {
+                    if (angel.influence >= 60) soulsStrengthened++;
+                    else if (angel.influence >= 40) soulsWavering++;
+                    else soulsLost++;
+                }
+            }
+
+            // Calculate average stats
+            var totalStats = 0;
+            var statCount = 0;
+            for (var stat in STATE.stats) {
+                if (STATE.stats.hasOwnProperty(stat)) {
+                    totalStats += STATE.stats[stat];
+                    statCount++;
+                }
+            }
+            var avgStats = Math.round(totalStats / statCount);
+
+            // Determine ending type
+            var endingType = 'faithful';
+            var endingTitle = 'Standing in Light';
+            var endingDesc = 'You remained faithful throughout the crisis in Heaven. Your choices strengthened others and demonstrated unwavering trust in the Father.';
+
+            if (avgStats < 40 || soulsLost > 1) {
+                endingType = 'compromised';
+                endingTitle = 'Shadows of Doubt';
+                endingDesc = 'Your journey through this crisis left marks on your soul. Some choices drew you closer to darkness, and others suffered for your hesitation.';
+            } else if (avgStats >= 70 && soulsStrengthened >= 2) {
+                endingType = 'exceptional';
+                endingTitle = 'Light Bearer';
+                endingDesc = 'You didn\'t merely survive the crisis — you became a beacon. Your courage drew wavering souls back to truth. Heaven takes note of such faithfulness.';
+            }
+
+            var html = '<div class="summary-header">';
+            html += '<h2 class="summary-title">Episode Complete</h2>';
+            html += '<p class="summary-subtitle">Heaven Before the Fall</p>';
+            html += '</div>';
+
+            // Ending Card
+            html += '<div class="summary-section" style="text-align: center; border-color: var(--gold);">';
+            html += '<h3 style="font-family: Cinzel, serif; font-size: 1.5rem; color: var(--gold); margin-bottom: 15px;">' + endingTitle + '</h3>';
+            html += '<p style="color: var(--text-secondary); line-height: 1.8;">' + endingDesc + '</p>';
+            html += '</div>';
+
+            // Final Stats
+            html += '<div class="summary-section">';
+            html += '<h4 class="summary-section-title">⟡ Character Development</h4>';
+            html += '<div class="final-stats-grid">';
+            var statNames = ['faith', 'wisdom', 'courage', 'love', 'truth', 'patience', 'hope'];
+            var statColors = ['#ffd700', '#9b59b6', '#e74c3c', '#e91e63', '#3498db', '#1abc9c', '#f39c12'];
+            for (var s = 0; s < statNames.length; s++) {
+                var sName = statNames[s];
+                var sVal = STATE.stats[sName];
+                var sChange = sVal - 50;
+                var changeStr = sChange >= 0 ? '+' + sChange : '' + sChange;
+                var changeColor = sChange >= 0 ? 'var(--success)' : 'var(--danger)';
+                html += '<div class="final-stat">';
+                html += '<div class="final-stat-name" style="color: ' + statColors[s] + ';">' + sName.charAt(0).toUpperCase() + sName.slice(1) + '</div>';
+                html += '<div class="final-stat-value" style="color: ' + statColors[s] + ';">' + sVal + '</div>';
+                html += '<div class="final-stat-change" style="color: ' + changeColor + ';">' + changeStr + '</div>';
+                html += '</div>';
+            }
+            html += '</div></div>';
+
+            // Souls Influenced
+            html += '<div class="summary-section">';
+            html += '<h4 class="summary-section-title">⟡ Souls Influenced</h4>';
+            html += '<div class="souls-influenced">';
+            html += '<div class="souls-count">' + STATE.totalInfluence + '</div>';
+            html += '<div class="souls-label">Total Influence Points</div>';
+            html += '<div class="souls-detail">';
+            for (var a = 0; a < STATE.angels.length; a++) {
+                var ang = STATE.angels[a];
+                if (ang.status !== 'lucifer') {
+                    var soulStatus = 'wavering';
+                    if (ang.influence >= 60) soulStatus = 'strengthened';
+                    else if (ang.influence < 40) soulStatus = 'lost';
+                    html += '<div class="soul-item">';
+                    html += '<span class="soul-name">' + ang.name + '</span>';
+                    html += '<span class="soul-status ' + soulStatus + '">' + soulStatus.charAt(0).toUpperCase() + soulStatus.slice(1) + '</span>';
+                    html += '</div>';
+                }
+            }
+            html += '</div></div></div>';
+
+            // Narrative Summary
+            html += '<div class="summary-section">';
+            html += '<h4 class="summary-section-title">⟡ Your Story</h4>';
+            html += '<div class="narrative-summary">';
+            html += generateNarrative();
+            html += '</div></div>';
+
+            // To Be Continued
+            html += '<div class="to-be-continued">';
+            html += '<h3>To Be Continued...</h3>';
+            html += '<p>Episode 2: The Rebellion — Coming Soon</p>';
+            html += '<button class="btn btn-primary" style="margin-top: 20px;" onclick="returnToTitle()">Return to Title</button>';
+            html += '</div>';
+
+            summary.innerHTML = html;
+        }
+
+        function generateNarrative() {
+            var narrative = '<p>As ' + STATE.characterName + ', you walked through the gathering storm that would eventually tear Heaven itself.</p>';
+
+            if (STATE.stats.faith >= 70) {
+                narrative += '<p>Your faith remained a constant star. When others questioned, you trusted. When Lucifer himself approached you, your light did not waver.</p>';
+            } else if (STATE.stats.faith < 40) {
+                narrative += '<p>Doubts found fertile soil in your heart. The questions Lucifer raised left marks that may take ages to heal.</p>';
+            }
+
+            if (STATE.stats.courage >= 70) {
+                narrative += '<p>Courage defined your choices. You spoke when silence would have been easier, stood when others sat, and moved when the moment demanded action.</p>';
+            }
+
+            if (STATE.stats.love >= 70) {
+                narrative += '<p>Love guided your interactions. Even in conflict, you sought the good of others — including those on the edge of rebellion.</p>';
+            }
+
+            var strengthened = 0;
+            for (var i = 0; i < STATE.angels.length; i++) {
+                if (STATE.angels[i].status !== 'lucifer' && STATE.angels[i].influence >= 60) {
+                    strengthened++;
+                }
+            }
+
+            if (strengthened >= 2) {
+                narrative += '<p>Most importantly, your choices rippled outward. Other souls found strength because you stood firm. In the economy of eternity, this is the greatest achievement.</p>';
+            } else if (strengthened === 0) {
+                narrative += '<p>The tragedy of missed opportunities weighs heavy. Those who looked to you for guidance found uncertain footing. In the great controversy, neutrality extracts its own cost.</p>';
+            }
+
+            narrative += '<p>The rebellion has begun. What comes next will test everything you\'ve become. But the foundation has been laid — for better or worse — in the choices you made when Heaven itself hung in the balance.</p>';
+
+            return narrative;
+        }
+
+        // Menu Functions
+        function toggleMenu() {
+            var modal = document.getElementById('menuModal');
+            modal.classList.toggle('active');
+        }
+
+        function saveGame() {
+            localStorage.setItem('gcg_save', JSON.stringify(STATE));
+        }
+
+        function restartGame() {
+            if (confirm('Restart this episode? All progress will be lost.')) {
+                localStorage.removeItem('gcg_save');
+                startNewGame();
+                toggleMenu();
+            }
+        }
+
+        function returnToTitle() {
+            toggleMenu();
+            showScreen('titleScreen');
+            checkSavedGame();
+        }
+
+        // Initialize on load
+        init();
+    </script>
+</body>
+</html>
