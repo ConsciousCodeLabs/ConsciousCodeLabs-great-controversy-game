@@ -1,0 +1,2543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Great Controversy: The Game - Episode 6</title>
+    <meta name="description" content="Episode 6: The Exodus. God's power vs. empire's power. From slavery to Sinai.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0a0505;
+            --bg-medium: #150a08;
+            --bg-light: #201510;
+            --egypt-gold: #c9a227;
+            --egypt-dark: #8b6914;
+            --pharaoh-blue: #1a3a5c;
+            --blood-red: #8b0000;
+            --plague-green: #2d4a1c;
+            --fire-orange: #ff6b35;
+            --fire-red: #dc2626;
+            --sea-blue: #0077b6;
+            --sea-dark: #023e8a;
+            --sinai-gold: #ffd700;
+            --sinai-fire: #ff4500;
+            --cloud-white: #f0f0f0;
+            --liberation-gold: #f4e4a6;
+            --sand: #c2b280;
+            --text-primary: #f0e8d8;
+            --text-secondary: #b8a888;
+            --text-dim: #7a6a5a;
+            --danger: #c44536;
+            --success: #6b8e4e;
+            --warning: #d4a03a;
+            --faith-color: #ffd700;
+            --wisdom-color: #9b59b6;
+            --courage-color: #e74c3c;
+            --love-color: #e91e63;
+            --truth-color: #3498db;
+            --patience-color: #1abc9c;
+            --hope-color: #f39c12;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Crimson Pro', Georgia, serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Background Themes */
+        .celestial-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            transition: all 1.5s ease;
+        }
+
+        .celestial-bg.wilderness::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 50% 30%, rgba(255, 107, 53, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 30% 70%, rgba(194, 178, 128, 0.1) 0%, transparent 50%),
+                linear-gradient(180deg, #0a0805 0%, #1a1208 40%, #2a1f10 100%);
+        }
+
+        .celestial-bg.burning-bush::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 50% 60%, rgba(255, 107, 53, 0.4) 0%, transparent 40%),
+                radial-gradient(ellipse at 50% 60%, rgba(255, 69, 0, 0.3) 0%, transparent 30%),
+                linear-gradient(180deg, #0a0505 0%, #1a0a05 40%, #150a08 100%);
+            animation: bushBurn 2s ease-in-out infinite;
+        }
+
+        @keyframes bushBurn {
+            0%, 100% { opacity: 0.9; }
+            50% { opacity: 1; }
+        }
+
+        .celestial-bg.egypt::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 50% 20%, rgba(201, 162, 39, 0.2) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(26, 58, 92, 0.15) 0%, transparent 50%),
+                linear-gradient(180deg, #0a0a15 0%, #0f0a10 40%, #150a08 100%);
+        }
+
+        .celestial-bg.plague::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 50% 50%, rgba(139, 0, 0, 0.3) 0%, transparent 50%),
+                radial-gradient(ellipse at 30% 30%, rgba(45, 74, 28, 0.2) 0%, transparent 40%),
+                linear-gradient(180deg, #0a0505 0%, #150505 40%, #1a0808 100%);
+            animation: plagueFlicker 3s ease-in-out infinite;
+        }
+
+        @keyframes plagueFlicker {
+            0%, 100% { opacity: 0.8; }
+            33% { opacity: 1; }
+            66% { opacity: 0.9; }
+        }
+
+        .celestial-bg.passover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 50% 0%, rgba(139, 0, 0, 0.4) 0%, transparent 60%),
+                radial-gradient(ellipse at 50% 100%, rgba(201, 162, 39, 0.1) 0%, transparent 40%),
+                linear-gradient(180deg, #050000 0%, #0a0505 40%, #0f0505 100%);
+        }
+
+        .celestial-bg.red-sea::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 30% 50%, rgba(0, 119, 182, 0.3) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 50%, rgba(0, 119, 182, 0.3) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 100%, rgba(194, 178, 128, 0.15) 0%, transparent 40%),
+                linear-gradient(180deg, #020810 0%, #031525 40%, #051a30 100%);
+            animation: seaPart 4s ease-in-out infinite;
+        }
+
+        @keyframes seaPart {
+            0%, 100% { 
+                background-position: 0% 50%;
+            }
+            50% { 
+                background-position: 100% 50%;
+            }
+        }
+
+        .celestial-bg.sinai::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 50% 0%, rgba(255, 215, 0, 0.3) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 30%, rgba(255, 69, 0, 0.2) 0%, transparent 40%),
+                radial-gradient(ellipse at 50% 100%, rgba(50, 50, 50, 0.3) 0%, transparent 40%),
+                linear-gradient(180deg, #1a0a00 0%, #0f0805 40%, #0a0505 100%);
+            animation: sinaiGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes sinaiGlow {
+            0%, 100% { opacity: 0.85; }
+            50% { opacity: 1; }
+        }
+
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, rgba(255, 250, 240, 0.6), transparent),
+                radial-gradient(2px 2px at 40px 70px, rgba(255, 250, 240, 0.4), transparent),
+                radial-gradient(1px 1px at 90px 40px, rgba(255, 250, 240, 0.5), transparent),
+                radial-gradient(2px 2px at 130px 80px, rgba(201, 162, 39, 0.3), transparent),
+                radial-gradient(1px 1px at 160px 120px, rgba(255, 250, 240, 0.4), transparent);
+            background-size: 250px 250px;
+            animation: twinkle 5s ease-in-out infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 0.8; }
+        }
+
+        /* Fire Overlay for Sinai */
+        .fire-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 30%;
+            background: linear-gradient(180deg, 
+                rgba(255, 69, 0, 0.15) 0%, 
+                rgba(255, 107, 53, 0.1) 50%, 
+                transparent 100%);
+            opacity: 0;
+            transition: opacity 1s ease;
+            pointer-events: none;
+        }
+
+        .fire-overlay.active {
+            opacity: 1;
+            animation: fireFlicker 0.5s ease-in-out infinite;
+        }
+
+        @keyframes fireFlicker {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+
+        .game-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .game-header {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(201, 162, 39, 0.3);
+            margin-bottom: 20px;
+        }
+
+        .game-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--egypt-gold);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 0 0 30px rgba(201, 162, 39, 0.3);
+            margin-bottom: 5px;
+        }
+
+        .game-subtitle {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            color: var(--sand);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+
+        .screen {
+            display: none;
+            flex: 1;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .screen.active {
+            display: flex;
+            flex-direction: column;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Title Screen */
+        .title-screen {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .episode-number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            color: var(--fire-orange);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 10px;
+        }
+
+        .main-title {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--egypt-gold);
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 50px rgba(201, 162, 39, 0.4);
+            animation: titleGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes titleGlow {
+            0%, 100% { text-shadow: 0 0 30px rgba(201, 162, 39, 0.3); }
+            50% { text-shadow: 0 0 60px rgba(255, 107, 53, 0.5), 0 0 100px rgba(201, 162, 39, 0.3); }
+        }
+
+        .main-subtitle {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: var(--fire-orange);
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        .tagline {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+
+        .episode-intro {
+            background: rgba(201, 162, 39, 0.08);
+            border: 1px solid rgba(201, 162, 39, 0.3);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            max-width: 600px;
+            text-align: left;
+        }
+
+        .episode-intro p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .episode-intro p:last-child {
+            margin-bottom: 0;
+        }
+
+        .title-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 280px;
+        }
+
+        .btn {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--egypt-gold) 0%, var(--egypt-dark) 100%);
+            color: var(--bg-dark);
+            box-shadow: 0 4px 20px rgba(201, 162, 39, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(201, 162, 39, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--egypt-gold);
+            border: 1px solid var(--egypt-gold);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(201, 162, 39, 0.1);
+        }
+
+        .btn-secondary:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .btn-exodus {
+            background: linear-gradient(135deg, var(--fire-orange) 0%, var(--fire-red) 100%);
+            color: var(--text-primary);
+            box-shadow: 0 4px 20px rgba(255, 107, 53, 0.4);
+        }
+
+        .btn-exodus:hover {
+            box-shadow: 0 6px 30px rgba(255, 107, 53, 0.6);
+        }
+
+        /* Import Screen */
+        .import-section {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 30px 0;
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6rem;
+            color: var(--egypt-gold);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .import-options {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .import-option {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(201, 162, 39, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .import-option:hover {
+            border-color: var(--egypt-gold);
+            background: rgba(201, 162, 39, 0.1);
+        }
+
+        .import-option h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--egypt-gold);
+            margin-bottom: 10px;
+        }
+
+        .import-option p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .import-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .import-stat {
+            text-align: center;
+        }
+
+        .import-stat-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.6rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+        }
+
+        .import-stat-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        /* Stats Panel */
+        .stats-panel {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(201, 162, 39, 0.3);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stats-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .character-name {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            color: var(--egypt-gold);
+        }
+
+        .episode-indicator {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.65rem;
+            color: var(--fire-orange);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.55rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .stat-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .stat-faith { color: var(--faith-color); }
+        .stat-wisdom { color: var(--wisdom-color); }
+        .stat-courage { color: var(--courage-color); }
+        .stat-love { color: var(--love-color); }
+        .stat-truth { color: var(--truth-color); }
+        .stat-patience { color: var(--patience-color); }
+        .stat-hope { color: var(--hope-color); }
+
+        /* Liberation Panel */
+        .liberation-panel {
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.15) 0%, rgba(201, 162, 39, 0.1) 100%);
+            border: 1px solid rgba(255, 107, 53, 0.4);
+            border-radius: 8px;
+            padding: 12px 20px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .liberation-label {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            color: var(--fire-orange);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .liberation-value {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            color: var(--liberation-gold);
+            font-weight: 600;
+        }
+
+        .plague-counter {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .plague-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(139, 0, 0, 0.3);
+            border: 1px solid rgba(139, 0, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .plague-dot.active {
+            background: var(--blood-red);
+            box-shadow: 0 0 8px rgba(139, 0, 0, 0.6);
+        }
+
+        /* Influence Panel */
+        .influence-panel {
+            background: rgba(201, 162, 39, 0.08);
+            border: 1px solid rgba(201, 162, 39, 0.3);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .influence-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            color: var(--egypt-gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .influence-title::before {
+            content: '🔥';
+            font-size: 1rem;
+        }
+
+        .influence-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .influence-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 12px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+        }
+
+        .influence-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .influence-avatar.deliverer { background: linear-gradient(135deg, var(--fire-orange), var(--egypt-gold)); }
+        .influence-avatar.spokesman { background: linear-gradient(135deg, var(--egypt-gold), var(--sand)); }
+        .influence-avatar.prophetess { background: linear-gradient(135deg, var(--sea-blue), var(--pharaoh-blue)); }
+        .influence-avatar.pharaoh { background: linear-gradient(135deg, var(--egypt-dark), var(--pharaoh-blue)); }
+        .influence-avatar.israelite { background: linear-gradient(135deg, var(--sand), var(--egypt-dark)); }
+
+        .influence-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .influence-name {
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            color: var(--text-primary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .influence-status {
+            font-size: 0.7rem;
+            color: var(--text-dim);
+        }
+
+        .influence-bar {
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            margin-top: 4px;
+            overflow: hidden;
+        }
+
+        .influence-fill {
+            height: 100%;
+            border-radius: 2px;
+            transition: width 0.5s ease;
+        }
+
+        .influence-fill.positive { background: var(--success); }
+        .influence-fill.negative { background: var(--danger); }
+        .influence-fill.neutral { background: var(--warning); }
+        .influence-fill.hardened { background: var(--blood-red); }
+
+        /* Story Panel */
+        .story-panel {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .story-content {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(201, 162, 39, 0.2);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 20px;
+            flex: 1;
+            transition: all 0.5s ease;
+        }
+
+        .story-content.burning-scene {
+            border-color: rgba(255, 107, 53, 0.4);
+            background: rgba(20, 10, 5, 0.5);
+        }
+
+        .story-content.egypt-scene {
+            border-color: rgba(201, 162, 39, 0.4);
+            background: rgba(15, 10, 8, 0.5);
+        }
+
+        .story-content.plague-scene {
+            border-color: rgba(139, 0, 0, 0.4);
+            background: rgba(15, 5, 5, 0.5);
+        }
+
+        .story-content.passover-scene {
+            border-color: rgba(139, 0, 0, 0.6);
+            background: rgba(10, 5, 5, 0.6);
+        }
+
+        .story-content.sea-scene {
+            border-color: rgba(0, 119, 182, 0.4);
+            background: rgba(5, 15, 25, 0.5);
+        }
+
+        .story-content.sinai-scene {
+            border-color: rgba(255, 215, 0, 0.4);
+            background: rgba(20, 10, 5, 0.5);
+        }
+
+        .scene-location {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            color: var(--fire-orange);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .scene-location::before,
+        .scene-location::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.3), transparent);
+        }
+
+        .story-text {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: var(--text-primary);
+            margin-bottom: 25px;
+        }
+
+        .story-text p {
+            margin-bottom: 15px;
+        }
+
+        .story-text .speaker {
+            font-family: 'Cinzel', serif;
+            color: var(--egypt-gold);
+            font-weight: 600;
+        }
+
+        .story-text .speaker.divine {
+            color: var(--sinai-gold);
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        .story-text .speaker.moses {
+            color: var(--fire-orange);
+        }
+
+        .story-text .speaker.pharaoh {
+            color: var(--pharaoh-blue);
+        }
+
+        .story-text .speaker.aaron {
+            color: var(--egypt-gold);
+        }
+
+        .story-text .speaker.miriam {
+            color: var(--sea-blue);
+        }
+
+        .story-text em {
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .story-text .command {
+            color: var(--sinai-gold);
+            font-weight: 500;
+        }
+
+        .story-text .plague {
+            color: var(--blood-red);
+        }
+
+        .story-text .miracle {
+            color: var(--sea-blue);
+            text-shadow: 0 0 8px rgba(0, 119, 182, 0.4);
+        }
+
+        .story-text .fire {
+            color: var(--fire-orange);
+            text-shadow: 0 0 8px rgba(255, 107, 53, 0.4);
+        }
+
+        /* Plague Marker */
+        .plague-marker {
+            background: rgba(139, 0, 0, 0.15);
+            border: 1px solid rgba(139, 0, 0, 0.4);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .plague-marker h4 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            color: var(--blood-red);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+
+        .plague-marker .plague-name {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6rem;
+            color: var(--blood-red);
+            font-weight: 700;
+        }
+
+        .plague-marker p {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        /* Choices */
+        .choices-container {
+            margin-top: auto;
+        }
+
+        .choices-label {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .choice-btn {
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: 18px 20px;
+            margin-bottom: 10px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(201, 162, 39, 0.3);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.05rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .choice-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--egypt-gold);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .choice-btn:hover {
+            background: rgba(201, 162, 39, 0.15);
+            border-color: var(--egypt-gold);
+            transform: translateX(5px);
+        }
+
+        .choice-btn:hover::before {
+            opacity: 1;
+        }
+
+        .choice-btn.power-choice {
+            border-color: rgba(255, 107, 53, 0.4);
+            background: rgba(255, 107, 53, 0.08);
+        }
+
+        .choice-btn.power-choice:hover {
+            background: rgba(255, 107, 53, 0.2);
+        }
+
+        .choice-btn.power-choice::before {
+            background: var(--fire-orange);
+        }
+
+        .choice-letter {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.75rem;
+            color: var(--egypt-gold);
+            margin-right: 12px;
+        }
+
+        .choice-preview {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            margin-top: 8px;
+            padding-left: 25px;
+            font-style: italic;
+        }
+
+        /* Consequence Display */
+        .consequence-display {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(201, 162, 39, 0.3);
+            border-radius: 12px;
+            padding: 30px;
+            margin: 20px 0;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .consequence-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            color: var(--egypt-gold);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .stat-changes {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stat-change {
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .stat-change.positive {
+            background: rgba(107, 142, 78, 0.2);
+            border: 1px solid var(--success);
+            color: var(--success);
+        }
+
+        .stat-change.negative {
+            background: rgba(196, 69, 54, 0.2);
+            border: 1px solid var(--danger);
+            color: var(--danger);
+        }
+
+        .influence-change {
+            text-align: center;
+            padding: 15px;
+            background: rgba(201, 162, 39, 0.08);
+            border: 1px solid rgba(201, 162, 39, 0.3);
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .influence-change-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            color: var(--egypt-gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .influence-change-text {
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .influence-change-text .name {
+            font-family: 'Cinzel', serif;
+            color: var(--egypt-gold);
+        }
+
+        .liberation-notice {
+            background: rgba(255, 107, 53, 0.15);
+            border: 1px solid rgba(255, 107, 53, 0.4);
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .liberation-notice h4 {
+            font-family: 'Cinzel', serif;
+            color: var(--fire-orange);
+            margin-bottom: 8px;
+        }
+
+        .liberation-notice p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        .continue-btn {
+            display: block;
+            width: 100%;
+            max-width: 300px;
+            margin: 20px auto 0;
+        }
+
+        /* Summary Screen */
+        .episode-summary {
+            padding: 30px 0;
+        }
+
+        .summary-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .summary-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            color: var(--egypt-gold);
+            margin-bottom: 10px;
+        }
+
+        .summary-subtitle {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            color: var(--fire-orange);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .summary-section {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(201, 162, 39, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        .summary-section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            color: var(--egypt-gold);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .final-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 15px;
+        }
+
+        .final-stat {
+            text-align: center;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+        }
+
+        .final-stat-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .final-stat-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .final-stat-change {
+            font-size: 0.75rem;
+            margin-top: 4px;
+        }
+
+        .exodus-journey {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 20px 0;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .journey-icon {
+            text-align: center;
+        }
+
+        .journey-icon .icon {
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+
+        .journey-icon .name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+        }
+
+        .journey-arrow {
+            color: var(--fire-orange);
+            font-size: 1.2rem;
+        }
+
+        .souls-detail {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .soul-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .soul-name {
+            font-family: 'Cinzel', serif;
+            color: var(--text-primary);
+        }
+
+        .soul-status {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            padding: 4px 12px;
+            border-radius: 12px;
+        }
+
+        .soul-status.deliverer {
+            background: rgba(255, 107, 53, 0.2);
+            color: var(--fire-orange);
+        }
+
+        .soul-status.faithful {
+            background: rgba(201, 162, 39, 0.2);
+            color: var(--egypt-gold);
+        }
+
+        .soul-status.liberated {
+            background: rgba(107, 142, 78, 0.2);
+            color: var(--success);
+        }
+
+        .soul-status.hardened {
+            background: rgba(139, 0, 0, 0.2);
+            color: var(--blood-red);
+        }
+
+        .narrative-summary {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+
+        .narrative-summary p {
+            margin-bottom: 15px;
+        }
+
+        .to-be-continued {
+            text-align: center;
+            padding: 30px;
+            margin-top: 20px;
+        }
+
+        .to-be-continued h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: var(--egypt-gold);
+            margin-bottom: 10px;
+        }
+
+        .to-be-continued p {
+            color: var(--text-dim);
+            font-style: italic;
+        }
+
+        /* Fire decoration */
+        .fire-decoration {
+            text-align: center;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .fire-decoration .flames {
+            font-size: 1.5rem;
+            letter-spacing: 10px;
+            color: var(--fire-orange);
+            animation: flameGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes flameGlow {
+            0%, 100% { text-shadow: 0 0 10px rgba(255, 107, 53, 0.5); }
+            50% { text-shadow: 0 0 20px rgba(255, 107, 53, 0.8), 0 0 30px rgba(255, 69, 0, 0.5); }
+        }
+
+        .fire-decoration p {
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-top: 10px;
+        }
+
+        /* Menu */
+        .menu-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 44px;
+            height: 44px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(201, 162, 39, 0.4);
+            border-radius: 8px;
+            color: var(--egypt-gold);
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 100;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .menu-btn:hover {
+            background: rgba(201, 162, 39, 0.2);
+        }
+
+        .menu-btn.visible {
+            display: flex;
+        }
+
+        .menu-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 200;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .menu-modal.active {
+            display: flex;
+        }
+
+        .menu-content {
+            background: var(--bg-medium);
+            border: 1px solid rgba(201, 162, 39, 0.4);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            max-width: 350px;
+            width: 90%;
+        }
+
+        .menu-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: var(--egypt-gold);
+            margin-bottom: 25px;
+        }
+
+        .menu-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .menu-buttons .btn {
+            width: 100%;
+        }
+
+        /* Footer */
+        .game-footer {
+            text-align: center;
+            padding: 20px 0;
+            margin-top: auto;
+            border-top: 1px solid rgba(201, 162, 39, 0.2);
+        }
+
+        .footer-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.6rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .footer-text a {
+            color: var(--egypt-gold);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2rem;
+                letter-spacing: 3px;
+            }
+
+            .main-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 5px;
+            }
+
+            .stat-name {
+                font-size: 0.5rem;
+            }
+
+            .stat-value {
+                font-size: 0.9rem;
+            }
+
+            .influence-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .story-content {
+                padding: 20px;
+            }
+
+            .story-text {
+                font-size: 1.05rem;
+            }
+
+            .choice-btn {
+                padding: 15px;
+                font-size: 0.95rem;
+            }
+
+            .final-stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .import-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .exodus-journey {
+                flex-direction: column;
+            }
+
+            .journey-arrow {
+                transform: rotate(90deg);
+            }
+
+            .plague-counter {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="celestial-bg wilderness" id="bgLayer">
+        <div class="stars"></div>
+        <div class="fire-overlay" id="fireOverlay"></div>
+    </div>
+
+    <button class="menu-btn" id="menuBtn" onclick="toggleMenu()">☰</button>
+
+    <div class="menu-modal" id="menuModal">
+        <div class="menu-content">
+            <h2 class="menu-title">Game Menu</h2>
+            <div class="menu-buttons">
+                <button class="btn btn-secondary" onclick="saveGame()">Save Progress</button>
+                <button class="btn btn-secondary" onclick="toggleMenu()">Resume Game</button>
+                <button class="btn btn-secondary" onclick="restartEpisode()">Restart Episode</button>
+                <button class="btn btn-secondary" onclick="returnToTitle()">Main Menu</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="game-container">
+        <header class="game-header">
+            <h1 class="game-title">The Great Controversy</h1>
+            <p class="game-subtitle">Episode 6: The Exodus</p>
+        </header>
+
+        <!-- Title Screen -->
+        <div class="screen active" id="titleScreen">
+            <div class="title-screen">
+                <div class="episode-number">Episode VI</div>
+                <h1 class="main-title">The Exodus</h1>
+                <h2 class="main-subtitle">God's Power vs. Empire's Power</h2>
+                <p class="tagline">"Let my people go, that they may serve me." — Exodus 8:1</p>
+                
+                <div class="episode-intro">
+                    <p>Four hundred years have passed. Joseph's people are now Pharaoh's slaves. The promise seems forgotten. The cry of Israel rises to heaven.</p>
+                    <p>God answers with fire, plagues, and the mightiest deliverance in history. You will witness the burning bush. You will see the Nile run red. You will walk through walls of water.</p>
+                    <p>And at Sinai, you will stand before the mountain that trembles as God descends in fire.</p>
+                </div>
+
+                <div class="title-buttons">
+                    <button class="btn btn-exodus" onclick="showImportScreen()">Begin Episode 6</button>
+                    <button class="btn btn-secondary" id="continueBtn" onclick="continueGame()" disabled>Continue Saved Game</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Import Screen -->
+        <div class="screen" id="importScreen">
+            <div class="import-section">
+                <h2 class="section-title">Character Import</h2>
+                
+                <div class="import-options">
+                    <div class="import-option" id="importFromPrev" onclick="importFromPrevious()">
+                        <h3>Import from Previous Episodes</h3>
+                        <p>Continue with your character from the Patriarchs. Your stats and growth carry forward.</p>
+                        <div class="import-stats" id="prevStats" style="display: none;"></div>
+                    </div>
+
+                    <div class="import-option" onclick="startFresh()">
+                        <h3>Start Fresh</h3>
+                        <p>Begin Episode 6 with default stats. You remember the covenant promise and await deliverance.</p>
+                        <div class="import-stats">
+                            <div class="import-stat">
+                                <div class="import-stat-name">Faith</div>
+                                <div class="import-stat-value stat-faith">78</div>
+                            </div>
+                            <div class="import-stat">
+                                <div class="import-stat-name">Courage</div>
+                                <div class="import-stat-value stat-courage">72</div>
+                            </div>
+                            <div class="import-stat">
+                                <div class="import-stat-name">Love</div>
+                                <div class="import-stat-value stat-love">75</div>
+                            </div>
+                            <div class="import-stat">
+                                <div class="import-stat-name">Hope</div>
+                                <div class="import-stat-value stat-hope">78</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="import-option" onclick="showNameInput()">
+                        <h3>Custom Character</h3>
+                        <p>Enter a name and witness the liberation of God's people.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Name Input Screen -->
+        <div class="screen" id="nameScreen">
+            <div class="import-section">
+                <h2 class="section-title">Name Your Character</h2>
+                <div style="max-width: 400px; margin: 0 auto;">
+                    <label style="display: block; font-family: Orbitron, sans-serif; font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px;">Your Name</label>
+                    <input type="text" id="customName" placeholder="Enter your angelic name..." maxlength="20" style="width: 100%; padding: 15px 20px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(201, 162, 39, 0.3); border-radius: 4px; color: var(--text-primary); font-family: Crimson Pro, serif; font-size: 1.1rem;">
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 20px;" onclick="confirmCustomName()">Begin Episode 6</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div class="screen" id="gameScreen">
+            <div class="stats-panel" id="statsPanel">
+                <div class="stats-header">
+                    <span class="character-name" id="displayName">-</span>
+                    <span class="episode-indicator">Episode 6: The Exodus</span>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-name">Faith</div>
+                        <div class="stat-value stat-faith" id="statFaith">50</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-name">Wisdom</div>
+                        <div class="stat-value stat-wisdom" id="statWisdom">50</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-name">Courage</div>
+                        <div class="stat-value stat-courage" id="statCourage">50</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-name">Love</div>
+                        <div class="stat-value stat-love" id="statLove">50</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-name">Truth</div>
+                        <div class="stat-value stat-truth" id="statTruth">50</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-name">Patience</div>
+                        <div class="stat-value stat-patience" id="statPatience">50</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-name">Hope</div>
+                        <div class="stat-value stat-hope" id="statHope">50</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-name">Liberation</div>
+                        <div class="stat-value" style="color: var(--fire-orange);" id="statLiberation">0</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="liberation-panel" id="liberationPanel">
+                <span class="liberation-label">Liberation Progress</span>
+                <span class="liberation-value" id="liberationPhase">Egypt</span>
+                <div class="plague-counter" id="plagueCounter">
+                    <div class="plague-dot" id="plague1"></div>
+                    <div class="plague-dot" id="plague2"></div>
+                    <div class="plague-dot" id="plague3"></div>
+                    <div class="plague-dot" id="plague4"></div>
+                    <div class="plague-dot" id="plague5"></div>
+                    <div class="plague-dot" id="plague6"></div>
+                    <div class="plague-dot" id="plague7"></div>
+                    <div class="plague-dot" id="plague8"></div>
+                    <div class="plague-dot" id="plague9"></div>
+                    <div class="plague-dot" id="plague10"></div>
+                </div>
+            </div>
+
+            <div class="influence-panel" id="influencePanel">
+                <div class="influence-title">Those in Your Sphere</div>
+                <div class="influence-grid" id="influenceGrid"></div>
+            </div>
+
+            <div class="story-panel">
+                <div class="story-content" id="storyContent"></div>
+                <div class="choices-container" id="choicesContainer"></div>
+            </div>
+        </div>
+
+        <!-- Consequence Screen -->
+        <div class="screen" id="consequenceScreen">
+            <div class="consequence-display" id="consequenceDisplay"></div>
+        </div>
+
+        <!-- Summary Screen -->
+        <div class="screen" id="summaryScreen">
+            <div class="episode-summary" id="episodeSummary"></div>
+        </div>
+
+        <footer class="game-footer">
+            <p class="footer-text">Seven Cubed Seven Labs | <a href="https://sevencubedseven.com">7³×7 = 2,401</a></p>
+        </footer>
+    </div>
+
+    <script>
+        // ==========================================
+        // THE GREAT CONTROVERSY: THE GAME
+        // Episode 6: The Exodus
+        // ==========================================
+
+        var STATE = {
+            screen: 'title',
+            characterName: '',
+            stats: {
+                faith: 78,
+                wisdom: 68,
+                courage: 72,
+                love: 75,
+                truth: 70,
+                patience: 72,
+                hope: 78
+            },
+            baseStats: {},
+            liberationPoints: 0,
+            plagueCount: 0,
+            currentPhase: 'Egypt',
+            currentScene: 0,
+            choices: [],
+            beings: [
+                { name: 'Moses', status: 'reluctant', influence: 65, avatar: '🔥', type: 'deliverer' },
+                { name: 'Aaron', status: 'spokesman', influence: 60, avatar: '◇', type: 'spokesman' },
+                { name: 'Miriam', status: 'prophetess', influence: 58, avatar: '♫', type: 'prophetess' },
+                { name: 'Israel', status: 'enslaved', influence: 50, avatar: '⛓', type: 'israelite' },
+                { name: 'Pharaoh', status: 'hardened', influence: 30, avatar: '👑', type: 'pharaoh' }
+            ],
+            episodeComplete: false
+        };
+
+        var SCENES = [
+            // Scene 0: The Burning Bush
+            {
+                location: 'Mount Horeb — The Burning Bush',
+                locationClass: 'burning-bush',
+                contentClass: 'burning-scene',
+                phase: 'Call',
+                content: '<p><em>Four hundred years of slavery. Four hundred years of crying out. And now, on a forgotten mountainside, tending sheep that aren\'t even his own, an eighty-year-old fugitive sees fire.</em></p><p><em>A bush burns. But it does not burn up.</em></p><p><span class="speaker moses">Moses:</span> "I will now turn aside, and see this great sight, why the bush is not burnt."</p><p><span class="speaker divine">"Moses, Moses... Draw not nigh hither: put off thy shoes from off thy feet, for the place whereon thou standest is <span class="fire">holy ground</span>."</span></p><p><em>The voice continues:</em></p><p><span class="speaker divine">"I am the God of thy father, the God of Abraham, the God of Isaac, and the God of Jacob... I have surely seen the affliction of my people which are in Egypt, and have heard their cry... <span class="command">Come now therefore, and I will send thee unto Pharaoh, that thou mayest bring forth my people.</span>"</span></p><p><em>Moses — murderer, fugitive, shepherd — hides his face. He is terrified.</em></p>',
+                choices: [
+                    {
+                        letter: 'A',
+                        text: 'Let Moses feel the weight of holy ground. This moment changes everything. The shepherd becomes deliverer.',
+                        preview: 'Honor the sacred encounter',
+                        effects: { faith: 12, wisdom: 10, courage: 8 },
+                        influence: { target: 'Moses', change: 12, type: 'positive' },
+                        response: 'The ground trembles beneath Moses\'s bare feet. Eighty years of preparation — Egypt\'s courts, Midian\'s wilderness — all for this moment. God was never absent.'
+                    },
+                    {
+                        letter: 'B',
+                        text: '"The bush burns but isn\'t consumed — like Israel in the furnace of affliction. God is in the fire with His people."',
+                        preview: 'Perceive the prophetic symbol',
+                        effects: { wisdom: 15, faith: 10, hope: 8 },
+                        influence: { target: 'Moses', change: 10, type: 'positive' },
+                        isPower: true,
+                        response: 'You see the deeper meaning. Israel is the bush — burning in Egypt\'s oppression but not destroyed. God preserves His people even in the fire.'
+                    },
+                    {
+                        letter: 'C',
+                        text: 'Strengthen Moses for what comes next. He will argue, make excuses, ask for someone else. But God will not relent.',
+                        preview: 'Prepare for the resistance',
+                        effects: { patience: 12, love: 10, courage: 8 },
+                        influence: { target: 'Moses', change: 10, type: 'positive' },
+                        response: 'Five times Moses will object. "Who am I?" "What is Your name?" "They won\'t believe." "I can\'t speak." "Send someone else." And five times, God will answer.'
+                    },
+                    {
+                        letter: 'D',
+                        text: 'Pray: "Father, give Moses the \'I AM\' revelation. Let him know You are not asking him to deliver Israel — You are going with him."',
+                        preview: 'Pray for identity revelation',
+                        effects: { faith: 15, courage: 10, hope: 10 },
+                        influence: { target: 'Moses', change: 15, type: 'positive' },
+                        isPrayer: true,
+                        isPower: true,
+                        response: '"I AM THAT I AM." The name that needs no explanation. Moses will carry not just a message but a Presence. This is not his mission — it is God\'s.'
+                    }
+                ]
+            },
+            // Scene 1: Before Pharaoh
+            {
+                location: 'Egypt — Before Pharaoh',
+                locationClass: 'egypt',
+                contentClass: 'egypt-scene',
+                phase: 'Confrontation',
+                content: '<p><em>Moses and Aaron stand before the throne of the most powerful man on earth. Around them, the wealth of empires. Above them, images of gods who are no gods.</em></p><p><span class="speaker moses">Moses:</span> "Thus saith the LORD God of Israel, <span class="command">Let my people go</span>, that they may hold a feast unto me in the wilderness."</p><p><em>Pharaoh laughs. Actually laughs.</em></p><p><span class="speaker pharaoh">Pharaoh:</span> "Who is the LORD, that I should obey his voice to let Israel go? I know not the LORD, neither will I let Israel go."</p><p><em>The challenge is laid. God against the gods of Egypt. The I AM against those who are not. This will not end with words.</em></p><p><em>That same day, Pharaoh increases the slaves\' burden. No more straw for bricks. Same quota.</em></p>',
+                choices: [
+                    {
+                        letter: 'A',
+                        text: '"Pharaoh asks \'Who is the LORD?\' He will learn. Every plague is an answer to that question."',
+                        preview: 'Recognize the educational purpose',
+                        effects: { wisdom: 12, faith: 10, truth: 10 },
+                        influence: { target: 'Moses', change: 8, type: 'positive' },
+                        influenceSecondary: { target: 'Pharaoh', change: -5, type: 'hardened' },
+                        response: 'Each plague will target an Egyptian god. The Nile — Hapi. The sun — Ra. The cattle — Apis. God is not just delivering Israel. He is answering Pharaoh\'s question systematically.'
+                    },
+                    {
+                        letter: 'B',
+                        text: 'Send Moses an impression of strength. The increased burden is meant to break Israel\'s faith. It\'s the enemy\'s standard tactic.',
+                        preview: 'Expose the enemy\'s strategy',
+                        effects: { courage: 12, wisdom: 10, faith: 8 },
+                        influence: { target: 'Moses', change: 12, type: 'positive' },
+                        influenceSecondary: { target: 'Israel', change: 8, type: 'positive' },
+                        response: 'Darkness before dawn. Satan always intensifies oppression when deliverance approaches. Moses must not measure God\'s power by Pharaoh\'s resistance.'
+                    },
+                    {
+                        letter: 'C',
+                        text: 'Marvel at Moses\'s courage. He faced the throne of Egypt — the very court he fled forty years ago — and demanded release.',
+                        preview: 'Honor the courage displayed',
+                        effects: { courage: 15, faith: 10, hope: 8 },
+                        influence: { target: 'Moses', change: 12, type: 'positive' },
+                        response: 'The man who fled Egypt in fear now stands before Pharaoh demanding freedom. Forty years in the wilderness transformed the fugitive into a prophet.'
+                    },
+                    {
+                        letter: 'D',
+                        text: 'Pray for Israel under the increased burden: "Father, let their suffering become fuel for faith, not despair."',
+                        preview: 'Intercede for the oppressed',
+                        effects: { love: 12, patience: 10, hope: 10 },
+                        influence: { target: 'Israel', change: 12, type: 'positive' },
+                        isPrayer: true,
+                        response: 'Your prayer covers the brick pits where Israel groans. The burden is heavier, but so is heaven\'s attention. Suffering is being transformed into expectation.'
+                    }
+                ]
+            },
+            // Scene 2: The Plagues
+            {
+                location: 'Egypt — The Plagues',
+                locationClass: 'plague',
+                contentClass: 'plague-scene',
+                phase: 'Judgment',
+                plagueScene: true,
+                content: '<p><em>What follows is systematic divine judgment — ten plagues, ten answers to "Who is the LORD?"</em></p><div class="plague-marker"><h4>The Ten Plagues</h4><div class="plague-name">God vs. The Gods of Egypt</div><p>Each plague targets an Egyptian deity</p></div><p><span class="plague">Blood</span> — The Nile, worshipped as Hapi, runs red with death.</p><p><span class="plague">Frogs</span> — Heqet, the frog goddess, becomes a curse rather than blessing.</p><p><span class="plague">Lice, Flies, Livestock Death, Boils</span> — One by one, Egypt\'s gods fall silent.</p><p><em>Pharaoh\'s magicians can match the first two plagues. Then they confess:</em></p><p><span class="speaker">Magicians:</span> "This is <span class="command">the finger of God</span>."</p><p><em>But Pharaoh\'s heart hardens. Again and again. Promise and retraction. The pattern continues.</em></p><p><span class="plague">Hail. Locusts. Darkness.</span> Ra, the sun god, is defeated by three days of blackness so thick it can be felt.</p><p><em>One plague remains.</em></p>',
+                choices: [
+                    {
+                        letter: 'A',
+                        text: '"The magicians saw it first — the finger of God. When even the enemy\'s prophets confess, the truth is undeniable."',
+                        preview: 'Note the confession of enemies',
+                        effects: { truth: 15, wisdom: 10, faith: 8 },
+                        influence: { target: 'Moses', change: 10, type: 'positive' },
+                        influenceSecondary: { target: 'Israel', change: 10, type: 'positive' },
+                        isPower: true,
+                        plagues: 3,
+                        response: 'Even Pharaoh\'s wise men knew. The finger that will later write on stone tablets first wrote judgment across Egypt. Truth compels even enemies to confess.'
+                    },
+                    {
+                        letter: 'B',
+                        text: 'Watch Goshen — where Israel lives — remain untouched while Egypt suffers. God makes a distinction between His people and the world.',
+                        preview: 'Observe the divine protection',
+                        effects: { faith: 12, hope: 12, love: 8 },
+                        influence: { target: 'Israel', change: 15, type: 'positive' },
+                        plagues: 3,
+                        response: 'In Goshen, no flies swarm. No boils break. No darkness falls. God demonstrates: belonging to Him means protection even when surrounded by judgment.'
+                    },
+                    {
+                        letter: 'C',
+                        text: 'Grieve for Egypt. These plagues are answers, yes — but also invitations. Each plague gives Pharaoh another chance to submit.',
+                        preview: 'See mercy in judgment',
+                        effects: { love: 15, wisdom: 10, patience: 8 },
+                        influence: { target: 'Pharaoh', change: 5, type: 'positive' },
+                        plagues: 3,
+                        response: 'Ten plagues. Ten opportunities to repent. God\'s patience is measured not by silence but by repeated warning. Even judgment is mercy with a deadline.'
+                    },
+                    {
+                        letter: 'D',
+                        text: 'Pray: "Father, let these signs accomplish their purpose — that Egypt may know that You are LORD, and Israel may trust Your power to save."',
+                        preview: 'Pray for revelation through judgment',
+                        effects: { faith: 12, hope: 10, truth: 10 },
+                        influence: { target: 'Israel', change: 12, type: 'positive' },
+                        influenceSecondary: { target: 'Moses', change: 10, type: 'positive' },
+                        isPrayer: true,
+                        plagues: 3,
+                        response: 'Your prayer covers both nations. Egypt must learn who God is. Israel must learn to trust the God who acts. The plagues teach both lessons simultaneously.'
+                    }
+                ]
+            },
+            // Scene 3: The Passover
+            {
+                location: 'Egypt — The Passover',
+                locationClass: 'passover',
+                contentClass: 'passover-scene',
+                phase: 'Redemption',
+                content: '<p><em>The final plague approaches. The most terrible. The most revealing.</em></p><p><span class="speaker divine">"About midnight will I go out into the midst of Egypt: And all the firstborn in the land of Egypt shall die... But against any of the children of Israel shall not a dog move his tongue."</span></p><p><em>But protection requires obedience:</em></p><p><span class="speaker divine">"Take a lamb... without blemish... kill it in the evening... take of the blood, and strike it on the two side posts and on the upper door post... <span class="command">when I see the blood, I will pass over you</span>."</span></p><p><em>That night, death walks through Egypt. In homes without blood, wailing rises. In homes with blood on the doorposts, Israel eats the lamb in haste, staff in hand, ready to move.</em></p><p><span class="speaker pharaoh">Pharaoh:</span> <em>(in the night, having lost his firstborn)</em> "Rise up, and get you forth from among my people... and go, serve the LORD."</p>',
+                choices: [
+                    {
+                        letter: 'A',
+                        text: 'See the shadow of Calvary. The lamb without blemish. The blood that saves. The death of the firstborn. This is prophecy in action.',
+                        preview: 'Perceive the Messianic pattern',
+                        effects: { wisdom: 15, faith: 15, hope: 10 },
+                        influence: { target: 'Moses', change: 12, type: 'positive' },
+                        influenceSecondary: { target: 'Israel', change: 12, type: 'positive' },
+                        isPower: true,
+                        response: 'The pattern crystallizes: a lamb dies so the firstborn lives. Blood on wood saves from judgment. Fifteen hundred years before Golgotha, the gospel is enacted in Egypt.'
+                    },
+                    {
+                        letter: 'B',
+                        text: '"When I see the blood" — salvation is not about the worthiness of those inside, but the blood on the door. This is grace.',
+                        preview: 'Understand grace through blood',
+                        effects: { faith: 15, truth: 12, love: 10 },
+                        influence: { target: 'Israel', change: 15, type: 'positive' },
+                        isPower: true,
+                        response: 'God doesn\'t examine the people inside — He examines the doorpost. Not "when I see your righteousness" but "when I see the blood." This is the gospel in its earliest form.'
+                    },
+                    {
+                        letter: 'C',
+                        text: 'Feel the weight of that night. Death walking. Blood dividing. The hinge of history turning on lamb\'s blood and faith.',
+                        preview: 'Enter the moment\'s gravity',
+                        effects: { courage: 12, faith: 10, hope: 10 },
+                        influence: { target: 'Israel', change: 12, type: 'positive' },
+                        response: 'The night that changed everything. Every year afterward, Israel will remember: we were slaves, and God brought us out with a mighty hand. Memory becomes identity.'
+                    },
+                    {
+                        letter: 'D',
+                        text: 'Worship: "Father, the Lamb slain from the foundation of the world is revealed tonight. Every Passover points to Him."',
+                        preview: 'Worship the eternal pattern',
+                        effects: { faith: 15, love: 12, hope: 12 },
+                        influence: { target: 'Moses', change: 15, type: 'positive' },
+                        influenceSecondary: { target: 'Israel', change: 15, type: 'positive' },
+                        isPrayer: true,
+                        isPower: true,
+                        response: 'Worship rises even as death passes. The Lamb was planned before creation. Tonight, shadows take shape. One day, substance will come. "Behold the Lamb of God."'
+                    }
+                ]
+            },
+            // Scene 4: The Red Sea
+            {
+                location: 'The Red Sea — Trapped',
+                locationClass: 'red-sea',
+                contentClass: 'sea-scene',
+                phase: 'Deliverance',
+                content: '<p><em>They are free. Two million people march out of Egypt with the wealth of their oppressors. But Pharaoh\'s grief turns to rage.</em></p><p><span class="speaker pharaoh">Pharaoh:</span> "Why have we done this, that we have let Israel go from serving us?"</p><p><em>Six hundred chariots pursue. Israel reaches the Red Sea — and there is nowhere to go. Mountains on the sides. Sea ahead. Army behind.</em></p><p><span class="speaker">Israel:</span> "Because there were no graves in Egypt, hast thou taken us away to die in the wilderness?"</p><p><em>Moses answers:</em></p><p><span class="speaker moses">Moses:</span> "<span class="command">Fear ye not, stand still, and see the salvation of the LORD</span>... The LORD shall fight for you, and ye shall hold your peace."</p><p><span class="speaker divine">"Wherefore criest thou unto me? Speak unto the children of Israel, that they <span class="miracle">go forward</span>."</span></p><p><em>Moses stretches his rod over the sea. A strong east wind blows all night. And the waters divide.</em></p>',
+                choices: [
+                    {
+                        letter: 'A',
+                        text: '"Stand still and see" — then "go forward." Faith has two phases: trust God to act, then obey when He opens the way.',
+                        preview: 'Learn the rhythm of faith',
+                        effects: { faith: 15, wisdom: 12, courage: 10 },
+                        influence: { target: 'Moses', change: 12, type: 'positive' },
+                        influenceSecondary: { target: 'Israel', change: 12, type: 'positive' },
+                        isPower: true,
+                        response: 'First: stop panicking and trust. Then: move when God makes a way. The Red Sea teaches the eternal rhythm of faith — wait, then walk.'
+                    },
+                    {
+                        letter: 'B',
+                        text: 'Walk between the walls of water. Experience what Israel experiences — water standing like walls, pathway through the impossible.',
+                        preview: 'Enter the miracle',
+                        effects: { courage: 15, faith: 12, hope: 10 },
+                        influence: { target: 'Israel', change: 15, type: 'positive' },
+                        response: 'The sea floor under their feet. Walls of water higher than Egypt\'s monuments. Every step requires trust that what holds the sea will keep holding it. Faith becomes motion.'
+                    },
+                    {
+                        letter: 'C',
+                        text: 'Watch the cloud that guided Israel move behind them — becoming darkness to Egypt, light to Israel. The same presence protects and judges.',
+                        preview: 'See the dual nature of God\'s presence',
+                        effects: { wisdom: 15, truth: 10, faith: 10 },
+                        influence: { target: 'Israel', change: 12, type: 'positive' },
+                        influenceSecondary: { target: 'Pharaoh', change: -10, type: 'hardened' },
+                        response: 'The same pillar: darkness to the pursuer, light to the pursued. God\'s presence is experienced differently depending on which side you stand. To Israel: salvation. To Egypt: doom.'
+                    },
+                    {
+                        letter: 'D',
+                        text: 'Pray: "Father, let this crossing mark Israel forever. Let them know that no army, no sea, no impossibility can stand against Your purpose."',
+                        preview: 'Pray for lasting impact',
+                        effects: { faith: 12, hope: 15, love: 10 },
+                        influence: { target: 'Israel', change: 15, type: 'positive' },
+                        influenceSecondary: { target: 'Moses', change: 12, type: 'positive' },
+                        isPrayer: true,
+                        response: 'Your prayer marks the moment. At morning watch, the waters return. Pharaoh\'s army is no more. And Israel believes — in the LORD, and His servant Moses.'
+                    }
+                ]
+            },
+            // Scene 5: Mount Sinai
+            {
+                location: 'Mount Sinai — The Covenant',
+                locationClass: 'sinai',
+                contentClass: 'sinai-scene',
+                phase: 'Covenant',
+                content: '<p><em>Fifty days after Passover, Israel camps at the base of a mountain. The same mountain where Moses saw the burning bush. Now the whole mountain burns.</em></p><p><span class="speaker divine">"Ye have seen what I did unto the Egyptians, and how I bare you on eagles\' wings, and brought you unto myself. Now therefore, if ye will obey my voice... <span class="command">ye shall be unto me a kingdom of priests, and an holy nation.</span>"</span></p><p><em>Thunder. Lightning. A thick cloud. The mountain quakes. A trumpet grows louder and louder. Then:</em></p><p><span class="speaker divine">"<span class="fire">I am the LORD thy God, which have brought thee out of the land of Egypt, out of the house of bondage. Thou shalt have no other gods before me.</span>"</span></p><p><em>God speaks the Ten Commandments aloud to an entire nation. Moses receives the tablets, written by the finger of God — the same finger the magicians recognized in the plagues.</em></p><p><em>Liberation is complete. But freedom has a shape. Love has requirements. Covenant has conditions.</em></p>',
+                choices: [
+                    {
+                        letter: 'A',
+                        text: '"I am the LORD... which brought you out." The law begins with grace. Obedience is response to salvation, not its cause.',
+                        preview: 'See the order of grace and law',
+                        effects: { wisdom: 15, truth: 15, faith: 10 },
+                        influence: { target: 'Moses', change: 12, type: 'positive' },
+                        influenceSecondary: { target: 'Israel', change: 12, type: 'positive' },
+                        isPower: true,
+                        response: 'The order matters infinitely. First: "I brought you out." Then: "Now obey." Grace precedes law. God saves first, then calls to obedience. This is the eternal pattern.'
+                    },
+                    {
+                        letter: 'B',
+                        text: 'Feel the mountain shake. God is not safe. He is holy. The same God who delivered is the God who demands absolute allegiance.',
+                        preview: 'Experience holy fear',
+                        effects: { courage: 12, truth: 12, faith: 10 },
+                        influence: { target: 'Israel', change: 12, type: 'positive' },
+                        response: 'Smoke and fire. Thunder and trumpet. The people tremble. They ask Moses to speak to God for them. Holiness is terrifying and glorious simultaneously.'
+                    },
+                    {
+                        letter: 'C',
+                        text: '"Kingdom of priests, holy nation" — Israel\'s purpose is revealed. They are not saved FOR themselves but TO be God\'s representatives to the world.',
+                        preview: 'Understand the missional purpose',
+                        effects: { wisdom: 12, love: 12, truth: 10 },
+                        influence: { target: 'Israel', change: 15, type: 'positive' },
+                        isPower: true,
+                        response: 'Salvation has a purpose beyond the saved. Israel is chosen FOR the nations, not from them permanently. The blessing of Abraham flows through them to all families of the earth.'
+                    },
+                    {
+                        letter: 'D',
+                        text: 'Worship: "Father, Your law is love codified. Your commandments are the architecture of freedom. Thank You for showing us how to live."',
+                        preview: 'Worship the Lawgiver',
+                        effects: { faith: 15, love: 15, hope: 12 },
+                        influence: { target: 'Moses', change: 15, type: 'positive' },
+                        influenceSecondary: { target: 'Israel', change: 15, type: 'positive' },
+                        isPrayer: true,
+                        isPower: true,
+                        response: 'Worship rises from the camp. The law is not bondage but blueprint. The commandments are not restrictions but roadmap to flourishing. Freedom has found its form.'
+                    }
+                ]
+            }
+        ];
+
+        // Initialize
+        function init() {
+            checkSavedGame();
+            checkPreviousSaves();
+        }
+
+        function checkSavedGame() {
+            var saved = localStorage.getItem('gcg_ep6_save');
+            if (saved) {
+                document.getElementById('continueBtn').disabled = false;
+            }
+        }
+
+        function checkPreviousSaves() {
+            var prevEps = ['gcg_ep5_save', 'gcg_ep4_save', 'gcg_ep3_save', 'gcg_ep2_save', 'gcg_save'];
+            var epNames = ['Episode 5', 'Episode 4', 'Episode 3', 'Episode 2', 'Episode 1'];
+            
+            for (var i = 0; i < prevEps.length; i++) {
+                var saved = localStorage.getItem(prevEps[i]);
+                if (saved) {
+                    var data = JSON.parse(saved);
+                    if (data.episodeComplete) {
+                        displayPrevStats(data, epNames[i]);
+                        return;
+                    }
+                }
+            }
+        }
+
+        function displayPrevStats(data, epName) {
+            var statsDiv = document.getElementById('prevStats');
+            statsDiv.style.display = 'grid';
+            statsDiv.innerHTML = 
+                '<div class="import-stat"><div class="import-stat-name">Faith</div><div class="import-stat-value stat-faith">' + data.stats.faith + '</div></div>' +
+                '<div class="import-stat"><div class="import-stat-name">Courage</div><div class="import-stat-value stat-courage">' + data.stats.courage + '</div></div>' +
+                '<div class="import-stat"><div class="import-stat-name">Love</div><div class="import-stat-value stat-love">' + data.stats.love + '</div></div>' +
+                '<div class="import-stat"><div class="import-stat-name">Hope</div><div class="import-stat-value stat-hope">' + data.stats.hope + '</div></div>';
+            document.getElementById('importFromPrev').querySelector('p').innerHTML = 
+                'Continue as <strong>' + data.characterName + '</strong> from ' + epName + '.';
+        }
+
+        // Screen Management
+        function showScreen(screenId) {
+            var screens = document.querySelectorAll('.screen');
+            for (var i = 0; i < screens.length; i++) {
+                screens[i].classList.remove('active');
+            }
+            document.getElementById(screenId).classList.add('active');
+            STATE.screen = screenId;
+
+            var menuBtn = document.getElementById('menuBtn');
+            if (screenId === 'gameScreen' || screenId === 'consequenceScreen') {
+                menuBtn.classList.add('visible');
+            } else {
+                menuBtn.classList.remove('visible');
+            }
+        }
+
+        function showImportScreen() {
+            showScreen('importScreen');
+        }
+
+        function importFromPrevious() {
+            var prevEps = ['gcg_ep5_save', 'gcg_ep4_save', 'gcg_ep3_save', 'gcg_ep2_save', 'gcg_save'];
+            
+            for (var i = 0; i < prevEps.length; i++) {
+                var saved = localStorage.getItem(prevEps[i]);
+                if (saved) {
+                    var data = JSON.parse(saved);
+                    if (data.episodeComplete) {
+                        useImportedData(data);
+                        return;
+                    }
+                }
+            }
+            alert('No completed previous episode found. Please complete an earlier episode first, or start fresh.');
+        }
+
+        function useImportedData(data) {
+            STATE.characterName = data.characterName;
+            STATE.stats = JSON.parse(JSON.stringify(data.stats));
+            STATE.baseStats = JSON.parse(JSON.stringify(data.stats));
+            startGame();
+        }
+
+        function startFresh() {
+            STATE.characterName = 'Faithful One';
+            STATE.stats = {
+                faith: 78,
+                wisdom: 68,
+                courage: 72,
+                love: 75,
+                truth: 70,
+                patience: 72,
+                hope: 78
+            };
+            STATE.baseStats = JSON.parse(JSON.stringify(STATE.stats));
+            startGame();
+        }
+
+        function showNameInput() {
+            showScreen('nameScreen');
+        }
+
+        function confirmCustomName() {
+            var name = document.getElementById('customName').value.trim() || 'Faithful One';
+            STATE.characterName = name;
+            STATE.stats = {
+                faith: 78,
+                wisdom: 68,
+                courage: 72,
+                love: 75,
+                truth: 70,
+                patience: 72,
+                hope: 78
+            };
+            STATE.baseStats = JSON.parse(JSON.stringify(STATE.stats));
+            startGame();
+        }
+
+        function startGame() {
+            STATE.currentScene = 0;
+            STATE.choices = [];
+            STATE.episodeComplete = false;
+            STATE.liberationPoints = 0;
+            STATE.plagueCount = 0;
+            STATE.currentPhase = 'Egypt';
+            STATE.beings = [
+                { name: 'Moses', status: 'reluctant', influence: 65, avatar: '🔥', type: 'deliverer' },
+                { name: 'Aaron', status: 'spokesman', influence: 60, avatar: '◇', type: 'spokesman' },
+                { name: 'Miriam', status: 'prophetess', influence: 58, avatar: '♫', type: 'prophetess' },
+                { name: 'Israel', status: 'enslaved', influence: 50, avatar: '⛓', type: 'israelite' },
+                { name: 'Pharaoh', status: 'hardened', influence: 30, avatar: '👑', type: 'pharaoh' }
+            ];
+            showScreen('gameScreen');
+            updateStatsDisplay();
+            updateInfluenceDisplay();
+            updateLiberationDisplay();
+            displayScene(0);
+        }
+
+        function continueGame() {
+            var saved = localStorage.getItem('gcg_ep6_save');
+            if (saved) {
+                STATE = JSON.parse(saved);
+                updateStatsDisplay();
+                updateInfluenceDisplay();
+                updateLiberationDisplay();
+                updateBackground();
+                if (STATE.episodeComplete) {
+                    showSummary();
+                } else {
+                    showScreen('gameScreen');
+                    displayScene(STATE.currentScene);
+                }
+            }
+        }
+
+        // Display Functions
+        function updateStatsDisplay() {
+            document.getElementById('statFaith').textContent = STATE.stats.faith;
+            document.getElementById('statWisdom').textContent = STATE.stats.wisdom;
+            document.getElementById('statCourage').textContent = STATE.stats.courage;
+            document.getElementById('statLove').textContent = STATE.stats.love;
+            document.getElementById('statTruth').textContent = STATE.stats.truth;
+            document.getElementById('statPatience').textContent = STATE.stats.patience;
+            document.getElementById('statHope').textContent = STATE.stats.hope;
+            document.getElementById('statLiberation').textContent = STATE.liberationPoints;
+            document.getElementById('displayName').textContent = STATE.characterName;
+        }
+
+        function updateLiberationDisplay() {
+            document.getElementById('liberationPhase').textContent = STATE.currentPhase;
+            
+            // Update plague dots
+            for (var i = 1; i <= 10; i++) {
+                var dot = document.getElementById('plague' + i);
+                if (dot) {
+                    if (i <= STATE.plagueCount) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                }
+            }
+        }
+
+        function updateBackground() {
+            var bg = document.getElementById('bgLayer');
+            var fireOverlay = document.getElementById('fireOverlay');
+            
+            bg.classList.remove('wilderness', 'burning-bush', 'egypt', 'plague', 'passover', 'red-sea', 'sinai');
+            fireOverlay.classList.remove('active');
+            
+            var scene = SCENES[STATE.currentScene];
+            if (scene) {
+                bg.classList.add(scene.locationClass);
+                if (scene.locationClass === 'sinai') {
+                    fireOverlay.classList.add('active');
+                }
+            } else {
+                bg.classList.add('wilderness');
+            }
+        }
+
+        function updateInfluenceDisplay() {
+            var grid = document.getElementById('influenceGrid');
+            var html = '';
+            
+            for (var i = 0; i < STATE.beings.length; i++) {
+                var being = STATE.beings[i];
+                var fillClass = 'neutral';
+                if (being.name === 'Pharaoh') {
+                    fillClass = being.influence <= 20 ? 'hardened' : 'negative';
+                } else {
+                    fillClass = being.influence >= 60 ? 'positive' : (being.influence <= 40 ? 'negative' : 'neutral');
+                }
+                
+                var statusText = being.status.charAt(0).toUpperCase() + being.status.slice(1);
+                
+                html += '<div class="influence-item">';
+                html += '<div class="influence-avatar ' + being.type + '">' + being.avatar + '</div>';
+                html += '<div class="influence-info">';
+                html += '<div class="influence-name">' + being.name + '</div>';
+                html += '<div class="influence-status">' + statusText + '</div>';
+                html += '<div class="influence-bar"><div class="influence-fill ' + fillClass + '" style="width: ' + being.influence + '%;"></div></div>';
+                html += '</div></div>';
+            }
+            grid.innerHTML = html;
+        }
+
+        function displayScene(sceneIndex) {
+            if (sceneIndex >= SCENES.length) {
+                STATE.episodeComplete = true;
+                saveGame();
+                showSummary();
+                return;
+            }
+
+            var scene = SCENES[sceneIndex];
+            var storyContent = document.getElementById('storyContent');
+            var choicesContainer = document.getElementById('choicesContainer');
+
+            // Update phase
+            STATE.currentPhase = scene.phase;
+            updateLiberationDisplay();
+
+            // Update background
+            updateBackground();
+
+            // Update beings status based on scene
+            updateBeingsForScene(sceneIndex);
+
+            // Update story content class
+            storyContent.classList.remove('burning-scene', 'egypt-scene', 'plague-scene', 'passover-scene', 'sea-scene', 'sinai-scene');
+            if (scene.contentClass) storyContent.classList.add(scene.contentClass);
+
+            var storyHtml = '<div class="scene-location">' + scene.location + '</div>';
+            storyHtml += '<div class="story-text">' + scene.content + '</div>';
+            storyContent.innerHTML = storyHtml;
+
+            var choicesHtml = '<div class="choices-label">What do you do?</div>';
+            for (var i = 0; i < scene.choices.length; i++) {
+                var choice = scene.choices[i];
+                var btnClass = choice.isPower ? 'choice-btn power-choice' : 'choice-btn';
+                choicesHtml += '<button class="' + btnClass + '" onclick="makeChoice(' + sceneIndex + ', ' + i + ')">';
+                choicesHtml += '<span class="choice-letter">[' + choice.letter + ']</span>';
+                choicesHtml += choice.text;
+                if (choice.preview) {
+                    var prefix = '';
+                    if (choice.isPrayer) prefix += '🙏 ';
+                    if (choice.isPower) prefix += '🔥 ';
+                    choicesHtml += '<span class="choice-preview">' + prefix + choice.preview + '</span>';
+                }
+                choicesHtml += '</button>';
+            }
+            choicesContainer.innerHTML = choicesHtml;
+        }
+
+        function updateBeingsForScene(sceneIndex) {
+            // Update being statuses based on narrative progression
+            if (sceneIndex >= 1) {
+                // After first scene, Moses is called
+                var moses = STATE.beings.find(function(b) { return b.name === 'Moses'; });
+                if (moses) moses.status = 'called';
+            }
+            if (sceneIndex >= 3) {
+                // After Passover, Israel is free
+                var israel = STATE.beings.find(function(b) { return b.name === 'Israel'; });
+                if (israel) {
+                    israel.status = 'free';
+                    israel.avatar = '✡';
+                }
+            }
+            if (sceneIndex >= 4) {
+                // After Red Sea, Moses is deliverer
+                var moses = STATE.beings.find(function(b) { return b.name === 'Moses'; });
+                if (moses) moses.status = 'deliverer';
+            }
+            if (sceneIndex >= 5) {
+                // At Sinai, Israel becomes covenant people
+                var israel = STATE.beings.find(function(b) { return b.name === 'Israel'; });
+                if (israel) israel.status = 'covenant';
+            }
+            updateInfluenceDisplay();
+        }
+
+        function makeChoice(sceneIndex, choiceIndex) {
+            var scene = SCENES[sceneIndex];
+            var choice = scene.choices[choiceIndex];
+
+            STATE.choices.push({
+                scene: sceneIndex,
+                choice: choiceIndex,
+                letter: choice.letter,
+                isPrayer: choice.isPrayer || false,
+                isPower: choice.isPower || false
+            });
+
+            if (choice.isPower) {
+                STATE.liberationPoints++;
+            }
+
+            // Add plagues if applicable
+            if (choice.plagues) {
+                STATE.plagueCount = Math.min(10, STATE.plagueCount + choice.plagues);
+            }
+
+            // Apply stat effects
+            var statChanges = [];
+            if (choice.effects) {
+                for (var stat in choice.effects) {
+                    if (choice.effects.hasOwnProperty(stat)) {
+                        var change = choice.effects[stat];
+                        STATE.stats[stat] = Math.max(0, Math.min(100, STATE.stats[stat] + change));
+                        if (change !== 0) {
+                            statChanges.push({ stat: stat, change: change });
+                        }
+                    }
+                }
+            }
+
+            // Apply influence effects
+            var influenceChanges = [];
+            if (choice.influence) {
+                applyInfluence(choice.influence.target, choice.influence.change, choice.influence.type);
+                influenceChanges.push(choice.influence);
+            }
+            if (choice.influenceSecondary) {
+                applyInfluence(choice.influenceSecondary.target, choice.influenceSecondary.change, choice.influenceSecondary.type);
+                influenceChanges.push(choice.influenceSecondary);
+            }
+
+            showConsequence(choice, statChanges, influenceChanges, sceneIndex);
+        }
+
+        function applyInfluence(targetName, change, type) {
+            for (var i = 0; i < STATE.beings.length; i++) {
+                if (STATE.beings[i].name === targetName) {
+                    STATE.beings[i].influence = Math.max(0, Math.min(100, STATE.beings[i].influence + change));
+                    break;
+                }
+            }
+        }
+
+        function showConsequence(choice, statChanges, influenceChanges, sceneIndex) {
+            showScreen('consequenceScreen');
+            var display = document.getElementById('consequenceDisplay');
+
+            var title = 'Consequence';
+            if (choice.isPrayer) title = 'Prayer Offered';
+            if (choice.isPower) title = 'Divine Power Witnessed';
+            if (choice.isPrayer && choice.isPower) title = 'Power Through Prayer';
+
+            var html = '<h3 class="consequence-title">' + title + '</h3>';
+
+            if (statChanges.length > 0) {
+                html += '<div class="stat-changes">';
+                for (var i = 0; i < statChanges.length; i++) {
+                    var sc = statChanges[i];
+                    var sign = sc.change > 0 ? '+' : '';
+                    var cls = sc.change > 0 ? 'positive' : 'negative';
+                    var statName = sc.stat.charAt(0).toUpperCase() + sc.stat.slice(1);
+                    html += '<div class="stat-change ' + cls + '">' + statName + ' ' + sign + sc.change + '</div>';
+                }
+                html += '</div>';
+            }
+
+            html += '<p style="text-align: center; color: var(--text-secondary); font-size: 1.05rem; line-height: 1.7; margin: 20px 0;">' + choice.response + '</p>';
+
+            if (influenceChanges.length > 0) {
+                html += '<div class="influence-change">';
+                html += '<div class="influence-change-title">Those Affected</div>';
+                html += '<div class="influence-change-text">';
+                for (var j = 0; j < influenceChanges.length; j++) {
+                    var ic = influenceChanges[j];
+                    var effect = 'influenced';
+                    if (ic.type === 'positive') effect = 'strengthened';
+                    if (ic.type === 'hardened') effect = 'hardened further';
+                    html += '<span class="name">' + ic.target + '</span> was ' + effect + '. ';
+                }
+                html += '</div></div>';
+            }
+
+            // Add liberation notice
+            if (choice.isPower) {
+                html += '<div class="liberation-notice"><h4>🔥 Liberation Point Earned</h4><p>You witness God\'s power over empire. The I AM reveals Himself.</p></div>';
+            }
+
+            html += '<button class="btn btn-exodus continue-btn" onclick="continueStory(' + (sceneIndex + 1) + ')">Continue</button>';
+
+            display.innerHTML = html;
+            updateStatsDisplay();
+            updateInfluenceDisplay();
+            updateLiberationDisplay();
+            saveGame();
+        }
+
+        function continueStory(nextScene) {
+            STATE.currentScene = nextScene;
+            showScreen('gameScreen');
+            displayScene(nextScene);
+        }
+
+        function showSummary() {
+            showScreen('summaryScreen');
+            var summary = document.getElementById('episodeSummary');
+
+            // Reset background to Sinai glow
+            var bg = document.getElementById('bgLayer');
+            var fireOverlay = document.getElementById('fireOverlay');
+            bg.classList.remove('wilderness', 'burning-bush', 'egypt', 'plague', 'passover', 'red-sea');
+            bg.classList.add('sinai');
+            fireOverlay.classList.add('active');
+
+            // Calculate results
+            var baseStats = STATE.baseStats || { faith: 78, wisdom: 68, courage: 72, love: 75, truth: 70, patience: 72, hope: 78 };
+            var avgStats = Math.round((STATE.stats.faith + STATE.stats.wisdom + STATE.stats.courage + STATE.stats.love + STATE.stats.truth + STATE.stats.patience + STATE.stats.hope) / 7);
+            
+            // Determine ending
+            var endingTitle = 'Faithful Witness';
+            var endingDesc = 'You walked with Israel from slavery to Sinai. You witnessed plagues, passed through the sea, and stood before the mountain of God.';
+
+            if (STATE.liberationPoints >= 5) {
+                endingTitle = 'Witness of Divine Power';
+                endingDesc = 'You perceived the depth of what happened — each plague a theology lesson, the Passover a gospel preview, the sea a baptism, Sinai a covenant. God revealed Himself through liberation.';
+            } else if (STATE.stats.faith >= 95) {
+                endingTitle = 'Pillar of Fire Faith';
+                endingDesc = 'Your faith burns like the bush that was not consumed. Through plagues and perils, you trusted the I AM who fights for His people.';
+            } else if (STATE.stats.courage >= 95) {
+                endingTitle = 'Red Sea Walker';
+                endingDesc = 'When others feared, you walked between walls of water. Your courage matches Moses lifting his rod over the impossible.';
+            } else if (STATE.stats.wisdom >= 95) {
+                endingTitle = 'Reader of Signs';
+                endingDesc = 'You saw what others missed — the prophetic patterns, the gospel shadows, the finger of God writing judgment and salvation.';
+            }
+
+            var html = '<div class="summary-header">';
+            html += '<h2 class="summary-title">Episode Complete</h2>';
+            html += '<p class="summary-subtitle">The Exodus</p>';
+            html += '</div>';
+
+            // Fire decoration
+            html += '<div class="fire-decoration">';
+            html += '<div class="flames">🔥 🔥 🔥</div>';
+            html += '<p>"I AM THAT I AM"</p>';
+            html += '</div>';
+
+            // Ending Card
+            html += '<div class="summary-section" style="text-align: center; border-color: var(--fire-orange);">';
+            html += '<h3 style="font-family: Cinzel, serif; font-size: 1.5rem; color: var(--egypt-gold); margin-bottom: 15px;">' + endingTitle + '</h3>';
+            html += '<p style="color: var(--text-secondary); line-height: 1.8;">' + endingDesc + '</p>';
+            html += '</div>';
+
+            // Liberation counter
+            html += '<div class="summary-section" style="text-align: center;">';
+            html += '<div style="font-family: Cinzel, serif; font-size: 3rem; color: var(--fire-orange);">' + STATE.liberationPoints + '</div>';
+            html += '<div style="color: var(--text-secondary);">Liberation Points Earned</div>';
+            html += '<p style="margin-top: 15px; color: var(--text-dim); font-style: italic;">You witnessed God\'s power systematically dismantle the world\'s greatest empire. The I AM answered Pharaoh\'s question.</p>';
+            html += '</div>';
+
+            // Exodus journey
+            html += '<div class="summary-section">';
+            html += '<h4 class="summary-section-title">🔥 The Journey</h4>';
+            html += '<div class="exodus-journey">';
+            html += '<div class="journey-icon"><div class="icon">🔥</div><div class="name">Bush</div></div>';
+            html += '<div class="journey-arrow">→</div>';
+            html += '<div class="journey-icon"><div class="icon">👑</div><div class="name">Pharaoh</div></div>';
+            html += '<div class="journey-arrow">→</div>';
+            html += '<div class="journey-icon"><div class="icon">🩸</div><div class="name">Plagues</div></div>';
+            html += '<div class="journey-arrow">→</div>';
+            html += '<div class="journey-icon"><div class="icon">🐑</div><div class="name">Passover</div></div>';
+            html += '<div class="journey-arrow">→</div>';
+            html += '<div class="journey-icon"><div class="icon">🌊</div><div class="name">Sea</div></div>';
+            html += '<div class="journey-arrow">→</div>';
+            html += '<div class="journey-icon"><div class="icon">⛰️</div><div class="name">Sinai</div></div>';
+            html += '</div></div>';
+
+            // Stats
+            html += '<div class="summary-section">';
+            html += '<h4 class="summary-section-title">🔥 Character Development</h4>';
+            html += '<div class="final-stats-grid">';
+            var statNames = ['faith', 'wisdom', 'courage', 'love', 'truth', 'patience', 'hope'];
+            var statColors = ['#ffd700', '#9b59b6', '#e74c3c', '#e91e63', '#3498db', '#1abc9c', '#f39c12'];
+            for (var s = 0; s < statNames.length; s++) {
+                var sName = statNames[s];
+                var sVal = STATE.stats[sName];
+                var sBase = baseStats[sName] || 70;
+                var sChange = sVal - sBase;
+                var changeStr = sChange >= 0 ? '+' + sChange : '' + sChange;
+                var changeColor = sChange >= 0 ? 'var(--success)' : 'var(--danger)';
+                html += '<div class="final-stat">';
+                html += '<div class="final-stat-name" style="color: ' + statColors[s] + ';">' + sName.charAt(0).toUpperCase() + sName.slice(1) + '</div>';
+                html += '<div class="final-stat-value" style="color: ' + statColors[s] + ';">' + sVal + '</div>';
+                html += '<div class="final-stat-change" style="color: ' + changeColor + ';">' + changeStr + '</div>';
+                html += '</div>';
+            }
+            html += '</div></div>';
+
+            // Beings
+            html += '<div class="summary-section">';
+            html += '<h4 class="summary-section-title">🔥 Those in Your Sphere</h4>';
+            html += '<div class="souls-detail">';
+            
+            for (var b = 0; b < STATE.beings.length; b++) {
+                var being = STATE.beings[b];
+                var status = 'faithful';
+                var statusLabel = 'Faithful';
+                
+                if (being.name === 'Moses') {
+                    status = 'deliverer';
+                    statusLabel = 'Deliverer';
+                } else if (being.name === 'Israel') {
+                    status = 'liberated';
+                    statusLabel = 'Liberated';
+                } else if (being.name === 'Pharaoh') {
+                    status = 'hardened';
+                    statusLabel = 'Hardened';
+                }
+                
+                html += '<div class="soul-item">';
+                html += '<span class="soul-name">' + being.name + '</span>';
+                html += '<span class="soul-status ' + status + '">' + statusLabel + '</span>';
+                html += '</div>';
+            }
+            
+            html += '</div></div>';
+
+            // Narrative
+            html += '<div class="summary-section">';
+            html += '<h4 class="summary-section-title">🔥 Your Story</h4>';
+            html += '<div class="narrative-summary">' + generateNarrative() + '</div>';
+            html += '</div>';
+
+            // Next Episode
+            html += '<div class="to-be-continued">';
+            html += '<h3>To Be Continued...</h3>';
+            html += '<p>Episode 7: The Wilderness — Coming Soon</p>';
+            html += '<p style="margin-top: 10px; color: var(--text-dim);">Forty years in the desert. A generation dies. Another is tested. And God provides manna, water, and presence through it all.</p>';
+            html += '<button class="btn btn-primary" style="margin-top: 20px;" onclick="returnToTitle()">Return to Title</button>';
+            html += '</div>';
+
+            summary.innerHTML = html;
+        }
+
+        function generateNarrative() {
+            var narrative = '<p>As ' + STATE.characterName + ', you witnessed the mightiest deliverance in history — from burning bush to smoking mountain.</p>';
+
+            narrative += '<p>You watched an eighty-year-old shepherd become the deliverer of nations. You saw Moses face the throne he once fled, armed with nothing but a staff and a divine commission.</p>';
+
+            if (STATE.stats.wisdom >= 85) {
+                narrative += '<p>You perceived what others missed: each plague was an answer to Pharaoh\'s question "Who is the LORD?" The Nile god fell. The sun god fell. All of Egypt\'s divine hierarchy crumbled before the I AM.</p>';
+            }
+
+            narrative += '<p>On the night of Passover, you understood the shadow: a lamb without blemish, blood on the door, death passing over. Fifteen hundred years before Calvary, the gospel was enacted in Egypt.</p>';
+
+            if (STATE.stats.courage >= 85) {
+                narrative += '<p>At the Red Sea, when all seemed lost — army behind, water ahead — you watched Moses lift his rod and the waters divide. Faith walking between walls of water. The impossible becoming a highway.</p>';
+            }
+
+            narrative += '<p>And at Sinai, the mountain trembled. Fire descended. The law was given — not as the cause of salvation but as the response to it. "I am the LORD who brought you out... now, therefore..."</p>';
+
+            narrative += '<p>From slaves to covenant people. From Egypt to Sinai. Liberation is complete — but the journey has only begun.</p>';
+
+            return narrative;
+        }
+
+        // Menu Functions
+        function toggleMenu() {
+            document.getElementById('menuModal').classList.toggle('active');
+        }
+
+        function saveGame() {
+            localStorage.setItem('gcg_ep6_save', JSON.stringify(STATE));
+        }
+
+        function restartEpisode() {
+            if (confirm('Restart Episode 6? All progress will be lost.')) {
+                localStorage.removeItem('gcg_ep6_save');
+                location.reload();
+            }
+        }
+
+        function returnToTitle() {
+            var modal = document.getElementById('menuModal');
+            if (modal.classList.contains('active')) {
+                modal.classList.remove('active');
+            }
+            showScreen('titleScreen');
+            checkSavedGame();
+            // Reset background
+            var bg = document.getElementById('bgLayer');
+            var fireOverlay = document.getElementById('fireOverlay');
+            bg.classList.remove('burning-bush', 'egypt', 'plague', 'passover', 'red-sea', 'sinai');
+            bg.classList.add('wilderness');
+            fireOverlay.classList.remove('active');
+        }
+
+        // Init
+        init();
+    </script>
+</body>
+</html>
