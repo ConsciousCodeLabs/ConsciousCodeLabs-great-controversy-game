@@ -1,0 +1,2222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Great Controversy: The Game - Episode 3</title>
+    <meta name="description" content="Episode 3: Earth's Beginning. Witness Creation. Watch the Fall. Experience the agony of free will.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0a0f0a;
+            --bg-medium: #0f1a0f;
+            --bg-light: #1a2a1a;
+            --bg-eden: #0a1a0a;
+            --gold: #d4af37;
+            --gold-light: #f4e4a6;
+            --gold-dim: #8b7355;
+            --eden-green: #2d5a2d;
+            --eden-light: #4a8a4a;
+            --eden-glow: #7fff7f;
+            --life-blue: #4a90d9;
+            --creation-cyan: #00d4ff;
+            --serpent-red: #8b0000;
+            --fallen-gray: #3a3a3a;
+            --text-primary: #e8f0e8;
+            --text-secondary: #a8b8a8;
+            --text-dim: #6a7a6a;
+            --danger: #ff4757;
+            --success: #2ed573;
+            --warning: #ffa502;
+            --faith-color: #ffd700;
+            --wisdom-color: #9b59b6;
+            --courage-color: #e74c3c;
+            --love-color: #e91e63;
+            --truth-color: #3498db;
+            --patience-color: #1abc9c;
+            --hope-color: #f39c12;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Crimson Pro', Georgia, serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Eden Background - shifts based on scene */
+        .celestial-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            transition: all 1s ease;
+        }
+
+        .celestial-bg.eden::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 30% 20%, rgba(45, 90, 45, 0.3) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(74, 138, 74, 0.2) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 70%),
+                linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-eden) 50%, var(--bg-dark) 100%);
+            animation: edenPulse 6s ease-in-out infinite;
+        }
+
+        .celestial-bg.fallen::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 30% 20%, rgba(58, 58, 58, 0.3) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(139, 0, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(100, 100, 100, 0.1) 0%, transparent 70%),
+                linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+        }
+
+        @keyframes edenPulse {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, rgba(127, 255, 127, 0.6), transparent),
+                radial-gradient(2px 2px at 40px 70px, rgba(255, 255, 255, 0.5), transparent),
+                radial-gradient(1px 1px at 90px 40px, rgba(127, 255, 127, 0.4), transparent),
+                radial-gradient(2px 2px at 130px 80px, rgba(212, 175, 55, 0.4), transparent),
+                radial-gradient(1px 1px at 160px 120px, rgba(127, 255, 127, 0.5), transparent);
+            background-size: 200px 200px;
+            animation: twinkle 5s ease-in-out infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        .game-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .game-header {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(45, 90, 45, 0.3);
+            margin-bottom: 20px;
+        }
+
+        .game-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+            margin-bottom: 5px;
+        }
+
+        .game-subtitle {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            color: var(--eden-light);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+
+        .screen {
+            display: none;
+            flex: 1;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .screen.active {
+            display: flex;
+            flex-direction: column;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Title Screen */
+        .title-screen {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .episode-number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            color: var(--eden-light);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 10px;
+        }
+
+        .main-title {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 50px rgba(212, 175, 55, 0.4);
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 30px rgba(212, 175, 55, 0.3); }
+            50% { text-shadow: 0 0 60px rgba(212, 175, 55, 0.6), 0 0 100px rgba(45, 90, 45, 0.3); }
+        }
+
+        .main-subtitle {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: var(--eden-light);
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        .tagline {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+
+        .episode-intro {
+            background: rgba(45, 90, 45, 0.1);
+            border: 1px solid rgba(45, 90, 45, 0.3);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            max-width: 600px;
+            text-align: left;
+        }
+
+        .episode-intro p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .episode-intro p:last-child {
+            margin-bottom: 0;
+        }
+
+        .title-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 280px;
+        }
+
+        .btn {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+            color: var(--bg-dark);
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(212, 175, 55, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--gold);
+            border: 1px solid var(--gold);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .btn-secondary:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .btn-eden {
+            background: linear-gradient(135deg, var(--eden-green) 0%, #1a3a1a 100%);
+            color: var(--eden-glow);
+            box-shadow: 0 4px 20px rgba(45, 90, 45, 0.4);
+        }
+
+        .btn-eden:hover {
+            box-shadow: 0 6px 30px rgba(45, 90, 45, 0.6);
+        }
+
+        /* Import Screen */
+        .import-section {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 30px 0;
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6rem;
+            color: var(--gold);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .import-options {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .import-option {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(45, 90, 45, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .import-option:hover {
+            border-color: var(--eden-light);
+            background: rgba(45, 90, 45, 0.1);
+        }
+
+        .import-option h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        .import-option p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .import-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .import-stat {
+            text-align: center;
+        }
+
+        .import-stat-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.6rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+        }
+
+        .import-stat-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        /* Stats Panel */
+        .stats-panel {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(45, 90, 45, 0.3);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stats-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .character-name {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            color: var(--gold);
+        }
+
+        .episode-indicator {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.65rem;
+            color: var(--eden-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.55rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .stat-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .stat-faith { color: var(--faith-color); }
+        .stat-wisdom { color: var(--wisdom-color); }
+        .stat-courage { color: var(--courage-color); }
+        .stat-love { color: var(--love-color); }
+        .stat-truth { color: var(--truth-color); }
+        .stat-patience { color: var(--patience-color); }
+        .stat-hope { color: var(--hope-color); }
+
+        /* Influence Panel */
+        .influence-panel {
+            background: rgba(45, 90, 45, 0.1);
+            border: 1px solid rgba(45, 90, 45, 0.3);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .influence-panel.fallen {
+            background: rgba(58, 58, 58, 0.1);
+            border-color: rgba(139, 0, 0, 0.3);
+        }
+
+        .influence-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            color: var(--eden-light);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .influence-title::before {
+            content: '❧';
+            font-size: 1rem;
+        }
+
+        .influence-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .influence-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 12px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+        }
+
+        .influence-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .influence-avatar.human { background: linear-gradient(135deg, var(--gold), var(--eden-light)); }
+        .influence-avatar.angel { background: linear-gradient(135deg, var(--life-blue), var(--creation-cyan)); }
+        .influence-avatar.grieving { background: linear-gradient(135deg, var(--fallen-gray), #2a2a2a); }
+        .influence-avatar.hopeful { background: linear-gradient(135deg, var(--hope-color), var(--gold)); }
+
+        .influence-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .influence-name {
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            color: var(--text-primary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .influence-status {
+            font-size: 0.7rem;
+            color: var(--text-dim);
+        }
+
+        .influence-bar {
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            margin-top: 4px;
+            overflow: hidden;
+        }
+
+        .influence-fill {
+            height: 100%;
+            border-radius: 2px;
+            transition: width 0.5s ease;
+        }
+
+        .influence-fill.positive { background: var(--success); }
+        .influence-fill.negative { background: var(--danger); }
+        .influence-fill.neutral { background: var(--warning); }
+
+        /* Story Panel */
+        .story-panel {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .story-content {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(45, 90, 45, 0.2);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 20px;
+            flex: 1;
+            transition: all 0.5s ease;
+        }
+
+        .story-content.fallen-scene {
+            border-color: rgba(139, 0, 0, 0.3);
+            background: rgba(20, 10, 10, 0.5);
+        }
+
+        .scene-location {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            color: var(--eden-light);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .scene-location::before,
+        .scene-location::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(45, 90, 45, 0.3), transparent);
+        }
+
+        .scene-location.fallen {
+            color: var(--fallen-gray);
+        }
+
+        .scene-location.fallen::before,
+        .scene-location.fallen::after {
+            background: linear-gradient(90deg, transparent, rgba(139, 0, 0, 0.3), transparent);
+        }
+
+        .story-text {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: var(--text-primary);
+            margin-bottom: 25px;
+        }
+
+        .story-text p {
+            margin-bottom: 15px;
+        }
+
+        .story-text .speaker {
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .story-text .speaker.divine {
+            color: var(--creation-cyan);
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+        }
+
+        .story-text .speaker.adam {
+            color: var(--eden-light);
+        }
+
+        .story-text .speaker.eve {
+            color: var(--love-color);
+        }
+
+        .story-text .speaker.serpent {
+            color: var(--serpent-red);
+            text-shadow: 0 0 5px rgba(139, 0, 0, 0.5);
+        }
+
+        .story-text em {
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .story-text .creation {
+            color: var(--eden-glow);
+            font-weight: 500;
+        }
+
+        .story-text .warning {
+            color: var(--warning);
+        }
+
+        .story-text .tragedy {
+            color: var(--danger);
+        }
+
+        .story-text .promise {
+            color: var(--hope-color);
+            text-shadow: 0 0 10px rgba(243, 156, 18, 0.3);
+        }
+
+        /* Intercessory Prayer Box */
+        .prayer-box {
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .prayer-box-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .prayer-text {
+            font-style: italic;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Choices */
+        .choices-container {
+            margin-top: auto;
+        }
+
+        .choices-label {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .choice-btn {
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: 18px 20px;
+            margin-bottom: 10px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(45, 90, 45, 0.3);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.05rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .choice-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--gold);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .choice-btn:hover {
+            background: rgba(45, 90, 45, 0.15);
+            border-color: var(--gold);
+            transform: translateX(5px);
+        }
+
+        .choice-btn:hover::before {
+            opacity: 1;
+        }
+
+        .choice-btn.prayer-choice {
+            border-color: rgba(212, 175, 55, 0.3);
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        .choice-btn.prayer-choice:hover {
+            background: rgba(212, 175, 55, 0.15);
+        }
+
+        .choice-letter {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.75rem;
+            color: var(--gold);
+            margin-right: 12px;
+        }
+
+        .choice-preview {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            margin-top: 8px;
+            padding-left: 25px;
+            font-style: italic;
+        }
+
+        /* Consequence Display */
+        .consequence-display {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(45, 90, 45, 0.3);
+            border-radius: 12px;
+            padding: 30px;
+            margin: 20px 0;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        .consequence-display.fallen {
+            border-color: rgba(139, 0, 0, 0.4);
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .consequence-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            color: var(--gold);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .stat-changes {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stat-change {
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .stat-change.positive {
+            background: rgba(46, 213, 115, 0.2);
+            border: 1px solid var(--success);
+            color: var(--success);
+        }
+
+        .stat-change.negative {
+            background: rgba(255, 71, 87, 0.2);
+            border: 1px solid var(--danger);
+            color: var(--danger);
+        }
+
+        .influence-change {
+            text-align: center;
+            padding: 15px;
+            background: rgba(45, 90, 45, 0.1);
+            border: 1px solid rgba(45, 90, 45, 0.3);
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .influence-change-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            color: var(--eden-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .influence-change-text {
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .influence-change-text .name {
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
+        }
+
+        .limitation-notice {
+            background: rgba(139, 0, 0, 0.1);
+            border: 1px solid rgba(139, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .limitation-notice h4 {
+            font-family: 'Cinzel', serif;
+            color: var(--warning);
+            margin-bottom: 8px;
+        }
+
+        .limitation-notice p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        .continue-btn {
+            display: block;
+            width: 100%;
+            max-width: 300px;
+            margin: 20px auto 0;
+        }
+
+        /* Summary Screen */
+        .episode-summary {
+            padding: 30px 0;
+        }
+
+        .summary-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .summary-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        .summary-subtitle {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            color: var(--eden-light);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .summary-section {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(45, 90, 45, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        .summary-section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            color: var(--gold);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .final-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 15px;
+        }
+
+        .final-stat {
+            text-align: center;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+        }
+
+        .final-stat-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .final-stat-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .final-stat-change {
+            font-size: 0.75rem;
+            margin-top: 4px;
+        }
+
+        .souls-section {
+            text-align: center;
+        }
+
+        .souls-label {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-top: 10px;
+        }
+
+        .souls-detail {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .soul-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .soul-name {
+            font-family: 'Cinzel', serif;
+            color: var(--text-primary);
+        }
+
+        .soul-status {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            padding: 4px 12px;
+            border-radius: 12px;
+        }
+
+        .soul-status.comforted {
+            background: rgba(46, 213, 115, 0.2);
+            color: var(--success);
+        }
+
+        .soul-status.grieving {
+            background: rgba(255, 165, 2, 0.2);
+            color: var(--warning);
+        }
+
+        .soul-status.hopeful {
+            background: rgba(243, 156, 18, 0.2);
+            color: var(--hope-color);
+        }
+
+        .soul-status.struggling {
+            background: rgba(255, 71, 87, 0.2);
+            color: var(--danger);
+        }
+
+        .narrative-summary {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+
+        .narrative-summary p {
+            margin-bottom: 15px;
+        }
+
+        .to-be-continued {
+            text-align: center;
+            padding: 30px;
+            margin-top: 20px;
+        }
+
+        .to-be-continued h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        .to-be-continued p {
+            color: var(--text-dim);
+            font-style: italic;
+        }
+
+        /* Menu */
+        .menu-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 44px;
+            height: 44px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(45, 90, 45, 0.4);
+            border-radius: 8px;
+            color: var(--gold);
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 100;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .menu-btn:hover {
+            background: rgba(45, 90, 45, 0.3);
+        }
+
+        .menu-btn.visible {
+            display: flex;
+        }
+
+        .menu-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 200;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .menu-modal.active {
+            display: flex;
+        }
+
+        .menu-content {
+            background: var(--bg-medium);
+            border: 1px solid rgba(45, 90, 45, 0.4);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            max-width: 350px;
+            width: 90%;
+        }
+
+        .menu-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: var(--gold);
+            margin-bottom: 25px;
+        }
+
+        .menu-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .menu-buttons .btn {
+            width: 100%;
+        }
+
+        /* Footer */
+        .game-footer {
+            text-align: center;
+            padding: 20px 0;
+            margin-top: auto;
+            border-top: 1px solid rgba(45, 90, 45, 0.2);
+        }
+
+        .footer-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.6rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .footer-text a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2rem;
+                letter-spacing: 3px;
+            }
+
+            .main-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 5px;
+            }
+
+            .stat-name {
+                font-size: 0.5rem;
+            }
+
+            .stat-value {
+                font-size: 0.9rem;
+            }
+
+            .influence-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .story-content {
+                padding: 20px;
+            }
+
+            .story-text {
+                font-size: 1.05rem;
+            }
+
+            .choice-btn {
+                padding: 15px;
+                font-size: 0.95rem;
+            }
+
+            .final-stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .import-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="celestial-bg eden" id="bgLayer">
+        <div class="stars"></div>
+    </div>
+
+    <button class="menu-btn" id="menuBtn" onclick="toggleMenu()">☰</button>
+
+    <div class="menu-modal" id="menuModal">
+        <div class="menu-content">
+            <h2 class="menu-title">Game Menu</h2>
+            <div class="menu-buttons">
+                <button class="btn btn-secondary" onclick="saveGame()">Save Progress</button>
+                <button class="btn btn-secondary" onclick="toggleMenu()">Resume Game</button>
+                <button class="btn btn-secondary" onclick="restartEpisode()">Restart Episode</button>
+                <button class="btn btn-secondary" onclick="returnToTitle()">Main Menu</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="game-container">
+        <header class="game-header">
+            <h1 class="game-title">The Great Controversy</h1>
+            <p class="game-subtitle">Episode 3: Earth's Beginning</p>
+        </header>
+
+        <!-- Title Screen -->
+        <div class="screen active" id="titleScreen">
+            <div class="title-screen">
+                <div class="episode-number">Episode III</div>
+                <h1 class="main-title">Earth's Beginning</h1>
+                <h2 class="main-subtitle">Paradise and Fall</h2>
+                <p class="tagline">"And the LORD God planted a garden eastward in Eden; and there he put the man whom he had formed." — Genesis 2:8</p>
+                
+                <div class="episode-intro">
+                    <p>A new world has been created — beautiful beyond description. You have been assigned as a guardian angel, to watch over the garden called Eden and its inhabitants: Adam and Eve.</p>
+                    <p>But the enemy who was cast from Heaven has not forgotten his rebellion. He watches too, waiting for an opportunity.</p>
+                    <p>You cannot override human free will. You can only watch, pray, and position yourself for whatever service is permitted. The most agonizing assignment in angelic history awaits.</p>
+                </div>
+
+                <div class="title-buttons">
+                    <button class="btn btn-eden" onclick="showImportScreen()">Begin Episode 3</button>
+                    <button class="btn btn-secondary" id="continueBtn" onclick="continueGame()" disabled>Continue Saved Game</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Import Screen -->
+        <div class="screen" id="importScreen">
+            <div class="import-section">
+                <h2 class="section-title">Character Import</h2>
+                
+                <div class="import-options">
+                    <div class="import-option" id="importFromEp2" onclick="importFromPrevious()">
+                        <h3>Import from Previous Episodes</h3>
+                        <p>Continue with your character from the war in Heaven. Your stats and growth carry forward.</p>
+                        <div class="import-stats" id="prevStats" style="display: none;"></div>
+                    </div>
+
+                    <div class="import-option" onclick="startFresh()">
+                        <h3>Start Fresh</h3>
+                        <p>Begin Episode 3 with a new character. Default stats based on faithful service through the rebellion.</p>
+                        <div class="import-stats">
+                            <div class="import-stat">
+                                <div class="import-stat-name">Faith</div>
+                                <div class="import-stat-value stat-faith">70</div>
+                            </div>
+                            <div class="import-stat">
+                                <div class="import-stat-name">Courage</div>
+                                <div class="import-stat-value stat-courage">65</div>
+                            </div>
+                            <div class="import-stat">
+                                <div class="import-stat-name">Love</div>
+                                <div class="import-stat-value stat-love">70</div>
+                            </div>
+                            <div class="import-stat">
+                                <div class="import-stat-name">Hope</div>
+                                <div class="import-stat-value stat-hope">65</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="import-option" onclick="showNameInput()">
+                        <h3>Custom Character</h3>
+                        <p>Enter a name and begin your watch over Eden.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Name Input Screen -->
+        <div class="screen" id="nameScreen">
+            <div class="import-section">
+                <h2 class="section-title">Name Your Character</h2>
+                <div style="max-width: 400px; margin: 0 auto;">
+                    <label style="display: block; font-family: Orbitron, sans-serif; font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px;">Your Name</label>
+                    <input type="text" id="customName" placeholder="Enter your angelic name..." maxlength="20" style="width: 100%; padding: 15px 20px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(45, 90, 45, 0.3); border-radius: 4px; color: var(--text-primary); font-family: Crimson Pro, serif; font-size: 1.1rem;">
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 20px;" onclick="confirmCustomName()">Begin Episode 3</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div class="screen" id="gameScreen">
+            <div class="stats-panel" id="statsPanel">
+                <div class="stats-header">
+                    <span class="character-name" id="displayName">-</span>
+                    <span class="episode-indicator">Episode 3: Earth's Beginning</span>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-name">Faith</div>
+                        <div class="stat-value stat-faith" id="statFaith">50</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-name">Wisdom</div>
+                        <div class="stat-value stat-wisdom" id="statWisdom">50</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-name">Courage</div>
+                        <div class="stat-value stat-courage" id="statCourage">50</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-name">Love</div>
+                        <div class="stat-value stat-love" id="statLove">50</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-name">Truth</div>
+                        <div class="stat-value stat-truth" id="statTruth">50</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-name">Patience</div>
+                        <div class="stat-value stat-patience" id="statPatience">50</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-name">Hope</div>
+                        <div class="stat-value stat-hope" id="statHope">50</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-name">Prayers</div>
+                        <div class="stat-value" style="color: var(--creation-cyan);" id="statPrayers">0</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="influence-panel" id="influencePanel">
+                <div class="influence-title">Those Under Your Watch</div>
+                <div class="influence-grid" id="influenceGrid"></div>
+            </div>
+
+            <div class="story-panel">
+                <div class="story-content" id="storyContent"></div>
+                <div class="choices-container" id="choicesContainer"></div>
+            </div>
+        </div>
+
+        <!-- Consequence Screen -->
+        <div class="screen" id="consequenceScreen">
+            <div class="consequence-display" id="consequenceDisplay"></div>
+        </div>
+
+        <!-- Summary Screen -->
+        <div class="screen" id="summaryScreen">
+            <div class="episode-summary" id="episodeSummary"></div>
+        </div>
+
+        <footer class="game-footer">
+            <p class="footer-text">Seven Cubed Seven Labs | <a href="https://sevencubedseven.com">7³×7 = 2,401</a></p>
+        </footer>
+    </div>
+
+    <script>
+        // ==========================================
+        // THE GREAT CONTROVERSY: THE GAME
+        // Episode 3: Earth's Beginning
+        // ==========================================
+
+        var STATE = {
+            screen: 'title',
+            characterName: '',
+            stats: {
+                faith: 70,
+                wisdom: 60,
+                courage: 65,
+                love: 70,
+                truth: 65,
+                patience: 60,
+                hope: 65
+            },
+            baseStats: {},
+            totalPrayers: 0,
+            currentScene: 0,
+            choices: [],
+            beings: [
+                { name: 'Adam', status: 'human', influence: 50, avatar: '♔', type: 'human' },
+                { name: 'Eve', status: 'human', influence: 50, avatar: '♕', type: 'human' },
+                { name: 'Eloria', status: 'angel', influence: 55, avatar: '✦', type: 'angel', description: 'Fellow guardian, struggles with helplessness' },
+                { name: 'Cassiel', status: 'angel', influence: 50, avatar: '◇', type: 'angel', description: 'Questioning God\'s plan' }
+            ],
+            episodeComplete: false,
+            hasFallen: false
+        };
+
+        var SCENES = [
+            // Scene 0: Creation Week
+            {
+                location: 'The Void — Creation Week',
+                locationClass: '',
+                content: '<p><em>You witness what no angel has ever seen. The </em><span class="speaker divine">Voice</span><em> speaks into the void, and existence obeys.</em></p><p><span class="creation">"Let there be light."</span></p><p><em>And there is light. Not merely illumination — light itself springs into being at the command. Day after day, the Voice speaks: sky and sea, land and vegetation, sun and moon and stars, creatures of every kind.</em></p><p>Beside you, fellow guardian <span class="speaker">Eloria</span> watches in silent awe. But you sense something else in her expression — a shadow of the knowledge you both carry.</p><p><span class="speaker">Eloria:</span> "It\'s beautiful beyond words. But... the enemy watches too. I can feel his attention on this new world. Why does God create knowing what will come?"</p>',
+                choices: [
+                    {
+                        letter: 'A',
+                        text: '"Because love must be freely chosen. A creation that cannot choose is not truly loved — it is merely programmed. The risk is part of the gift."',
+                        preview: 'Explain the necessity of free will',
+                        effects: { wisdom: 10, faith: 8, truth: 5 },
+                        influence: { target: 'Eloria', change: 12, type: 'positive' },
+                        response: 'Eloria\'s light steadies. Your wisdom helps her see beyond the immediate danger to the deeper purpose. Love that cannot be refused cannot truly be given.'
+                    },
+                    {
+                        letter: 'B',
+                        text: '"I don\'t fully understand either. But I\'ve learned to trust what I cannot comprehend. The One who spoke light into existence knows what He\'s doing."',
+                        preview: 'Admit uncertainty while affirming faith',
+                        effects: { faith: 12, patience: 8, wisdom: 3 },
+                        influence: { target: 'Eloria', change: 10, type: 'positive' },
+                        response: 'Your honest faith encourages Eloria more than false certainty would. Together, you watch creation unfold, trusting the Creator.'
+                    },
+                    {
+                        letter: 'C',
+                        text: '"Perhaps we should focus on our assignment rather than questions we cannot answer. Our role is to watch and protect, not to understand everything."',
+                        preview: 'Redirect to duty',
+                        effects: { patience: 5, wisdom: -3, love: -3 },
+                        influence: { target: 'Eloria', change: -5, type: 'negative' },
+                        response: 'Your deflection leaves Eloria\'s question unanswered. Sometimes duty is an excuse to avoid wrestling with hard truths. Her shadow remains.'
+                    },
+                    {
+                        letter: 'D',
+                        text: 'Offer to pray with Eloria, lifting both your questions and your wonder before the Creator.',
+                        preview: 'Intercede together',
+                        effects: { faith: 10, love: 10, hope: 8 },
+                        influence: { target: 'Eloria', change: 15, type: 'positive' },
+                        isPrayer: true,
+                        response: 'Prayer transforms the moment. As you intercede together, peace settles over you both — not answers, but assurance. The Creator hears. That is enough.'
+                    }
+                ]
+            },
+            // Scene 1: The Garden Assignment
+            {
+                location: 'Eden — The Garden Assignment',
+                locationClass: '',
+                content: '<p><em>The garden is complete. No words in any language capture its perfection. Every tree pleases the eye and offers food. Rivers flow with water clear as crystal. Animals of every kind move in harmony, without fear or predation.</em></p><p><em>And there, in the center of it all, stand </em><span class="speaker adam">Adam</span><em> and </em><span class="speaker eve">Eve</span><em>. Made in the image of God. Radiant with borrowed glory. Innocent in a way you can barely remember from before the rebellion tainted even Heaven.</em></p><p>You are assigned to watch over them. Not to control — never to override their will — but to guard, to minister unseen, to intercede.</p><p><span class="speaker adam">Adam</span> turns, as if sensing something beyond the visible. <span class="speaker eve">Eve</span> looks up from the flowers she was examining.</p><p><span class="speaker adam">Adam:</span> "Do you feel that, Eve? A presence. Like we\'re not alone, even beyond the Creator\'s nearness."</p>',
+                choices: [
+                    {
+                        letter: 'A',
+                        text: 'Remain invisible, but send a gentle impression of peace and assurance. Let them sense protection without seeing the protector.',
+                        preview: 'Subtle ministry',
+                        effects: { wisdom: 8, patience: 8, love: 5 },
+                        influence: { target: 'Adam', change: 8, type: 'positive' },
+                        influenceSecondary: { target: 'Eve', change: 8, type: 'positive' },
+                        response: 'A warmth settles over the garden — unseen, unexplained, but real. Adam and Eve feel cared for. This is how angels serve: not in display, but in quiet presence.'
+                    },
+                    {
+                        letter: 'B',
+                        text: 'Appear briefly in glory, letting them know guardian angels exist and watch over them.',
+                        preview: 'Make your presence known',
+                        effects: { courage: 8, love: 5, wisdom: -5 },
+                        influence: { target: 'Adam', change: 10, type: 'positive' },
+                        influenceSecondary: { target: 'Eve', change: 10, type: 'positive' },
+                        response: 'Adam and Eve marvel at your brief appearance. They now know angelic protectors exist. But knowledge can become dependence — they must learn to trust God directly, not His messengers.'
+                    },
+                    {
+                        letter: 'C',
+                        text: 'Withdraw slightly, allowing them privacy. They have the Creator\'s direct presence; they don\'t need angelic attention.',
+                        preview: 'Give them space',
+                        effects: { patience: 5, love: -8, faith: -3 },
+                        influence: { target: 'Adam', change: -5, type: 'negative' },
+                        influenceSecondary: { target: 'Eve', change: -5, type: 'negative' },
+                        response: 'Your withdrawal creates distance. The enemy never withdraws. Every gap in divine attention is an opportunity for darkness. Ministry requires presence.'
+                    },
+                    {
+                        letter: 'D',
+                        text: 'Kneel and intercede: "Father, let them always sense Your nearness more than ours. Let their trust be in You, not in the messengers."',
+                        preview: 'Pray for their relationship with God',
+                        effects: { faith: 12, wisdom: 10, love: 8 },
+                        influence: { target: 'Adam', change: 10, type: 'positive' },
+                        influenceSecondary: { target: 'Eve', change: 10, type: 'positive' },
+                        isPrayer: true,
+                        response: 'Your prayer reshapes your own heart. This is the highest ministry: pointing souls toward God, not toward yourself. Adam and Eve\'s spirits quicken with divine nearness.'
+                    }
+                ]
+            },
+            // Scene 2: The Warning
+            {
+                location: 'Eden — The Tree of Knowledge',
+                locationClass: '',
+                content: '<p><em>In the center of the garden stand two trees. The Tree of Life offers immortality freely. But the other tree — the Tree of Knowledge of Good and Evil — stands surrounded by an invisible weight.</em></p><p>The <span class="speaker divine">Creator</span> speaks to Adam and Eve, and you listen with them:</p><p><span class="speaker divine">"Of every tree of the garden thou mayest freely eat. But of the tree of knowledge of good and evil, thou shalt not eat of it: for in the day that thou eatest thereof thou shalt surely die."</span></p><p><em>One prohibition in all of paradise. One test of loyalty. One tree.</em></p><p>Fellow guardian <span class="speaker">Cassiel</span> appears beside you, troubled.</p><p><span class="speaker">Cassiel:</span> "Why include the tree at all? Why create the possibility of failure? If God loves them, why not simply... remove the option?"</p>',
+                choices: [
+                    {
+                        letter: 'A',
+                        text: '"The tree is not a trap — it\'s a doorway. Without the ability to choose wrongly, there is no ability to choose rightly. Love requires the option of rejection."',
+                        preview: 'Explain the theology of choice',
+                        effects: { wisdom: 12, truth: 10, faith: 5 },
+                        influence: { target: 'Cassiel', change: 15, type: 'positive' },
+                        response: 'Cassiel considers your words deeply. "A doorway... not a trap." Understanding dawns. The tree is not cruelty; it is the architecture of genuine love.'
+                    },
+                    {
+                        letter: 'B',
+                        text: '"I questioned this myself once. Then I watched Lucifer choose rebellion despite having everything. The problem is not in the options — it\'s in the heart that chooses."',
+                        preview: 'Reference the rebellion',
+                        effects: { wisdom: 10, truth: 8, courage: 5 },
+                        influence: { target: 'Cassiel', change: 12, type: 'positive' },
+                        response: 'Your personal testimony carries weight. Cassiel remembers the rebellion — how abundance didn\'t prevent pride. The tree is not the danger. The heart is.'
+                    },
+                    {
+                        letter: 'C',
+                        text: '"I struggle with the same question. Perhaps some mysteries are beyond angelic understanding. We must trust even what troubles us."',
+                        preview: 'Share the struggle honestly',
+                        effects: { faith: 8, patience: 8, truth: 5 },
+                        influence: { target: 'Cassiel', change: 8, type: 'positive' },
+                        response: 'Your honesty creates fellowship in uncertainty. Sometimes the best answer is shared humility before divine mystery.'
+                    },
+                    {
+                        letter: 'D',
+                        text: '"Be careful, Cassiel. That question has a familiar ring. The enemy asked it first: \'Why does God restrict?\' Don\'t let his logic infect your thinking."',
+                        preview: 'Warn against dangerous thinking',
+                        effects: { truth: 10, courage: 8, love: -5 },
+                        influence: { target: 'Cassiel', change: -5, type: 'negative' },
+                        response: 'Cassiel recoils. Your warning is accurate but harsh. Sometimes truth without love pushes souls away rather than drawing them in. Cassiel\'s question remains, now buried in shame.'
+                    }
+                ]
+            },
+            // Scene 3: The Serpent Approaches
+            {
+                location: 'Eden — Near the Forbidden Tree',
+                locationClass: '',
+                fallen: false,
+                content: '<p><em>Days pass in paradise. Adam and Eve walk with God in the cool of the day. They tend the garden. They name the animals. They love each other with perfect innocence.</em></p><p><em>Then you sense it — a darkness that should not be here. The enemy has found a form. A serpent, beautiful and cunning, positions itself near the forbidden tree.</em></p><p>You watch as <span class="speaker eve">Eve</span> wanders near — alone. The serpent begins to speak.</p><p><span class="speaker serpent">Serpent:</span> "Yea, hath God said, Ye shall not eat of every tree of the garden?"</p><p><em>The question is designed to distort. God said they could eat of </em>every<em> tree except one. The serpent frames it as restriction rather than abundance.</em></p><p><em>Every fiber of your being wants to intervene. To reveal the serpent\'s identity. To warn Eve. But you cannot override her free will. You can only...</em></p>',
+                choices: [
+                    {
+                        letter: 'A',
+                        text: 'Fall to your knees in desperate intercession: "Father, open her eyes! Let her see through the deception! Give her wisdom in this moment!"',
+                        preview: 'Intercede with all your strength',
+                        effects: { faith: 15, love: 12, hope: 5 },
+                        influence: { target: 'Eve', change: 8, type: 'positive' },
+                        isPrayer: true,
+                        response: 'Your prayer ascends like fire. You cannot force her choice, but you can fight in the unseen realm. Heaven hears. Grace is offered. The choice remains hers.'
+                    },
+                    {
+                        letter: 'B',
+                        text: 'Send an impression of warning — a sense of unease, a prompting to seek Adam, a feeling that something is wrong.',
+                        preview: 'Attempt subtle warning',
+                        effects: { wisdom: 10, love: 10, courage: 5 },
+                        influence: { target: 'Eve', change: 5, type: 'positive' },
+                        response: 'You send what impressions are permitted. Eve hesitates — for a moment. But the serpent is also speaking, and his voice is louder to her ears than your whisper to her spirit.'
+                    },
+                    {
+                        letter: 'C',
+                        text: 'Watch in agony, knowing intervention is not permitted. Trust that God\'s plan accounts for even this moment.',
+                        preview: 'Accept the limits of your role',
+                        effects: { patience: 10, faith: 8, hope: -5 },
+                        influence: { target: 'Eve', change: 0, type: 'neutral' },
+                        response: 'The hardest choice is sometimes no action at all. You watch. You trust. You grieve what you know is coming. Faith in the darkness is still faith.'
+                    },
+                    {
+                        letter: 'D',
+                        text: 'Manifest visibly and confront the serpent directly: "Deceiver! Your lies have no power here!"',
+                        preview: 'Direct confrontation',
+                        effects: { courage: 15, wisdom: -15, faith: -10 },
+                        influence: { target: 'Eve', change: -5, type: 'negative' },
+                        response: 'Your intervention overrides the very free will God established. Eve is startled, confused. The serpent retreats — for now. But you have stepped outside your commission. And the test must still come.'
+                    }
+                ]
+            },
+            // Scene 4: The Fall
+            {
+                location: 'Eden — The Moment',
+                locationClass: 'fallen',
+                fallen: true,
+                content: '<p><em>It happens.</em></p><p><span class="speaker eve">Eve</span> <span class="tragedy">takes the fruit. She eats. She gives to Adam. He eats.</span></p><p><em>The world... shifts. Something fundamental breaks. You feel it in your very essence — a tear in the fabric of creation itself. The glory that covered them fades. Shame floods their faces. They look at each other and see... nakedness. Vulnerability. The knowledge they were promised, and it is </em>bitter<em>.</em></p><p>They hide among the trees.</p><p>Beside you, <span class="speaker">Eloria</span> weeps. <span class="speaker">Cassiel</span> stands frozen. You have just witnessed the most catastrophic moment in human history.</p><p><em>And you could not stop it.</em></p>',
+                choices: [
+                    {
+                        letter: 'A',
+                        text: 'Weep with Eloria. Let the grief flow. This is not failure — this is love\'s response to love rejected.',
+                        preview: 'Grieve fully',
+                        effects: { love: 15, patience: 10, hope: -5 },
+                        influence: { target: 'Eloria', change: 12, type: 'positive' },
+                        influenceSecondary: { target: 'Cassiel', change: 8, type: 'positive' },
+                        response: 'Your tears honor the weight of the moment. Grief shared is grief survived. Together, the guardians process what no training could prepare them for.'
+                    },
+                    {
+                        letter: 'B',
+                        text: '"This is not the end. Remember the rebellion — God had a plan even then. He will have a plan now. We must trust beyond what we see."',
+                        preview: 'Speak hope into despair',
+                        effects: { faith: 12, hope: 15, courage: 8 },
+                        influence: { target: 'Eloria', change: 10, type: 'positive' },
+                        influenceSecondary: { target: 'Cassiel', change: 12, type: 'positive' },
+                        response: 'Your words cut through the darkness. Even now — especially now — faith must speak. The story is not over. It cannot be over. God is not finished.'
+                    },
+                    {
+                        letter: 'C',
+                        text: 'Turn your face away. You cannot bear to watch what comes next.',
+                        preview: 'Withdraw from the pain',
+                        effects: { patience: -10, courage: -10, love: -8 },
+                        influence: { target: 'Eloria', change: -8, type: 'negative' },
+                        influenceSecondary: { target: 'Cassiel', change: -10, type: 'negative' },
+                        response: 'Your withdrawal abandons your fellow guardians in their darkest moment. Even angels need each other. Your absence is felt as another loss layered on tragedy.'
+                    },
+                    {
+                        letter: 'D',
+                        text: 'Pray: "Father, what now? What can redeem this? Reveal Your plan, for we cannot see it."',
+                        preview: 'Seek divine guidance',
+                        effects: { faith: 15, wisdom: 10, hope: 10 },
+                        influence: { target: 'Eloria', change: 10, type: 'positive' },
+                        influenceSecondary: { target: 'Cassiel', change: 10, type: 'positive' },
+                        isPrayer: true,
+                        response: 'Your prayer rises — and somewhere, in the infinite councils of eternity, the plan of redemption unfolds. You cannot see it yet. But prayer positions you to receive what is coming.'
+                    }
+                ]
+            },
+            // Scene 5: The Promise
+            {
+                location: 'Eden — The Judgment and the Promise',
+                locationClass: 'fallen',
+                fallen: true,
+                content: '<p><em>The </em><span class="speaker divine">Creator</span><em> comes walking in the garden in the cool of the day. But this time, Adam and Eve hide.</em></p><p><span class="speaker divine">"Where art thou?"</span></p><p><em>The question is not for information. God knows exactly where they are. The question is for them — to give them opportunity to confess, to come out of hiding, to face what they\'ve done.</em></p><p><em>The conversation unfolds. The blame shifting. The consequences pronounced. But then — then comes something unexpected.</em></p><p>God turns to the serpent, and His voice carries something you\'ve never heard before. <span class="promise">Wrath and mercy woven together.</span></p><p><span class="speaker divine">"I will put enmity between thee and the woman, and between thy seed and her seed; it shall bruise thy head, and thou shalt bruise his heel."</span></p><p><em>A seed. From the woman. Who will crush the serpent\'s head. Something is being promised. Something... cosmic.</em></p>',
+                choices: [
+                    {
+                        letter: 'A',
+                        text: '"Did you hear that? A seed who will crush the serpent! God has a plan! Even in judgment, there is redemption!"',
+                        preview: 'Proclaim the promise',
+                        effects: { hope: 15, faith: 12, wisdom: 8 },
+                        influence: { target: 'Eloria', change: 15, type: 'positive' },
+                        influenceSecondary: { target: 'Cassiel', change: 15, type: 'positive' },
+                        response: 'Your proclamation transforms the moment. The other guardians look up — from grief to wonder. A promise. A seed. Victory wrapped in sacrifice. The enemy will be crushed.'
+                    },
+                    {
+                        letter: 'B',
+                        text: 'Kneel in worship. Even before you understand, you recognize divine genius at work. The enemy thought he won, but God just announced his ultimate defeat.',
+                        preview: 'Worship in wonder',
+                        effects: { faith: 15, love: 12, hope: 12 },
+                        influence: { target: 'Eloria', change: 12, type: 'positive' },
+                        influenceSecondary: { target: 'Cassiel', change: 12, type: 'positive' },
+                        isPrayer: true,
+                        response: 'Your worship becomes contagious. The other guardians join you. In the midst of the greatest tragedy, heaven\'s response is worship — because God is still God, and His plan is still perfect.'
+                    },
+                    {
+                        letter: 'C',
+                        text: '"I don\'t understand. A seed? What does it mean? How can anything undo what has been done?"',
+                        preview: 'Express confusion',
+                        effects: { wisdom: 5, faith: -5, hope: 3 },
+                        influence: { target: 'Eloria', change: 3, type: 'neutral' },
+                        influenceSecondary: { target: 'Cassiel', change: 3, type: 'neutral' },
+                        response: 'Your confusion is honest but uninspiring. Sometimes leadership requires speaking faith before understanding arrives. The others share your uncertainty, and it does not lift them.'
+                    },
+                    {
+                        letter: 'D',
+                        text: 'Watch silently as God clothes Adam and Eve with animal skins. Something died to cover their shame. The pattern begins here.',
+                        preview: 'Observe the first sacrifice',
+                        effects: { wisdom: 12, truth: 10, patience: 8 },
+                        influence: { target: 'Eloria', change: 8, type: 'positive' },
+                        influenceSecondary: { target: 'Cassiel', change: 8, type: 'positive' },
+                        response: 'You witness the first blood shed to cover sin. An animal dies. Its skin covers the guilty. Something is being taught. Substitution. Covering. Sacrifice. The gospel in embryo.'
+                    }
+                ]
+            },
+            // Scene 6: The New Assignment
+            {
+                location: 'The Gates of Eden — The Way Forward',
+                locationClass: 'fallen',
+                fallen: true,
+                content: '<p><em>Adam and Eve are sent out from the garden. Cherubim with flaming swords guard the way to the Tree of Life. Paradise is closed — for now.</em></p><p><em>But they are not abandoned. The promise follows them. The seed will come. Someday.</em></p><p>The <span class="speaker divine">Father\'s Voice</span> addresses you and the other guardians:</p><p><span class="speaker divine">"The plan of redemption begins now. It will unfold across millennia. You will watch. You will minister. You will guard the line through which the Promised Seed will come. The enemy will try to destroy that line. Your vigilance matters more than ever."</span></p><p><em>A new assignment. A longer war. But now, there is hope — specific, promised, certain.</em></p>',
+                choices: [
+                    {
+                        letter: 'A',
+                        text: '"Father, I commit myself fully to this mission. Whatever it takes, however long it takes, I will watch over the line of promise until the Seed comes."',
+                        preview: 'Total commitment',
+                        effects: { faith: 15, courage: 15, hope: 12, love: 10 },
+                        influence: { target: 'Eloria', change: 12, type: 'positive' },
+                        influenceSecondary: { target: 'Cassiel', change: 12, type: 'positive' },
+                        influenceTertiary: { target: 'Adam', change: 5, type: 'positive' },
+                        response: 'Your commitment rings through the heavens. This is the response of faithful servants — not understanding everything, but giving everything. The long war begins, and you are ready.'
+                    },
+                    {
+                        letter: 'B',
+                        text: '"Help me understand, Father. What is this seed? When will it come? How will we recognize it?"',
+                        preview: 'Seek understanding',
+                        effects: { wisdom: 12, faith: 8, patience: 8 },
+                        influence: { target: 'Eloria', change: 8, type: 'positive' },
+                        influenceSecondary: { target: 'Cassiel', change: 10, type: 'positive' },
+                        response: 'Your questions are not doubt — they are desire to serve better. Understanding unfolds gradually. The seed. The line. The centuries. The fullness of time. You will learn as you need to know.'
+                    },
+                    {
+                        letter: 'C',
+                        text: 'Look at Adam and Eve as they leave Eden. Pray for them: "Father, strengthen them for the hard road ahead. Let them never forget Your promise."',
+                        preview: 'Intercede for humanity',
+                        effects: { love: 15, hope: 12, faith: 10 },
+                        influence: { target: 'Adam', change: 10, type: 'positive' },
+                        influenceSecondary: { target: 'Eve', change: 10, type: 'positive' },
+                        isPrayer: true,
+                        response: 'Your prayer covers the first humans as they step into a harsh new world. They will stumble. They will suffer. But they are not alone. Your intercession goes with them.'
+                    },
+                    {
+                        letter: 'D',
+                        text: 'Turn to Eloria and Cassiel: "Whatever comes next, we face it together. The enemy divided Heaven once; he will not divide us."',
+                        preview: 'Strengthen fellowship',
+                        effects: { love: 12, courage: 10, hope: 10 },
+                        influence: { target: 'Eloria', change: 15, type: 'positive' },
+                        influenceSecondary: { target: 'Cassiel', change: 15, type: 'positive' },
+                        response: 'Your words forge bonds that will last millennia. Together, you have witnessed the worst. Together, you have received the promise. Together, you will serve until the Seed comes.'
+                    }
+                ]
+            }
+        ];
+
+        // Initialize
+        function init() {
+            checkSavedGame();
+            checkPreviousSaves();
+        }
+
+        function checkSavedGame() {
+            var saved = localStorage.getItem('gcg_ep3_save');
+            if (saved) {
+                document.getElementById('continueBtn').disabled = false;
+            }
+        }
+
+        function checkPreviousSaves() {
+            var ep2 = localStorage.getItem('gcg_ep2_save');
+            var ep1 = localStorage.getItem('gcg_save');
+            var prevData = null;
+
+            if (ep2) {
+                prevData = JSON.parse(ep2);
+                if (prevData.episodeComplete) {
+                    displayPrevStats(prevData, 'Episode 2');
+                    return;
+                }
+            }
+            if (ep1) {
+                prevData = JSON.parse(ep1);
+                if (prevData.episodeComplete) {
+                    displayPrevStats(prevData, 'Episode 1');
+                }
+            }
+        }
+
+        function displayPrevStats(data, epName) {
+            var statsDiv = document.getElementById('prevStats');
+            statsDiv.style.display = 'grid';
+            statsDiv.innerHTML = 
+                '<div class="import-stat"><div class="import-stat-name">Faith</div><div class="import-stat-value stat-faith">' + data.stats.faith + '</div></div>' +
+                '<div class="import-stat"><div class="import-stat-name">Courage</div><div class="import-stat-value stat-courage">' + data.stats.courage + '</div></div>' +
+                '<div class="import-stat"><div class="import-stat-name">Love</div><div class="import-stat-value stat-love">' + data.stats.love + '</div></div>' +
+                '<div class="import-stat"><div class="import-stat-name">Hope</div><div class="import-stat-value stat-hope">' + data.stats.hope + '</div></div>';
+            document.getElementById('importFromEp2').querySelector('p').innerHTML = 
+                'Continue as <strong>' + data.characterName + '</strong> from ' + epName + '.';
+        }
+
+        // Screen Management
+        function showScreen(screenId) {
+            var screens = document.querySelectorAll('.screen');
+            for (var i = 0; i < screens.length; i++) {
+                screens[i].classList.remove('active');
+            }
+            document.getElementById(screenId).classList.add('active');
+            STATE.screen = screenId;
+
+            var menuBtn = document.getElementById('menuBtn');
+            if (screenId === 'gameScreen' || screenId === 'consequenceScreen') {
+                menuBtn.classList.add('visible');
+            } else {
+                menuBtn.classList.remove('visible');
+            }
+        }
+
+        function showImportScreen() {
+            showScreen('importScreen');
+        }
+
+        function importFromPrevious() {
+            var ep2 = localStorage.getItem('gcg_ep2_save');
+            var ep1 = localStorage.getItem('gcg_save');
+            var prevData = null;
+
+            if (ep2) {
+                prevData = JSON.parse(ep2);
+                if (prevData.episodeComplete) {
+                    useImportedData(prevData);
+                    return;
+                }
+            }
+            if (ep1) {
+                prevData = JSON.parse(ep1);
+                if (prevData.episodeComplete) {
+                    useImportedData(prevData);
+                    return;
+                }
+            }
+            alert('No completed previous episode found. Please complete Episode 1 or 2 first, or start fresh.');
+        }
+
+        function useImportedData(data) {
+            STATE.characterName = data.characterName;
+            STATE.stats = JSON.parse(JSON.stringify(data.stats));
+            STATE.baseStats = JSON.parse(JSON.stringify(data.stats));
+            startGame();
+        }
+
+        function startFresh() {
+            STATE.characterName = 'Faithful One';
+            STATE.stats = {
+                faith: 70,
+                wisdom: 60,
+                courage: 65,
+                love: 70,
+                truth: 65,
+                patience: 60,
+                hope: 65
+            };
+            STATE.baseStats = JSON.parse(JSON.stringify(STATE.stats));
+            startGame();
+        }
+
+        function showNameInput() {
+            showScreen('nameScreen');
+        }
+
+        function confirmCustomName() {
+            var name = document.getElementById('customName').value.trim() || 'Faithful One';
+            STATE.characterName = name;
+            STATE.stats = {
+                faith: 70,
+                wisdom: 60,
+                courage: 65,
+                love: 70,
+                truth: 65,
+                patience: 60,
+                hope: 65
+            };
+            STATE.baseStats = JSON.parse(JSON.stringify(STATE.stats));
+            startGame();
+        }
+
+        function startGame() {
+            STATE.currentScene = 0;
+            STATE.choices = [];
+            STATE.episodeComplete = false;
+            STATE.totalPrayers = 0;
+            STATE.hasFallen = false;
+            STATE.beings = [
+                { name: 'Adam', status: 'human', influence: 50, avatar: '♔', type: 'human' },
+                { name: 'Eve', status: 'human', influence: 50, avatar: '♕', type: 'human' },
+                { name: 'Eloria', status: 'angel', influence: 55, avatar: '✦', type: 'angel' },
+                { name: 'Cassiel', status: 'angel', influence: 50, avatar: '◇', type: 'angel' }
+            ];
+            showScreen('gameScreen');
+            updateStatsDisplay();
+            updateInfluenceDisplay();
+            displayScene(0);
+        }
+
+        function continueGame() {
+            var saved = localStorage.getItem('gcg_ep3_save');
+            if (saved) {
+                STATE = JSON.parse(saved);
+                updateStatsDisplay();
+                updateInfluenceDisplay();
+                updateBackground();
+                if (STATE.episodeComplete) {
+                    showSummary();
+                } else {
+                    showScreen('gameScreen');
+                    displayScene(STATE.currentScene);
+                }
+            }
+        }
+
+        // Display Functions
+        function updateStatsDisplay() {
+            document.getElementById('statFaith').textContent = STATE.stats.faith;
+            document.getElementById('statWisdom').textContent = STATE.stats.wisdom;
+            document.getElementById('statCourage').textContent = STATE.stats.courage;
+            document.getElementById('statLove').textContent = STATE.stats.love;
+            document.getElementById('statTruth').textContent = STATE.stats.truth;
+            document.getElementById('statPatience').textContent = STATE.stats.patience;
+            document.getElementById('statHope').textContent = STATE.stats.hope;
+            document.getElementById('statPrayers').textContent = STATE.totalPrayers;
+            document.getElementById('displayName').textContent = STATE.characterName;
+        }
+
+        function updateInfluenceDisplay() {
+            var grid = document.getElementById('influenceGrid');
+            var html = '';
+            for (var i = 0; i < STATE.beings.length; i++) {
+                var being = STATE.beings[i];
+                var avatarClass = being.type;
+                if (STATE.hasFallen && being.type === 'angel') {
+                    avatarClass = being.influence >= 60 ? 'hopeful' : 'grieving';
+                }
+                var fillClass = being.influence >= 60 ? 'positive' : (being.influence <= 40 ? 'negative' : 'neutral');
+                var statusText = being.influence >= 70 ? 'Comforted' : (being.influence >= 50 ? 'Standing' : (being.influence >= 30 ? 'Struggling' : 'Grieving'));
+                if (being.type === 'human' && STATE.hasFallen) {
+                    statusText = 'Fallen but Promised';
+                }
+                html += '<div class="influence-item">';
+                html += '<div class="influence-avatar ' + avatarClass + '">' + being.avatar + '</div>';
+                html += '<div class="influence-info">';
+                html += '<div class="influence-name">' + being.name + '</div>';
+                html += '<div class="influence-status">' + statusText + '</div>';
+                html += '<div class="influence-bar"><div class="influence-fill ' + fillClass + '" style="width: ' + being.influence + '%;"></div></div>';
+                html += '</div></div>';
+            }
+            grid.innerHTML = html;
+
+            // Update influence panel class
+            var panel = document.getElementById('influencePanel');
+            if (STATE.hasFallen) {
+                panel.classList.add('fallen');
+            } else {
+                panel.classList.remove('fallen');
+            }
+        }
+
+        function updateBackground() {
+            var bg = document.getElementById('bgLayer');
+            if (STATE.hasFallen) {
+                bg.classList.remove('eden');
+                bg.classList.add('fallen');
+            } else {
+                bg.classList.add('eden');
+                bg.classList.remove('fallen');
+            }
+        }
+
+        function displayScene(sceneIndex) {
+            if (sceneIndex >= SCENES.length) {
+                STATE.episodeComplete = true;
+                saveGame();
+                showSummary();
+                return;
+            }
+
+            var scene = SCENES[sceneIndex];
+            var storyContent = document.getElementById('storyContent');
+            var choicesContainer = document.getElementById('choicesContainer');
+
+            // Update fallen state
+            if (scene.fallen) {
+                STATE.hasFallen = true;
+                updateBackground();
+                updateInfluenceDisplay();
+                storyContent.classList.add('fallen-scene');
+            } else {
+                storyContent.classList.remove('fallen-scene');
+            }
+
+            var locationClass = scene.fallen ? 'scene-location fallen' : 'scene-location';
+            var storyHtml = '<div class="' + locationClass + '">' + scene.location + '</div>';
+            storyHtml += '<div class="story-text">' + scene.content + '</div>';
+            storyContent.innerHTML = storyHtml;
+
+            var choicesHtml = '<div class="choices-label">What do you do?</div>';
+            for (var i = 0; i < scene.choices.length; i++) {
+                var choice = scene.choices[i];
+                var btnClass = choice.isPrayer ? 'choice-btn prayer-choice' : 'choice-btn';
+                choicesHtml += '<button class="' + btnClass + '" onclick="makeChoice(' + sceneIndex + ', ' + i + ')">';
+                choicesHtml += '<span class="choice-letter">[' + choice.letter + ']</span>';
+                choicesHtml += choice.text;
+                if (choice.preview) {
+                    choicesHtml += '<span class="choice-preview">' + (choice.isPrayer ? '🙏 ' : '') + choice.preview + '</span>';
+                }
+                choicesHtml += '</button>';
+            }
+            choicesContainer.innerHTML = choicesHtml;
+        }
+
+        function makeChoice(sceneIndex, choiceIndex) {
+            var scene = SCENES[sceneIndex];
+            var choice = scene.choices[choiceIndex];
+
+            STATE.choices.push({
+                scene: sceneIndex,
+                choice: choiceIndex,
+                letter: choice.letter,
+                isPrayer: choice.isPrayer || false
+            });
+
+            if (choice.isPrayer) {
+                STATE.totalPrayers++;
+            }
+
+            // Apply stat effects
+            var statChanges = [];
+            if (choice.effects) {
+                for (var stat in choice.effects) {
+                    if (choice.effects.hasOwnProperty(stat)) {
+                        var change = choice.effects[stat];
+                        STATE.stats[stat] = Math.max(0, Math.min(100, STATE.stats[stat] + change));
+                        if (change !== 0) {
+                            statChanges.push({ stat: stat, change: change });
+                        }
+                    }
+                }
+            }
+
+            // Apply influence effects
+            var influenceChanges = [];
+            if (choice.influence) {
+                applyInfluence(choice.influence.target, choice.influence.change, choice.influence.type);
+                influenceChanges.push(choice.influence);
+            }
+            if (choice.influenceSecondary) {
+                applyInfluence(choice.influenceSecondary.target, choice.influenceSecondary.change, choice.influenceSecondary.type);
+                influenceChanges.push(choice.influenceSecondary);
+            }
+            if (choice.influenceTertiary) {
+                applyInfluence(choice.influenceTertiary.target, choice.influenceTertiary.change, choice.influenceTertiary.type);
+                influenceChanges.push(choice.influenceTertiary);
+            }
+
+            showConsequence(choice, statChanges, influenceChanges, sceneIndex);
+        }
+
+        function applyInfluence(targetName, change, type) {
+            for (var i = 0; i < STATE.beings.length; i++) {
+                if (STATE.beings[i].name === targetName) {
+                    STATE.beings[i].influence = Math.max(0, Math.min(100, STATE.beings[i].influence + change));
+                    break;
+                }
+            }
+        }
+
+        function showConsequence(choice, statChanges, influenceChanges, sceneIndex) {
+            showScreen('consequenceScreen');
+            var display = document.getElementById('consequenceDisplay');
+            
+            if (STATE.hasFallen) {
+                display.classList.add('fallen');
+            } else {
+                display.classList.remove('fallen');
+            }
+
+            var html = '<h3 class="consequence-title">' + (choice.isPrayer ? 'Prayer Offered' : 'Consequence') + '</h3>';
+
+            if (statChanges.length > 0) {
+                html += '<div class="stat-changes">';
+                for (var i = 0; i < statChanges.length; i++) {
+                    var sc = statChanges[i];
+                    var sign = sc.change > 0 ? '+' : '';
+                    var cls = sc.change > 0 ? 'positive' : 'negative';
+                    var statName = sc.stat.charAt(0).toUpperCase() + sc.stat.slice(1);
+                    html += '<div class="stat-change ' + cls + '">' + statName + ' ' + sign + sc.change + '</div>';
+                }
+                html += '</div>';
+            }
+
+            html += '<p style="text-align: center; color: var(--text-secondary); font-size: 1.05rem; line-height: 1.7; margin: 20px 0;">' + choice.response + '</p>';
+
+            if (influenceChanges.length > 0) {
+                html += '<div class="influence-change">';
+                html += '<div class="influence-change-title">Those Affected</div>';
+                html += '<div class="influence-change-text">';
+                for (var j = 0; j < influenceChanges.length; j++) {
+                    var ic = influenceChanges[j];
+                    var effect = ic.type === 'positive' ? 'comforted' : (ic.type === 'negative' ? 'unsettled' : 'unchanged');
+                    html += '<span class="name">' + ic.target + '</span> was ' + effect + '. ';
+                }
+                html += '</div></div>';
+            }
+
+            // Add limitation notice for Scene 3 (Serpent scene)
+            if (sceneIndex === 3) {
+                html += '<div class="limitation-notice"><h4>The Agony of Free Will</h4><p>You cannot force Eve\'s choice. You can only intercede, position, and trust. This is the hardest lesson of angelic ministry.</p></div>';
+            }
+
+            html += '<button class="btn btn-eden continue-btn" onclick="continueStory(' + (sceneIndex + 1) + ')">Continue</button>';
+
+            display.innerHTML = html;
+            updateStatsDisplay();
+            updateInfluenceDisplay();
+            saveGame();
+        }
+
+        function continueStory(nextScene) {
+            STATE.currentScene = nextScene;
+            showScreen('gameScreen');
+            displayScene(nextScene);
+        }
+
+        function showSummary() {
+            showScreen('summaryScreen');
+            var summary = document.getElementById('episodeSummary');
+
+            // Calculate results
+            var baseStats = STATE.baseStats || { faith: 70, wisdom: 60, courage: 65, love: 70, truth: 65, patience: 60, hope: 65 };
+            var avgStats = Math.round((STATE.stats.faith + STATE.stats.wisdom + STATE.stats.courage + STATE.stats.love + STATE.stats.truth + STATE.stats.patience + STATE.stats.hope) / 7);
+            
+            // Determine ending
+            var endingType = 'faithful';
+            var endingTitle = 'Faithful Witness';
+            var endingDesc = 'You witnessed the Fall and remained steadfast. Though you could not prevent tragedy, you ministered faithfully and received the promise.';
+
+            if (STATE.totalPrayers >= 4 && STATE.stats.hope >= 75) {
+                endingType = 'prayerful';
+                endingTitle = 'Intercessor';
+                endingDesc = 'Prayer defined your response to crisis. When action was forbidden, you prayed. When tragedy struck, you prayed. Your intercession shaped what could not be forced.';
+            } else if (STATE.stats.hope >= 80 && STATE.stats.faith >= 80) {
+                endingType = 'hopeful';
+                endingTitle = 'Bearer of Promise';
+                endingDesc = 'Even in humanity\'s darkest hour, you grasped the promise. The seed will come. The serpent will be crushed. Your hope became contagious.';
+            } else if (avgStats < 55) {
+                endingType = 'wounded';
+                endingTitle = 'Wounded Watcher';
+                endingDesc = 'The Fall wounded you deeply. Your faith was shaken, your hope dimmed. Recovery will come, but the scars remain.';
+            } else if (STATE.stats.love >= 80) {
+                endingType = 'compassionate';
+                endingTitle = 'Heart of Compassion';
+                endingDesc = 'Love guided your every response. You wept with the weeping and hoped with the hoping. This is the ministry that heals.';
+            }
+
+            var html = '<div class="summary-header">';
+            html += '<h2 class="summary-title">Episode Complete</h2>';
+            html += '<p class="summary-subtitle">Earth\'s Beginning</p>';
+            html += '</div>';
+
+            // Ending Card
+            html += '<div class="summary-section" style="text-align: center; border-color: var(--eden-light);">';
+            html += '<h3 style="font-family: Cinzel, serif; font-size: 1.5rem; color: var(--gold); margin-bottom: 15px;">' + endingTitle + '</h3>';
+            html += '<p style="color: var(--text-secondary); line-height: 1.8;">' + endingDesc + '</p>';
+            html += '</div>';
+
+            // Prayer count
+            html += '<div class="summary-section" style="text-align: center;">';
+            html += '<div style="font-family: Cinzel, serif; font-size: 3rem; color: var(--creation-cyan);">' + STATE.totalPrayers + '</div>';
+            html += '<div style="color: var(--text-secondary);">Prayers Offered</div>';
+            html += '<p style="margin-top: 15px; color: var(--text-dim); font-style: italic;">When action was forbidden, intercession remained. Every prayer mattered.</p>';
+            html += '</div>';
+
+            // Stats
+            html += '<div class="summary-section">';
+            html += '<h4 class="summary-section-title">⟡ Character Development</h4>';
+            html += '<div class="final-stats-grid">';
+            var statNames = ['faith', 'wisdom', 'courage', 'love', 'truth', 'patience', 'hope'];
+            var statColors = ['#ffd700', '#9b59b6', '#e74c3c', '#e91e63', '#3498db', '#1abc9c', '#f39c12'];
+            for (var s = 0; s < statNames.length; s++) {
+                var sName = statNames[s];
+                var sVal = STATE.stats[sName];
+                var sBase = baseStats[sName] || 60;
+                var sChange = sVal - sBase;
+                var changeStr = sChange >= 0 ? '+' + sChange : '' + sChange;
+                var changeColor = sChange >= 0 ? 'var(--success)' : 'var(--danger)';
+                html += '<div class="final-stat">';
+                html += '<div class="final-stat-name" style="color: ' + statColors[s] + ';">' + sName.charAt(0).toUpperCase() + sName.slice(1) + '</div>';
+                html += '<div class="final-stat-value" style="color: ' + statColors[s] + ';">' + sVal + '</div>';
+                html += '<div class="final-stat-change" style="color: ' + changeColor + ';">' + changeStr + '</div>';
+                html += '</div>';
+            }
+            html += '</div></div>';
+
+            // Beings
+            html += '<div class="summary-section">';
+            html += '<h4 class="summary-section-title">⟡ Those Under Your Watch</h4>';
+            html += '<div class="souls-section">';
+            html += '<div class="souls-detail">';
+            for (var a = 0; a < STATE.beings.length; a++) {
+                var being = STATE.beings[a];
+                var soulStatus = 'standing';
+                if (being.influence >= 70) soulStatus = 'comforted';
+                else if (being.influence >= 50) soulStatus = 'hopeful';
+                else if (being.influence >= 30) soulStatus = 'grieving';
+                else soulStatus = 'struggling';
+                html += '<div class="soul-item">';
+                html += '<span class="soul-name">' + being.name + '</span>';
+                html += '<span class="soul-status ' + soulStatus + '">' + soulStatus.charAt(0).toUpperCase() + soulStatus.slice(1) + '</span>';
+                html += '</div>';
+            }
+            html += '</div></div></div>';
+
+            // Narrative
+            html += '<div class="summary-section">';
+            html += '<h4 class="summary-section-title">⟡ Your Story</h4>';
+            html += '<div class="narrative-summary">' + generateNarrative() + '</div>';
+            html += '</div>';
+
+            // Next Episode
+            html += '<div class="to-be-continued">';
+            html += '<h3>To Be Continued...</h3>';
+            html += '<p>Episode 4: The Flood — Coming Soon</p>';
+            html += '<p style="margin-top: 10px; color: var(--text-dim);">The line of promise must be protected. The enemy will try to destroy it. One hundred twenty years of patience await.</p>';
+            html += '<button class="btn btn-primary" style="margin-top: 20px;" onclick="returnToTitle()">Return to Title</button>';
+            html += '</div>';
+
+            summary.innerHTML = html;
+        }
+
+        function generateNarrative() {
+            var narrative = '<p>As ' + STATE.characterName + ', you witnessed the beginning and end of paradise.</p>';
+
+            narrative += '<p>You watched God speak worlds into existence. You saw the first humans walk in perfect innocence. You felt the enemy\'s presence as he slithered into Eden.</p>';
+
+            if (STATE.totalPrayers >= 3) {
+                narrative += '<p>When you could not act, you prayed. ' + STATE.totalPrayers + ' times you knelt in intercession, fighting in the only way permitted. Prayer was not your last resort — it was your first weapon.</p>';
+            }
+
+            if (STATE.stats.hope >= 75) {
+                narrative += '<p>Even after the Fall, hope burned in your heart. You heard the promise — a seed would come, the serpent would be crushed. Tragedy was not the end of the story.</p>';
+            } else if (STATE.stats.hope < 50) {
+                narrative += '<p>The Fall wounded your hope deeply. The paradise you guarded lies in ruins. Recovery will come, but slowly. Even angels must learn to hope again.</p>';
+            }
+
+            var eloria = STATE.beings.find(function(b) { return b.name === 'Eloria'; });
+            var cassiel = STATE.beings.find(function(b) { return b.name === 'Cassiel'; });
+
+            if (eloria && cassiel && eloria.influence >= 60 && cassiel.influence >= 60) {
+                narrative += '<p>Eloria and Cassiel stood stronger because of your ministry. In the midst of cosmic tragedy, you built fellowship that will last through the long war ahead.</p>';
+            }
+
+            narrative += '<p>Adam and Eve walk now in a harsh world, clothed in animal skins — the first sacrifice. But they carry the promise with them. And you will watch over their descendants, guarding the line through which the Promised Seed will come.</p>';
+
+            narrative += '<p>The Great Controversy has entered a new phase. The battlefield is Earth now. And your vigilance matters more than ever.</p>';
+
+            return narrative;
+        }
+
+        // Menu Functions
+        function toggleMenu() {
+            document.getElementById('menuModal').classList.toggle('active');
+        }
+
+        function saveGame() {
+            localStorage.setItem('gcg_ep3_save', JSON.stringify(STATE));
+        }
+
+        function restartEpisode() {
+            if (confirm('Restart Episode 3? All progress will be lost.')) {
+                localStorage.removeItem('gcg_ep3_save');
+                location.reload();
+            }
+        }
+
+        function returnToTitle() {
+            var modal = document.getElementById('menuModal');
+            if (modal.classList.contains('active')) {
+                modal.classList.remove('active');
+            }
+            showScreen('titleScreen');
+            checkSavedGame();
+            // Reset background
+            document.getElementById('bgLayer').classList.add('eden');
+            document.getElementById('bgLayer').classList.remove('fallen');
+        }
+
+        // Init
+        init();
+    </script>
+</body>
+</html>
