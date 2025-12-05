@@ -1,0 +1,2513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Great Controversy: The Game - Episode 7</title>
+    <meta name="description" content="Episode 7: The Prophets. Standing alone against apostasy. Elijah, Isaiah, Daniel.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #050508;
+            --bg-medium: #0a0a10;
+            --bg-light: #101018;
+            --prophet-purple: #6b3fa0;
+            --prophet-gold: #d4af37;
+            --throne-blue: #1a3a6e;
+            --throne-light: #4a7ab8;
+            --fire-orange: #ff6b35;
+            --fire-red: #dc2626;
+            --glory-white: #fffaf0;
+            --glory-gold: #ffd700;
+            --babylon-gold: #c9a227;
+            --babylon-red: #8b0000;
+            --furnace-orange: #ff4500;
+            --lion-amber: #d4a03a;
+            --seraph-red: #b91c1c;
+            --coal-glow: #ff6347;
+            --text-primary: #f0e8f8;
+            --text-secondary: #b8a8c8;
+            --text-dim: #7a6a8a;
+            --danger: #c44536;
+            --success: #6b8e4e;
+            --warning: #d4a03a;
+            --faith-color: #ffd700;
+            --wisdom-color: #9b59b6;
+            --courage-color: #e74c3c;
+            --love-color: #e91e63;
+            --truth-color: #3498db;
+            --patience-color: #1abc9c;
+            --hope-color: #f39c12;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Crimson Pro', Georgia, serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Background Themes */
+        .celestial-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            transition: all 1.5s ease;
+        }
+
+        .celestial-bg.carmel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 50% 70%, rgba(255, 107, 53, 0.2) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 30%, rgba(107, 63, 160, 0.15) 0%, transparent 50%),
+                linear-gradient(180deg, #0a0508 0%, #100810 40%, #150a10 100%);
+        }
+
+        .celestial-bg.fire-fall::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 50% 0%, rgba(255, 69, 0, 0.4) 0%, transparent 60%),
+                radial-gradient(ellipse at 50% 50%, rgba(255, 107, 53, 0.3) 0%, transparent 40%),
+                linear-gradient(180deg, #1a0500 0%, #150805 40%, #100505 100%);
+            animation: fireFall 1s ease-in-out infinite;
+        }
+
+        @keyframes fireFall {
+            0%, 100% { opacity: 0.85; }
+            50% { opacity: 1; }
+        }
+
+        .celestial-bg.throne::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 50% 20%, rgba(255, 250, 240, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 40%, rgba(255, 215, 0, 0.1) 0%, transparent 40%),
+                radial-gradient(ellipse at 30% 60%, rgba(185, 28, 28, 0.1) 0%, transparent 30%),
+                radial-gradient(ellipse at 70% 60%, rgba(185, 28, 28, 0.1) 0%, transparent 30%),
+                linear-gradient(180deg, #0a0a15 0%, #050510 40%, #080810 100%);
+            animation: throneGlow 4s ease-in-out infinite;
+        }
+
+        @keyframes throneGlow {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+
+        .celestial-bg.babylon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 50% 30%, rgba(201, 162, 39, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 30% 70%, rgba(139, 0, 0, 0.1) 0%, transparent 40%),
+                linear-gradient(180deg, #0a0805 0%, #100a08 40%, #150a05 100%);
+        }
+
+        .celestial-bg.furnace::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 50% 50%, rgba(255, 69, 0, 0.4) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 70%, rgba(255, 107, 53, 0.3) 0%, transparent 40%),
+                linear-gradient(180deg, #1a0a00 0%, #150500 40%, #0f0500 100%);
+            animation: furnaceBurn 0.5s ease-in-out infinite;
+        }
+
+        @keyframes furnaceBurn {
+            0%, 100% { opacity: 0.9; }
+            50% { opacity: 1; }
+        }
+
+        .celestial-bg.lions::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 50% 50%, rgba(212, 160, 58, 0.15) 0%, transparent 50%),
+                linear-gradient(180deg, #050505 0%, #0a0805 40%, #0f0a08 100%);
+        }
+
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, rgba(255, 250, 240, 0.5), transparent),
+                radial-gradient(2px 2px at 40px 70px, rgba(255, 250, 240, 0.3), transparent),
+                radial-gradient(1px 1px at 90px 40px, rgba(255, 250, 240, 0.4), transparent),
+                radial-gradient(2px 2px at 130px 80px, rgba(212, 175, 55, 0.3), transparent);
+            background-size: 250px 250px;
+            animation: twinkle 5s ease-in-out infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 0.7; }
+        }
+
+        /* Seraphim overlay for throne room */
+        .seraph-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 30% 50%, rgba(185, 28, 28, 0.08) 0%, transparent 30%),
+                radial-gradient(ellipse at 70% 50%, rgba(185, 28, 28, 0.08) 0%, transparent 30%);
+            opacity: 0;
+            transition: opacity 1s ease;
+            pointer-events: none;
+        }
+
+        .seraph-overlay.active {
+            opacity: 1;
+            animation: seraphWings 2s ease-in-out infinite;
+        }
+
+        @keyframes seraphWings {
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 1; }
+        }
+
+        .game-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .game-header {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(107, 63, 160, 0.3);
+            margin-bottom: 20px;
+        }
+
+        .game-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--prophet-gold);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+            margin-bottom: 5px;
+        }
+
+        .game-subtitle {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            color: var(--prophet-purple);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+
+        .screen {
+            display: none;
+            flex: 1;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .screen.active {
+            display: flex;
+            flex-direction: column;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Title Screen */
+        .title-screen {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .episode-number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            color: var(--prophet-purple);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 10px;
+        }
+
+        .main-title {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--prophet-gold);
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 50px rgba(212, 175, 55, 0.4);
+            animation: titleGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes titleGlow {
+            0%, 100% { text-shadow: 0 0 30px rgba(212, 175, 55, 0.3); }
+            50% { text-shadow: 0 0 60px rgba(107, 63, 160, 0.5), 0 0 100px rgba(212, 175, 55, 0.3); }
+        }
+
+        .main-subtitle {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: var(--prophet-purple);
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        .tagline {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+
+        .episode-intro {
+            background: rgba(107, 63, 160, 0.08);
+            border: 1px solid rgba(107, 63, 160, 0.3);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            max-width: 600px;
+            text-align: left;
+        }
+
+        .episode-intro p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .episode-intro p:last-child {
+            margin-bottom: 0;
+        }
+
+        .title-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 280px;
+        }
+
+        .btn {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--prophet-gold) 0%, var(--prophet-purple) 100%);
+            color: var(--bg-dark);
+            box-shadow: 0 4px 20px rgba(107, 63, 160, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(107, 63, 160, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--prophet-gold);
+            border: 1px solid var(--prophet-gold);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .btn-secondary:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .btn-prophet {
+            background: linear-gradient(135deg, var(--fire-orange) 0%, var(--prophet-purple) 100%);
+            color: var(--text-primary);
+            box-shadow: 0 4px 20px rgba(255, 107, 53, 0.4);
+        }
+
+        .btn-prophet:hover {
+            box-shadow: 0 6px 30px rgba(255, 107, 53, 0.6);
+        }
+
+        /* Import Screen */
+        .import-section {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 30px 0;
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6rem;
+            color: var(--prophet-gold);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .import-options {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .import-option {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(107, 63, 160, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .import-option:hover {
+            border-color: var(--prophet-gold);
+            background: rgba(107, 63, 160, 0.1);
+        }
+
+        .import-option h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--prophet-gold);
+            margin-bottom: 10px;
+        }
+
+        .import-option p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .import-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .import-stat {
+            text-align: center;
+        }
+
+        .import-stat-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.6rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+        }
+
+        .import-stat-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        /* Stats Panel */
+        .stats-panel {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(107, 63, 160, 0.3);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stats-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .character-name {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            color: var(--prophet-gold);
+        }
+
+        .episode-indicator {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.65rem;
+            color: var(--prophet-purple);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.55rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .stat-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .stat-faith { color: var(--faith-color); }
+        .stat-wisdom { color: var(--wisdom-color); }
+        .stat-courage { color: var(--courage-color); }
+        .stat-love { color: var(--love-color); }
+        .stat-truth { color: var(--truth-color); }
+        .stat-patience { color: var(--patience-color); }
+        .stat-hope { color: var(--hope-color); }
+
+        /* Boldness Panel */
+        .boldness-panel {
+            background: linear-gradient(135deg, rgba(107, 63, 160, 0.15) 0%, rgba(255, 107, 53, 0.1) 100%);
+            border: 1px solid rgba(107, 63, 160, 0.4);
+            border-radius: 8px;
+            padding: 12px 20px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .boldness-label {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            color: var(--prophet-purple);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .boldness-value {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            color: var(--glory-gold);
+            font-weight: 600;
+        }
+
+        .prophet-indicator {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            color: var(--fire-orange);
+        }
+
+        /* Influence Panel */
+        .influence-panel {
+            background: rgba(107, 63, 160, 0.08);
+            border: 1px solid rgba(107, 63, 160, 0.3);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .influence-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            color: var(--prophet-gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .influence-title::before {
+            content: '⚡';
+            font-size: 1rem;
+        }
+
+        .influence-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .influence-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 12px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+        }
+
+        .influence-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .influence-avatar.prophet { background: linear-gradient(135deg, var(--fire-orange), var(--prophet-purple)); }
+        .influence-avatar.king { background: linear-gradient(135deg, var(--babylon-gold), var(--babylon-red)); }
+        .influence-avatar.faithful { background: linear-gradient(135deg, var(--glory-gold), var(--fire-orange)); }
+        .influence-avatar.seraph { background: linear-gradient(135deg, var(--seraph-red), var(--glory-gold)); }
+
+        .influence-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .influence-name {
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            color: var(--text-primary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .influence-status {
+            font-size: 0.7rem;
+            color: var(--text-dim);
+        }
+
+        .influence-bar {
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            margin-top: 4px;
+            overflow: hidden;
+        }
+
+        .influence-fill {
+            height: 100%;
+            border-radius: 2px;
+            transition: width 0.5s ease;
+        }
+
+        .influence-fill.positive { background: var(--success); }
+        .influence-fill.negative { background: var(--danger); }
+        .influence-fill.neutral { background: var(--warning); }
+        .influence-fill.glory { background: var(--glory-gold); }
+
+        /* Story Panel */
+        .story-panel {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .story-content {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(107, 63, 160, 0.2);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 20px;
+            flex: 1;
+            transition: all 0.5s ease;
+        }
+
+        .story-content.carmel-scene {
+            border-color: rgba(255, 107, 53, 0.4);
+            background: rgba(20, 10, 10, 0.5);
+        }
+
+        .story-content.throne-scene {
+            border-color: rgba(255, 215, 0, 0.4);
+            background: rgba(10, 10, 20, 0.5);
+        }
+
+        .story-content.babylon-scene {
+            border-color: rgba(201, 162, 39, 0.4);
+            background: rgba(15, 10, 8, 0.5);
+        }
+
+        .story-content.furnace-scene {
+            border-color: rgba(255, 69, 0, 0.5);
+            background: rgba(20, 10, 5, 0.5);
+        }
+
+        .story-content.lions-scene {
+            border-color: rgba(212, 160, 58, 0.4);
+            background: rgba(15, 12, 10, 0.5);
+        }
+
+        .scene-location {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            color: var(--prophet-purple);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .scene-location::before,
+        .scene-location::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(107, 63, 160, 0.3), transparent);
+        }
+
+        .story-text {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: var(--text-primary);
+            margin-bottom: 25px;
+        }
+
+        .story-text p {
+            margin-bottom: 15px;
+        }
+
+        .story-text .speaker {
+            font-family: 'Cinzel', serif;
+            color: var(--prophet-gold);
+            font-weight: 600;
+        }
+
+        .story-text .speaker.divine {
+            color: var(--glory-white);
+            text-shadow: 0 0 10px rgba(255, 250, 240, 0.5);
+        }
+
+        .story-text .speaker.elijah {
+            color: var(--fire-orange);
+        }
+
+        .story-text .speaker.isaiah {
+            color: var(--throne-light);
+        }
+
+        .story-text .speaker.daniel {
+            color: var(--prophet-purple);
+        }
+
+        .story-text .speaker.king {
+            color: var(--babylon-gold);
+        }
+
+        .story-text .speaker.seraph {
+            color: var(--seraph-red);
+        }
+
+        .story-text em {
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .story-text .challenge {
+            color: var(--fire-orange);
+            font-weight: 500;
+        }
+
+        .story-text .glory {
+            color: var(--glory-gold);
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+        }
+
+        .story-text .holy {
+            color: var(--glory-white);
+            text-shadow: 0 0 10px rgba(255, 250, 240, 0.5);
+        }
+
+        .story-text .fire {
+            color: var(--fire-orange);
+            text-shadow: 0 0 8px rgba(255, 107, 53, 0.4);
+        }
+
+        /* Prophet Marker */
+        .prophet-marker {
+            background: rgba(107, 63, 160, 0.15);
+            border: 1px solid rgba(107, 63, 160, 0.4);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .prophet-marker h4 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            color: var(--prophet-purple);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+
+        .prophet-marker .prophet-name {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            color: var(--prophet-gold);
+            font-weight: 700;
+        }
+
+        .prophet-marker p {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        /* Choices */
+        .choices-container {
+            margin-top: auto;
+        }
+
+        .choices-label {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .choice-btn {
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: 18px 20px;
+            margin-bottom: 10px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(107, 63, 160, 0.3);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.05rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .choice-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--prophet-gold);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .choice-btn:hover {
+            background: rgba(107, 63, 160, 0.15);
+            border-color: var(--prophet-gold);
+            transform: translateX(5px);
+        }
+
+        .choice-btn:hover::before {
+            opacity: 1;
+        }
+
+        .choice-btn.boldness-choice {
+            border-color: rgba(255, 107, 53, 0.4);
+            background: rgba(255, 107, 53, 0.08);
+        }
+
+        .choice-btn.boldness-choice:hover {
+            background: rgba(255, 107, 53, 0.2);
+        }
+
+        .choice-btn.boldness-choice::before {
+            background: var(--fire-orange);
+        }
+
+        .choice-letter {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.75rem;
+            color: var(--prophet-gold);
+            margin-right: 12px;
+        }
+
+        .choice-preview {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            margin-top: 8px;
+            padding-left: 25px;
+            font-style: italic;
+        }
+
+        /* Consequence Display */
+        .consequence-display {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(107, 63, 160, 0.3);
+            border-radius: 12px;
+            padding: 30px;
+            margin: 20px 0;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .consequence-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            color: var(--prophet-gold);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .stat-changes {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stat-change {
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .stat-change.positive {
+            background: rgba(107, 142, 78, 0.2);
+            border: 1px solid var(--success);
+            color: var(--success);
+        }
+
+        .stat-change.negative {
+            background: rgba(196, 69, 54, 0.2);
+            border: 1px solid var(--danger);
+            color: var(--danger);
+        }
+
+        .influence-change {
+            text-align: center;
+            padding: 15px;
+            background: rgba(107, 63, 160, 0.08);
+            border: 1px solid rgba(107, 63, 160, 0.3);
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .influence-change-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            color: var(--prophet-gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .influence-change-text {
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .influence-change-text .name {
+            font-family: 'Cinzel', serif;
+            color: var(--prophet-gold);
+        }
+
+        .boldness-notice {
+            background: rgba(255, 107, 53, 0.15);
+            border: 1px solid rgba(255, 107, 53, 0.4);
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .boldness-notice h4 {
+            font-family: 'Cinzel', serif;
+            color: var(--fire-orange);
+            margin-bottom: 8px;
+        }
+
+        .boldness-notice p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        .continue-btn {
+            display: block;
+            width: 100%;
+            max-width: 300px;
+            margin: 20px auto 0;
+        }
+
+        /* Summary Screen */
+        .episode-summary {
+            padding: 30px 0;
+        }
+
+        .summary-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .summary-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            color: var(--prophet-gold);
+            margin-bottom: 10px;
+        }
+
+        .summary-subtitle {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            color: var(--prophet-purple);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .summary-section {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(107, 63, 160, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        .summary-section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            color: var(--prophet-gold);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .final-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 15px;
+        }
+
+        .final-stat {
+            text-align: center;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+        }
+
+        .final-stat-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .final-stat-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .final-stat-change {
+            font-size: 0.75rem;
+            margin-top: 4px;
+        }
+
+        .prophet-journey {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 20px 0;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .journey-icon {
+            text-align: center;
+        }
+
+        .journey-icon .icon {
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+
+        .journey-icon .name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+        }
+
+        .journey-arrow {
+            color: var(--prophet-purple);
+            font-size: 1.2rem;
+        }
+
+        .souls-detail {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .soul-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .soul-name {
+            font-family: 'Cinzel', serif;
+            color: var(--text-primary);
+        }
+
+        .soul-status {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            padding: 4px 12px;
+            border-radius: 12px;
+        }
+
+        .soul-status.bold {
+            background: rgba(255, 107, 53, 0.2);
+            color: var(--fire-orange);
+        }
+
+        .soul-status.faithful {
+            background: rgba(212, 175, 55, 0.2);
+            color: var(--prophet-gold);
+        }
+
+        .soul-status.transformed {
+            background: rgba(107, 63, 160, 0.2);
+            color: var(--prophet-purple);
+        }
+
+        .soul-status.judged {
+            background: rgba(139, 0, 0, 0.2);
+            color: var(--babylon-red);
+        }
+
+        .narrative-summary {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+
+        .narrative-summary p {
+            margin-bottom: 15px;
+        }
+
+        .to-be-continued {
+            text-align: center;
+            padding: 30px;
+            margin-top: 20px;
+        }
+
+        .to-be-continued h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: var(--prophet-gold);
+            margin-bottom: 10px;
+        }
+
+        .to-be-continued p {
+            color: var(--text-dim);
+            font-style: italic;
+        }
+
+        /* Glory decoration */
+        .glory-decoration {
+            text-align: center;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .glory-decoration .holy {
+            font-size: 1.2rem;
+            letter-spacing: 5px;
+            color: var(--glory-white);
+            text-shadow: 0 0 15px rgba(255, 250, 240, 0.5);
+            animation: holyGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes holyGlow {
+            0%, 100% { text-shadow: 0 0 10px rgba(255, 250, 240, 0.5); }
+            50% { text-shadow: 0 0 25px rgba(255, 250, 240, 0.8), 0 0 40px rgba(255, 215, 0, 0.5); }
+        }
+
+        .glory-decoration p {
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-top: 10px;
+        }
+
+        /* Menu */
+        .menu-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 44px;
+            height: 44px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(107, 63, 160, 0.4);
+            border-radius: 8px;
+            color: var(--prophet-gold);
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 100;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .menu-btn:hover {
+            background: rgba(107, 63, 160, 0.2);
+        }
+
+        .menu-btn.visible {
+            display: flex;
+        }
+
+        .menu-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 200;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .menu-modal.active {
+            display: flex;
+        }
+
+        .menu-content {
+            background: var(--bg-medium);
+            border: 1px solid rgba(107, 63, 160, 0.4);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            max-width: 350px;
+            width: 90%;
+        }
+
+        .menu-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: var(--prophet-gold);
+            margin-bottom: 25px;
+        }
+
+        .menu-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .menu-buttons .btn {
+            width: 100%;
+        }
+
+        /* Footer */
+        .game-footer {
+            text-align: center;
+            padding: 20px 0;
+            margin-top: auto;
+            border-top: 1px solid rgba(107, 63, 160, 0.2);
+        }
+
+        .footer-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.6rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .footer-text a {
+            color: var(--prophet-gold);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2rem;
+                letter-spacing: 3px;
+            }
+
+            .main-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 5px;
+            }
+
+            .stat-name {
+                font-size: 0.5rem;
+            }
+
+            .stat-value {
+                font-size: 0.9rem;
+            }
+
+            .influence-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .story-content {
+                padding: 20px;
+            }
+
+            .story-text {
+                font-size: 1.05rem;
+            }
+
+            .choice-btn {
+                padding: 15px;
+                font-size: 0.95rem;
+            }
+
+            .final-stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .import-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .prophet-journey {
+                flex-direction: column;
+            }
+
+            .journey-arrow {
+                transform: rotate(90deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="celestial-bg carmel" id="bgLayer">
+        <div class="stars"></div>
+        <div class="seraph-overlay" id="seraphOverlay"></div>
+    </div>
+
+    <button class="menu-btn" id="menuBtn" onclick="toggleMenu()">☰</button>
+
+    <div class="menu-modal" id="menuModal">
+        <div class="menu-content">
+            <h2 class="menu-title">Game Menu</h2>
+            <div class="menu-buttons">
+                <button class="btn btn-secondary" onclick="saveGame()">Save Progress</button>
+                <button class="btn btn-secondary" onclick="toggleMenu()">Resume Game</button>
+                <button class="btn btn-secondary" onclick="restartEpisode()">Restart Episode</button>
+                <button class="btn btn-secondary" onclick="returnToTitle()">Main Menu</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="game-container">
+        <header class="game-header">
+            <h1 class="game-title">The Great Controversy</h1>
+            <p class="game-subtitle">Episode 7: The Prophets</p>
+        </header>
+
+        <!-- Title Screen -->
+        <div class="screen active" id="titleScreen">
+            <div class="title-screen">
+                <div class="episode-number">Episode VII</div>
+                <h1 class="main-title">The Prophets</h1>
+                <h2 class="main-subtitle">Standing Alone Against Apostasy</h2>
+                <p class="tagline">"How long halt ye between two opinions? If the LORD be God, follow him." — 1 Kings 18:21</p>
+                
+                <div class="episode-intro">
+                    <p>Israel has divided. Kings have turned to idols. The prophets of Baal number 850. And one man stands alone on Mount Carmel.</p>
+                    <p>You will witness Elijah call fire from heaven. You will see Isaiah's throne room vision — seraphim crying "Holy, holy, holy." You will walk with Daniel through Babylon's courts to the lion's den.</p>
+                    <p>What does it cost to stand alone? Everything. And nothing that matters.</p>
+                </div>
+
+                <div class="title-buttons">
+                    <button class="btn btn-prophet" onclick="showImportScreen()">Begin Episode 7</button>
+                    <button class="btn btn-secondary" id="continueBtn" onclick="continueGame()" disabled>Continue Saved Game</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Import Screen -->
+        <div class="screen" id="importScreen">
+            <div class="import-section">
+                <h2 class="section-title">Character Import</h2>
+                
+                <div class="import-options">
+                    <div class="import-option" id="importFromPrev" onclick="importFromPrevious()">
+                        <h3>Import from Previous Episodes</h3>
+                        <p>Continue with your character from the Exodus. Your stats and growth carry forward.</p>
+                        <div class="import-stats" id="prevStats" style="display: none;"></div>
+                    </div>
+
+                    <div class="import-option" onclick="startFresh()">
+                        <h3>Start Fresh</h3>
+                        <p>Begin Episode 7 with default stats. You have witnessed Israel's rise and now face its decline.</p>
+                        <div class="import-stats">
+                            <div class="import-stat">
+                                <div class="import-stat-name">Faith</div>
+                                <div class="import-stat-value stat-faith">80</div>
+                            </div>
+                            <div class="import-stat">
+                                <div class="import-stat-name">Courage</div>
+                                <div class="import-stat-value stat-courage">75</div>
+                            </div>
+                            <div class="import-stat">
+                                <div class="import-stat-name">Truth</div>
+                                <div class="import-stat-value stat-truth">78</div>
+                            </div>
+                            <div class="import-stat">
+                                <div class="import-stat-name">Hope</div>
+                                <div class="import-stat-value stat-hope">80</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="import-option" onclick="showNameInput()">
+                        <h3>Custom Character</h3>
+                        <p>Enter a name and stand with the prophets against the tide of apostasy.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Name Input Screen -->
+        <div class="screen" id="nameScreen">
+            <div class="import-section">
+                <h2 class="section-title">Name Your Character</h2>
+                <div style="max-width: 400px; margin: 0 auto;">
+                    <label style="display: block; font-family: Orbitron, sans-serif; font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px;">Your Name</label>
+                    <input type="text" id="customName" placeholder="Enter your angelic name..." maxlength="20" style="width: 100%; padding: 15px 20px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(107, 63, 160, 0.3); border-radius: 4px; color: var(--text-primary); font-family: Crimson Pro, serif; font-size: 1.1rem;">
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 20px;" onclick="confirmCustomName()">Begin Episode 7</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div class="screen" id="gameScreen">
+            <div class="stats-panel" id="statsPanel">
+                <div class="stats-header">
+                    <span class="character-name" id="displayName">-</span>
+                    <span class="episode-indicator">Episode 7: The Prophets</span>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-name">Faith</div>
+                        <div class="stat-value stat-faith" id="statFaith">50</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-name">Wisdom</div>
+                        <div class="stat-value stat-wisdom" id="statWisdom">50</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-name">Courage</div>
+                        <div class="stat-value stat-courage" id="statCourage">50</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-name">Love</div>
+                        <div class="stat-value stat-love" id="statLove">50</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-name">Truth</div>
+                        <div class="stat-value stat-truth" id="statTruth">50</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-name">Patience</div>
+                        <div class="stat-value stat-patience" id="statPatience">50</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-name">Hope</div>
+                        <div class="stat-value stat-hope" id="statHope">50</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-name">Boldness</div>
+                        <div class="stat-value" style="color: var(--fire-orange);" id="statBoldness">0</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="boldness-panel" id="boldnessPanel">
+                <span class="boldness-label">Prophet's Boldness</span>
+                <span class="boldness-value" id="boldnessDisplay">0</span>
+                <span class="prophet-indicator" id="currentProphet">Elijah</span>
+            </div>
+
+            <div class="influence-panel" id="influencePanel">
+                <div class="influence-title">Those in Your Sphere</div>
+                <div class="influence-grid" id="influenceGrid"></div>
+            </div>
+
+            <div class="story-panel">
+                <div class="story-content" id="storyContent"></div>
+                <div class="choices-container" id="choicesContainer"></div>
+            </div>
+        </div>
+
+        <!-- Consequence Screen -->
+        <div class="screen" id="consequenceScreen">
+            <div class="consequence-display" id="consequenceDisplay"></div>
+        </div>
+
+        <!-- Summary Screen -->
+        <div class="screen" id="summaryScreen">
+            <div class="episode-summary" id="episodeSummary"></div>
+        </div>
+
+        <footer class="game-footer">
+            <p class="footer-text">Seven Cubed Seven Labs | <a href="https://sevencubedseven.com">7³×7 = 2,401</a></p>
+        </footer>
+    </div>
+
+    <script>
+        // ==========================================
+        // THE GREAT CONTROVERSY: THE GAME
+        // Episode 7: The Prophets
+        // ==========================================
+
+        var STATE = {
+            screen: 'title',
+            characterName: '',
+            stats: {
+                faith: 80,
+                wisdom: 72,
+                courage: 75,
+                love: 78,
+                truth: 78,
+                patience: 74,
+                hope: 80
+            },
+            baseStats: {},
+            boldnessPoints: 0,
+            currentProphet: 'Elijah',
+            currentScene: 0,
+            choices: [],
+            beings: [
+                { name: 'Elijah', status: 'alone', influence: 70, avatar: '🔥', type: 'prophet' },
+                { name: 'Isaiah', status: 'undone', influence: 65, avatar: '👁', type: 'prophet' },
+                { name: 'Daniel', status: 'faithful', influence: 75, avatar: '🦁', type: 'prophet' },
+                { name: 'The 7,000', status: 'hidden', influence: 55, avatar: '✡', type: 'faithful' }
+            ],
+            episodeComplete: false
+        };
+
+        var SCENES = [
+            // Scene 0: Mount Carmel - The Challenge
+            {
+                location: 'Mount Carmel — The Challenge',
+                locationClass: 'carmel',
+                contentClass: 'carmel-scene',
+                prophet: 'Elijah',
+                prophetMarker: true,
+                content: '<p><em>Israel has fallen. Ahab reigns with Jezebel, and Baal worship has spread like plague. Eight hundred fifty prophets of Baal and Asherah eat at Jezebel\'s table. The true prophets of God have been hunted, hidden, or killed.</em></p><p><em>One man remains visible. One man dares to stand.</em></p><p><span class="speaker elijah">Elijah:</span> "<span class="challenge">How long halt ye between two opinions?</span> If the LORD be God, follow him: but if Baal, then follow him."</p><p><em>The people answer nothing. They cannot choose. They want both.</em></p><p><span class="speaker elijah">Elijah:</span> "I, even I only, remain a prophet of the LORD; but Baal\'s prophets are four hundred and fifty men. Let them give us two bulls... call ye on the name of your gods, and I will call on the name of the LORD: and <span class="challenge">the God that answereth by fire, let him be God</span>."</p><p><em>The contest is set. One prophet against 450. One God against the god of storms and fire.</em></p>',
+                choices: [
+                    {
+                        letter: 'A',
+                        text: 'Stand with Elijah in the spiritual realm. He feels alone, but heaven is watching. One plus God is always a majority.',
+                        preview: 'Affirm the unseen support',
+                        effects: { courage: 15, faith: 12, hope: 8 },
+                        influence: { target: 'Elijah', change: 12, type: 'positive' },
+                        isBoldness: true,
+                        response: 'Elijah is not alone. Angels surround him. Heaven\'s attention is fixed on Carmel. The math of faith: 1 + God = majority.'
+                    },
+                    {
+                        letter: 'B',
+                        text: '"The challenge exposes the root issue: divided hearts. Israel wants Yahweh AND Baal. But God will not share worship."',
+                        preview: 'Perceive the deeper issue',
+                        effects: { wisdom: 15, truth: 12, faith: 8 },
+                        influence: { target: 'Elijah', change: 10, type: 'positive' },
+                        influenceSecondary: { target: 'The 7,000', change: 8, type: 'positive' },
+                        response: 'The real battle is not between gods but within hearts. Israel\'s silence reveals their disease: they want compromise. But holiness demands totality.'
+                    },
+                    {
+                        letter: 'C',
+                        text: 'Marvel at Elijah\'s boldness. He doesn\'t negotiate or accommodate. He forces a decision. This is prophetic clarity.',
+                        preview: 'Honor the prophetic courage',
+                        effects: { courage: 12, truth: 12, wisdom: 8 },
+                        influence: { target: 'Elijah', change: 15, type: 'positive' },
+                        isBoldness: true,
+                        response: 'No compromise. No middle ground. Elijah forces the question that comfort avoids. Prophets make fence-sitting impossible.'
+                    },
+                    {
+                        letter: 'D',
+                        text: 'Pray: "Father, let fire fall. Let this generation see what their fathers knew — that You alone are God."',
+                        preview: 'Pray for divine demonstration',
+                        effects: { faith: 15, hope: 12, courage: 10 },
+                        influence: { target: 'Elijah', change: 12, type: 'positive' },
+                        influenceSecondary: { target: 'The 7,000', change: 10, type: 'positive' },
+                        isPrayer: true,
+                        isBoldness: true,
+                        response: 'Your prayer joins Elijah\'s. Heaven prepares its answer. Fire is coming — not to destroy, but to reveal.'
+                    }
+                ]
+            },
+            // Scene 1: Fire Falls
+            {
+                location: 'Mount Carmel — The Fire Falls',
+                locationClass: 'fire-fall',
+                contentClass: 'carmel-scene',
+                prophet: 'Elijah',
+                content: '<p><em>From morning until evening, the prophets of Baal cry out. They cut themselves. They dance. They scream. Nothing answers.</em></p><p><span class="speaker elijah">Elijah:</span> <em>(mocking)</em> "Cry aloud: for he is a god; either he is talking, or he is pursuing, or he is on a journey, or peradventure he sleepeth, and must be awakened."</p><p><em>At evening, Elijah repairs the altar of the LORD. Twelve stones. A trench. The sacrifice. Then — impossibly — he drenches everything with water. Three times. Until the trench overflows.</em></p><p><span class="speaker elijah">Elijah:</span> "LORD God of Abraham, Isaac, and of Israel, let it be known this day that thou art God in Israel... <span class="challenge">Hear me, O LORD, hear me</span>, that this people may know that thou art the LORD God."</p><p><em>Then the fire of the LORD fell.</em></p><p><span class="fire">It consumed the burnt sacrifice, the wood, the stones, the dust, and licked up the water that was in the trench.</span></p><p><em>All the people fell on their faces:</em> "<span class="glory">The LORD, he is the God; the LORD, he is the God.</span>"</p>',
+                choices: [
+                    {
+                        letter: 'A',
+                        text: 'Watch the fire fall. This is not natural fire — it consumes stone and water. God answers by exceeding the request.',
+                        preview: 'Witness the supernatural demonstration',
+                        effects: { faith: 15, courage: 12, hope: 12 },
+                        influence: { target: 'Elijah', change: 15, type: 'positive' },
+                        influenceSecondary: { target: 'The 7,000', change: 12, type: 'positive' },
+                        isBoldness: true,
+                        response: 'Fire that eats water. Fire that consumes stone. God doesn\'t just answer — He overwhelms. The question is settled forever for those who witnessed.'
+                    },
+                    {
+                        letter: 'B',
+                        text: '"Elijah soaked the sacrifice to eliminate doubt. He made success impossible by human means — so God\'s power would be undeniable."',
+                        preview: 'See the strategic faith',
+                        effects: { wisdom: 15, faith: 12, truth: 10 },
+                        influence: { target: 'Elijah', change: 12, type: 'positive' },
+                        response: 'Three times the water poured. Not lack of faith but abundance of it. Elijah wanted no natural explanation possible. Faith invites scrutiny.'
+                    },
+                    {
+                        letter: 'C',
+                        text: 'Hear the people\'s confession: "The LORD, He is God!" This is what prophetic ministry produces — clarity that compels choice.',
+                        preview: 'Celebrate the confession',
+                        effects: { hope: 15, love: 10, truth: 10 },
+                        influence: { target: 'The 7,000', change: 15, type: 'positive' },
+                        isBoldness: true,
+                        response: 'Twice they say it. On their faces. The divided heart is finally whole — at least in this moment. Prophetic clarity produces confession.'
+                    },
+                    {
+                        letter: 'D',
+                        text: 'Worship: "Father, You answered by fire. You always answer those who trust You completely. Let this generation never forget."',
+                        preview: 'Worship the God who answers',
+                        effects: { faith: 15, love: 12, hope: 12 },
+                        influence: { target: 'Elijah', change: 12, type: 'positive' },
+                        influenceSecondary: { target: 'The 7,000', change: 12, type: 'positive' },
+                        isPrayer: true,
+                        isBoldness: true,
+                        response: 'Worship rises with the fire. The God who answers by fire is worth whatever the cost. Carmel will echo through every generation facing similar choice.'
+                    }
+                ]
+            },
+            // Scene 2: Isaiah's Throne Room Vision
+            {
+                location: 'The Temple — The Throne Room',
+                locationClass: 'throne',
+                contentClass: 'throne-scene',
+                prophet: 'Isaiah',
+                prophetMarker: true,
+                content: '<p><em>King Uzziah has died. The throne of Judah is empty. And in the Temple, Isaiah sees another throne — one that was never empty.</em></p><p><span class="glory">"I saw also the Lord sitting upon a throne, high and lifted up, and his train filled the temple."</span></p><p><em>Above it stood the seraphim — beings of fire, with six wings each. Two covering their faces. Two covering their feet. Two for flight. And they cry to one another:</em></p><p><span class="speaker seraph">"<span class="holy">Holy, holy, holy</span>, is the LORD of hosts: the whole earth is full of his glory."</span></p><p><em>The doorposts shake. The house fills with smoke. And Isaiah crumbles:</em></p><p><span class="speaker isaiah">Isaiah:</span> "Woe is me! for I am undone; because I am a man of unclean lips, and I dwell in the midst of a people of unclean lips: for mine eyes have seen <span class="glory">the King, the LORD of hosts</span>."</p>',
+                choices: [
+                    {
+                        letter: 'A',
+                        text: 'Fall with Isaiah. In the presence of absolute holiness, all pretense dissolves. This is the only honest response.',
+                        preview: 'Enter the undoing',
+                        effects: { truth: 15, wisdom: 12, faith: 10 },
+                        influence: { target: 'Isaiah', change: 15, type: 'positive' },
+                        isBoldness: true,
+                        response: 'Holiness is not felt gradually — it shatters. Isaiah\'s "woe" is not despair but awakening. In God\'s presence, we finally see ourselves truly.'
+                    },
+                    {
+                        letter: 'B',
+                        text: '"Holy, holy, holy" — said three times because language cannot contain what is being described. The seraphim repeat what cannot be expressed.',
+                        preview: 'Hear the triple holy',
+                        effects: { wisdom: 15, faith: 12, truth: 10 },
+                        influence: { target: 'Isaiah', change: 12, type: 'positive' },
+                        response: 'Three times. Not for emphasis but for infinity. The seraphim cannot stop saying it because holiness is inexhaustible. Every repetition is fresh revelation.'
+                    },
+                    {
+                        letter: 'C',
+                        text: 'Notice: even seraphim cover their faces. Even beings of fire cannot look directly at God. His glory exceeds all creation.',
+                        preview: 'Learn from the seraphim',
+                        effects: { faith: 12, courage: 10, wisdom: 12 },
+                        influence: { target: 'Isaiah', change: 10, type: 'positive' },
+                        response: 'If seraphim veil themselves, what hope has humanity? And yet... Isaiah sees. The vision that should kill him becomes his commission.'
+                    },
+                    {
+                        letter: 'D',
+                        text: 'Worship: "Holy, holy, holy — Lord God Almighty. The whole earth IS full of Your glory, for those with eyes to see."',
+                        preview: 'Join the seraphim\'s cry',
+                        effects: { faith: 15, love: 15, hope: 12 },
+                        influence: { target: 'Isaiah', change: 15, type: 'positive' },
+                        isPrayer: true,
+                        isBoldness: true,
+                        response: 'Your voice joins the eternal chorus. The same words that shake the Temple now rise from your spirit. Worship is the proper response to vision.'
+                    }
+                ]
+            },
+            // Scene 3: The Coal
+            {
+                location: 'The Temple — The Burning Coal',
+                locationClass: 'throne',
+                contentClass: 'throne-scene',
+                prophet: 'Isaiah',
+                content: '<p><em>Isaiah lies undone on the Temple floor. His confession hangs in the sacred air: unclean lips, among unclean people. He has seen God and expects to die.</em></p><p><em>Then one of the seraphim flies to him, carrying something from the altar:</em></p><p><span class="speaker seraph">"Lo, this hath touched thy lips; and thine iniquity is taken away, and thy sin purged."</span></p><p><em>A live coal. Burning. Pressed to Isaiah\'s mouth. The pain that heals. The fire that cleanses.</em></p><p><em>And then the voice:</em></p><p><span class="speaker divine">"Whom shall I send, and who will go for us?"</span></p><p><em>Isaiah — moments ago undone, now purified by fire — answers:</em></p><p><span class="speaker isaiah">"<span class="glory">Here am I; send me.</span>"</span></p>',
+                choices: [
+                    {
+                        letter: 'A',
+                        text: 'See the sequence: vision of holiness → confession of unworthiness → divine cleansing → commission. This is always the pattern.',
+                        preview: 'Recognize the pattern',
+                        effects: { wisdom: 15, truth: 12, faith: 10 },
+                        influence: { target: 'Isaiah', change: 12, type: 'positive' },
+                        influenceSecondary: { target: 'The 7,000', change: 10, type: 'positive' },
+                        isBoldness: true,
+                        response: 'The order cannot be reversed. Service without vision produces religion. Vision without cleansing produces terror. But cleansing after vision produces prophets.'
+                    },
+                    {
+                        letter: 'B',
+                        text: '"Here am I; send me." Five words that change history. Isaiah volunteers for what he doesn\'t yet understand.',
+                        preview: 'Honor the surrender',
+                        effects: { courage: 15, faith: 12, hope: 10 },
+                        influence: { target: 'Isaiah', change: 15, type: 'positive' },
+                        isBoldness: true,
+                        response: 'Isaiah doesn\'t ask where. Doesn\'t negotiate terms. Doesn\'t request a job description. Five words of total availability. This is how prophets are made.'
+                    },
+                    {
+                        letter: 'C',
+                        text: 'The coal that purges — fire that burns sin away without destroying the sinner. This is grace before Christ makes it visible.',
+                        preview: 'See the gospel in the coal',
+                        effects: { wisdom: 12, love: 12, hope: 12 },
+                        influence: { target: 'Isaiah', change: 12, type: 'positive' },
+                        isBoldness: true,
+                        response: 'The coal should kill. Instead it heals. Fire that purifies without consuming — this is the mystery of grace. The same fire that judged Carmel now cleanses Isaiah.'
+                    },
+                    {
+                        letter: 'D',
+                        text: 'Pray: "Father, touch my lips too. Whatever fire is needed, apply it. And then send me wherever You will."',
+                        preview: 'Request the same fire',
+                        effects: { faith: 15, courage: 15, truth: 10 },
+                        influence: { target: 'Isaiah', change: 15, type: 'positive' },
+                        isPrayer: true,
+                        isBoldness: true,
+                        response: 'Your prayer is dangerous. The coal burns. But only those who welcome the fire can carry it to others. Vision and cleansing await those who ask.'
+                    }
+                ]
+            },
+            // Scene 4: Daniel in Babylon
+            {
+                location: 'Babylon — The Fiery Furnace',
+                locationClass: 'furnace',
+                contentClass: 'furnace-scene',
+                prophet: 'Daniel',
+                prophetMarker: true,
+                content: '<p><em>Generations have passed. Babylon has conquered Judah. Daniel and his friends serve in the court of Nebuchadnezzar — faithful to God in the heart of paganism.</em></p><p><em>Now the king has made an image of gold, ninety feet tall. All must bow when the music plays. The penalty for refusal: a furnace heated seven times hotter than normal.</em></p><p><span class="speaker king">Nebuchadnezzar:</span> "Is it true, Shadrach, Meshach, and Abednego, that ye do not serve my gods, nor worship the golden image which I have set up?"</p><p><em>Their answer echoes through millennia:</em></p><p><span class="speaker daniel">"O Nebuchadnezzar, we are not careful to answer thee in this matter. If it be so, <span class="fire">our God whom we serve is able to deliver us</span> from the burning fiery furnace, and he will deliver us out of thine hand, O king. <span class="challenge">But if not, be it known unto thee, O king, that we will not serve thy gods, nor worship the golden image which thou hast set up.</span>"</span></p>',
+                choices: [
+                    {
+                        letter: 'A',
+                        text: '"But if not." The three words that define faith. They trust God\'s power. They don\'t presume on His plans. They obey regardless.',
+                        preview: 'Perceive the "but if not" faith',
+                        effects: { faith: 20, courage: 15, truth: 10 },
+                        influence: { target: 'Daniel', change: 15, type: 'positive' },
+                        influenceSecondary: { target: 'The 7,000', change: 12, type: 'positive' },
+                        isBoldness: true,
+                        response: '"But if not" — faith that doesn\'t require rescue to remain faithful. This is the highest form. Deliverance would be wonderful. Faithfulness is non-negotiable.'
+                    },
+                    {
+                        letter: 'B',
+                        text: 'They are "not careful" to answer — meaning they don\'t need to deliberate. The decision was made before the command was given.',
+                        preview: 'Honor the pre-decided obedience',
+                        effects: { wisdom: 15, courage: 12, faith: 10 },
+                        influence: { target: 'Daniel', change: 12, type: 'positive' },
+                        isBoldness: true,
+                        response: 'No hesitation. No committee meeting. No weighing of options. Some decisions are made in advance. When the music plays, they simply don\'t bow.'
+                    },
+                    {
+                        letter: 'C',
+                        text: 'Watch the empire versus three teenagers. All the gold, all the power, all the fury — against three who simply will not bow.',
+                        preview: 'See the ultimate contrast',
+                        effects: { courage: 15, faith: 12, hope: 12 },
+                        influence: { target: 'Daniel', change: 12, type: 'positive' },
+                        response: 'Ninety feet of gold against three teenagers. The entire empire against three who will not bend. And the empire blinks first.'
+                    },
+                    {
+                        letter: 'D',
+                        text: 'Pray: "Father, raise up \'but if not\' believers in every generation. Those who obey regardless of outcome."',
+                        preview: 'Pray for unconditional faithfulness',
+                        effects: { faith: 15, courage: 12, hope: 15 },
+                        influence: { target: 'The 7,000', change: 15, type: 'positive' },
+                        influenceSecondary: { target: 'Daniel', change: 12, type: 'positive' },
+                        isPrayer: true,
+                        isBoldness: true,
+                        response: 'Your prayer spans generations. Every age needs those who will not bow. Every crisis reveals who truly trusts the God who may not rescue but will never forsake.'
+                    }
+                ]
+            },
+            // Scene 5: The Fourth Man
+            {
+                location: 'Babylon — The Fourth Man',
+                locationClass: 'furnace',
+                contentClass: 'furnace-scene',
+                prophet: 'Daniel',
+                content: '<p><em>The furnace is heated seven times hotter. The soldiers who throw them in die from the heat. Shadrach, Meshach, and Abednego fall into the flames.</em></p><p><em>Nebuchadnezzar rises in astonishment:</em></p><p><span class="speaker king">Nebuchadnezzar:</span> "Did not we cast three men bound into the midst of the fire? ... Lo, <span class="glory">I see four men loose, walking in the midst of the fire</span>, and they have no hurt; and the form of the fourth is like <span class="glory">the Son of God</span>."</p><p><em>The king calls them out. They emerge. Not a hair singed. Not even the smell of smoke. The only thing the fire burned was their bonds.</em></p><p><span class="speaker king">Nebuchadnezzar:</span> "Blessed be the God of Shadrach, Meshach, and Abednego, who hath sent his angel, and delivered his servants that trusted in him... there is no other God that can deliver after this sort."</p>',
+                choices: [
+                    {
+                        letter: 'A',
+                        text: 'See Him — the fourth figure in the flames. "Like the Son of God." Christ appears in the furnace of those who refuse to bow.',
+                        preview: 'Witness the Christophany',
+                        effects: { faith: 20, hope: 15, love: 12 },
+                        influence: { target: 'Daniel', change: 15, type: 'positive' },
+                        isBoldness: true,
+                        response: 'The Son of God in the flames. Not watching from heaven but walking with them in the fire. This is the promise for every furnace: He is already there.'
+                    },
+                    {
+                        letter: 'B',
+                        text: '"The only thing the fire burned was their bonds." The furnace meant for destruction became the instrument of freedom.',
+                        preview: 'See the liberating fire',
+                        effects: { wisdom: 15, hope: 15, faith: 10 },
+                        influence: { target: 'Daniel', change: 12, type: 'positive' },
+                        influenceSecondary: { target: 'The 7,000', change: 12, type: 'positive' },
+                        isBoldness: true,
+                        response: 'They went in bound. They came out free. The fire meant to destroy them only destroyed what bound them. This is what persecution does to faith.'
+                    },
+                    {
+                        letter: 'C',
+                        text: 'Nebuchadnezzar confesses God. The furnace meant to demonstrate Babylon\'s power demonstrated God\'s instead.',
+                        preview: 'Celebrate the inverted outcome',
+                        effects: { hope: 15, wisdom: 12, truth: 10 },
+                        influence: { target: 'Daniel', change: 12, type: 'positive' },
+                        response: 'The king who demanded worship now gives it — to the God of three teenagers. Empire\'s greatest weapon became God\'s greatest advertisement.'
+                    },
+                    {
+                        letter: 'D',
+                        text: 'Worship: "Father, You walk in every furnace with those who refuse to bow. The fire cannot touch those wrapped in Your presence."',
+                        preview: 'Worship the God of the furnace',
+                        effects: { faith: 20, love: 15, hope: 15 },
+                        influence: { target: 'Daniel', change: 15, type: 'positive' },
+                        influenceSecondary: { target: 'The 7,000', change: 15, type: 'positive' },
+                        isPrayer: true,
+                        isBoldness: true,
+                        response: 'Worship rises from the furnace story. The promise crystallizes: He will never leave nor forsake. The fire is hot but the presence is hotter.'
+                    }
+                ]
+            },
+            // Scene 6: The Lion's Den
+            {
+                location: 'Persia — The Lion\'s Den',
+                locationClass: 'lions',
+                contentClass: 'lions-scene',
+                prophet: 'Daniel',
+                content: '<p><em>Decades later. Babylon has fallen to Persia. Daniel is now eighty years old, still faithful, still rising to leadership under new kings. His enemies can find no fault in him — except his faithfulness to God.</em></p><p><em>They trick the king into a decree: no prayer to any god except the king for thirty days. The penalty: the lion\'s den.</em></p><p><em>Daniel hears of the decree. He goes home. He opens his windows toward Jerusalem — </em><span class="challenge">as was his custom</span><em> — and prays three times a day, as always.</em></p><p><em>Morning comes. The king who was tricked rushes to the den:</em></p><p><span class="speaker king">Darius:</span> "O Daniel, servant of the living God, is thy God, whom thou servest continually, able to deliver thee from the lions?"</p><p><span class="speaker daniel">Daniel:</span> "O king, live for ever. <span class="glory">My God hath sent his angel, and hath shut the lions\' mouths</span>, that they have not hurt me."</p>',
+                choices: [
+                    {
+                        letter: 'A',
+                        text: '"As was his custom" — Daniel didn\'t increase prayer to make a point or decrease it to stay safe. He simply continued faithfulness.',
+                        preview: 'Honor the consistent witness',
+                        effects: { faith: 15, patience: 15, truth: 12 },
+                        influence: { target: 'Daniel', change: 15, type: 'positive' },
+                        isBoldness: true,
+                        response: 'Eighty years of habit. Crisis didn\'t change him. Daniel\'s routine became his resistance. The most powerful protest was simply continuing to be faithful.'
+                    },
+                    {
+                        letter: 'B',
+                        text: 'Daniel opened his windows toward Jerusalem — facing home, facing the Temple, facing the promise. Exile never changed his orientation.',
+                        preview: 'See the oriented heart',
+                        effects: { hope: 15, faith: 12, love: 10 },
+                        influence: { target: 'Daniel', change: 12, type: 'positive' },
+                        response: 'Sixty years in Babylon. Still facing Jerusalem. The body may be exiled but the heart stays oriented toward God\'s promises. Geography cannot imprison worship.'
+                    },
+                    {
+                        letter: 'C',
+                        text: 'The king asks if God is ABLE. Daniel\'s answer: God sent His angel. Not "God can" but "God did." Faith testified by experience.',
+                        preview: 'Celebrate the proven God',
+                        effects: { faith: 15, truth: 12, wisdom: 10 },
+                        influence: { target: 'Daniel', change: 12, type: 'positive' },
+                        influenceSecondary: { target: 'The 7,000', change: 12, type: 'positive' },
+                        isBoldness: true,
+                        response: 'The theoretical became testimonial. "Is He able?" "He already did." Daniel\'s faith is not speculation but biography. The lions testify by their silence.'
+                    },
+                    {
+                        letter: 'D',
+                        text: 'Worship: "Father, from furnace to lions\' den, You shut what should devour and open what should stay closed. You are Lord of circumstances."',
+                        preview: 'Worship the God of deliverance',
+                        effects: { faith: 20, hope: 15, courage: 12 },
+                        influence: { target: 'Daniel', change: 15, type: 'positive' },
+                        influenceSecondary: { target: 'The 7,000', change: 15, type: 'positive' },
+                        isPrayer: true,
+                        isBoldness: true,
+                        response: 'Fire and lions. Two symbols of unstoppable destruction. Both rendered harmless by the One who made them. The lesson spans both testaments: faithful witness brings supernatural protection — or supernatural presence in death.'
+                    }
+                ]
+            }
+        ];
+
+        // Initialize
+        function init() {
+            checkSavedGame();
+            checkPreviousSaves();
+        }
+
+        function checkSavedGame() {
+            var saved = localStorage.getItem('gcg_ep7_save');
+            if (saved) {
+                document.getElementById('continueBtn').disabled = false;
+            }
+        }
+
+        function checkPreviousSaves() {
+            var prevEps = ['gcg_ep6_save', 'gcg_ep5_save', 'gcg_ep4_save', 'gcg_ep3_save', 'gcg_ep2_save', 'gcg_save'];
+            var epNames = ['Episode 6', 'Episode 5', 'Episode 4', 'Episode 3', 'Episode 2', 'Episode 1'];
+            
+            for (var i = 0; i < prevEps.length; i++) {
+                var saved = localStorage.getItem(prevEps[i]);
+                if (saved) {
+                    var data = JSON.parse(saved);
+                    if (data.episodeComplete) {
+                        displayPrevStats(data, epNames[i]);
+                        return;
+                    }
+                }
+            }
+        }
+
+        function displayPrevStats(data, epName) {
+            var statsDiv = document.getElementById('prevStats');
+            statsDiv.style.display = 'grid';
+            statsDiv.innerHTML = 
+                '<div class="import-stat"><div class="import-stat-name">Faith</div><div class="import-stat-value stat-faith">' + data.stats.faith + '</div></div>' +
+                '<div class="import-stat"><div class="import-stat-name">Courage</div><div class="import-stat-value stat-courage">' + data.stats.courage + '</div></div>' +
+                '<div class="import-stat"><div class="import-stat-name">Truth</div><div class="import-stat-value stat-truth">' + data.stats.truth + '</div></div>' +
+                '<div class="import-stat"><div class="import-stat-name">Hope</div><div class="import-stat-value stat-hope">' + data.stats.hope + '</div></div>';
+            document.getElementById('importFromPrev').querySelector('p').innerHTML = 
+                'Continue as <strong>' + data.characterName + '</strong> from ' + epName + '.';
+        }
+
+        // Screen Management
+        function showScreen(screenId) {
+            var screens = document.querySelectorAll('.screen');
+            for (var i = 0; i < screens.length; i++) {
+                screens[i].classList.remove('active');
+            }
+            document.getElementById(screenId).classList.add('active');
+            STATE.screen = screenId;
+
+            var menuBtn = document.getElementById('menuBtn');
+            if (screenId === 'gameScreen' || screenId === 'consequenceScreen') {
+                menuBtn.classList.add('visible');
+            } else {
+                menuBtn.classList.remove('visible');
+            }
+        }
+
+        function showImportScreen() {
+            showScreen('importScreen');
+        }
+
+        function importFromPrevious() {
+            var prevEps = ['gcg_ep6_save', 'gcg_ep5_save', 'gcg_ep4_save', 'gcg_ep3_save', 'gcg_ep2_save', 'gcg_save'];
+            
+            for (var i = 0; i < prevEps.length; i++) {
+                var saved = localStorage.getItem(prevEps[i]);
+                if (saved) {
+                    var data = JSON.parse(saved);
+                    if (data.episodeComplete) {
+                        useImportedData(data);
+                        return;
+                    }
+                }
+            }
+            alert('No completed previous episode found. Please complete an earlier episode first, or start fresh.');
+        }
+
+        function useImportedData(data) {
+            STATE.characterName = data.characterName;
+            STATE.stats = JSON.parse(JSON.stringify(data.stats));
+            STATE.baseStats = JSON.parse(JSON.stringify(data.stats));
+            startGame();
+        }
+
+        function startFresh() {
+            STATE.characterName = 'Faithful One';
+            STATE.stats = {
+                faith: 80,
+                wisdom: 72,
+                courage: 75,
+                love: 78,
+                truth: 78,
+                patience: 74,
+                hope: 80
+            };
+            STATE.baseStats = JSON.parse(JSON.stringify(STATE.stats));
+            startGame();
+        }
+
+        function showNameInput() {
+            showScreen('nameScreen');
+        }
+
+        function confirmCustomName() {
+            var name = document.getElementById('customName').value.trim() || 'Faithful One';
+            STATE.characterName = name;
+            STATE.stats = {
+                faith: 80,
+                wisdom: 72,
+                courage: 75,
+                love: 78,
+                truth: 78,
+                patience: 74,
+                hope: 80
+            };
+            STATE.baseStats = JSON.parse(JSON.stringify(STATE.stats));
+            startGame();
+        }
+
+        function startGame() {
+            STATE.currentScene = 0;
+            STATE.choices = [];
+            STATE.episodeComplete = false;
+            STATE.boldnessPoints = 0;
+            STATE.currentProphet = 'Elijah';
+            STATE.beings = [
+                { name: 'Elijah', status: 'alone', influence: 70, avatar: '🔥', type: 'prophet' },
+                { name: 'Isaiah', status: 'undone', influence: 65, avatar: '👁', type: 'prophet' },
+                { name: 'Daniel', status: 'faithful', influence: 75, avatar: '🦁', type: 'prophet' },
+                { name: 'The 7,000', status: 'hidden', influence: 55, avatar: '✡', type: 'faithful' }
+            ];
+            showScreen('gameScreen');
+            updateStatsDisplay();
+            updateInfluenceDisplay();
+            updateBoldnessDisplay();
+            displayScene(0);
+        }
+
+        function continueGame() {
+            var saved = localStorage.getItem('gcg_ep7_save');
+            if (saved) {
+                STATE = JSON.parse(saved);
+                updateStatsDisplay();
+                updateInfluenceDisplay();
+                updateBoldnessDisplay();
+                updateBackground();
+                if (STATE.episodeComplete) {
+                    showSummary();
+                } else {
+                    showScreen('gameScreen');
+                    displayScene(STATE.currentScene);
+                }
+            }
+        }
+
+        // Display Functions
+        function updateStatsDisplay() {
+            document.getElementById('statFaith').textContent = STATE.stats.faith;
+            document.getElementById('statWisdom').textContent = STATE.stats.wisdom;
+            document.getElementById('statCourage').textContent = STATE.stats.courage;
+            document.getElementById('statLove').textContent = STATE.stats.love;
+            document.getElementById('statTruth').textContent = STATE.stats.truth;
+            document.getElementById('statPatience').textContent = STATE.stats.patience;
+            document.getElementById('statHope').textContent = STATE.stats.hope;
+            document.getElementById('statBoldness').textContent = STATE.boldnessPoints;
+            document.getElementById('displayName').textContent = STATE.characterName;
+        }
+
+        function updateBoldnessDisplay() {
+            document.getElementById('boldnessDisplay').textContent = STATE.boldnessPoints;
+            document.getElementById('currentProphet').textContent = STATE.currentProphet;
+        }
+
+        function updateBackground() {
+            var bg = document.getElementById('bgLayer');
+            var seraphOverlay = document.getElementById('seraphOverlay');
+            
+            bg.classList.remove('carmel', 'fire-fall', 'throne', 'babylon', 'furnace', 'lions');
+            seraphOverlay.classList.remove('active');
+            
+            var scene = SCENES[STATE.currentScene];
+            if (scene) {
+                bg.classList.add(scene.locationClass);
+                if (scene.locationClass === 'throne') {
+                    seraphOverlay.classList.add('active');
+                }
+            } else {
+                bg.classList.add('carmel');
+            }
+        }
+
+        function updateInfluenceDisplay() {
+            var grid = document.getElementById('influenceGrid');
+            var html = '';
+            
+            for (var i = 0; i < STATE.beings.length; i++) {
+                var being = STATE.beings[i];
+                var fillClass = being.influence >= 70 ? 'glory' : (being.influence >= 50 ? 'positive' : 'neutral');
+                var statusText = being.status.charAt(0).toUpperCase() + being.status.slice(1);
+                
+                html += '<div class="influence-item">';
+                html += '<div class="influence-avatar ' + being.type + '">' + being.avatar + '</div>';
+                html += '<div class="influence-info">';
+                html += '<div class="influence-name">' + being.name + '</div>';
+                html += '<div class="influence-status">' + statusText + '</div>';
+                html += '<div class="influence-bar"><div class="influence-fill ' + fillClass + '" style="width: ' + being.influence + '%;"></div></div>';
+                html += '</div></div>';
+            }
+            grid.innerHTML = html;
+        }
+
+        function displayScene(sceneIndex) {
+            if (sceneIndex >= SCENES.length) {
+                STATE.episodeComplete = true;
+                saveGame();
+                showSummary();
+                return;
+            }
+
+            var scene = SCENES[sceneIndex];
+            var storyContent = document.getElementById('storyContent');
+            var choicesContainer = document.getElementById('choicesContainer');
+
+            // Update prophet
+            STATE.currentProphet = scene.prophet;
+            updateBoldnessDisplay();
+
+            // Update background
+            updateBackground();
+
+            // Update beings status based on scene
+            updateBeingsForScene(sceneIndex);
+
+            // Update story content class
+            storyContent.classList.remove('carmel-scene', 'throne-scene', 'babylon-scene', 'furnace-scene', 'lions-scene');
+            if (scene.contentClass) storyContent.classList.add(scene.contentClass);
+
+            var storyHtml = '<div class="scene-location">' + scene.location + '</div>';
+            
+            // Add prophet marker if applicable
+            if (scene.prophetMarker) {
+                var desc = '';
+                if (scene.prophet === 'Elijah') desc = 'Prophet of Fire';
+                if (scene.prophet === 'Isaiah') desc = 'Prophet of Vision';
+                if (scene.prophet === 'Daniel') desc = 'Prophet of Kingdoms';
+                
+                storyHtml += '<div class="prophet-marker">';
+                storyHtml += '<h4>Prophet</h4>';
+                storyHtml += '<div class="prophet-name">' + scene.prophet + '</div>';
+                storyHtml += '<p>' + desc + '</p>';
+                storyHtml += '</div>';
+            }
+            
+            storyHtml += '<div class="story-text">' + scene.content + '</div>';
+            storyContent.innerHTML = storyHtml;
+
+            var choicesHtml = '<div class="choices-label">What do you do?</div>';
+            for (var i = 0; i < scene.choices.length; i++) {
+                var choice = scene.choices[i];
+                var btnClass = choice.isBoldness ? 'choice-btn boldness-choice' : 'choice-btn';
+                choicesHtml += '<button class="' + btnClass + '" onclick="makeChoice(' + sceneIndex + ', ' + i + ')">';
+                choicesHtml += '<span class="choice-letter">[' + choice.letter + ']</span>';
+                choicesHtml += choice.text;
+                if (choice.preview) {
+                    var prefix = '';
+                    if (choice.isPrayer) prefix += '🙏 ';
+                    if (choice.isBoldness) prefix += '⚡ ';
+                    choicesHtml += '<span class="choice-preview">' + prefix + choice.preview + '</span>';
+                }
+                choicesHtml += '</button>';
+            }
+            choicesContainer.innerHTML = choicesHtml;
+        }
+
+        function updateBeingsForScene(sceneIndex) {
+            // Update being statuses based on narrative progression
+            if (sceneIndex >= 2) {
+                // After Elijah scenes, move to Isaiah
+                var elijah = STATE.beings.find(function(b) { return b.name === 'Elijah'; });
+                if (elijah) elijah.status = 'bold';
+                var isaiah = STATE.beings.find(function(b) { return b.name === 'Isaiah'; });
+                if (isaiah) isaiah.status = 'commissioned';
+            }
+            if (sceneIndex >= 4) {
+                // After Isaiah scenes, move to Daniel
+                var isaiah = STATE.beings.find(function(b) { return b.name === 'Isaiah'; });
+                if (isaiah) isaiah.status = 'sent';
+            }
+            if (sceneIndex >= 6) {
+                // After furnace and lions
+                var daniel = STATE.beings.find(function(b) { return b.name === 'Daniel'; });
+                if (daniel) daniel.status = 'proven';
+            }
+            updateInfluenceDisplay();
+        }
+
+        function makeChoice(sceneIndex, choiceIndex) {
+            var scene = SCENES[sceneIndex];
+            var choice = scene.choices[choiceIndex];
+
+            STATE.choices.push({
+                scene: sceneIndex,
+                choice: choiceIndex,
+                letter: choice.letter,
+                isPrayer: choice.isPrayer || false,
+                isBoldness: choice.isBoldness || false
+            });
+
+            if (choice.isBoldness) {
+                STATE.boldnessPoints++;
+            }
+
+            // Apply stat effects
+            var statChanges = [];
+            if (choice.effects) {
+                for (var stat in choice.effects) {
+                    if (choice.effects.hasOwnProperty(stat)) {
+                        var change = choice.effects[stat];
+                        STATE.stats[stat] = Math.max(0, Math.min(100, STATE.stats[stat] + change));
+                        if (change !== 0) {
+                            statChanges.push({ stat: stat, change: change });
+                        }
+                    }
+                }
+            }
+
+            // Apply influence effects
+            var influenceChanges = [];
+            if (choice.influence) {
+                applyInfluence(choice.influence.target, choice.influence.change, choice.influence.type);
+                influenceChanges.push(choice.influence);
+            }
+            if (choice.influenceSecondary) {
+                applyInfluence(choice.influenceSecondary.target, choice.influenceSecondary.change, choice.influenceSecondary.type);
+                influenceChanges.push(choice.influenceSecondary);
+            }
+
+            showConsequence(choice, statChanges, influenceChanges, sceneIndex);
+        }
+
+        function applyInfluence(targetName, change, type) {
+            for (var i = 0; i < STATE.beings.length; i++) {
+                if (STATE.beings[i].name === targetName) {
+                    STATE.beings[i].influence = Math.max(0, Math.min(100, STATE.beings[i].influence + change));
+                    break;
+                }
+            }
+        }
+
+        function showConsequence(choice, statChanges, influenceChanges, sceneIndex) {
+            showScreen('consequenceScreen');
+            var display = document.getElementById('consequenceDisplay');
+
+            var title = 'Consequence';
+            if (choice.isPrayer) title = 'Prayer Offered';
+            if (choice.isBoldness) title = 'Prophetic Boldness';
+            if (choice.isPrayer && choice.isBoldness) title = 'Bold Prayer';
+
+            var html = '<h3 class="consequence-title">' + title + '</h3>';
+
+            if (statChanges.length > 0) {
+                html += '<div class="stat-changes">';
+                for (var i = 0; i < statChanges.length; i++) {
+                    var sc = statChanges[i];
+                    var sign = sc.change > 0 ? '+' : '';
+                    var cls = sc.change > 0 ? 'positive' : 'negative';
+                    var statName = sc.stat.charAt(0).toUpperCase() + sc.stat.slice(1);
+                    html += '<div class="stat-change ' + cls + '">' + statName + ' ' + sign + sc.change + '</div>';
+                }
+                html += '</div>';
+            }
+
+            html += '<p style="text-align: center; color: var(--text-secondary); font-size: 1.05rem; line-height: 1.7; margin: 20px 0;">' + choice.response + '</p>';
+
+            if (influenceChanges.length > 0) {
+                html += '<div class="influence-change">';
+                html += '<div class="influence-change-title">Those Affected</div>';
+                html += '<div class="influence-change-text">';
+                for (var j = 0; j < influenceChanges.length; j++) {
+                    var ic = influenceChanges[j];
+                    html += '<span class="name">' + ic.target + '</span> was strengthened. ';
+                }
+                html += '</div></div>';
+            }
+
+            // Add boldness notice
+            if (choice.isBoldness) {
+                html += '<div class="boldness-notice"><h4>⚡ Boldness Point Earned</h4><p>You stand with those who refuse to bow. The spirit of the prophets lives in you.</p></div>';
+            }
+
+            html += '<button class="btn btn-prophet continue-btn" onclick="continueStory(' + (sceneIndex + 1) + ')">Continue</button>';
+
+            display.innerHTML = html;
+            updateStatsDisplay();
+            updateInfluenceDisplay();
+            updateBoldnessDisplay();
+            saveGame();
+        }
+
+        function continueStory(nextScene) {
+            STATE.currentScene = nextScene;
+            showScreen('gameScreen');
+            displayScene(nextScene);
+        }
+
+        function showSummary() {
+            showScreen('summaryScreen');
+            var summary = document.getElementById('episodeSummary');
+
+            // Reset background
+            var bg = document.getElementById('bgLayer');
+            var seraphOverlay = document.getElementById('seraphOverlay');
+            bg.classList.remove('carmel', 'fire-fall', 'furnace', 'lions');
+            bg.classList.add('throne');
+            seraphOverlay.classList.add('active');
+
+            // Calculate results
+            var baseStats = STATE.baseStats || { faith: 80, wisdom: 72, courage: 75, love: 78, truth: 78, patience: 74, hope: 80 };
+            
+            // Determine ending
+            var endingTitle = 'Faithful Witness';
+            var endingDesc = 'You stood with Elijah on Carmel, Isaiah in the throne room, and Daniel in Babylon. You learned what it costs to stand alone — and discovered you never truly stand alone.';
+
+            if (STATE.boldnessPoints >= 6) {
+                endingTitle = 'Voice of the Prophets';
+                endingDesc = 'You embody prophetic boldness — the spirit that calls down fire, receives burning coals, faces furnaces, and silences lions. You will not bow. You will not bend. You will not burn.';
+            } else if (STATE.stats.courage >= 95) {
+                endingTitle = 'Furnace Walker';
+                endingDesc = 'Like the three Hebrews, your courage burns hotter than any furnace. You\'ve learned that faith doesn\'t require rescue — only faithfulness.';
+            } else if (STATE.stats.faith >= 95) {
+                endingTitle = 'Carrier of Holy Fire';
+                endingDesc = 'From Carmel\'s fire to the seraph\'s coal, you carry the flame that reveals truth and purifies hearts. The God who answers by fire dwells in you.';
+            } else if (STATE.stats.truth >= 95) {
+                endingTitle = 'Throne Room Seer';
+                endingDesc = 'Like Isaiah, you have seen the King on His throne. The vision that undid you now commissions you. "Here am I; send me."';
+            }
+
+            var html = '<div class="summary-header">';
+            html += '<h2 class="summary-title">Episode Complete</h2>';
+            html += '<p class="summary-subtitle">The Prophets</p>';
+            html += '</div>';
+
+            // Glory decoration
+            html += '<div class="glory-decoration">';
+            html += '<div class="holy">HOLY • HOLY • HOLY</div>';
+            html += '<p>"The whole earth is full of His glory"</p>';
+            html += '</div>';
+
+            // Ending Card
+            html += '<div class="summary-section" style="text-align: center; border-color: var(--prophet-purple);">';
+            html += '<h3 style="font-family: Cinzel, serif; font-size: 1.5rem; color: var(--prophet-gold); margin-bottom: 15px;">' + endingTitle + '</h3>';
+            html += '<p style="color: var(--text-secondary); line-height: 1.8;">' + endingDesc + '</p>';
+            html += '</div>';
+
+            // Boldness counter
+            html += '<div class="summary-section" style="text-align: center;">';
+            html += '<div style="font-family: Cinzel, serif; font-size: 3rem; color: var(--fire-orange);">' + STATE.boldnessPoints + '</div>';
+            html += '<div style="color: var(--text-secondary);">Boldness Points Earned</div>';
+            html += '<p style="margin-top: 15px; color: var(--text-dim); font-style: italic;">You stood with the prophets against the tide. Your voice joined theirs in the eternal "Thus saith the LORD."</p>';
+            html += '</div>';
+
+            // Prophet journey
+            html += '<div class="summary-section">';
+            html += '<h4 class="summary-section-title">⚡ The Prophetic Journey</h4>';
+            html += '<div class="prophet-journey">';
+            html += '<div class="journey-icon"><div class="icon">🔥</div><div class="name">Elijah</div></div>';
+            html += '<div class="journey-arrow">→</div>';
+            html += '<div class="journey-icon"><div class="icon">👁</div><div class="name">Isaiah</div></div>';
+            html += '<div class="journey-arrow">→</div>';
+            html += '<div class="journey-icon"><div class="icon">🦁</div><div class="name">Daniel</div></div>';
+            html += '</div></div>';
+
+            // Stats
+            html += '<div class="summary-section">';
+            html += '<h4 class="summary-section-title">⚡ Character Development</h4>';
+            html += '<div class="final-stats-grid">';
+            var statNames = ['faith', 'wisdom', 'courage', 'love', 'truth', 'patience', 'hope'];
+            var statColors = ['#ffd700', '#9b59b6', '#e74c3c', '#e91e63', '#3498db', '#1abc9c', '#f39c12'];
+            for (var s = 0; s < statNames.length; s++) {
+                var sName = statNames[s];
+                var sVal = STATE.stats[sName];
+                var sBase = baseStats[sName] || 75;
+                var sChange = sVal - sBase;
+                var changeStr = sChange >= 0 ? '+' + sChange : '' + sChange;
+                var changeColor = sChange >= 0 ? 'var(--success)' : 'var(--danger)';
+                html += '<div class="final-stat">';
+                html += '<div class="final-stat-name" style="color: ' + statColors[s] + ';">' + sName.charAt(0).toUpperCase() + sName.slice(1) + '</div>';
+                html += '<div class="final-stat-value" style="color: ' + statColors[s] + ';">' + sVal + '</div>';
+                html += '<div class="final-stat-change" style="color: ' + changeColor + ';">' + changeStr + '</div>';
+                html += '</div>';
+            }
+            html += '</div></div>';
+
+            // Beings
+            html += '<div class="summary-section">';
+            html += '<h4 class="summary-section-title">⚡ The Prophets</h4>';
+            html += '<div class="souls-detail">';
+            
+            for (var b = 0; b < STATE.beings.length; b++) {
+                var being = STATE.beings[b];
+                var status = 'faithful';
+                var statusLabel = 'Faithful';
+                
+                if (being.name === 'Elijah') {
+                    status = 'bold';
+                    statusLabel = 'Bold';
+                } else if (being.name === 'Isaiah') {
+                    status = 'transformed';
+                    statusLabel = 'Sent';
+                } else if (being.name === 'Daniel') {
+                    status = 'bold';
+                    statusLabel = 'Proven';
+                } else if (being.name === 'The 7,000') {
+                    status = being.influence >= 70 ? 'faithful' : 'faithful';
+                    statusLabel = 'Revealed';
+                }
+                
+                html += '<div class="soul-item">';
+                html += '<span class="soul-name">' + being.name + '</span>';
+                html += '<span class="soul-status ' + status + '">' + statusLabel + '</span>';
+                html += '</div>';
+            }
+            
+            html += '</div></div>';
+
+            // Narrative
+            html += '<div class="summary-section">';
+            html += '<h4 class="summary-section-title">⚡ Your Story</h4>';
+            html += '<div class="narrative-summary">' + generateNarrative() + '</div>';
+            html += '</div>';
+
+            // Next Episode
+            html += '<div class="to-be-continued">';
+            html += '<h3>To Be Continued...</h3>';
+            html += '<p>Episode 8: The Messiah — Coming Soon</p>';
+            html += '<p style="margin-top: 10px; color: var(--text-dim);">All prophecy converges. The Seed promised in Eden arrives. God becomes flesh. And the controversy reaches its crisis point.</p>';
+            html += '<button class="btn btn-primary" style="margin-top: 20px;" onclick="returnToTitle()">Return to Title</button>';
+            html += '</div>';
+
+            summary.innerHTML = html;
+        }
+
+        function generateNarrative() {
+            var narrative = '<p>As ' + STATE.characterName + ', you walked with three prophets through the darkest hours of Israel\'s apostasy — and witnessed heaven\'s answers.</p>';
+
+            narrative += '<p>On Mount Carmel, you watched one man challenge 450. You saw fire fall that consumed stone and water. You heard a nation confess: "The LORD, He is God!"</p>';
+
+            if (STATE.stats.truth >= 90) {
+                narrative += '<p>In the Temple, you saw what Isaiah saw — the throne, the train, the seraphim, the smoke. You heard "Holy, holy, holy" and understood why even angels veil their faces. And you felt the coal that burns away sin.</p>';
+            }
+
+            if (STATE.stats.courage >= 90) {
+                narrative += '<p>In Babylon, you stood with three who would not bow. "But if not" — three words that redefined faith. And in the furnace, you saw the Fourth Man walking.</p>';
+            }
+
+            narrative += '<p>Finally, you watched an eighty-year-old prophet open his windows toward Jerusalem and pray as he always had — not more, not less. The lions could not touch what God protected.</p>';
+
+            narrative += '<p>The prophets teach one lesson: stand alone if you must, but know that you never truly do. The 7,000 are always hidden. The Fourth Man always appears in the fire. And the God who answers by fire always hears.</p>';
+
+            return narrative;
+        }
+
+        // Menu Functions
+        function toggleMenu() {
+            document.getElementById('menuModal').classList.toggle('active');
+        }
+
+        function saveGame() {
+            localStorage.setItem('gcg_ep7_save', JSON.stringify(STATE));
+        }
+
+        function restartEpisode() {
+            if (confirm('Restart Episode 7? All progress will be lost.')) {
+                localStorage.removeItem('gcg_ep7_save');
+                location.reload();
+            }
+        }
+
+        function returnToTitle() {
+            var modal = document.getElementById('menuModal');
+            if (modal.classList.contains('active')) {
+                modal.classList.remove('active');
+            }
+            showScreen('titleScreen');
+            checkSavedGame();
+            // Reset background
+            var bg = document.getElementById('bgLayer');
+            var seraphOverlay = document.getElementById('seraphOverlay');
+            bg.classList.remove('fire-fall', 'throne', 'babylon', 'furnace', 'lions');
+            bg.classList.add('carmel');
+            seraphOverlay.classList.remove('active');
+        }
+
+        // Init
+        init();
+    </script>
+</body>
+</html>
