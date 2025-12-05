@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Great Controversy: The Game - Episode 10</title>
+    <meta name="description" content="Episode 10: The Dark Ages. 1260 years of persecution. The flame goes underground but never dies.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #050505;
+            --bg-medium: #080808;
+            --remnant-gold: #c9a227;
+            --remnant-amber: #d4a03a;
+            --candle-glow: #ffb347;
+            --cave-stone: #3a3a3a;
+            --alpine-blue: #4a6fa5;
+            --blood-red: #8b0000;
+            --martyr-flame: #ff6b35;
+            --rome-purple: #4a1f6b;
+            --valley-green: #2d4a2d;
+            --text-primary: #e8e0d8;
+            --text-secondary: #b8a898;
+            --text-dim: #7a6a5a;
+            --text-gold: #c9a227;
+            --danger: #8b0000;
+            --success: #4a6a4a;
+            --faith-color: #ffd700;
+            --wisdom-color: #9b59b6;
+            --courage-color: #e74c3c;
+            --love-color: #e91e63;
+            --truth-color: #3498db;
+            --patience-color: #1abc9c;
+            --hope-color: #f39c12;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Crimson Pro', Georgia, serif; background: var(--bg-dark); color: var(--text-primary); min-height: 100vh; overflow-x: hidden; }
+        .celestial-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden; transition: all 1.5s ease; }
+        .celestial-bg.rome::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at 50% 30%, rgba(74, 31, 107, 0.2) 0%, transparent 50%), linear-gradient(180deg, #0a0508 0%, #080508 40%, #050305 100%); }
+        .celestial-bg.wilderness::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at 30% 70%, rgba(45, 74, 45, 0.15) 0%, transparent 40%), linear-gradient(180deg, #050508 0%, #080808 40%, #050505 100%); }
+        .celestial-bg.alps::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at 50% 20%, rgba(245, 245, 245, 0.05) 0%, transparent 30%), radial-gradient(ellipse at 50% 80%, rgba(45, 74, 45, 0.15) 0%, transparent 40%), linear-gradient(180deg, #0a0a0c 0%, #080808 40%, #050505 100%); }
+        .celestial-bg.cave::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at 50% 50%, rgba(255, 179, 71, 0.08) 0%, transparent 30%), linear-gradient(180deg, #030303 0%, #050505 40%, #020202 100%); }
+        .celestial-bg.inquisition::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at 50% 80%, rgba(139, 0, 0, 0.15) 0%, transparent 40%), linear-gradient(180deg, #050303 0%, #080505 40%, #030202 100%); }
+        .celestial-bg.stake::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at 50% 70%, rgba(255, 107, 53, 0.2) 0%, transparent 40%), linear-gradient(180deg, #080505 0%, #0a0505 40%, #050303 100%); animation: stakeFire 2s ease-in-out infinite; }
+        @keyframes stakeFire { 0%, 100% { opacity: 0.8; } 50% { opacity: 1; } }
+        .celestial-bg.dawn::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at 50% 100%, rgba(201, 162, 39, 0.15) 0%, transparent 50%), linear-gradient(180deg, #080808 0%, #0a0808 40%, #080505 100%); }
+        .stars { position: absolute; width: 100%; height: 100%; background-image: radial-gradient(1px 1px at 20px 30px, rgba(201, 162, 39, 0.3), transparent), radial-gradient(1px 1px at 90px 40px, rgba(201, 162, 39, 0.3), transparent); background-size: 200px 200px; animation: dimTwinkle 8s ease-in-out infinite; }
+        @keyframes dimTwinkle { 0%, 100% { opacity: 0.2; } 50% { opacity: 0.4; } }
+        .candle-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at 50% 50%, rgba(255, 179, 71, 0.1) 0%, transparent 30%); opacity: 0; transition: opacity 1s ease; pointer-events: none; animation: candleFlicker 3s ease-in-out infinite; }
+        @keyframes candleFlicker { 0%, 100% { opacity: 0.7; } 50% { opacity: 0.9; } }
+        .candle-overlay.active { opacity: 1; }
+        .fire-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at 50% 80%, rgba(255, 107, 53, 0.15) 0%, transparent 40%); opacity: 0; transition: opacity 1s ease; pointer-events: none; }
+        .fire-overlay.active { opacity: 1; }
+        .game-container { max-width: 900px; margin: 0 auto; padding: 20px; min-height: 100vh; display: flex; flex-direction: column; }
+        .game-header { text-align: center; padding: 20px 0; border-bottom: 1px solid rgba(201, 162, 39, 0.3); margin-bottom: 20px; }
+        .game-title { font-family: 'Cinzel', serif; font-size: 1.8rem; font-weight: 600; color: var(--remnant-gold); text-transform: uppercase; letter-spacing: 3px; text-shadow: 0 0 30px rgba(201, 162, 39, 0.3); margin-bottom: 5px; }
+        .game-subtitle { font-family: 'Orbitron', sans-serif; font-size: 0.7rem; color: var(--remnant-amber); text-transform: uppercase; letter-spacing: 4px; }
+        .screen { display: none; flex: 1; animation: fadeIn 0.5s ease-out; }
+        .screen.active { display: flex; flex-direction: column; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .title-screen { justify-content: center; align-items: center; text-align: center; }
+        .episode-number { font-family: 'Orbitron', sans-serif; font-size: 0.9rem; color: var(--remnant-gold); text-transform: uppercase; letter-spacing: 4px; margin-bottom: 10px; }
+        .main-title { font-family: 'Cinzel', serif; font-size: 2.8rem; font-weight: 700; color: var(--remnant-gold); text-transform: uppercase; letter-spacing: 6px; margin-bottom: 10px; text-shadow: 0 0 50px rgba(201, 162, 39, 0.3); }
+        .main-subtitle { font-family: 'Cinzel', serif; font-size: 1.3rem; color: var(--text-secondary); margin-bottom: 30px; }
+        .tagline { font-family: 'Crimson Pro', serif; font-size: 1.1rem; color: var(--text-dim); font-style: italic; margin-bottom: 30px; max-width: 500px; }
+        .episode-intro { background: rgba(201, 162, 39, 0.08); border: 1px solid rgba(201, 162, 39, 0.3); border-radius: 8px; padding: 25px; margin-bottom: 30px; max-width: 600px; text-align: left; }
+        .episode-intro p { color: var(--text-secondary); line-height: 1.8; margin-bottom: 15px; }
+        .episode-intro p:last-child { margin-bottom: 0; }
+        .title-buttons { display: flex; flex-direction: column; gap: 15px; width: 280px; }
+        .btn { font-family: 'Orbitron', sans-serif; font-size: 0.85rem; padding: 15px 30px; border: none; border-radius: 4px; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; transition: all 0.3s ease; }
+        .btn-primary { background: linear-gradient(135deg, var(--remnant-gold) 0%, var(--remnant-amber) 100%); color: var(--bg-dark); box-shadow: 0 4px 20px rgba(201, 162, 39, 0.3); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 30px rgba(201, 162, 39, 0.5); }
+        .btn-secondary { background: transparent; color: var(--remnant-gold); border: 1px solid var(--remnant-gold); }
+        .btn-secondary:hover { background: rgba(201, 162, 39, 0.1); }
+        .btn-secondary:disabled { opacity: 0.3; cursor: not-allowed; }
+        .btn-remnant { background: linear-gradient(135deg, var(--candle-glow) 0%, var(--remnant-gold) 100%); color: var(--bg-dark); box-shadow: 0 4px 20px rgba(255, 179, 71, 0.3); }
+        .import-section { max-width: 500px; margin: 0 auto; padding: 30px 0; }
+        .section-title { font-family: 'Cinzel', serif; font-size: 1.6rem; color: var(--remnant-gold); text-align: center; margin-bottom: 30px; }
+        .import-options { display: flex; flex-direction: column; gap: 20px; }
+        .import-option { background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(201, 162, 39, 0.3); border-radius: 12px; padding: 25px; cursor: pointer; transition: all 0.3s ease; }
+        .import-option:hover { border-color: var(--remnant-gold); background: rgba(201, 162, 39, 0.1); }
+        .import-option h3 { font-family: 'Cinzel', serif; color: var(--remnant-gold); margin-bottom: 10px; }
+        .import-option p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; }
+        .import-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+        .import-stat { text-align: center; }
+        .import-stat-name { font-family: 'Orbitron', sans-serif; font-size: 0.6rem; color: var(--text-dim); text-transform: uppercase; }
+        .import-stat-value { font-family: 'Orbitron', sans-serif; font-size: 1rem; font-weight: 600; }
+        .stats-panel { background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(201, 162, 39, 0.3); border-radius: 8px; padding: 15px; margin-bottom: 20px; }
+        .stats-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        .character-name { font-family: 'Cinzel', serif; font-size: 1.1rem; color: var(--remnant-gold); }
+        .episode-indicator { font-family: 'Orbitron', sans-serif; font-size: 0.65rem; color: var(--remnant-amber); text-transform: uppercase; letter-spacing: 1px; }
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+        .stat-item { text-align: center; }
+        .stat-name { font-family: 'Orbitron', sans-serif; font-size: 0.55rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+        .stat-value { font-family: 'Orbitron', sans-serif; font-size: 1.1rem; font-weight: 600; }
+        .stat-faith { color: var(--faith-color); }
+        .stat-wisdom { color: var(--wisdom-color); }
+        .stat-courage { color: var(--courage-color); }
+        .stat-love { color: var(--love-color); }
+        .stat-truth { color: var(--truth-color); }
+        .stat-patience { color: var(--patience-color); }
+        .stat-hope { color: var(--hope-color); }
+        .remnant-panel { background: linear-gradient(135deg, rgba(201, 162, 39, 0.1) 0%, rgba(255, 179, 71, 0.05) 100%); border: 1px solid rgba(201, 162, 39, 0.4); border-radius: 8px; padding: 12px 20px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; }
+        .remnant-label { font-family: 'Orbitron', sans-serif; font-size: 0.7rem; color: var(--remnant-gold); text-transform: uppercase; letter-spacing: 2px; }
+        .remnant-value { font-family: 'Cinzel', serif; font-size: 1.1rem; color: var(--candle-glow); font-weight: 600; }
+        .era-indicator { font-family: 'Orbitron', sans-serif; font-size: 0.8rem; color: var(--text-gold); }
+        .influence-panel { background: rgba(201, 162, 39, 0.08); border: 1px solid rgba(201, 162, 39, 0.3); border-radius: 8px; padding: 15px; margin-bottom: 20px; }
+        .influence-title { font-family: 'Orbitron', sans-serif; font-size: 0.7rem; color: var(--remnant-gold); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+        .influence-title::before { content: '🕯'; font-size: 1rem; }
+        .influence-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+        .influence-item { display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: rgba(0, 0, 0, 0.2); border-radius: 4px; }
+        .influence-avatar { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; flex-shrink: 0; }
+        .influence-avatar.remnant { background: linear-gradient(135deg, var(--remnant-gold), var(--candle-glow)); }
+        .influence-avatar.martyr { background: linear-gradient(135deg, var(--martyr-flame), var(--remnant-gold)); }
+        .influence-avatar.persecutor { background: linear-gradient(135deg, var(--rome-purple), var(--blood-red)); }
+        .influence-avatar.faithful { background: linear-gradient(135deg, var(--alpine-blue), var(--valley-green)); }
+        .influence-info { flex: 1; min-width: 0; }
+        .influence-name { font-family: 'Cinzel', serif; font-size: 0.85rem; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .influence-status { font-size: 0.7rem; color: var(--text-dim); }
+        .influence-bar { width: 100%; height: 4px; background: rgba(255, 255, 255, 0.1); border-radius: 2px; margin-top: 4px; overflow: hidden; }
+        .influence-fill { height: 100%; border-radius: 2px; transition: width 0.5s ease; }
+        .influence-fill.gold { background: var(--remnant-gold); }
+        .influence-fill.flame { background: var(--martyr-flame); }
+        .influence-fill.dark { background: var(--rome-purple); }
+        .influence-fill.hope { background: var(--alpine-blue); }
+        .story-panel { flex: 1; display: flex; flex-direction: column; }
+        .story-content { background: rgba(0, 0, 0, 0.4); border: 1px solid rgba(201, 162, 39, 0.2); border-radius: 12px; padding: 30px; margin-bottom: 20px; flex: 1; transition: all 0.5s ease; }
+        .story-content.rome-scene { border-color: rgba(74, 31, 107, 0.4); background: rgba(10, 5, 15, 0.6); }
+        .story-content.alps-scene { border-color: rgba(74, 111, 165, 0.4); background: rgba(8, 10, 12, 0.6); }
+        .story-content.cave-scene { border-color: rgba(255, 179, 71, 0.3); background: rgba(5, 5, 3, 0.7); }
+        .story-content.wilderness-scene { border-color: rgba(45, 74, 45, 0.4); background: rgba(8, 10, 8, 0.6); }
+        .story-content.inquisition-scene { border-color: rgba(139, 0, 0, 0.4); background: rgba(10, 5, 5, 0.7); }
+        .story-content.stake-scene { border-color: rgba(255, 107, 53, 0.4); background: rgba(12, 8, 5, 0.6); }
+        .story-content.dawn-scene { border-color: rgba(201, 162, 39, 0.4); background: rgba(10, 10, 8, 0.6); }
+        .scene-location { font-family: 'Orbitron', sans-serif; font-size: 0.7rem; color: var(--remnant-gold); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+        .scene-location::before, .scene-location::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(201, 162, 39, 0.3), transparent); }
+        .story-text { font-size: 1.15rem; line-height: 1.9; color: var(--text-primary); margin-bottom: 25px; }
+        .story-text p { margin-bottom: 15px; }
+        .story-text .speaker { font-family: 'Cinzel', serif; font-weight: 600; }
+        .story-text .speaker.waldensian { color: var(--remnant-gold); }
+        .story-text .speaker.pope { color: var(--rome-purple); }
+        .story-text .speaker.inquisitor { color: var(--blood-red); }
+        .story-text .speaker.martyr { color: var(--candle-glow); }
+        .story-text em { color: var(--text-secondary); font-style: italic; }
+        .story-text .remnant { color: var(--remnant-gold); text-shadow: 0 0 8px rgba(201, 162, 39, 0.4); }
+        .story-text .scripture { color: var(--candle-glow); text-shadow: 0 0 8px rgba(255, 179, 71, 0.4); }
+        .story-text .darkness { color: var(--rome-purple); }
+        .story-text .blood { color: var(--blood-red); }
+        .story-text .light { color: var(--candle-glow); text-shadow: 0 0 10px rgba(255, 179, 71, 0.5); }
+        .story-text .number { color: var(--remnant-gold); font-weight: 600; font-size: 1.1em; }
+        .era-marker { background: rgba(201, 162, 39, 0.15); border: 1px solid rgba(201, 162, 39, 0.4); border-radius: 8px; padding: 15px; margin: 20px 0; text-align: center; }
+        .era-marker h4 { font-family: 'Orbitron', sans-serif; font-size: 0.8rem; color: var(--remnant-gold); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 5px; }
+        .era-marker .era-name { font-family: 'Cinzel', serif; font-size: 1.6rem; color: var(--candle-glow); font-weight: 700; }
+        .era-marker p { color: var(--text-dim); font-size: 0.9rem; margin-top: 8px; font-style: italic; }
+        .choices-container { margin-top: auto; }
+        .choices-label { font-family: 'Orbitron', sans-serif; font-size: 0.7rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; }
+        .choice-btn { display: block; width: 100%; text-align: left; padding: 18px 20px; margin-bottom: 10px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(201, 162, 39, 0.3); border-radius: 8px; color: var(--text-primary); font-family: 'Crimson Pro', serif; font-size: 1.05rem; cursor: pointer; transition: all 0.3s ease; position: relative; overflow: hidden; }
+        .choice-btn::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--remnant-gold); opacity: 0; transition: opacity 0.3s ease; }
+        .choice-btn:hover { background: rgba(201, 162, 39, 0.15); border-color: var(--remnant-gold); transform: translateX(5px); }
+        .choice-btn:hover::before { opacity: 1; }
+        .choice-btn.remnant-choice { border-color: rgba(255, 179, 71, 0.4); background: rgba(255, 179, 71, 0.08); }
+        .choice-btn.remnant-choice:hover { background: rgba(255, 179, 71, 0.15); }
+        .choice-btn.remnant-choice::before { background: var(--candle-glow); }
+        .choice-letter { font-family: 'Orbitron', sans-serif; font-size: 0.75rem; color: var(--remnant-gold); margin-right: 12px; }
+        .choice-preview { display: block; font-size: 0.8rem; color: var(--text-dim); margin-top: 8px; padding-left: 25px; font-style: italic; }
+        .consequence-display { background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(201, 162, 39, 0.3); border-radius: 12px; padding: 30px; margin: 20px 0; animation: slideIn 0.5s ease-out; }
+        @keyframes slideIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .consequence-title { font-family: 'Cinzel', serif; font-size: 1.2rem; color: var(--remnant-gold); text-align: center; margin-bottom: 20px; }
+        .stat-changes { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-bottom: 20px; }
+        .stat-change { padding: 8px 16px; border-radius: 20px; font-family: 'Orbitron', sans-serif; font-size: 0.75rem; display: flex; align-items: center; gap: 6px; }
+        .stat-change.positive { background: rgba(107, 142, 78, 0.2); border: 1px solid var(--success); color: var(--success); }
+        .stat-change.remnant { background: rgba(201, 162, 39, 0.2); border: 1px solid var(--remnant-gold); color: var(--remnant-gold); }
+        .remnant-notice { background: rgba(255, 179, 71, 0.15); border: 1px solid rgba(255, 179, 71, 0.4); border-radius: 8px; padding: 15px; margin-top: 15px; text-align: center; }
+        .remnant-notice h4 { font-family: 'Cinzel', serif; color: var(--candle-glow); margin-bottom: 8px; }
+        .remnant-notice p { color: var(--text-secondary); font-size: 0.9rem; font-style: italic; }
+        .continue-btn { display: block; width: 100%; max-width: 300px; margin: 20px auto 0; }
+        .episode-summary { padding: 30px 0; }
+        .summary-header { text-align: center; margin-bottom: 40px; }
+        .summary-title { font-family: 'Cinzel', serif; font-size: 2rem; color: var(--remnant-gold); margin-bottom: 10px; }
+        .summary-subtitle { font-family: 'Orbitron', sans-serif; font-size: 0.8rem; color: var(--remnant-amber); text-transform: uppercase; letter-spacing: 3px; }
+        .summary-section { background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(201, 162, 39, 0.3); border-radius: 12px; padding: 25px; margin-bottom: 20px; }
+        .summary-section-title { font-family: 'Cinzel', serif; font-size: 1.1rem; color: var(--remnant-gold); margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        .final-stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 15px; }
+        .final-stat { text-align: center; padding: 15px; background: rgba(255, 255, 255, 0.03); border-radius: 8px; }
+        .final-stat-name { font-family: 'Orbitron', sans-serif; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        .final-stat-value { font-family: 'Orbitron', sans-serif; font-size: 1.5rem; font-weight: 600; }
+        .final-stat-change { font-size: 0.75rem; margin-top: 4px; }
+        .era-journey { display: flex; justify-content: space-around; align-items: center; padding: 20px 0; flex-wrap: wrap; gap: 10px; }
+        .journey-era { text-align: center; }
+        .journey-era .icon { font-size: 2rem; margin-bottom: 5px; }
+        .journey-era .name { font-family: 'Orbitron', sans-serif; font-size: 0.65rem; color: var(--text-secondary); }
+        .journey-arrow { color: var(--remnant-gold); font-size: 1.2rem; }
+        .candle-decoration { text-align: center; padding: 25px; margin: 20px 0; }
+        .candle-symbol { font-size: 3rem; margin-bottom: 10px; animation: candleGlow 2s ease-in-out infinite; }
+        @keyframes candleGlow { 0%, 100% { opacity: 0.8; } 50% { opacity: 1; } }
+        .candle-inscription { font-family: 'Cinzel', serif; font-size: 1.2rem; color: var(--remnant-gold); letter-spacing: 2px; }
+        .candle-decoration p { color: var(--text-secondary); font-style: italic; margin-top: 10px; }
+        .narrative-summary { font-size: 1.05rem; line-height: 1.8; color: var(--text-secondary); }
+        .narrative-summary p { margin-bottom: 15px; }
+        .to-be-continued { text-align: center; padding: 30px; margin-top: 20px; }
+        .to-be-continued h3 { font-family: 'Cinzel', serif; font-size: 1.3rem; color: var(--remnant-gold); margin-bottom: 10px; }
+        .to-be-continued p { color: var(--text-dim); font-style: italic; }
+        .menu-btn { position: fixed; top: 20px; right: 20px; width: 44px; height: 44px; background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(201, 162, 39, 0.4); border-radius: 8px; color: var(--remnant-gold); font-size: 1.2rem; cursor: pointer; z-index: 100; display: none; align-items: center; justify-content: center; transition: all 0.3s ease; }
+        .menu-btn:hover { background: rgba(201, 162, 39, 0.2); }
+        .menu-btn.visible { display: flex; }
+        .menu-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.9); z-index: 200; display: none; align-items: center; justify-content: center; }
+        .menu-modal.active { display: flex; }
+        .menu-content { background: var(--bg-medium); border: 1px solid rgba(201, 162, 39, 0.4); border-radius: 12px; padding: 30px; text-align: center; max-width: 350px; width: 90%; }
+        .menu-title { font-family: 'Cinzel', serif; font-size: 1.3rem; color: var(--remnant-gold); margin-bottom: 25px; }
+        .menu-buttons { display: flex; flex-direction: column; gap: 12px; }
+        .menu-buttons .btn { width: 100%; }
+        .game-footer { text-align: center; padding: 20px 0; margin-top: auto; border-top: 1px solid rgba(201, 162, 39, 0.2); }
+        .footer-text { font-family: 'Orbitron', sans-serif; font-size: 0.6rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 2px; }
+        .footer-text a { color: var(--remnant-gold); text-decoration: none; }
+        @media (max-width: 768px) {
+            .main-title { font-size: 2rem; letter-spacing: 3px; }
+            .stats-grid { grid-template-columns: repeat(4, 1fr); gap: 5px; }
+            .stat-name { font-size: 0.5rem; }
+            .stat-value { font-size: 0.9rem; }
+            .influence-grid { grid-template-columns: 1fr; }
+            .story-content { padding: 20px; }
+            .story-text { font-size: 1.05rem; }
+            .choice-btn { padding: 15px; font-size: 0.95rem; }
+            .final-stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .era-journey { flex-direction: column; }
+            .journey-arrow { transform: rotate(90deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="celestial-bg wilderness" id="bgLayer">
+        <div class="stars"></div>
+        <div class="candle-overlay" id="candleOverlay"></div>
+        <div class="fire-overlay" id="fireOverlay"></div>
+    </div>
+    <button class="menu-btn" id="menuBtn" onclick="toggleMenu()">☰</button>
+    <div class="menu-modal" id="menuModal">
+        <div class="menu-content">
+            <h2 class="menu-title">Game Menu</h2>
+            <div class="menu-buttons">
+                <button class="btn btn-secondary" onclick="saveGame()">Save Progress</button>
+                <button class="btn btn-secondary" onclick="toggleMenu()">Resume Game</button>
+                <button class="btn btn-secondary" onclick="restartEpisode()">Restart Episode</button>
+                <button class="btn btn-secondary" onclick="returnToTitle()">Main Menu</button>
+            </div>
+        </div>
+    </div>
+    <div class="game-container">
+        <header class="game-header">
+            <h1 class="game-title">The Great Controversy</h1>
+            <p class="game-subtitle">Episode 10: The Dark Ages</p>
+        </header>
+        <div class="screen active" id="titleScreen">
+            <div class="title-screen">
+                <div class="episode-number">Episode X</div>
+                <h1 class="main-title">The Dark Ages</h1>
+                <h2 class="main-subtitle">The Light That Darkness Cannot Extinguish</h2>
+                <p class="tagline">"And the light shineth in darkness; and the darkness comprehended it not." — John 1:5</p>
+                <div class="episode-intro">
+                    <p>For 1,260 years, the true Church goes underground. Rome rises to power, truth is suppressed, and those who keep Scripture are hunted like animals.</p>
+                    <p>But in Alpine valleys, in hidden caves, by candlelight at midnight — a remnant preserves the flame. They copy Scripture by hand. They hide it in bread. They die rather than deny.</p>
+                    <p>The darkness is deep. But the darkness cannot comprehend the light.</p>
+                </div>
+                <div class="title-buttons">
+                    <button class="btn btn-remnant" onclick="showImportScreen()">Begin Episode 10</button>
+                    <button class="btn btn-secondary" id="continueBtn" onclick="continueGame()" disabled>Continue Saved Game</button>
+                </div>
+            </div>
+        </div>
+        <div class="screen" id="importScreen">
+            <div class="import-section">
+                <h2 class="section-title">Character Import</h2>
+                <div class="import-options">
+                    <div class="import-option" id="importFromPrev" onclick="importFromPrevious()">
+                        <h3>Import from Previous Episodes</h3>
+                        <p>Continue your journey. The Church has scattered. Now the centuries of darkness begin.</p>
+                        <div class="import-stats" id="prevStats" style="display: none;"></div>
+                    </div>
+                    <div class="import-option" onclick="startFresh()">
+                        <h3>Start Fresh</h3>
+                        <p>Begin Episode 10 with default stats. Enter the darkness to find the light.</p>
+                        <div class="import-stats">
+                            <div class="import-stat"><div class="import-stat-name">Faith</div><div class="import-stat-value stat-faith">90</div></div>
+                            <div class="import-stat"><div class="import-stat-name">Courage</div><div class="import-stat-value stat-courage">88</div></div>
+                            <div class="import-stat"><div class="import-stat-name">Truth</div><div class="import-stat-value stat-truth">88</div></div>
+                            <div class="import-stat"><div class="import-stat-name">Hope</div><div class="import-stat-value stat-hope">92</div></div>
+                        </div>
+                    </div>
+                    <div class="import-option" onclick="showNameInput()">
+                        <h3>Custom Character</h3>
+                        <p>Enter a name and stand with the remnant through centuries of night.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="screen" id="nameScreen">
+            <div class="import-section">
+                <h2 class="section-title">Name Your Character</h2>
+                <div style="max-width: 400px; margin: 0 auto;">
+                    <label style="display: block; font-family: Orbitron, sans-serif; font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px;">Your Name</label>
+                    <input type="text" id="customName" placeholder="Enter your angelic name..." maxlength="20" style="width: 100%; padding: 15px 20px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(201, 162, 39, 0.3); border-radius: 4px; color: var(--text-primary); font-family: Crimson Pro, serif; font-size: 1.1rem;">
+                    <button class="btn btn-remnant" style="width: 100%; margin-top: 20px;" onclick="confirmCustomName()">Begin Episode 10</button>
+                </div>
+            </div>
+        </div>
+        <div class="screen" id="gameScreen">
+            <div class="stats-panel" id="statsPanel">
+                <div class="stats-header">
+                    <span class="character-name" id="displayName">-</span>
+                    <span class="episode-indicator">Episode 10: The Dark Ages</span>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-item"><div class="stat-name">Faith</div><div class="stat-value stat-faith" id="statFaith">50</div></div>
+                    <div class="stat-item"><div class="stat-name">Wisdom</div><div class="stat-value stat-wisdom" id="statWisdom">50</div></div>
+                    <div class="stat-item"><div class="stat-name">Courage</div><div class="stat-value stat-courage" id="statCourage">50</div></div>
+                    <div class="stat-item"><div class="stat-name">Love</div><div class="stat-value stat-love" id="statLove">50</div></div>
+                    <div class="stat-item"><div class="stat-name">Truth</div><div class="stat-value stat-truth" id="statTruth">50</div></div>
+                    <div class="stat-item"><div class="stat-name">Patience</div><div class="stat-value stat-patience" id="statPatience">50</div></div>
+                    <div class="stat-item"><div class="stat-name">Hope</div><div class="stat-value stat-hope" id="statHope">50</div></div>
+                    <div class="stat-item"><div class="stat-name">Remnant</div><div class="stat-value" style="color: var(--candle-glow);" id="statRemnant">0</div></div>
+                </div>
+            </div>
+            <div class="remnant-panel" id="remnantPanel">
+                <span class="remnant-label">Truth Preserved</span>
+                <span class="remnant-value" id="remnantDisplay">0</span>
+                <span class="era-indicator" id="currentEra">Compromise</span>
+            </div>
+            <div class="influence-panel" id="influencePanel">
+                <div class="influence-title">Those in Your Sphere</div>
+                <div class="influence-grid" id="influenceGrid"></div>
+            </div>
+            <div class="story-panel">
+                <div class="story-content" id="storyContent"></div>
+                <div class="choices-container" id="choicesContainer"></div>
+            </div>
+        </div>
+        <div class="screen" id="consequenceScreen">
+            <div class="consequence-display" id="consequenceDisplay"></div>
+        </div>
+        <div class="screen" id="summaryScreen">
+            <div class="episode-summary" id="episodeSummary"></div>
+        </div>
+        <footer class="game-footer">
+            <p class="footer-text">Seven Cubed Seven Labs | <a href="https://sevencubedseven.com">7³×7 = 2,401</a></p>
+        </footer>
+    </div>
+    <script>
+        var STATE = {
+            screen: 'title', characterName: '', stats: { faith: 90, wisdom: 85, courage: 88, love: 88, truth: 88, patience: 85, hope: 92 },
+            baseStats: {}, remnantPoints: 0, currentEra: 'Compromise', currentScene: 0, choices: [],
+            beings: [
+                { name: 'The Waldenses', status: 'preserving', influence: 70, avatar: '🕯', type: 'remnant' },
+                { name: 'The Martyrs', status: 'witnessing', influence: 75, avatar: '🔥', type: 'martyr' },
+                { name: 'Rome', status: 'dominating', influence: 85, avatar: '⚔', type: 'persecutor' },
+                { name: 'The Faithful', status: 'hiding', influence: 60, avatar: '📜', type: 'faithful' }
+            ],
+            episodeComplete: false
+        };
+        var SCENES = [
+            { location: 'Rome — The Great Compromise', locationClass: 'rome', contentClass: 'rome-scene', era: 'Compromise', eraMarker: true,
+                content: '<p><em>The fourth century. Constantine sees a cross in the sky. "By this sign, conquer."</em></p><p><em>The persecuted Church becomes the favored Church. But the price is steep: <span class="darkness">paganism floods in wearing Christian names</span>. Sun worship becomes "Sunday worship." The birthday of the sun god becomes "Christmas."</em></p><p><em>Most devastating: the Sabbath of Scripture — the seventh day, sanctified at Creation, written by God\'s finger — is replaced by the first day, Sunday, the day of the sun.</em></p><p><em>The Bishop of Rome rises to become Pope. Church councils decree tradition equal to Scripture. The people are forbidden to read the Bible for themselves.</em></p><p><em>Darkness descends. <span class="number">1,260 years</span> of it.</em></p>',
+                choices: [
+                    { letter: 'A', text: 'Watch the exchange: persecution traded for popularity, truth traded for unity, Scripture traded for tradition.', preview: 'Witness the compromise', effects: { wisdom: 18, truth: 15, patience: 10 }, influence: { target: 'Rome', change: 5, type: 'dark' }, isRemnant: true, response: 'The pattern repeats: the Church gains the world and loses its soul. Whenever the sword of state is joined to the cross of Christ, the cross is corrupted.' },
+                    { letter: 'B', text: 'The Sabbath changed — by human authority, not divine command. This is the great test in miniature: obey God or obey man.', preview: 'See the test forming', effects: { truth: 20, wisdom: 15, courage: 10 }, influence: { target: 'The Faithful', change: 10, type: 'hope' }, isRemnant: true, response: 'Sunday observance is the mark of Rome\'s claimed authority. They changed the day and boast of it. The Sabbath remains the seal of God — unchanged, unchangeable.' },
+                    { letter: 'C', text: '"Tradition equal to Scripture" — the fatal claim. Once human authority equals divine, any truth can be changed.', preview: 'Identify the root error', effects: { truth: 18, wisdom: 15, faith: 12 }, influence: { target: 'The Faithful', change: 12, type: 'hope' }, isRemnant: true, response: 'Here is the root: tradition elevated to Scripture\'s level. Once that door opens, anything can enter. The Bible alone — Sola Scriptura — is the only safe ground.' },
+                    { letter: 'D', text: 'Grieve: "Lord, Your Church has been stolen. Your truth has been buried. But You will preserve a remnant."', preview: 'Lament and trust', effects: { hope: 20, faith: 18, love: 12 }, influence: { target: 'The Faithful', change: 15, type: 'hope' }, isPrayer: true, isRemnant: true, response: 'The visible Church has fallen. But God always keeps a remnant. Seven thousand who have not bowed to Baal. They will preserve truth in darkness.' }
+                ]
+            },
+            { location: 'The Piedmont Alps — The Waldensian Valleys', locationClass: 'alps', contentClass: 'alps-scene', era: 'Preservation', eraMarker: true,
+                content: '<p><em>High in the Alps, where Rome\'s armies cannot easily reach, a people preserve the ancient faith. They are called <span class="remnant">Waldenses</span> — the "People of the Valleys."</em></p><p><em>While Europe sleeps in spiritual darkness, they copy Scripture by hand. They memorize entire books of the Bible. They send young men disguised as merchants across Europe, carrying Scripture hidden in their clothing.</em></p><p><span class="speaker waldensian">"We must preserve the Word. When the darkness lifts, the world will need what we have kept."</span></p><p><em>They keep the Sabbath. They reject papal authority. They believe salvation comes by grace through faith, not through priests or payments.</em></p><p><em>For centuries, they survive in valleys Rome cannot conquer — <span class="scripture">"the woman fled into the wilderness, where she hath a place prepared of God."</span></em></p>',
+                choices: [
+                    { letter: 'A', text: '"The woman fled into the wilderness" — Revelation 12 fulfilled. God prepared hiding places before the persecution came.', preview: 'See prophecy fulfilled', effects: { faith: 20, wisdom: 15, hope: 15 }, influence: { target: 'The Waldenses', change: 15, type: 'gold' }, isRemnant: true, response: 'The wilderness was prepared. The Alps became a sanctuary. God never abandons His people — He prepares their hiding places before they need them.' },
+                    { letter: 'B', text: 'Young men memorize entire Gospels, then travel as merchants to deliver them. The Word hidden in human hearts cannot be burned.', preview: 'See the living scrolls', effects: { courage: 18, wisdom: 15, truth: 15 }, influence: { target: 'The Waldenses', change: 15, type: 'gold' }, isRemnant: true, response: 'They became living Scriptures. Rome could burn paper but not memories. The Word hidden in hearts crossed every border, survived every search.' },
+                    { letter: 'C', text: 'Century after century, they keep the Sabbath while the world keeps Sunday. The seal of God preserved through a thousand years of darkness.', preview: 'See the unbroken line', effects: { truth: 20, patience: 18, faith: 15 }, influence: { target: 'The Waldenses', change: 18, type: 'gold' }, isRemnant: true, response: 'The Sabbath chain was never broken. From Creation to the Waldenses to you — an unbroken line of seventh-day keepers. The seal preserved.' },
+                    { letter: 'D', text: 'Pray: "Father, bless the Waldenses and all who preserved truth at cost of everything. May we be worthy of their sacrifice."', preview: 'Honor the faithful', effects: { love: 20, faith: 15, hope: 15 }, influence: { target: 'The Waldenses', change: 18, type: 'gold' }, influenceSecondary: { target: 'The Martyrs', change: 12, type: 'flame' }, isPrayer: true, isRemnant: true, response: 'The Waldenses paid for your Bible with their blood. Every truth you hold, they died to preserve. Their sacrifice echoes into your life.' }
+                ]
+            },
+            { location: 'A Hidden Cave — Scripture by Candlelight', locationClass: 'cave', contentClass: 'cave-scene', era: 'Preservation',
+                content: '<p><em>Midnight. A cave deep in the mountains. By the light of a single candle, an old man copies Scripture onto parchment while a young boy watches.</em></p><p><span class="speaker waldensian">Old Man:</span> "Each letter must be perfect. This Book is the Word of God. Men have died to preserve it. Someday men will die to spread it."</p><p><span class="speaker waldensian">Boy:</span> "Why do they hate it so, Father?"</p><p><span class="speaker waldensian">Old Man:</span> "Because <span class="scripture">the Word exposes their lies</span>. Rome says you need a priest to reach God. The Word says you need only Christ. Rome says pay for your sins. The Word says Christ paid already. Rome says obey the Pope. The Word says <span class="light">obey God rather than men</span>."</p><p><em>The candle flickers. Outside, wolves howl. But inside, the Word is being preserved for generations unborn.</em></p>',
+                choices: [
+                    { letter: 'A', text: 'Each letter copied by hand, by candlelight, at risk of death. This is how your Bible survived. Every word cost something.', preview: 'See the price of Scripture', effects: { wisdom: 18, patience: 15, love: 12 }, influence: { target: 'The Waldenses', change: 15, type: 'gold' }, isRemnant: true, response: 'Your Bible was copied a thousand times before the printing press. Each copy made in hiding, at risk of torture and death. The Word cost everything.' },
+                    { letter: 'B', text: '"The Word exposes their lies." This is why Rome chained the Bible. Truth unchained destroys falsehood\'s power.', preview: 'Understand Rome\'s fear', effects: { truth: 20, wisdom: 15, courage: 12 }, influence: { target: 'The Faithful', change: 15, type: 'hope' }, isRemnant: true, response: 'Rome feared the open Bible more than any army. One peasant with Scripture could demolish centuries of tradition. The Word is that powerful.' },
+                    { letter: 'C', text: 'Watch the boy learning. This is how truth passed — parent to child, mentor to disciple, generation to generation.', preview: 'See the chain of faith', effects: { love: 18, hope: 15, patience: 12 }, influence: { target: 'The Faithful', change: 15, type: 'hope' }, isRemnant: true, response: 'Faith is transmitted in caves as well as cathedrals. One old man, one boy, one candle — and the chain continues. This is how truth survives.' },
+                    { letter: 'D', text: 'Pray: "Lord, let that candle never go out. In every generation, raise up those who will copy Your Word by whatever light they have."', preview: 'Pray for the flame', effects: { faith: 20, hope: 18, love: 12 }, influence: { target: 'The Waldenses', change: 15, type: 'gold' }, isPrayer: true, isRemnant: true, response: 'The candle never went out. Through every century of darkness, someone was copying, memorizing, preserving. The flame passed from hand to hand.' }
+                ]
+            },
+            { location: 'Italy — The Scripture Smuggler', locationClass: 'wilderness', contentClass: 'wilderness-scene', era: 'Distribution', eraMarker: true,
+                content: '<p><em>A young Waldensian, disguised as a cloth merchant, travels through Italy. In his clothing are sewn portions of Scripture. His life depends on not being discovered.</em></p><p><em>At an inn, a nobleman examines his cloth.</em></p><p><span class="speaker">Nobleman:</span> "You have fine fabric. What else might you carry?"</p><p><span class="speaker waldensian">Merchant:</span> <em>(carefully)</em> "I have treasures, my lord. More valuable than jewels. Would you hear of them?"</p><p><em>The nobleman leans in. The merchant quotes from memory: <span class="scripture">"For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life."</span></em></p><p><em>Tears form in the nobleman\'s eyes. He has never heard these words before. "Tell me more," he whispers.</em></p>',
+                choices: [
+                    { letter: 'A', text: 'Scripture hidden in clothing, spoken from memory to strangers. This is how the Word crossed Europe — one dangerous conversation at a time.', preview: 'See the smuggling method', effects: { courage: 20, wisdom: 15, truth: 12 }, influence: { target: 'The Waldenses', change: 15, type: 'gold' }, isRemnant: true, response: 'They became walking Bibles. Portions sewn in clothing, whole books memorized. The Word traveled by human courier through territories where it was death to possess it.' },
+                    { letter: 'B', text: 'The nobleman weeps hearing John 3:16 for the first time. Millions in "Christian Europe" had never heard the gospel. The Bible was that suppressed.', preview: 'See the famine of the Word', effects: { truth: 18, love: 15, wisdom: 12 }, influence: { target: 'The Faithful', change: 15, type: 'hope' }, isRemnant: true, response: '"Christian" Europe didn\'t know John 3:16. The gospel was locked in Latin, chained to altars, forbidden to common people. The famine was that severe.' },
+                    { letter: 'C', text: '"Tell me more." Seeds planted in one nobleman could reach thousands. One converted noble might protect many believers.', preview: 'See the multiplication principle', effects: { hope: 18, wisdom: 15, faith: 12 }, influence: { target: 'The Faithful', change: 15, type: 'hope' }, isRemnant: true, response: 'Strategic sowing. A converted noble had power to protect, resources to help, influence to spread. The merchants chose their conversations wisely.' },
+                    { letter: 'D', text: 'Pray for protection over the merchant. The road is long, the Inquisition is everywhere, but the Word must travel.', preview: 'Cover with prayer', effects: { faith: 18, love: 15, hope: 15 }, influence: { target: 'The Waldenses', change: 18, type: 'gold' }, isPrayer: true, isRemnant: true, response: 'Your prayer joins countless others. Angels attend these messengers. Many will be caught. Many will die. But the Word will reach where it must.' }
+                ]
+            },
+            { location: 'Europe — The Inquisition', locationClass: 'inquisition', contentClass: 'inquisition-scene', era: 'Persecution', eraMarker: true,
+                content: '<p><em>The Papal Inquisition is established. Its mission: root out "heresy." Its methods: torture and fire.</em></p><p><span class="speaker inquisitor">"Do you reject the authority of the Holy Father? Do you deny the sacrifice of the Mass? Do you possess forbidden Scriptures?"</span></p><p><em>The instruments lie ready: the rack to stretch bodies, the wheel to break bones, the fire to burn what remains. Entire villages are put to the sword. The valleys run red.</em></p><p><em>But still they confess:</em></p><p><span class="speaker waldensian">"<span class="scripture">We ought to obey God rather than men.</span>"</span></p><p><em>The Inquisitor records: "These heretics go to their deaths singing."</em></p>',
+                choices: [
+                    { letter: 'A', text: '"Do you possess forbidden Scriptures?" — owning a Bible in your language was a death sentence. The Word was that feared.', preview: 'See the Bible banned', effects: { truth: 20, courage: 15, wisdom: 12 }, influence: { target: 'Rome', change: -5, type: 'dark' }, isRemnant: true, response: 'To own a Bible in your language was death. To read it to others was death. To teach what it said was death. Rome built its power on biblical ignorance.' },
+                    { letter: 'B', text: '"These heretics go to their deaths singing." The rack breaks bodies but not spirits. The faith that sings in torture is unbreakable.', preview: 'See the indestructible faith', effects: { courage: 22, faith: 18, hope: 12 }, influence: { target: 'The Martyrs', change: 18, type: 'flame' }, isRemnant: true, response: 'They sang on the rack. They praised God at the stake. The Inquisition could destroy bodies but not faith. Something stronger than torture lived in them.' },
+                    { letter: 'C', text: '"We ought to obey God rather than men." Peter\'s answer to the Sanhedrin becomes the Waldensians\' answer to the Inquisition. Same principle, same cost.', preview: 'Hear the ancient reply', effects: { truth: 18, courage: 18, faith: 15 }, influence: { target: 'The Martyrs', change: 15, type: 'flame' }, isRemnant: true, response: 'Peter\'s answer echoes through centuries. From Jerusalem to Rome, from Sanhedrin to Inquisition — the faithful give the same reply. God over man. Always.' },
+                    { letter: 'D', text: 'Weep for the martyrs. Pray for strength like theirs. "Lord, if my hour comes, let me die singing too."', preview: 'Mourn and resolve', effects: { courage: 20, faith: 18, love: 15 }, influence: { target: 'The Martyrs', change: 20, type: 'flame' }, isPrayer: true, isRemnant: true, response: 'Your prayer is noted in heaven. The martyrs watch from the cloud of witnesses. Their strength is available to you. The same Spirit that sustained them is yours.' }
+                ]
+            },
+            { location: 'The Stake — A Martyr\'s Final Testimony', locationClass: 'stake', contentClass: 'stake-scene', era: 'Martyrdom', eraMarker: true,
+                content: '<p><em>A village square. A stake surrounded by kindling. An old Waldensian pastor, hands bound, faces his accusers one last time.</em></p><p><span class="speaker inquisitor">"Renounce your heresies and receive the mercy of the Church. Continue in error and burn."</span></p><p><span class="speaker martyr">"<span class="light">I have no heresy to renounce. I have only the Word of God, which you call heresy. That Word I will not deny, though I burn a thousand times.</span>"</span></p><p><em>The flames are lit. As the fire rises, the pastor begins to sing:</em></p><p><span class="speaker martyr"><em>"A mighty fortress is our God, a bulwark never failing..."</em></span></p><p><em>The crowd watches in silence. Something stirs in hearts that have been dead. The inquisitor turns away. <span class="scripture">The blood of the martyrs is becoming the seed of the Church.</span></em></p>',
+                choices: [
+                    { letter: 'A', text: '"Though I burn a thousand times." This is faith that counts the cost and pays it. No bargaining, no compromising, no escape sought.', preview: 'See the absolute commitment', effects: { faith: 25, courage: 20, truth: 15 }, influence: { target: 'The Martyrs', change: 20, type: 'flame' }, isRemnant: true, response: 'A thousand deaths rather than one denial. This is the martyrs\' mathematics. They counted truth more valuable than life itself.' },
+                    { letter: 'B', text: 'He sings while burning. The fire cannot silence the song. "In the midst of the fire, they felt the presence of One like the Son of God."', preview: 'See the Presence in flames', effects: { faith: 22, hope: 20, love: 15 }, influence: { target: 'The Martyrs', change: 20, type: 'flame' }, isRemnant: true, response: 'Like the Hebrew worthies, they found Someone in the fire with them. The Fourth Man walks with every martyr. They burn, but they are not alone.' },
+                    { letter: 'C', text: 'The crowd stirs. Hearts awaken. The death meant to frighten becomes the testimony that converts. Rome keeps making this mistake.', preview: 'See the backfire', effects: { wisdom: 20, hope: 18, faith: 12 }, influence: { target: 'The Faithful', change: 18, type: 'hope' }, isRemnant: true, response: 'Every public burning advertises the faith Rome meant to destroy. The spectators go home asking: "What do they have that makes them die like that?"' },
+                    { letter: 'D', text: 'Stand witness. "Lord, receive his spirit. Let his testimony never be forgotten. Add his witness to the cloud."', preview: 'Witness and pray', effects: { love: 22, faith: 18, hope: 18 }, influence: { target: 'The Martyrs', change: 22, type: 'flame' }, isPrayer: true, isRemnant: true, response: 'Revelation shows souls under the altar crying "How long?" Each martyr joins that company. Their blood cries out for justice. Their testimony echoes forever.' }
+                ]
+            },
+            { location: 'A Mountain Village — The Word in Daily Bread', locationClass: 'cave', contentClass: 'cave-scene', era: 'Preservation',
+                content: '<p><em>A mother bakes bread for her children. But this bread carries more than flour — inside the loaves, wrapped in cloth, are pages of Scripture.</em></p><p><span class="speaker waldensian">Mother:</span> "Children, remember — the bread you eat feeds your body for a day. The Word inside feeds your soul forever."</p><p><em>If soldiers search, they will find only bread. But families pass these loaves hand to hand, village to village. The Word travels by breaking bread together.</em></p><p><em><span class="scripture">"Man shall not live by bread alone, but by every word that proceedeth out of the mouth of God."</span></em></p><p><em>Jesus called Himself the Bread of Life. Now His words literally travel in bread. The metaphor becomes method.</em></p>',
+                choices: [
+                    { letter: 'A', text: 'Scripture hidden in bread — physical and spiritual sustenance in one package. "Man shall not live by bread alone." Literally enacted.', preview: 'See the parable lived', effects: { wisdom: 20, truth: 15, faith: 15 }, influence: { target: 'The Waldenses', change: 15, type: 'gold' }, isRemnant: true, response: 'Jesus\' words become their method. The Bread of Life travels in literal bread. The Bible\'s metaphors become survival strategies.' },
+                    { letter: 'B', text: 'Mothers protecting the Word. Ordinary women becoming guardians of extraordinary truth. The home becomes the seminary.', preview: 'See the domestic church', effects: { love: 20, wisdom: 15, hope: 12 }, influence: { target: 'The Faithful', change: 15, type: 'hope' }, isRemnant: true, response: 'When the church building becomes dangerous, the home becomes the church. Mothers become teachers. Kitchens become libraries. Faith domesticates itself to survive.' },
+                    { letter: 'C', text: 'Children learn early that truth is worth hiding, protecting, dying for. These children grow up to be the next generation of faithful.', preview: 'See the training ground', effects: { hope: 18, wisdom: 15, love: 15 }, influence: { target: 'The Faithful', change: 15, type: 'hope' }, isRemnant: true, response: 'The children who learned Scripture was worth hiding in bread grew up to be men and women who would die for it. Training began at the table.' },
+                    { letter: 'D', text: 'Pray: "Father, bless every mother who taught her children Your Word in secret. Bless every loaf that carried life."', preview: 'Honor the mothers of faith', effects: { love: 22, faith: 15, hope: 15 }, influence: { target: 'The Waldenses', change: 15, type: 'gold' }, influenceSecondary: { target: 'The Faithful', change: 12, type: 'hope' }, isPrayer: true, isRemnant: true, response: 'Countless mothers, their names unknown, preserved the faith through domestic courage. The Bible survived because of bread and brave mothers.' }
+                ]
+            },
+            { location: 'The Valleys — Dawn Approaches', locationClass: 'dawn', contentClass: 'dawn-scene', era: 'Dawn', eraMarker: true,
+                content: '<p><em>The year is 1517. <span class="number">1,260 years</span> of darkness near their end. In the valleys, the faithful sense something shifting.</em></p><p><span class="speaker waldensian">Elder:</span> "Our fathers kept the faith through generations of night. They told us the morning would come. Can you feel it?"</p><p><em>In Germany, a monk named <span class="light">Martin Luther</span> reads Romans by candlelight. "The just shall live by faith." His heart burns with forgotten truth.</em></p><p><em>The printing press — invented sixty years earlier — now mass-produces the very Scripture Rome tried to destroy. What one hand copied in caves, machines will scatter like seeds.</em></p><p><em>The darkness is not lifting. It is being <span class="scripture">shattered</span>.</em></p><p><span class="speaker waldensian">"<span class="light">Let there be light.</span>"</span></p>',
+                choices: [
+                    { letter: 'A', text: '1,260 years — Daniel\'s prophecy fulfilled to the letter. The time of papal supremacy expired precisely on schedule. God\'s timing is exact.', preview: 'See the prophetic fulfillment', effects: { wisdom: 22, faith: 18, truth: 15 }, influence: { target: 'The Faithful', change: 18, type: 'hope' }, isRemnant: true, response: '538 to 1798. Exactly 1,260 years. Prophecy is God\'s history written in advance. The Waldenses lived to see its fulfillment begin.' },
+                    { letter: 'B', text: 'Luther reads Romans — the same truth Waldenses died for. Now it will shake empires. The seed preserved in darkness blooms in light.', preview: 'See the seed sprout', effects: { hope: 22, faith: 18, truth: 15 }, influence: { target: 'The Faithful', change: 20, type: 'hope' }, isRemnant: true, response: 'What the Waldenses preserved, Luther proclaimed. The torch passes. The flame multiplies. Centuries of faithful suffering bear fruit in one German monk.' },
+                    { letter: 'C', text: 'The printing press — Gutenberg\'s gift becomes God\'s weapon. What took years to copy by hand can now reach millions in months.', preview: 'See the multiplication technology', effects: { wisdom: 20, hope: 18, faith: 12 }, influence: { target: 'The Faithful', change: 18, type: 'hope' }, isRemnant: true, response: 'God prepared the printing press before the Reformation needed it. Technology serves truth. What Rome suppressed for centuries will flood Europe in a generation.' },
+                    { letter: 'D', text: 'Worship: "Lord, You kept Your remnant through the darkest night. Now comes the dawn. Let the light never be extinguished again."', preview: 'Welcome the dawn', effects: { faith: 22, hope: 22, love: 15 }, influence: { target: 'The Waldenses', change: 20, type: 'gold' }, influenceSecondary: { target: 'The Faithful', change: 20, type: 'hope' }, isPrayer: true, isRemnant: true, response: 'The dawn comes. The darkness that seemed eternal is ending. The Waldenses lived to see the beginning. Their children will see the sunrise.' }
+                ]
+            }
+        ];
+        function init() { checkSavedGame(); checkPreviousSaves(); }
+        function checkSavedGame() { var saved = localStorage.getItem('gcg_ep10_save'); if (saved) { document.getElementById('continueBtn').disabled = false; } }
+        function checkPreviousSaves() {
+            var prevEps = ['gcg_ep9_save', 'gcg_ep8_save', 'gcg_ep7_save', 'gcg_ep6_save', 'gcg_ep5_save', 'gcg_ep4_save', 'gcg_ep3_save', 'gcg_ep2_save', 'gcg_save'];
+            var epNames = ['Episode 9', 'Episode 8', 'Episode 7', 'Episode 6', 'Episode 5', 'Episode 4', 'Episode 3', 'Episode 2', 'Episode 1'];
+            for (var i = 0; i < prevEps.length; i++) { var saved = localStorage.getItem(prevEps[i]); if (saved) { var data = JSON.parse(saved); if (data.episodeComplete) { displayPrevStats(data, epNames[i]); return; } } }
+        }
+        function displayPrevStats(data, epName) {
+            var statsDiv = document.getElementById('prevStats'); statsDiv.style.display = 'grid';
+            statsDiv.innerHTML = '<div class="import-stat"><div class="import-stat-name">Faith</div><div class="import-stat-value stat-faith">' + data.stats.faith + '</div></div><div class="import-stat"><div class="import-stat-name">Courage</div><div class="import-stat-value stat-courage">' + data.stats.courage + '</div></div><div class="import-stat"><div class="import-stat-name">Truth</div><div class="import-stat-value stat-truth">' + data.stats.truth + '</div></div><div class="import-stat"><div class="import-stat-name">Hope</div><div class="import-stat-value stat-hope">' + data.stats.hope + '</div></div>';
+            document.getElementById('importFromPrev').querySelector('p').innerHTML = 'Continue as <strong>' + data.characterName + '</strong> from ' + epName + '.';
+        }
+        function showScreen(screenId) { var screens = document.querySelectorAll('.screen'); for (var i = 0; i < screens.length; i++) { screens[i].classList.remove('active'); } document.getElementById(screenId).classList.add('active'); STATE.screen = screenId; var menuBtn = document.getElementById('menuBtn'); if (screenId === 'gameScreen' || screenId === 'consequenceScreen') { menuBtn.classList.add('visible'); } else { menuBtn.classList.remove('visible'); } }
+        function showImportScreen() { showScreen('importScreen'); }
+        function importFromPrevious() { var prevEps = ['gcg_ep9_save', 'gcg_ep8_save', 'gcg_ep7_save', 'gcg_ep6_save', 'gcg_ep5_save', 'gcg_ep4_save', 'gcg_ep3_save', 'gcg_ep2_save', 'gcg_save']; for (var i = 0; i < prevEps.length; i++) { var saved = localStorage.getItem(prevEps[i]); if (saved) { var data = JSON.parse(saved); if (data.episodeComplete) { useImportedData(data); return; } } } alert('No completed previous episode found.'); }
+        function useImportedData(data) { STATE.characterName = data.characterName; STATE.stats = JSON.parse(JSON.stringify(data.stats)); STATE.baseStats = JSON.parse(JSON.stringify(data.stats)); startGame(); }
+        function startFresh() { STATE.characterName = 'Faithful One'; STATE.stats = { faith: 90, wisdom: 85, courage: 88, love: 88, truth: 88, patience: 85, hope: 92 }; STATE.baseStats = JSON.parse(JSON.stringify(STATE.stats)); startGame(); }
+        function showNameInput() { showScreen('nameScreen'); }
+        function confirmCustomName() { var name = document.getElementById('customName').value.trim() || 'Faithful One'; STATE.characterName = name; STATE.stats = { faith: 90, wisdom: 85, courage: 88, love: 88, truth: 88, patience: 85, hope: 92 }; STATE.baseStats = JSON.parse(JSON.stringify(STATE.stats)); startGame(); }
+        function startGame() { STATE.currentScene = 0; STATE.choices = []; STATE.episodeComplete = false; STATE.remnantPoints = 0; STATE.currentEra = 'Compromise'; STATE.beings = [ { name: 'The Waldenses', status: 'preserving', influence: 70, avatar: '🕯', type: 'remnant' }, { name: 'The Martyrs', status: 'witnessing', influence: 75, avatar: '🔥', type: 'martyr' }, { name: 'Rome', status: 'dominating', influence: 85, avatar: '⚔', type: 'persecutor' }, { name: 'The Faithful', status: 'hiding', influence: 60, avatar: '📜', type: 'faithful' } ]; showScreen('gameScreen'); updateStatsDisplay(); updateInfluenceDisplay(); updateRemnantDisplay(); displayScene(0); }
+        function continueGame() { var saved = localStorage.getItem('gcg_ep10_save'); if (saved) { STATE = JSON.parse(saved); updateStatsDisplay(); updateInfluenceDisplay(); updateRemnantDisplay(); updateBackground(); if (STATE.episodeComplete) { showSummary(); } else { showScreen('gameScreen'); displayScene(STATE.currentScene); } } }
+        function updateStatsDisplay() { document.getElementById('statFaith').textContent = STATE.stats.faith; document.getElementById('statWisdom').textContent = STATE.stats.wisdom; document.getElementById('statCourage').textContent = STATE.stats.courage; document.getElementById('statLove').textContent = STATE.stats.love; document.getElementById('statTruth').textContent = STATE.stats.truth; document.getElementById('statPatience').textContent = STATE.stats.patience; document.getElementById('statHope').textContent = STATE.stats.hope; document.getElementById('statRemnant').textContent = STATE.remnantPoints; document.getElementById('displayName').textContent = STATE.characterName; }
+        function updateRemnantDisplay() { document.getElementById('remnantDisplay').textContent = STATE.remnantPoints; document.getElementById('currentEra').textContent = STATE.currentEra; }
+        function updateBackground() { var bg = document.getElementById('bgLayer'); var candleOverlay = document.getElementById('candleOverlay'); var fireOverlay = document.getElementById('fireOverlay'); bg.classList.remove('rome', 'wilderness', 'alps', 'cave', 'inquisition', 'stake', 'dawn'); candleOverlay.classList.remove('active'); fireOverlay.classList.remove('active'); var scene = SCENES[STATE.currentScene]; if (scene) { bg.classList.add(scene.locationClass); if (scene.locationClass === 'cave') { candleOverlay.classList.add('active'); } if (scene.locationClass === 'stake') { fireOverlay.classList.add('active'); } } else { bg.classList.add('wilderness'); } }
+        function updateInfluenceDisplay() { var grid = document.getElementById('influenceGrid'); var html = ''; for (var i = 0; i < STATE.beings.length; i++) { var being = STATE.beings[i]; var fillClass = 'gold'; if (being.type === 'martyr') fillClass = 'flame'; if (being.type === 'persecutor') fillClass = 'dark'; if (being.type === 'faithful') fillClass = 'hope'; html += '<div class="influence-item"><div class="influence-avatar ' + being.type + '">' + being.avatar + '</div><div class="influence-info"><div class="influence-name">' + being.name + '</div><div class="influence-status">' + being.status + '</div><div class="influence-bar"><div class="influence-fill ' + fillClass + '" style="width: ' + being.influence + '%;"></div></div></div></div>'; } grid.innerHTML = html; }
+        function displayScene(sceneIndex) { if (sceneIndex >= SCENES.length) { STATE.episodeComplete = true; saveGame(); showSummary(); return; } var scene = SCENES[sceneIndex]; var storyContent = document.getElementById('storyContent'); var choicesContainer = document.getElementById('choicesContainer'); STATE.currentEra = scene.era; updateRemnantDisplay(); updateBackground(); updateBeingsForScene(sceneIndex); storyContent.classList.remove('rome-scene', 'wilderness-scene', 'alps-scene', 'cave-scene', 'inquisition-scene', 'stake-scene', 'dawn-scene'); if (scene.contentClass) storyContent.classList.add(scene.contentClass); var storyHtml = '<div class="scene-location">' + scene.location + '</div>'; if (scene.eraMarker) { var desc = ''; if (scene.era === 'Compromise') desc = 'The Church trades truth for power'; if (scene.era === 'Preservation') desc = 'The remnant keeps the flame'; if (scene.era === 'Distribution') desc = 'The Word travels by human courier'; if (scene.era === 'Persecution') desc = 'Rome hunts the faithful'; if (scene.era === 'Martyrdom') desc = 'Blood becomes seed'; if (scene.era === 'Dawn') desc = 'Light breaks through'; storyHtml += '<div class="era-marker"><h4>Era</h4><div class="era-name">' + scene.era + '</div><p>' + desc + '</p></div>'; } storyHtml += '<div class="story-text">' + scene.content + '</div>'; storyContent.innerHTML = storyHtml; var choicesHtml = '<div class="choices-label">How do you respond?</div>'; for (var i = 0; i < scene.choices.length; i++) { var choice = scene.choices[i]; var btnClass = choice.isRemnant ? 'choice-btn remnant-choice' : 'choice-btn'; choicesHtml += '<button class="' + btnClass + '" onclick="makeChoice(' + sceneIndex + ', ' + i + ')"><span class="choice-letter">[' + choice.letter + ']</span>' + choice.text; if (choice.preview) { var prefix = ''; if (choice.isPrayer) prefix += '🙏 '; if (choice.isRemnant) prefix += '🕯 '; choicesHtml += '<span class="choice-preview">' + prefix + choice.preview + '</span>'; } choicesHtml += '</button>'; } choicesContainer.innerHTML = choicesHtml; }
+        function updateBeingsForScene(sceneIndex) { var waldenses = STATE.beings.find(function(b) { return b.name === 'The Waldenses'; }); var martyrs = STATE.beings.find(function(b) { return b.name === 'The Martyrs'; }); var rome = STATE.beings.find(function(b) { return b.name === 'Rome'; }); var faithful = STATE.beings.find(function(b) { return b.name === 'The Faithful'; }); if (sceneIndex >= 1) { if (waldenses) waldenses.status = 'hiding/preserving'; } if (sceneIndex >= 3) { if (waldenses) waldenses.status = 'distributing'; if (faithful) faithful.status = 'spreading'; } if (sceneIndex >= 4) { if (rome) rome.status = 'hunting'; if (martyrs) martyrs.status = 'suffering'; } if (sceneIndex >= 5) { if (martyrs) martyrs.status = 'dying/witnessing'; } if (sceneIndex >= 7) { if (waldenses) waldenses.status = 'vindicated'; if (faithful) faithful.status = 'multiplying'; if (rome) rome.status = 'challenged'; } updateInfluenceDisplay(); }
+        function makeChoice(sceneIndex, choiceIndex) { var scene = SCENES[sceneIndex]; var choice = scene.choices[choiceIndex]; STATE.choices.push({ scene: sceneIndex, choice: choiceIndex, letter: choice.letter, isPrayer: choice.isPrayer || false, isRemnant: choice.isRemnant || false }); if (choice.isRemnant) { STATE.remnantPoints++; } var statChanges = []; if (choice.effects) { for (var stat in choice.effects) { if (choice.effects.hasOwnProperty(stat)) { var change = choice.effects[stat]; STATE.stats[stat] = Math.max(0, Math.min(100, STATE.stats[stat] + change)); if (change !== 0) { statChanges.push({ stat: stat, change: change }); } } } } var influenceChanges = []; if (choice.influence) { applyInfluence(choice.influence.target, choice.influence.change, choice.influence.type); influenceChanges.push(choice.influence); } if (choice.influenceSecondary) { applyInfluence(choice.influenceSecondary.target, choice.influenceSecondary.change, choice.influenceSecondary.type); influenceChanges.push(choice.influenceSecondary); } showConsequence(choice, statChanges, influenceChanges, sceneIndex); }
+        function applyInfluence(targetName, change, type) { for (var i = 0; i < STATE.beings.length; i++) { if (STATE.beings[i].name === targetName) { STATE.beings[i].influence = Math.max(0, Math.min(100, STATE.beings[i].influence + change)); break; } } }
+        function showConsequence(choice, statChanges, influenceChanges, sceneIndex) { showScreen('consequenceScreen'); var display = document.getElementById('consequenceDisplay'); var title = 'Truth Preserved'; if (choice.isPrayer) title = 'Prayer in Darkness'; if (choice.isRemnant && !choice.isPrayer) title = 'The Flame Continues'; var html = '<h3 class="consequence-title">' + title + '</h3>'; if (statChanges.length > 0) { html += '<div class="stat-changes">'; for (var i = 0; i < statChanges.length; i++) { var sc = statChanges[i]; var sign = sc.change > 0 ? '+' : ''; var cls = sc.change > 0 ? 'positive' : 'remnant'; var statName = sc.stat.charAt(0).toUpperCase() + sc.stat.slice(1); html += '<div class="stat-change ' + cls + '">' + statName + ' ' + sign + sc.change + '</div>'; } html += '</div>'; } html += '<p style="text-align: center; color: var(--text-secondary); font-size: 1.05rem; line-height: 1.8; margin: 20px 0;">' + choice.response + '</p>'; if (choice.isRemnant) { html += '<div class="remnant-notice"><h4>🕯 Remnant Point Earned</h4><p>You stand with those who kept the flame through centuries of darkness.</p></div>'; } html += '<button class="btn btn-remnant continue-btn" onclick="continueStory(' + (sceneIndex + 1) + ')">Continue</button>'; display.innerHTML = html; updateStatsDisplay(); updateInfluenceDisplay(); updateRemnantDisplay(); saveGame(); }
+        function continueStory(nextScene) { STATE.currentScene = nextScene; showScreen('gameScreen'); displayScene(nextScene); }
+        function showSummary() { showScreen('summaryScreen'); var summary = document.getElementById('episodeSummary'); var bg = document.getElementById('bgLayer'); bg.classList.remove('rome', 'wilderness', 'alps', 'cave', 'inquisition', 'stake'); bg.classList.add('dawn'); document.getElementById('candleOverlay').classList.remove('active'); document.getElementById('fireOverlay').classList.remove('active'); var baseStats = STATE.baseStats || { faith: 90, wisdom: 85, courage: 88, love: 88, truth: 88, patience: 85, hope: 92 }; var endingTitle = 'Witness of the Night'; var endingDesc = 'You watched through centuries of darkness. The flame was preserved. The dawn approaches.'; if (STATE.remnantPoints >= 7) { endingTitle = 'Keeper of the Flame'; endingDesc = 'Through every era — compromise, preservation, persecution, martyrdom — you stood with the remnant. The flame never left your sight. The dawn comes because the faithful never stopped believing it would.'; } else if (STATE.stats.courage >= 100) { endingTitle = 'Heart of the Martyrs'; endingDesc = 'You watched them sing while burning, forgive while dying, hope while suffering. Their courage lives in you. The same Spirit that sustained them is yours.'; } else if (STATE.stats.truth >= 100) { endingTitle = 'Guardian of Scripture'; endingDesc = 'The Word — copied by candlelight, hidden in bread, carried by merchants, sealed with blood. You understand why they died for a Book. It is the Word of God.'; } else if (STATE.stats.hope >= 100) { endingTitle = 'Child of the Dawn'; endingDesc = 'Through the darkest night, you never stopped believing morning would come. The 1,260 years are ending. Luther is reading Romans. The printing press is ready. Let there be light.'; } var html = '<div class="summary-header"><h2 class="summary-title">Episode Complete</h2><p class="summary-subtitle">The Dark Ages</p></div>'; html += '<div class="candle-decoration"><div class="candle-symbol">🕯</div><div class="candle-inscription">THE LIGHT IN DARKNESS</div><p>"The light shineth in darkness; and the darkness comprehended it not"</p></div>'; html += '<div class="summary-section" style="text-align: center; border-color: var(--remnant-gold);"><h3 style="font-family: Cinzel, serif; font-size: 1.5rem; color: var(--candle-glow); margin-bottom: 15px;">' + endingTitle + '</h3><p style="color: var(--text-secondary); line-height: 1.8;">' + endingDesc + '</p></div>'; html += '<div class="summary-section" style="text-align: center;"><div style="font-family: Cinzel, serif; font-size: 3rem; color: var(--candle-glow);">' + STATE.remnantPoints + '</div><div style="color: var(--text-secondary);">Remnant Points Earned</div><p style="margin-top: 15px; color: var(--text-dim); font-style: italic;">Through 1,260 years, you stood with those who would not bow. Their faithfulness is your inheritance.</p></div>'; html += '<div class="summary-section"><h4 class="summary-section-title">🕯 Through the Darkness</h4><div class="era-journey"><div class="journey-era"><div class="icon">⚔</div><div class="name">Compromise</div></div><div class="journey-arrow">→</div><div class="journey-era"><div class="icon">🏔</div><div class="name">Preservation</div></div><div class="journey-arrow">→</div><div class="journey-era"><div class="icon">📜</div><div class="name">Distribution</div></div><div class="journey-arrow">→</div><div class="journey-era"><div class="icon">🔥</div><div class="name">Martyrdom</div></div><div class="journey-arrow">→</div><div class="journey-era"><div class="icon">🌅</div><div class="name">Dawn</div></div></div></div>'; html += '<div class="summary-section"><h4 class="summary-section-title">🕯 Refined by Night</h4><div class="final-stats-grid">'; var statNames = ['faith', 'wisdom', 'courage', 'love', 'truth', 'patience', 'hope']; var statColors = ['#ffd700', '#9b59b6', '#e74c3c', '#e91e63', '#3498db', '#1abc9c', '#f39c12']; for (var s = 0; s < statNames.length; s++) { var sName = statNames[s]; var sVal = STATE.stats[sName]; var sBase = baseStats[sName] || 88; var sChange = sVal - sBase; var changeStr = sChange >= 0 ? '+' + sChange : '' + sChange; var changeColor = sChange >= 0 ? 'var(--success)' : 'var(--remnant-gold)'; html += '<div class="final-stat"><div class="final-stat-name" style="color: ' + statColors[s] + ';">' + sName.charAt(0).toUpperCase() + sName.slice(1) + '</div><div class="final-stat-value" style="color: ' + statColors[s] + ';">' + sVal + '</div><div class="final-stat-change" style="color: ' + changeColor + ';">' + changeStr + '</div></div>'; } html += '</div></div>'; html += '<div class="summary-section"><h4 class="summary-section-title">🕯 The Witnesses</h4><div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">'; for (var b = 0; b < STATE.beings.length; b++) { var being = STATE.beings[b]; html += '<div style="padding: 15px; background: rgba(0,0,0,0.2); border-radius: 8px; text-align: center;"><div style="font-size: 1.5rem; margin-bottom: 5px;">' + being.avatar + '</div><div style="font-family: Cinzel, serif; color: var(--remnant-gold);">' + being.name + '</div><div style="font-size: 0.8rem; color: var(--text-dim);">' + being.status + '</div></div>'; } html += '</div></div>'; html += '<div class="summary-section"><h4 class="summary-section-title">🕯 What You Witnessed</h4><div class="narrative-summary"><p>As ' + STATE.characterName + ', you witnessed the Church pass through its longest night — 1,260 years of darkness, exactly as prophecy foretold.</p><p>You saw Rome rise, truth compromise, and the Sabbath exchanged for Sunday. You watched the Bible chained to altars and forbidden to common people.</p><p>But you also watched the Waldenses copy Scripture by candlelight, hide it in bread, and carry it across Europe sewn into their clothing. You saw the martyrs sing while burning. You heard their cry: "We ought to obey God rather than men."</p><p>And now the dawn approaches. Luther will nail his theses. The printing press will scatter the Word like seeds. The flame never went out. It never will.</p></div></div>'; html += '<div class="to-be-continued"><h3>The Story Continues...</h3><p>Episode 11: The Reformation — Coming Soon</p><p style="margin-top: 10px; color: var(--text-dim);">"Here I stand. I can do no other. God help me."</p><button class="btn btn-primary" style="margin-top: 20px;" onclick="returnToTitle()">Return to Title</button></div>'; summary.innerHTML = html; }
+        function toggleMenu() { document.getElementById('menuModal').classList.toggle('active'); }
+        function saveGame() { localStorage.setItem('gcg_ep10_save', JSON.stringify(STATE)); }
+        function restartEpisode() { if (confirm('Restart Episode 10? All progress will be lost.')) { localStorage.removeItem('gcg_ep10_save'); location.reload(); } }
+        function returnToTitle() { var modal = document.getElementById('menuModal'); if (modal.classList.contains('active')) { modal.classList.remove('active'); } showScreen('titleScreen'); checkSavedGame(); var bg = document.getElementById('bgLayer'); bg.classList.remove('rome', 'alps', 'cave', 'inquisition', 'stake', 'dawn'); bg.classList.add('wilderness'); document.getElementById('candleOverlay').classList.remove('active'); document.getElementById('fireOverlay').classList.remove('active'); }
+        init();
+    </script>
+</body>
+</html>
