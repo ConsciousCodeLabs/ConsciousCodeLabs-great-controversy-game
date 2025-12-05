@@ -1,0 +1,2391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Great Controversy: The Game - Episode 5</title>
+    <meta name="description" content="Episode 5: The Patriarchs. Abraham to Joseph. Faith through impossible promises across generations.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0f0a05;
+            --bg-medium: #1a1208;
+            --bg-light: #2a1f10;
+            --bg-desert: #1a1510;
+            --gold: #d4af37;
+            --gold-light: #f4e4a6;
+            --gold-dim: #8b7355;
+            --sand: #c2a878;
+            --sand-light: #e8d8b8;
+            --sand-dark: #8b7355;
+            --tent-brown: #5c4033;
+            --altar-gray: #4a4a4a;
+            --star-white: #fffaf0;
+            --promise-blue: #4a7ab8;
+            --dream-purple: #6b4a8a;
+            --egypt-gold: #c9a227;
+            --pit-dark: #1a1a1a;
+            --text-primary: #f0e8d8;
+            --text-secondary: #b8a888;
+            --text-dim: #7a6a5a;
+            --danger: #c44536;
+            --success: #6b8e4e;
+            --warning: #d4a03a;
+            --faith-color: #ffd700;
+            --wisdom-color: #9b59b6;
+            --courage-color: #e74c3c;
+            --love-color: #e91e63;
+            --truth-color: #3498db;
+            --patience-color: #1abc9c;
+            --hope-color: #f39c12;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Crimson Pro', Georgia, serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Desert Night Sky Background */
+        .celestial-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            transition: all 1s ease;
+        }
+
+        .celestial-bg.desert::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 50% 20%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 30% 80%, rgba(194, 168, 120, 0.08) 0%, transparent 50%),
+                linear-gradient(180deg, #0a0805 0%, #1a1208 40%, #2a1f10 100%);
+        }
+
+        .celestial-bg.moriah::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 50% 30%, rgba(196, 69, 54, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(74, 74, 74, 0.2) 0%, transparent 50%),
+                linear-gradient(180deg, #0a0505 0%, #1a0808 40%, #1a1010 100%);
+        }
+
+        .celestial-bg.bethel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 50% 0%, rgba(74, 122, 184, 0.2) 0%, transparent 60%),
+                radial-gradient(ellipse at 50% 50%, rgba(107, 74, 138, 0.15) 0%, transparent 50%),
+                linear-gradient(180deg, #050a15 0%, #0a0a1a 40%, #0f0a15 100%);
+            animation: ladderGlow 4s ease-in-out infinite;
+        }
+
+        @keyframes ladderGlow {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+
+        .celestial-bg.egypt::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 50% 30%, rgba(201, 162, 39, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 30% 70%, rgba(139, 115, 85, 0.1) 0%, transparent 50%),
+                linear-gradient(180deg, #0a0805 0%, #151008 40%, #1a1510 100%);
+        }
+
+        .celestial-bg.pit::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 50% 50%, rgba(26, 26, 26, 0.5) 0%, transparent 50%),
+                linear-gradient(180deg, #050505 0%, #0a0a0a 40%, #0f0f0f 100%);
+        }
+
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, rgba(255, 250, 240, 0.8), transparent),
+                radial-gradient(2px 2px at 40px 70px, rgba(255, 250, 240, 0.6), transparent),
+                radial-gradient(1px 1px at 90px 40px, rgba(255, 250, 240, 0.5), transparent),
+                radial-gradient(2px 2px at 130px 80px, rgba(212, 175, 55, 0.4), transparent),
+                radial-gradient(1px 1px at 160px 120px, rgba(255, 250, 240, 0.6), transparent),
+                radial-gradient(2px 2px at 200px 50px, rgba(255, 250, 240, 0.5), transparent);
+            background-size: 250px 250px;
+            animation: twinkle 5s ease-in-out infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+
+        .game-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .game-header {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(194, 168, 120, 0.3);
+            margin-bottom: 20px;
+        }
+
+        .game-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+            margin-bottom: 5px;
+        }
+
+        .game-subtitle {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            color: var(--sand);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+
+        .screen {
+            display: none;
+            flex: 1;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .screen.active {
+            display: flex;
+            flex-direction: column;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Title Screen */
+        .title-screen {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .episode-number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            color: var(--sand);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 10px;
+        }
+
+        .main-title {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 50px rgba(212, 175, 55, 0.4);
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 30px rgba(212, 175, 55, 0.3); }
+            50% { text-shadow: 0 0 60px rgba(212, 175, 55, 0.6), 0 0 100px rgba(194, 168, 120, 0.3); }
+        }
+
+        .main-subtitle {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: var(--sand);
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        .tagline {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+
+        .episode-intro {
+            background: rgba(194, 168, 120, 0.08);
+            border: 1px solid rgba(194, 168, 120, 0.3);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            max-width: 600px;
+            text-align: left;
+        }
+
+        .episode-intro p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .episode-intro p:last-child {
+            margin-bottom: 0;
+        }
+
+        .title-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 280px;
+        }
+
+        .btn {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+            color: var(--bg-dark);
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(212, 175, 55, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--gold);
+            border: 1px solid var(--gold);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .btn-secondary:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .btn-patriarch {
+            background: linear-gradient(135deg, var(--sand-dark) 0%, var(--tent-brown) 100%);
+            color: var(--sand-light);
+            box-shadow: 0 4px 20px rgba(139, 115, 85, 0.4);
+        }
+
+        .btn-patriarch:hover {
+            box-shadow: 0 6px 30px rgba(139, 115, 85, 0.6);
+        }
+
+        /* Import Screen */
+        .import-section {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 30px 0;
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6rem;
+            color: var(--gold);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .import-options {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .import-option {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(194, 168, 120, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .import-option:hover {
+            border-color: var(--sand);
+            background: rgba(194, 168, 120, 0.1);
+        }
+
+        .import-option h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        .import-option p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .import-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .import-stat {
+            text-align: center;
+        }
+
+        .import-stat-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.6rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+        }
+
+        .import-stat-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        /* Stats Panel */
+        .stats-panel {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(194, 168, 120, 0.3);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stats-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .character-name {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            color: var(--gold);
+        }
+
+        .episode-indicator {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.65rem;
+            color: var(--sand);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.55rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .stat-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .stat-faith { color: var(--faith-color); }
+        .stat-wisdom { color: var(--wisdom-color); }
+        .stat-courage { color: var(--courage-color); }
+        .stat-love { color: var(--love-color); }
+        .stat-truth { color: var(--truth-color); }
+        .stat-patience { color: var(--patience-color); }
+        .stat-hope { color: var(--hope-color); }
+
+        /* Generation Display */
+        .generation-panel {
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 8px;
+            padding: 12px 20px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .generation-label {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .generation-value {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            color: var(--gold-light);
+            font-weight: 600;
+        }
+
+        .legacy-counter {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            color: var(--sand);
+        }
+
+        /* Influence Panel */
+        .influence-panel {
+            background: rgba(194, 168, 120, 0.08);
+            border: 1px solid rgba(194, 168, 120, 0.3);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .influence-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            color: var(--sand);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .influence-title::before {
+            content: '☆';
+            font-size: 1rem;
+        }
+
+        .influence-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .influence-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 12px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+        }
+
+        .influence-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .influence-avatar.patriarch { background: linear-gradient(135deg, var(--gold), var(--sand-dark)); }
+        .influence-avatar.heir { background: linear-gradient(135deg, var(--sand), var(--gold-dim)); }
+        .influence-avatar.dreamer { background: linear-gradient(135deg, var(--dream-purple), var(--promise-blue)); }
+        .influence-avatar.servant { background: linear-gradient(135deg, var(--tent-brown), var(--sand-dark)); }
+        .influence-avatar.brother { background: linear-gradient(135deg, var(--altar-gray), var(--pit-dark)); }
+
+        .influence-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .influence-name {
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            color: var(--text-primary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .influence-status {
+            font-size: 0.7rem;
+            color: var(--text-dim);
+        }
+
+        .influence-bar {
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            margin-top: 4px;
+            overflow: hidden;
+        }
+
+        .influence-fill {
+            height: 100%;
+            border-radius: 2px;
+            transition: width 0.5s ease;
+        }
+
+        .influence-fill.positive { background: var(--success); }
+        .influence-fill.negative { background: var(--danger); }
+        .influence-fill.neutral { background: var(--warning); }
+
+        /* Story Panel */
+        .story-panel {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .story-content {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(194, 168, 120, 0.2);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 20px;
+            flex: 1;
+            transition: all 0.5s ease;
+        }
+
+        .story-content.moriah-scene {
+            border-color: rgba(196, 69, 54, 0.4);
+            background: rgba(20, 10, 10, 0.5);
+        }
+
+        .story-content.bethel-scene {
+            border-color: rgba(74, 122, 184, 0.4);
+            background: rgba(10, 15, 25, 0.5);
+        }
+
+        .story-content.pit-scene {
+            border-color: rgba(26, 26, 26, 0.6);
+            background: rgba(10, 10, 10, 0.6);
+        }
+
+        .story-content.revelation-scene {
+            border-color: rgba(212, 175, 55, 0.4);
+            background: rgba(20, 15, 10, 0.5);
+        }
+
+        .scene-location {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            color: var(--sand);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .scene-location::before,
+        .scene-location::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(194, 168, 120, 0.3), transparent);
+        }
+
+        .story-text {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: var(--text-primary);
+            margin-bottom: 25px;
+        }
+
+        .story-text p {
+            margin-bottom: 15px;
+        }
+
+        .story-text .speaker {
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .story-text .speaker.divine {
+            color: var(--star-white);
+            text-shadow: 0 0 10px rgba(255, 250, 240, 0.5);
+        }
+
+        .story-text .speaker.abraham {
+            color: var(--sand-light);
+        }
+
+        .story-text .speaker.isaac {
+            color: var(--promise-blue);
+        }
+
+        .story-text .speaker.jacob {
+            color: var(--dream-purple);
+        }
+
+        .story-text .speaker.joseph {
+            color: var(--egypt-gold);
+        }
+
+        .story-text .speaker.brother {
+            color: var(--danger);
+        }
+
+        .story-text em {
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .story-text .promise {
+            color: var(--gold-light);
+            font-weight: 500;
+        }
+
+        .story-text .test {
+            color: var(--danger);
+        }
+
+        .story-text .vision {
+            color: var(--promise-blue);
+            text-shadow: 0 0 8px rgba(74, 122, 184, 0.4);
+        }
+
+        .story-text .revelation {
+            color: var(--gold);
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Generation Marker */
+        .generation-marker {
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .generation-marker h4 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+
+        .generation-marker .patriarch-name {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            color: var(--gold-light);
+            font-weight: 700;
+        }
+
+        .generation-marker p {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        /* Choices */
+        .choices-container {
+            margin-top: auto;
+        }
+
+        .choices-label {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .choice-btn {
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: 18px 20px;
+            margin-bottom: 10px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(194, 168, 120, 0.3);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.05rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .choice-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--gold);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .choice-btn:hover {
+            background: rgba(194, 168, 120, 0.15);
+            border-color: var(--gold);
+            transform: translateX(5px);
+        }
+
+        .choice-btn:hover::before {
+            opacity: 1;
+        }
+
+        .choice-btn.faith-choice {
+            border-color: rgba(255, 215, 0, 0.3);
+            background: rgba(255, 215, 0, 0.05);
+        }
+
+        .choice-btn.faith-choice:hover {
+            background: rgba(255, 215, 0, 0.15);
+        }
+
+        .choice-letter {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.75rem;
+            color: var(--gold);
+            margin-right: 12px;
+        }
+
+        .choice-preview {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            margin-top: 8px;
+            padding-left: 25px;
+            font-style: italic;
+        }
+
+        /* Consequence Display */
+        .consequence-display {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(194, 168, 120, 0.3);
+            border-radius: 12px;
+            padding: 30px;
+            margin: 20px 0;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .consequence-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            color: var(--gold);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .stat-changes {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stat-change {
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .stat-change.positive {
+            background: rgba(107, 142, 78, 0.2);
+            border: 1px solid var(--success);
+            color: var(--success);
+        }
+
+        .stat-change.negative {
+            background: rgba(196, 69, 54, 0.2);
+            border: 1px solid var(--danger);
+            color: var(--danger);
+        }
+
+        .influence-change {
+            text-align: center;
+            padding: 15px;
+            background: rgba(194, 168, 120, 0.08);
+            border: 1px solid rgba(194, 168, 120, 0.3);
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .influence-change-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            color: var(--sand);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .influence-change-text {
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .influence-change-text .name {
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
+        }
+
+        .legacy-notice {
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .legacy-notice h4 {
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
+            margin-bottom: 8px;
+        }
+
+        .legacy-notice p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        .continue-btn {
+            display: block;
+            width: 100%;
+            max-width: 300px;
+            margin: 20px auto 0;
+        }
+
+        /* Summary Screen */
+        .episode-summary {
+            padding: 30px 0;
+        }
+
+        .summary-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .summary-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        .summary-subtitle {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            color: var(--sand);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .summary-section {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(194, 168, 120, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        .summary-section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            color: var(--gold);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .final-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 15px;
+        }
+
+        .final-stat {
+            text-align: center;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+        }
+
+        .final-stat-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .final-stat-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .final-stat-change {
+            font-size: 0.75rem;
+            margin-top: 4px;
+        }
+
+        .patriarch-journey {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 20px 0;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .patriarch-icon {
+            text-align: center;
+        }
+
+        .patriarch-icon .icon {
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+
+        .patriarch-icon .name {
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            color: var(--gold);
+        }
+
+        .patriarch-arrow {
+            color: var(--sand);
+            font-size: 1.5rem;
+        }
+
+        .souls-detail {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .soul-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .soul-name {
+            font-family: 'Cinzel', serif;
+            color: var(--text-primary);
+        }
+
+        .soul-status {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            padding: 4px 12px;
+            border-radius: 12px;
+        }
+
+        .soul-status.strengthened {
+            background: rgba(107, 142, 78, 0.2);
+            color: var(--success);
+        }
+
+        .soul-status.faithful {
+            background: rgba(212, 175, 55, 0.2);
+            color: var(--gold);
+        }
+
+        .soul-status.redeemed {
+            background: rgba(74, 122, 184, 0.2);
+            color: var(--promise-blue);
+        }
+
+        .soul-status.transformed {
+            background: rgba(107, 74, 138, 0.2);
+            color: var(--dream-purple);
+        }
+
+        .narrative-summary {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+
+        .narrative-summary p {
+            margin-bottom: 15px;
+        }
+
+        .to-be-continued {
+            text-align: center;
+            padding: 30px;
+            margin-top: 20px;
+        }
+
+        .to-be-continued h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        .to-be-continued p {
+            color: var(--text-dim);
+            font-style: italic;
+        }
+
+        /* Star promise decoration */
+        .star-promise {
+            text-align: center;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .star-promise .stars {
+            font-size: 1.5rem;
+            letter-spacing: 10px;
+            color: var(--gold);
+            animation: twinkle 2s ease-in-out infinite;
+        }
+
+        .star-promise p {
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-top: 10px;
+        }
+
+        /* Menu */
+        .menu-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 44px;
+            height: 44px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(194, 168, 120, 0.4);
+            border-radius: 8px;
+            color: var(--gold);
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 100;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .menu-btn:hover {
+            background: rgba(194, 168, 120, 0.2);
+        }
+
+        .menu-btn.visible {
+            display: flex;
+        }
+
+        .menu-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 200;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .menu-modal.active {
+            display: flex;
+        }
+
+        .menu-content {
+            background: var(--bg-medium);
+            border: 1px solid rgba(194, 168, 120, 0.4);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            max-width: 350px;
+            width: 90%;
+        }
+
+        .menu-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: var(--gold);
+            margin-bottom: 25px;
+        }
+
+        .menu-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .menu-buttons .btn {
+            width: 100%;
+        }
+
+        /* Footer */
+        .game-footer {
+            text-align: center;
+            padding: 20px 0;
+            margin-top: auto;
+            border-top: 1px solid rgba(194, 168, 120, 0.2);
+        }
+
+        .footer-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.6rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .footer-text a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2rem;
+                letter-spacing: 3px;
+            }
+
+            .main-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 5px;
+            }
+
+            .stat-name {
+                font-size: 0.5rem;
+            }
+
+            .stat-value {
+                font-size: 0.9rem;
+            }
+
+            .influence-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .story-content {
+                padding: 20px;
+            }
+
+            .story-text {
+                font-size: 1.05rem;
+            }
+
+            .choice-btn {
+                padding: 15px;
+                font-size: 0.95rem;
+            }
+
+            .final-stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .import-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .patriarch-journey {
+                flex-direction: column;
+            }
+
+            .patriarch-arrow {
+                transform: rotate(90deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="celestial-bg desert" id="bgLayer">
+        <div class="stars"></div>
+    </div>
+
+    <button class="menu-btn" id="menuBtn" onclick="toggleMenu()">☰</button>
+
+    <div class="menu-modal" id="menuModal">
+        <div class="menu-content">
+            <h2 class="menu-title">Game Menu</h2>
+            <div class="menu-buttons">
+                <button class="btn btn-secondary" onclick="saveGame()">Save Progress</button>
+                <button class="btn btn-secondary" onclick="toggleMenu()">Resume Game</button>
+                <button class="btn btn-secondary" onclick="restartEpisode()">Restart Episode</button>
+                <button class="btn btn-secondary" onclick="returnToTitle()">Main Menu</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="game-container">
+        <header class="game-header">
+            <h1 class="game-title">The Great Controversy</h1>
+            <p class="game-subtitle">Episode 5: The Patriarchs</p>
+        </header>
+
+        <!-- Title Screen -->
+        <div class="screen active" id="titleScreen">
+            <div class="title-screen">
+                <div class="episode-number">Episode V</div>
+                <h1 class="main-title">The Patriarchs</h1>
+                <h2 class="main-subtitle">Faith Through Impossible Promises</h2>
+                <p class="tagline">"By faith Abraham, when he was called... obeyed; and he went out, not knowing whither he went." — Hebrews 11:8</p>
+                
+                <div class="episode-intro">
+                    <p>From Abraham's first step into the unknown to Joseph's revelation in Egypt — four generations of faith through impossible promises.</p>
+                    <p>You will witness the supreme test on Mount Moriah. You will see the ladder stretching to heaven. You will watch brothers sell their own blood into slavery.</p>
+                    <p>And you will learn what the patriarchs learned: what men meant for evil, God meant for good.</p>
+                </div>
+
+                <div class="title-buttons">
+                    <button class="btn btn-patriarch" onclick="showImportScreen()">Begin Episode 5</button>
+                    <button class="btn btn-secondary" id="continueBtn" onclick="continueGame()" disabled>Continue Saved Game</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Import Screen -->
+        <div class="screen" id="importScreen">
+            <div class="import-section">
+                <h2 class="section-title">Character Import</h2>
+                
+                <div class="import-options">
+                    <div class="import-option" id="importFromPrev" onclick="importFromPrevious()">
+                        <h3>Import from Previous Episodes</h3>
+                        <p>Continue with your character from the Flood. Your stats and growth carry forward.</p>
+                        <div class="import-stats" id="prevStats" style="display: none;"></div>
+                    </div>
+
+                    <div class="import-option" onclick="startFresh()">
+                        <h3>Start Fresh</h3>
+                        <p>Begin Episode 5 with default stats. You witnessed the covenant rainbow and carry hope forward.</p>
+                        <div class="import-stats">
+                            <div class="import-stat">
+                                <div class="import-stat-name">Faith</div>
+                                <div class="import-stat-value stat-faith">75</div>
+                            </div>
+                            <div class="import-stat">
+                                <div class="import-stat-name">Patience</div>
+                                <div class="import-stat-value stat-patience">70</div>
+                            </div>
+                            <div class="import-stat">
+                                <div class="import-stat-name">Love</div>
+                                <div class="import-stat-value stat-love">72</div>
+                            </div>
+                            <div class="import-stat">
+                                <div class="import-stat-name">Hope</div>
+                                <div class="import-stat-value stat-hope">75</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="import-option" onclick="showNameInput()">
+                        <h3>Custom Character</h3>
+                        <p>Enter a name and walk with the patriarchs through impossible promises.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Name Input Screen -->
+        <div class="screen" id="nameScreen">
+            <div class="import-section">
+                <h2 class="section-title">Name Your Character</h2>
+                <div style="max-width: 400px; margin: 0 auto;">
+                    <label style="display: block; font-family: Orbitron, sans-serif; font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px;">Your Name</label>
+                    <input type="text" id="customName" placeholder="Enter your angelic name..." maxlength="20" style="width: 100%; padding: 15px 20px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(194, 168, 120, 0.3); border-radius: 4px; color: var(--text-primary); font-family: Crimson Pro, serif; font-size: 1.1rem;">
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 20px;" onclick="confirmCustomName()">Begin Episode 5</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div class="screen" id="gameScreen">
+            <div class="stats-panel" id="statsPanel">
+                <div class="stats-header">
+                    <span class="character-name" id="displayName">-</span>
+                    <span class="episode-indicator">Episode 5: The Patriarchs</span>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-name">Faith</div>
+                        <div class="stat-value stat-faith" id="statFaith">50</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-name">Wisdom</div>
+                        <div class="stat-value stat-wisdom" id="statWisdom">50</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-name">Courage</div>
+                        <div class="stat-value stat-courage" id="statCourage">50</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-name">Love</div>
+                        <div class="stat-value stat-love" id="statLove">50</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-name">Truth</div>
+                        <div class="stat-value stat-truth" id="statTruth">50</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-name">Patience</div>
+                        <div class="stat-value stat-patience" id="statPatience">50</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-name">Hope</div>
+                        <div class="stat-value stat-hope" id="statHope">50</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-name">Legacy</div>
+                        <div class="stat-value" style="color: var(--sand-light);" id="statLegacy">0</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="generation-panel" id="generationPanel">
+                <span class="generation-label">Current Generation</span>
+                <span class="generation-value" id="currentPatriarch">Abraham</span>
+                <span class="legacy-counter">Legacy: <span id="legacyDisplay">0</span></span>
+            </div>
+
+            <div class="influence-panel" id="influencePanel">
+                <div class="influence-title">Those in Your Sphere</div>
+                <div class="influence-grid" id="influenceGrid"></div>
+            </div>
+
+            <div class="story-panel">
+                <div class="story-content" id="storyContent"></div>
+                <div class="choices-container" id="choicesContainer"></div>
+            </div>
+        </div>
+
+        <!-- Consequence Screen -->
+        <div class="screen" id="consequenceScreen">
+            <div class="consequence-display" id="consequenceDisplay"></div>
+        </div>
+
+        <!-- Summary Screen -->
+        <div class="screen" id="summaryScreen">
+            <div class="episode-summary" id="episodeSummary"></div>
+        </div>
+
+        <footer class="game-footer">
+            <p class="footer-text">Seven Cubed Seven Labs | <a href="https://sevencubedseven.com">7³×7 = 2,401</a></p>
+        </footer>
+    </div>
+
+    <script>
+        // ==========================================
+        // THE GREAT CONTROVERSY: THE GAME
+        // Episode 5: The Patriarchs
+        // ==========================================
+
+        var STATE = {
+            screen: 'title',
+            characterName: '',
+            stats: {
+                faith: 75,
+                wisdom: 65,
+                courage: 68,
+                love: 72,
+                truth: 68,
+                patience: 70,
+                hope: 75
+            },
+            baseStats: {},
+            legacyPoints: 0,
+            currentPatriarch: 'Abraham',
+            currentScene: 0,
+            choices: [],
+            beings: [
+                { name: 'Abraham', status: 'patriarch', influence: 70, avatar: '☆', type: 'patriarch' },
+                { name: 'Isaac', status: 'heir', influence: 60, avatar: '◇', type: 'heir' },
+                { name: 'Jacob', status: 'heir', influence: 55, avatar: '◈', type: 'heir' },
+                { name: 'Joseph', status: 'dreamer', influence: 65, avatar: '★', type: 'dreamer' }
+            ],
+            episodeComplete: false
+        };
+
+        var SCENES = [
+            // Scene 0: Abraham's Call
+            {
+                location: 'Ur of the Chaldees — The Call',
+                locationClass: 'desert',
+                patriarch: 'Abraham',
+                generationMarker: true,
+                content: '<p><em>Generations have passed since Noah. Humanity has spread across the earth. And once again, most have forgotten the true God.</em></p><p><em>But in Ur of the Chaldees, in a land of moon worship and star gods, you watch as the </em><span class="speaker divine">Voice</span><em> speaks to one man.</em></p><p><span class="speaker divine">"Get thee out of thy country, and from thy kindred, and from thy father\'s house, unto a land that I will shew thee."</span></p><p><em>No map. No GPS. No guarantees. Just a promise: </em><span class="promise">"I will make of thee a great nation."</span></p><p><span class="speaker abraham">Abraham</span> — still called Abram — stands at the threshold of a decision that will shape all of human history.</p><p><span class="speaker abraham">Abraham:</span> "Sarah, we must leave. Everything. Our home. Our family. Our gods. For a voice that offers no proof except a promise."</p>',
+                choices: [
+                    {
+                        letter: 'A',
+                        text: 'Send Abraham a deep impression of the same God who spoke to Noah — the God whose promises never fail.',
+                        preview: 'Connect him to covenant history',
+                        effects: { faith: 10, wisdom: 8, hope: 8 },
+                        influence: { target: 'Abraham', change: 12, type: 'positive' },
+                        response: 'Abraham\'s spirit stirs. He remembers the stories — Noah, the flood, the rainbow promise. This Voice is not new. It is ancient. And it has never broken a covenant.'
+                    },
+                    {
+                        letter: 'B',
+                        text: '"Faith is the evidence of things not seen. Abraham will learn what we already know: obedience first, understanding later."',
+                        preview: 'Affirm the order of faith',
+                        effects: { faith: 12, truth: 8, courage: 5 },
+                        influence: { target: 'Abraham', change: 10, type: 'positive' },
+                        response: 'You articulate the divine pattern. God does not explain before commanding. He commands and then reveals His reasons through the journey.'
+                    },
+                    {
+                        letter: 'C',
+                        text: 'Pray for Sarah — she must leave too, and she has received no direct word from God. Her faith will be tested through her husband\'s calling.',
+                        preview: 'Intercede for the journey partner',
+                        effects: { love: 12, patience: 8, wisdom: 5 },
+                        influence: { target: 'Abraham', change: 8, type: 'positive' },
+                        isPrayer: true,
+                        response: 'Your prayer covers the silent one. Sarah follows not because she heard the Voice, but because she trusts the one who did. This is another form of faith.'
+                    },
+                    {
+                        letter: 'D',
+                        text: '"Lord, the enemy will try to stop this lineage. The promise of the Seed runs through Abraham now. Protect the line."',
+                        preview: 'Pray for protection of the promise',
+                        effects: { faith: 10, hope: 10, wisdom: 8 },
+                        influence: { target: 'Abraham', change: 10, type: 'positive' },
+                        isPrayer: true,
+                        isLegacy: true,
+                        response: 'You pray with understanding. Abraham isn\'t just moving to a new land — he\'s carrying the promise given in Eden. The Seed will come through him. Everything depends on this.'
+                    }
+                ]
+            },
+            // Scene 1: The Stars
+            {
+                location: 'Canaan — The Stars',
+                locationClass: 'desert',
+                patriarch: 'Abraham',
+                content: '<p><em>Years pass. Abraham walks the land God promised. He grows wealthy. He rescues Lot. He meets the mysterious Melchizedek.</em></p><p><em>But there is no son. The promise cannot be fulfilled without an heir.</em></p><p><span class="speaker abraham">Abraham:</span> "Lord, what wilt thou give me, seeing I go childless? You promised descendants, but I have no child."</p><p><em>God\'s response comes not in words alone, but in demonstration.</em></p><p><span class="speaker divine">"Look now toward heaven, and tell the stars, if thou be able to number them... So shall thy seed be."</span></p><p><em>Abraham looks up. The desert sky blazes with countless points of light. And something shifts in his heart.</em></p><p><span class="promise">"And he believed in the LORD; and he counted it to him for righteousness."</span></p>',
+                choices: [
+                    {
+                        letter: 'A',
+                        text: 'Let the weight of this moment settle. This is the foundation of salvation — faith counted as righteousness. Everything builds on this.',
+                        preview: 'Recognize the cosmic significance',
+                        effects: { wisdom: 15, faith: 10, truth: 8 },
+                        influence: { target: 'Abraham', change: 10, type: 'positive' },
+                        influenceSecondary: { target: 'Isaac', change: 8, type: 'positive' },
+                        response: 'You witness the birth of covenant theology. Not works. Faith. Belief credited as righteousness. This principle will echo through millennia.'
+                    },
+                    {
+                        letter: 'B',
+                        text: 'Marvel at God\'s teaching method — not arguments, but stars. Visual. Overwhelming. Impossible to count, impossible to doubt.',
+                        preview: 'Learn from divine pedagogy',
+                        effects: { wisdom: 12, hope: 10, faith: 8 },
+                        influence: { target: 'Abraham', change: 8, type: 'positive' },
+                        response: 'God teaches through experience, not explanation. The stars are not proof — they are promise made visible. Abraham will remember this night forever.'
+                    },
+                    {
+                        letter: 'C',
+                        text: '"Look, brother — he believed. Despite everything. Despite age, despite impossibility. This is the faith that moves God."',
+                        preview: 'Celebrate Abraham\'s faith',
+                        effects: { faith: 12, love: 8, hope: 10 },
+                        influence: { target: 'Abraham', change: 12, type: 'positive' },
+                        response: 'Your celebration joins heaven\'s. One man looking at stars and choosing to believe the impossible. This is how God changes history.'
+                    },
+                    {
+                        letter: 'D',
+                        text: 'Pray: "Father, let this faith carry him through what\'s coming. He doesn\'t know yet about Moriah. But faith born under stars will survive the altar."',
+                        preview: 'Pray for the tests ahead',
+                        effects: { faith: 10, patience: 10, hope: 12 },
+                        influence: { target: 'Abraham', change: 10, type: 'positive' },
+                        influenceSecondary: { target: 'Isaac', change: 8, type: 'positive' },
+                        isPrayer: true,
+                        response: 'Your prayer bridges time. The faith formed tonight will be tested to its uttermost. But what is forged under stars is strong enough for Moriah.'
+                    }
+                ]
+            },
+            // Scene 2: Mount Moriah
+            {
+                location: 'Mount Moriah — The Supreme Test',
+                locationClass: 'moriah',
+                patriarch: 'Abraham',
+                generationMarker: false,
+                content: '<p><em>Isaac is born. The impossible promise becomes a laughing boy. Abraham\'s heart is wrapped around his son. Everything makes sense.</em></p><p><em>Then comes the word that stops the breath.</em></p><p><span class="speaker divine">"Take now thy son, thine only son Isaac, whom thou lovest, and get thee into the land of Moriah; and <span class="test">offer him there for a burnt offering</span>..."</span></p><p><em>The knife. The wood. The fire. The three-day journey. The question from the boy that pierces like swords.</em></p><p><span class="speaker isaac">Isaac:</span> "Father... behold the fire and the wood: but where is the lamb for a burnt offering?"</p><p><span class="speaker abraham">Abraham:</span> "My son, <span class="promise">God will provide himself a lamb</span> for a burnt offering."</p><p><em>The altar is built. Isaac is bound. Abraham raises the knife.</em></p>',
+                choices: [
+                    {
+                        letter: 'A',
+                        text: 'Watch in agonized silence. This is the ultimate test. You cannot intervene. You can only witness.',
+                        preview: 'Bear witness to the impossible',
+                        effects: { patience: 12, faith: 10, courage: 8 },
+                        influence: { target: 'Abraham', change: 8, type: 'positive' },
+                        influenceSecondary: { target: 'Isaac', change: 8, type: 'positive' },
+                        response: 'Sometimes witness is the only permitted ministry. You watch what should not be asked, being offered by one who should not be able to give it.'
+                    },
+                    {
+                        letter: 'B',
+                        text: 'Trust. Abraham believes in resurrection — that God can raise the dead. His faith has outgrown even this test.',
+                        preview: 'Recognize resurrection faith',
+                        effects: { faith: 15, wisdom: 12, hope: 10 },
+                        influence: { target: 'Abraham', change: 12, type: 'positive' },
+                        influenceSecondary: { target: 'Isaac', change: 10, type: 'positive' },
+                        isLegacy: true,
+                        response: 'Hebrews will later reveal: Abraham believed God could raise Isaac from the dead. His faith had grown beyond the test itself. This is how faith graduates.'
+                    },
+                    {
+                        letter: 'C',
+                        text: 'See the shadow. On this mountain, another Father will watch His Son climb with wood on His back. This is prophecy in action.',
+                        preview: 'Perceive the prophetic pattern',
+                        effects: { wisdom: 15, faith: 10, truth: 10 },
+                        influence: { target: 'Isaac', change: 12, type: 'positive' },
+                        isLegacy: true,
+                        response: 'The pattern crystallizes. Father and son. A mountain. Willing sacrifice. Wood carried on the back. This is a dress rehearsal for Calvary.'
+                    },
+                    {
+                        letter: 'D',
+                        text: 'Pray: "Father, glorify Yourself in this moment. Let heaven and earth see what faith can do when tested to the uttermost."',
+                        preview: 'Pray for God\'s glory',
+                        effects: { faith: 15, love: 10, hope: 12 },
+                        influence: { target: 'Abraham', change: 15, type: 'positive' },
+                        influenceSecondary: { target: 'Isaac', change: 12, type: 'positive' },
+                        isPrayer: true,
+                        response: 'Your prayer rises as the knife descends — and the angel speaks: "ABRAHAM! Lay not thine hand upon the lad." God provides the ram. Faith passes the test. Legacy secured.'
+                    }
+                ]
+            },
+            // Scene 3: Jacob's Ladder
+            {
+                location: 'Bethel — The Ladder',
+                locationClass: 'bethel',
+                patriarch: 'Jacob',
+                generationMarker: true,
+                content: '<p><em>A generation passes. Isaac lives. Jacob — the deceiver — has stolen his brother\'s blessing and fled for his life. He sleeps on stone, alone, a fugitive.</em></p><p><em>Then comes the dream.</em></p><p><span class="vision">"And he dreamed, and behold a ladder set up on the earth, and the top of it reached to heaven: and behold the angels of God ascending and descending on it."</span></p><p><em>You are among them. You descend and ascend, carrying prayers up and blessings down. Jacob sees — actually sees — the traffic between heaven and earth that he never knew existed.</em></p><p><span class="speaker divine">"I am the LORD God of Abraham thy father, and the God of Isaac: the land whereon thou liest, to thee will I give it, and to thy seed."</span></p><p><em>Jacob wakes, trembling.</em></p><p><span class="speaker jacob">Jacob:</span> "Surely the LORD is in this place; and I knew it not... this is none other but the house of God, and this is the gate of heaven."</p>',
+                choices: [
+                    {
+                        letter: 'A',
+                        text: 'Let Jacob see you clearly as you ascend. Let him know angels are real, that heaven\'s attention is always on earth.',
+                        preview: 'Reveal angelic reality',
+                        effects: { faith: 12, truth: 10, courage: 8 },
+                        influence: { target: 'Jacob', change: 15, type: 'positive' },
+                        response: 'Jacob\'s eyes meet yours. For one moment, he sees what is always true: the barrier between heaven and earth is thinner than he imagined.'
+                    },
+                    {
+                        letter: 'B',
+                        text: '"God confirms the promise to a deceiver. Grace does not depend on merit. The covenant continues through broken vessels."',
+                        preview: 'Meditate on grace',
+                        effects: { wisdom: 12, love: 10, hope: 8 },
+                        influence: { target: 'Jacob', change: 10, type: 'positive' },
+                        response: 'Jacob has lied, cheated, manipulated. And God says: "I am with thee." Grace is not earned. The covenant is not merit-based. This is how salvation works.'
+                    },
+                    {
+                        letter: 'C',
+                        text: 'See the prophetic connection: Jesus will later say "You shall see heaven open, and angels ascending and descending upon the Son of Man." Jacob sees Christ foreshadowed.',
+                        preview: 'Connect to the Messiah',
+                        effects: { wisdom: 15, faith: 10, truth: 10 },
+                        influence: { target: 'Jacob', change: 12, type: 'positive' },
+                        isLegacy: true,
+                        response: 'The ladder is not a structure — it is a Person. The connection between heaven and earth is not a thing but a Who. Jacob sees what he cannot yet understand.'
+                    },
+                    {
+                        letter: 'D',
+                        text: 'Pray for Jacob\'s transformation: "Father, he is a deceiver now. But You see Israel in him. Complete the work."',
+                        preview: 'Pray for transformation',
+                        effects: { love: 12, faith: 10, patience: 10 },
+                        influence: { target: 'Jacob', change: 12, type: 'positive' },
+                        isPrayer: true,
+                        response: 'Your prayer spans years. Jacob the deceiver will become Israel the prince. But transformation takes time, struggle, and one night of wrestling by a river.'
+                    }
+                ]
+            },
+            // Scene 4: The Pit
+            {
+                location: 'Dothan — The Pit',
+                locationClass: 'pit',
+                patriarch: 'Joseph',
+                generationMarker: true,
+                content: '<p><em>Another generation. Jacob has twelve sons. Joseph — the dreamer — is his father\'s favorite. His brothers burn with jealousy.</em></p><p><em>A coat of many colors. Dreams of bowing sheaves. And hatred that cannot speak peaceably.</em></p><p><span class="speaker brother">The Brothers:</span> "Behold, this dreamer cometh. Come now therefore, and let us slay him."</p><p><em>They strip him. They throw him into an empty pit. Then — worse than murder — they </em><span class="test">sell their own brother into slavery</span><em>. Twenty pieces of silver. Gone to Egypt.</em></p><p><em>Joseph — seventeen years old — looks back at his brothers as the Midianite caravan leads him away. The boy who dreamed of stars bowing now stumbles in chains toward a foreign land.</em></p>',
+                choices: [
+                    {
+                        letter: 'A',
+                        text: 'Send Joseph an impression of God\'s presence even in the pit. He is not abandoned. He is being positioned.',
+                        preview: 'Comfort in the darkness',
+                        effects: { love: 15, faith: 10, hope: 10 },
+                        influence: { target: 'Joseph', change: 15, type: 'positive' },
+                        response: 'In the darkness of the pit, Joseph feels something unexpected: peace. Not understanding, but presence. God has not abandoned the dreamer.'
+                    },
+                    {
+                        letter: 'B',
+                        text: '"What they mean for evil, God will use for good. Joseph doesn\'t know yet, but he\'s heading to exactly where he needs to be."',
+                        preview: 'See the sovereign plan',
+                        effects: { wisdom: 15, faith: 12, patience: 8 },
+                        influence: { target: 'Joseph', change: 12, type: 'positive' },
+                        isLegacy: true,
+                        response: 'You see what Joseph cannot. Egypt is not exile — it is assignment. Slavery is not defeat — it is divine positioning. The pit is part of the plan.'
+                    },
+                    {
+                        letter: 'C',
+                        text: 'Grieve for the brothers. Their jealousy will haunt them for decades. Sin always costs more than it advertises.',
+                        preview: 'Mourn the corrupted',
+                        effects: { love: 12, wisdom: 10, patience: 8 },
+                        influence: { target: 'Joseph', change: 8, type: 'positive' },
+                        response: 'Twenty years of guilt await these brothers. The face they cannot forget. The father\'s grief they caused. Sin\'s payment plan extends far beyond the act.'
+                    },
+                    {
+                        letter: 'D',
+                        text: 'Pray: "Father, guard Joseph\'s heart in the years ahead. Don\'t let bitterness take root. Let him become the ruler the dreams foretold."',
+                        preview: 'Pray for long-term character',
+                        effects: { faith: 10, patience: 12, hope: 12 },
+                        influence: { target: 'Joseph', change: 15, type: 'positive' },
+                        isPrayer: true,
+                        response: 'Your prayer covers years of slavery, years of prison, years of waiting. Joseph will need every intercession. Bitterness is the easy path. But Joseph will choose forgiveness.'
+                    }
+                ]
+            },
+            // Scene 5: The Prison
+            {
+                location: 'Egypt — The Prison',
+                locationClass: 'pit',
+                patriarch: 'Joseph',
+                content: '<p><em>Thirteen years in Egypt. Joseph has risen to managing Potiphar\'s house — then been thrown into prison on false accusations. The one who fled temptation is punished as if he yielded.</em></p><p><em>The butler promises to remember him. The butler forgets. Two more years in darkness.</em></p><p><span class="speaker joseph">Joseph:</span> <em>(in the quiet of his cell)</em> "God, I have done everything right. I fled sin. I served faithfully. And I am still here. How long?"</p><p><em>This is the testing ground where rulers are forged. Will Joseph become bitter? Or will he keep interpreting dreams for fellow prisoners, serving even in the dungeon?</em></p>',
+                choices: [
+                    {
+                        letter: 'A',
+                        text: 'Remind Joseph: he chose integrity over advancement with Potiphar\'s wife. Character formed in prison will serve in palace.',
+                        preview: 'Affirm the integrity choice',
+                        effects: { truth: 15, courage: 12, faith: 8 },
+                        influence: { target: 'Joseph', change: 12, type: 'positive' },
+                        response: 'Joseph remembers. He could have had comfort and betrayed his God. He chose differently. And that choice, though it led to prison, built a character fit for ruling.'
+                    },
+                    {
+                        letter: 'B',
+                        text: '"The delay is not denial. Two more years in prison will prepare him for Pharaoh\'s court. Timing is as important as the promise."',
+                        preview: 'Trust divine timing',
+                        effects: { patience: 15, wisdom: 12, faith: 8 },
+                        influence: { target: 'Joseph', change: 10, type: 'positive' },
+                        isLegacy: true,
+                        response: 'You understand what Joseph cannot yet see. The butler\'s forgetting was not accident — it was timing. Pharaoh\'s dream is not ready yet. Joseph is being held for the right moment.'
+                    },
+                    {
+                        letter: 'C',
+                        text: 'Marvel at Joseph serving fellow prisoners. Even in the dungeon, he uses his gift. Faithfulness in obscurity is faithfulness indeed.',
+                        preview: 'Honor obscure faithfulness',
+                        effects: { love: 12, patience: 10, wisdom: 8 },
+                        influence: { target: 'Joseph', change: 12, type: 'positive' },
+                        response: 'No one celebrates Joseph\'s dungeon ministry. No promotion comes from interpreting prisoners\' dreams. But God sees. And heaven records what earth ignores.'
+                    },
+                    {
+                        letter: 'D',
+                        text: 'Pray: "Father, the butler forgot. But You remember. In Your perfect time, bring Joseph before the one who needs him most."',
+                        preview: 'Pray for divine remembrance',
+                        effects: { faith: 12, hope: 15, patience: 10 },
+                        influence: { target: 'Joseph', change: 15, type: 'positive' },
+                        isPrayer: true,
+                        response: 'Your prayer bridges two years. Then Pharaoh dreams. Then the butler remembers. Then everything changes in a single day. God\'s timing is not early, not late — perfect.'
+                    }
+                ]
+            },
+            // Scene 6: The Revelation
+            {
+                location: 'Egypt — The Revelation',
+                locationClass: 'revelation',
+                patriarch: 'Joseph',
+                generationMarker: false,
+                content: '<p><em>Joseph stands before his brothers. He is now second only to Pharaoh. They came for grain and found their past.</em></p><p><em>The moment of reckoning. Twenty-two years of pain, slavery, prison, waiting. His brothers bow before him — the dream fulfilled. He could destroy them with a word.</em></p><p><em>Instead, he weeps.</em></p><p><span class="speaker joseph">Joseph:</span> "I am Joseph your brother, whom ye sold into Egypt. Now therefore be not grieved, nor angry with yourselves, that ye sold me hither: for <span class="revelation">God did send me before you to preserve life</span>."</p><p><em>The brothers tremble. But Joseph continues:</em></p><p><span class="speaker joseph">Joseph:</span> "So now it was not you that sent me hither, but God... <span class="revelation">Ye thought evil against me; but God meant it unto good</span>, to bring to pass, as it is this day, to save much people alive."</p>',
+                choices: [
+                    {
+                        letter: 'A',
+                        text: '"This is the redemption of suffering. Joseph sees what was invisible in the pit: God was working all along. Every evil was being woven into good."',
+                        preview: 'Proclaim the providence',
+                        effects: { wisdom: 15, faith: 15, hope: 12 },
+                        influence: { target: 'Joseph', change: 15, type: 'positive' },
+                        isLegacy: true,
+                        response: 'You articulate the mystery. Human evil does not derail God\'s plan — it is incorporated into it. Joseph\'s statement will echo through every suffering saint\'s heart forever.'
+                    },
+                    {
+                        letter: 'B',
+                        text: 'Watch Joseph forgive. This is the ultimate test — not the prison, but the power. He could avenge. He chooses mercy.',
+                        preview: 'Honor the choice of mercy',
+                        effects: { love: 15, courage: 12, wisdom: 10 },
+                        influence: { target: 'Joseph', change: 12, type: 'positive' },
+                        response: 'The greatest test came when Joseph had power. Vengeance was within reach. But character forged in prison chose forgiveness. This is how God\'s people rule.'
+                    },
+                    {
+                        letter: 'C',
+                        text: 'See the brothers\' faces. Terror turning to wonder. They expected justice. They received grace. This is how mercy transforms.',
+                        preview: 'Witness transformation through grace',
+                        effects: { love: 12, hope: 12, truth: 10 },
+                        influence: { target: 'Joseph', change: 10, type: 'positive' },
+                        response: 'The brothers came expecting punishment. They receive embrace. Guilty men discover grace is real. Some will be changed forever by this moment.'
+                    },
+                    {
+                        letter: 'D',
+                        text: 'Worship: "Father, You turned slavery into salvation, prison into positioning, betrayal into blessing. You are the God who redeems everything."',
+                        preview: 'Worship the Redeemer',
+                        effects: { faith: 15, love: 12, hope: 15 },
+                        influence: { target: 'Joseph', change: 15, type: 'positive' },
+                        isPrayer: true,
+                        isLegacy: true,
+                        response: 'Worship is the only adequate response. The pit. The prison. The palace. All connected by a God who wastes nothing. The patriarchal promise lives on — in Egypt.'
+                    }
+                ]
+            }
+        ];
+
+        // Initialize
+        function init() {
+            checkSavedGame();
+            checkPreviousSaves();
+        }
+
+        function checkSavedGame() {
+            var saved = localStorage.getItem('gcg_ep5_save');
+            if (saved) {
+                document.getElementById('continueBtn').disabled = false;
+            }
+        }
+
+        function checkPreviousSaves() {
+            var prevEps = ['gcg_ep4_save', 'gcg_ep3_save', 'gcg_ep2_save', 'gcg_save'];
+            var epNames = ['Episode 4', 'Episode 3', 'Episode 2', 'Episode 1'];
+            
+            for (var i = 0; i < prevEps.length; i++) {
+                var saved = localStorage.getItem(prevEps[i]);
+                if (saved) {
+                    var data = JSON.parse(saved);
+                    if (data.episodeComplete) {
+                        displayPrevStats(data, epNames[i]);
+                        return;
+                    }
+                }
+            }
+        }
+
+        function displayPrevStats(data, epName) {
+            var statsDiv = document.getElementById('prevStats');
+            statsDiv.style.display = 'grid';
+            statsDiv.innerHTML = 
+                '<div class="import-stat"><div class="import-stat-name">Faith</div><div class="import-stat-value stat-faith">' + data.stats.faith + '</div></div>' +
+                '<div class="import-stat"><div class="import-stat-name">Patience</div><div class="import-stat-value stat-patience">' + data.stats.patience + '</div></div>' +
+                '<div class="import-stat"><div class="import-stat-name">Love</div><div class="import-stat-value stat-love">' + data.stats.love + '</div></div>' +
+                '<div class="import-stat"><div class="import-stat-name">Hope</div><div class="import-stat-value stat-hope">' + data.stats.hope + '</div></div>';
+            document.getElementById('importFromPrev').querySelector('p').innerHTML = 
+                'Continue as <strong>' + data.characterName + '</strong> from ' + epName + '.';
+        }
+
+        // Screen Management
+        function showScreen(screenId) {
+            var screens = document.querySelectorAll('.screen');
+            for (var i = 0; i < screens.length; i++) {
+                screens[i].classList.remove('active');
+            }
+            document.getElementById(screenId).classList.add('active');
+            STATE.screen = screenId;
+
+            var menuBtn = document.getElementById('menuBtn');
+            if (screenId === 'gameScreen' || screenId === 'consequenceScreen') {
+                menuBtn.classList.add('visible');
+            } else {
+                menuBtn.classList.remove('visible');
+            }
+        }
+
+        function showImportScreen() {
+            showScreen('importScreen');
+        }
+
+        function importFromPrevious() {
+            var prevEps = ['gcg_ep4_save', 'gcg_ep3_save', 'gcg_ep2_save', 'gcg_save'];
+            
+            for (var i = 0; i < prevEps.length; i++) {
+                var saved = localStorage.getItem(prevEps[i]);
+                if (saved) {
+                    var data = JSON.parse(saved);
+                    if (data.episodeComplete) {
+                        useImportedData(data);
+                        return;
+                    }
+                }
+            }
+            alert('No completed previous episode found. Please complete an earlier episode first, or start fresh.');
+        }
+
+        function useImportedData(data) {
+            STATE.characterName = data.characterName;
+            STATE.stats = JSON.parse(JSON.stringify(data.stats));
+            STATE.baseStats = JSON.parse(JSON.stringify(data.stats));
+            startGame();
+        }
+
+        function startFresh() {
+            STATE.characterName = 'Faithful One';
+            STATE.stats = {
+                faith: 75,
+                wisdom: 65,
+                courage: 68,
+                love: 72,
+                truth: 68,
+                patience: 70,
+                hope: 75
+            };
+            STATE.baseStats = JSON.parse(JSON.stringify(STATE.stats));
+            startGame();
+        }
+
+        function showNameInput() {
+            showScreen('nameScreen');
+        }
+
+        function confirmCustomName() {
+            var name = document.getElementById('customName').value.trim() || 'Faithful One';
+            STATE.characterName = name;
+            STATE.stats = {
+                faith: 75,
+                wisdom: 65,
+                courage: 68,
+                love: 72,
+                truth: 68,
+                patience: 70,
+                hope: 75
+            };
+            STATE.baseStats = JSON.parse(JSON.stringify(STATE.stats));
+            startGame();
+        }
+
+        function startGame() {
+            STATE.currentScene = 0;
+            STATE.choices = [];
+            STATE.episodeComplete = false;
+            STATE.legacyPoints = 0;
+            STATE.currentPatriarch = 'Abraham';
+            STATE.beings = [
+                { name: 'Abraham', status: 'patriarch', influence: 70, avatar: '☆', type: 'patriarch' },
+                { name: 'Isaac', status: 'heir', influence: 60, avatar: '◇', type: 'heir' },
+                { name: 'Jacob', status: 'heir', influence: 55, avatar: '◈', type: 'heir' },
+                { name: 'Joseph', status: 'dreamer', influence: 65, avatar: '★', type: 'dreamer' }
+            ];
+            showScreen('gameScreen');
+            updateStatsDisplay();
+            updateInfluenceDisplay();
+            updateGenerationDisplay();
+            displayScene(0);
+        }
+
+        function continueGame() {
+            var saved = localStorage.getItem('gcg_ep5_save');
+            if (saved) {
+                STATE = JSON.parse(saved);
+                updateStatsDisplay();
+                updateInfluenceDisplay();
+                updateGenerationDisplay();
+                updateBackground();
+                if (STATE.episodeComplete) {
+                    showSummary();
+                } else {
+                    showScreen('gameScreen');
+                    displayScene(STATE.currentScene);
+                }
+            }
+        }
+
+        // Display Functions
+        function updateStatsDisplay() {
+            document.getElementById('statFaith').textContent = STATE.stats.faith;
+            document.getElementById('statWisdom').textContent = STATE.stats.wisdom;
+            document.getElementById('statCourage').textContent = STATE.stats.courage;
+            document.getElementById('statLove').textContent = STATE.stats.love;
+            document.getElementById('statTruth').textContent = STATE.stats.truth;
+            document.getElementById('statPatience').textContent = STATE.stats.patience;
+            document.getElementById('statHope').textContent = STATE.stats.hope;
+            document.getElementById('statLegacy').textContent = STATE.legacyPoints;
+            document.getElementById('displayName').textContent = STATE.characterName;
+        }
+
+        function updateGenerationDisplay() {
+            document.getElementById('currentPatriarch').textContent = STATE.currentPatriarch;
+            document.getElementById('legacyDisplay').textContent = STATE.legacyPoints;
+        }
+
+        function updateBackground() {
+            var bg = document.getElementById('bgLayer');
+            bg.classList.remove('desert', 'moriah', 'bethel', 'egypt', 'pit');
+            
+            var scene = SCENES[STATE.currentScene];
+            if (scene) {
+                bg.classList.add(scene.locationClass);
+            } else {
+                bg.classList.add('desert');
+            }
+        }
+
+        function updateInfluenceDisplay() {
+            var grid = document.getElementById('influenceGrid');
+            var html = '';
+            
+            for (var i = 0; i < STATE.beings.length; i++) {
+                var being = STATE.beings[i];
+                var fillClass = being.influence >= 60 ? 'positive' : (being.influence <= 40 ? 'negative' : 'neutral');
+                var statusText = being.influence >= 70 ? 'Strengthened' : (being.influence >= 50 ? 'Faithful' : 'Standing');
+                
+                html += '<div class="influence-item">';
+                html += '<div class="influence-avatar ' + being.type + '">' + being.avatar + '</div>';
+                html += '<div class="influence-info">';
+                html += '<div class="influence-name">' + being.name + '</div>';
+                html += '<div class="influence-status">' + statusText + '</div>';
+                html += '<div class="influence-bar"><div class="influence-fill ' + fillClass + '" style="width: ' + being.influence + '%;"></div></div>';
+                html += '</div></div>';
+            }
+            grid.innerHTML = html;
+        }
+
+        function displayScene(sceneIndex) {
+            if (sceneIndex >= SCENES.length) {
+                STATE.episodeComplete = true;
+                saveGame();
+                showSummary();
+                return;
+            }
+
+            var scene = SCENES[sceneIndex];
+            var storyContent = document.getElementById('storyContent');
+            var choicesContainer = document.getElementById('choicesContainer');
+
+            // Update patriarch
+            STATE.currentPatriarch = scene.patriarch;
+            updateGenerationDisplay();
+
+            // Update background
+            updateBackground();
+
+            // Update story content class
+            storyContent.classList.remove('moriah-scene', 'bethel-scene', 'pit-scene', 'revelation-scene');
+            if (scene.locationClass === 'moriah') storyContent.classList.add('moriah-scene');
+            if (scene.locationClass === 'bethel') storyContent.classList.add('bethel-scene');
+            if (scene.locationClass === 'pit') storyContent.classList.add('pit-scene');
+            if (scene.location.includes('Revelation')) storyContent.classList.add('revelation-scene');
+
+            var storyHtml = '<div class="scene-location">' + scene.location + '</div>';
+            
+            // Add generation marker if applicable
+            if (scene.generationMarker) {
+                var desc = '';
+                if (scene.patriarch === 'Abraham') desc = 'The Father of Faith';
+                if (scene.patriarch === 'Jacob') desc = 'The Deceiver Becoming Israel';
+                if (scene.patriarch === 'Joseph') desc = 'The Dreamer in Chains';
+                
+                storyHtml += '<div class="generation-marker">';
+                storyHtml += '<h4>Generation</h4>';
+                storyHtml += '<div class="patriarch-name">' + scene.patriarch + '</div>';
+                storyHtml += '<p>' + desc + '</p>';
+                storyHtml += '</div>';
+            }
+            
+            storyHtml += '<div class="story-text">' + scene.content + '</div>';
+            storyContent.innerHTML = storyHtml;
+
+            var choicesHtml = '<div class="choices-label">What do you do?</div>';
+            for (var i = 0; i < scene.choices.length; i++) {
+                var choice = scene.choices[i];
+                var btnClass = choice.isLegacy ? 'choice-btn faith-choice' : 'choice-btn';
+                choicesHtml += '<button class="' + btnClass + '" onclick="makeChoice(' + sceneIndex + ', ' + i + ')">';
+                choicesHtml += '<span class="choice-letter">[' + choice.letter + ']</span>';
+                choicesHtml += choice.text;
+                if (choice.preview) {
+                    var prefix = '';
+                    if (choice.isPrayer) prefix += '🙏 ';
+                    if (choice.isLegacy) prefix += '☆ ';
+                    choicesHtml += '<span class="choice-preview">' + prefix + choice.preview + '</span>';
+                }
+                choicesHtml += '</button>';
+            }
+            choicesContainer.innerHTML = choicesHtml;
+        }
+
+        function makeChoice(sceneIndex, choiceIndex) {
+            var scene = SCENES[sceneIndex];
+            var choice = scene.choices[choiceIndex];
+
+            STATE.choices.push({
+                scene: sceneIndex,
+                choice: choiceIndex,
+                letter: choice.letter,
+                isPrayer: choice.isPrayer || false,
+                isLegacy: choice.isLegacy || false
+            });
+
+            if (choice.isLegacy) {
+                STATE.legacyPoints++;
+            }
+
+            // Apply stat effects
+            var statChanges = [];
+            if (choice.effects) {
+                for (var stat in choice.effects) {
+                    if (choice.effects.hasOwnProperty(stat)) {
+                        var change = choice.effects[stat];
+                        STATE.stats[stat] = Math.max(0, Math.min(100, STATE.stats[stat] + change));
+                        if (change !== 0) {
+                            statChanges.push({ stat: stat, change: change });
+                        }
+                    }
+                }
+            }
+
+            // Apply influence effects
+            var influenceChanges = [];
+            if (choice.influence) {
+                applyInfluence(choice.influence.target, choice.influence.change, choice.influence.type);
+                influenceChanges.push(choice.influence);
+            }
+            if (choice.influenceSecondary) {
+                applyInfluence(choice.influenceSecondary.target, choice.influenceSecondary.change, choice.influenceSecondary.type);
+                influenceChanges.push(choice.influenceSecondary);
+            }
+
+            showConsequence(choice, statChanges, influenceChanges, sceneIndex);
+        }
+
+        function applyInfluence(targetName, change, type) {
+            for (var i = 0; i < STATE.beings.length; i++) {
+                if (STATE.beings[i].name === targetName) {
+                    STATE.beings[i].influence = Math.max(0, Math.min(100, STATE.beings[i].influence + change));
+                    break;
+                }
+            }
+        }
+
+        function showConsequence(choice, statChanges, influenceChanges, sceneIndex) {
+            showScreen('consequenceScreen');
+            var display = document.getElementById('consequenceDisplay');
+
+            var title = 'Consequence';
+            if (choice.isPrayer) title = 'Prayer Offered';
+            if (choice.isLegacy) title = 'Legacy Moment';
+            if (choice.isPrayer && choice.isLegacy) title = 'Legacy Prayer';
+
+            var html = '<h3 class="consequence-title">' + title + '</h3>';
+
+            if (statChanges.length > 0) {
+                html += '<div class="stat-changes">';
+                for (var i = 0; i < statChanges.length; i++) {
+                    var sc = statChanges[i];
+                    var sign = sc.change > 0 ? '+' : '';
+                    var cls = sc.change > 0 ? 'positive' : 'negative';
+                    var statName = sc.stat.charAt(0).toUpperCase() + sc.stat.slice(1);
+                    html += '<div class="stat-change ' + cls + '">' + statName + ' ' + sign + sc.change + '</div>';
+                }
+                html += '</div>';
+            }
+
+            html += '<p style="text-align: center; color: var(--text-secondary); font-size: 1.05rem; line-height: 1.7; margin: 20px 0;">' + choice.response + '</p>';
+
+            if (influenceChanges.length > 0) {
+                html += '<div class="influence-change">';
+                html += '<div class="influence-change-title">Those Affected</div>';
+                html += '<div class="influence-change-text">';
+                for (var j = 0; j < influenceChanges.length; j++) {
+                    var ic = influenceChanges[j];
+                    var effect = ic.type === 'positive' ? 'strengthened' : (ic.type === 'negative' ? 'distanced' : 'unchanged');
+                    html += '<span class="name">' + ic.target + '</span> was ' + effect + '. ';
+                }
+                html += '</div></div>';
+            }
+
+            // Add legacy notice
+            if (choice.isLegacy) {
+                html += '<div class="legacy-notice"><h4>☆ Legacy Point Earned</h4><p>Your influence echoes through generations. The covenant continues.</p></div>';
+            }
+
+            html += '<button class="btn btn-patriarch continue-btn" onclick="continueStory(' + (sceneIndex + 1) + ')">Continue</button>';
+
+            display.innerHTML = html;
+            updateStatsDisplay();
+            updateInfluenceDisplay();
+            saveGame();
+        }
+
+        function continueStory(nextScene) {
+            STATE.currentScene = nextScene;
+            showScreen('gameScreen');
+            displayScene(nextScene);
+        }
+
+        function showSummary() {
+            showScreen('summaryScreen');
+            var summary = document.getElementById('episodeSummary');
+
+            // Reset background
+            var bg = document.getElementById('bgLayer');
+            bg.classList.remove('moriah', 'bethel', 'pit');
+            bg.classList.add('desert');
+
+            // Calculate results
+            var baseStats = STATE.baseStats || { faith: 75, wisdom: 65, courage: 68, love: 72, truth: 68, patience: 70, hope: 75 };
+            var avgStats = Math.round((STATE.stats.faith + STATE.stats.wisdom + STATE.stats.courage + STATE.stats.love + STATE.stats.truth + STATE.stats.patience + STATE.stats.hope) / 7);
+            
+            // Determine ending
+            var endingTitle = 'Faithful Witness';
+            var endingDesc = 'You walked with the patriarchs through impossible promises. You witnessed Moriah, Bethel, the pit, and the revelation. Faith was tested and grew.';
+
+            if (STATE.legacyPoints >= 4) {
+                endingTitle = 'Keeper of the Covenant';
+                endingDesc = 'You understood the deep connections — how each generation carried the promise forward, how suffering became salvation, how faith grew through impossible tests.';
+            } else if (STATE.stats.faith >= 90) {
+                endingTitle = 'Mountain Climber';
+                endingDesc = 'Like Abraham on Moriah, your faith scaled heights that reason cannot reach. You learned that obedience precedes understanding.';
+            } else if (STATE.stats.love >= 90) {
+                endingTitle = 'Heart of Mercy';
+                endingDesc = 'You saw Joseph weep over his brothers and understood: the ultimate test is not prison but power. Forgiveness is faith\'s highest expression.';
+            } else if (STATE.stats.wisdom >= 90) {
+                endingTitle = 'Seer of Providence';
+                endingDesc = 'You perceived the pattern: what men meant for evil, God meant for good. Every pit was positioning. Every prison was preparation.';
+            }
+
+            var html = '<div class="summary-header">';
+            html += '<h2 class="summary-title">Episode Complete</h2>';
+            html += '<p class="summary-subtitle">The Patriarchs</p>';
+            html += '</div>';
+
+            // Star promise decoration
+            html += '<div class="star-promise">';
+            html += '<div class="stars">☆ ★ ☆ ★ ☆</div>';
+            html += '<p>"So shall thy seed be."</p>';
+            html += '</div>';
+
+            // Ending Card
+            html += '<div class="summary-section" style="text-align: center; border-color: var(--gold);">';
+            html += '<h3 style="font-family: Cinzel, serif; font-size: 1.5rem; color: var(--gold); margin-bottom: 15px;">' + endingTitle + '</h3>';
+            html += '<p style="color: var(--text-secondary); line-height: 1.8;">' + endingDesc + '</p>';
+            html += '</div>';
+
+            // Legacy counter
+            html += '<div class="summary-section" style="text-align: center;">';
+            html += '<div style="font-family: Cinzel, serif; font-size: 3rem; color: var(--gold);">' + STATE.legacyPoints + '</div>';
+            html += '<div style="color: var(--text-secondary);">Legacy Points Earned</div>';
+            html += '<p style="margin-top: 15px; color: var(--text-dim); font-style: italic;">Your understanding echoes through generations. The covenant lives because you saw its depth.</p>';
+            html += '</div>';
+
+            // Patriarch journey
+            html += '<div class="summary-section">';
+            html += '<h4 class="summary-section-title">☆ The Patriarchal Journey</h4>';
+            html += '<div class="patriarch-journey">';
+            html += '<div class="patriarch-icon"><div class="icon">☆</div><div class="name">Abraham</div></div>';
+            html += '<div class="patriarch-arrow">→</div>';
+            html += '<div class="patriarch-icon"><div class="icon">◇</div><div class="name">Isaac</div></div>';
+            html += '<div class="patriarch-arrow">→</div>';
+            html += '<div class="patriarch-icon"><div class="icon">◈</div><div class="name">Jacob</div></div>';
+            html += '<div class="patriarch-arrow">→</div>';
+            html += '<div class="patriarch-icon"><div class="icon">★</div><div class="name">Joseph</div></div>';
+            html += '</div></div>';
+
+            // Stats
+            html += '<div class="summary-section">';
+            html += '<h4 class="summary-section-title">☆ Character Development</h4>';
+            html += '<div class="final-stats-grid">';
+            var statNames = ['faith', 'wisdom', 'courage', 'love', 'truth', 'patience', 'hope'];
+            var statColors = ['#ffd700', '#9b59b6', '#e74c3c', '#e91e63', '#3498db', '#1abc9c', '#f39c12'];
+            for (var s = 0; s < statNames.length; s++) {
+                var sName = statNames[s];
+                var sVal = STATE.stats[sName];
+                var sBase = baseStats[sName] || 70;
+                var sChange = sVal - sBase;
+                var changeStr = sChange >= 0 ? '+' + sChange : '' + sChange;
+                var changeColor = sChange >= 0 ? 'var(--success)' : 'var(--danger)';
+                html += '<div class="final-stat">';
+                html += '<div class="final-stat-name" style="color: ' + statColors[s] + ';">' + sName.charAt(0).toUpperCase() + sName.slice(1) + '</div>';
+                html += '<div class="final-stat-value" style="color: ' + statColors[s] + ';">' + sVal + '</div>';
+                html += '<div class="final-stat-change" style="color: ' + changeColor + ';">' + changeStr + '</div>';
+                html += '</div>';
+            }
+            html += '</div></div>';
+
+            // Beings
+            html += '<div class="summary-section">';
+            html += '<h4 class="summary-section-title">☆ The Patriarchs</h4>';
+            html += '<div class="souls-detail">';
+            
+            for (var b = 0; b < STATE.beings.length; b++) {
+                var being = STATE.beings[b];
+                var status = being.influence >= 70 ? 'strengthened' : (being.influence >= 50 ? 'faithful' : 'standing');
+                var statusLabel = being.influence >= 70 ? 'Strengthened' : (being.influence >= 50 ? 'Faithful' : 'Standing');
+                
+                if (being.name === 'Joseph' && being.influence >= 65) {
+                    status = 'transformed';
+                    statusLabel = 'Transformed';
+                }
+                if (being.name === 'Jacob' && being.influence >= 60) {
+                    status = 'redeemed';
+                    statusLabel = 'Redeemed';
+                }
+                
+                html += '<div class="soul-item">';
+                html += '<span class="soul-name">' + being.name + '</span>';
+                html += '<span class="soul-status ' + status + '">' + statusLabel + '</span>';
+                html += '</div>';
+            }
+            
+            html += '</div></div>';
+
+            // Narrative
+            html += '<div class="summary-section">';
+            html += '<h4 class="summary-section-title">☆ Your Story</h4>';
+            html += '<div class="narrative-summary">' + generateNarrative() + '</div>';
+            html += '</div>';
+
+            // Next Episode
+            html += '<div class="to-be-continued">';
+            html += '<h3>To Be Continued...</h3>';
+            html += '<p>Episode 6: The Exodus — Coming Soon</p>';
+            html += '<p style="margin-top: 10px; color: var(--text-dim);">Four hundred years pass. Egypt enslaves Israel. Then God raises up a deliverer: Moses. Let my people go.</p>';
+            html += '<button class="btn btn-primary" style="margin-top: 20px;" onclick="returnToTitle()">Return to Title</button>';
+            html += '</div>';
+
+            summary.innerHTML = html;
+        }
+
+        function generateNarrative() {
+            var narrative = '<p>As ' + STATE.characterName + ', you walked with four generations of promise-bearers through impossible circumstances.</p>';
+
+            narrative += '<p>You watched Abraham leave everything for a voice, count stars that matched his descendants, and climb Moriah with a knife and a son. You witnessed faith graduate beyond its testing.</p>';
+            
+            if (STATE.stats.wisdom >= 85) {
+                narrative += '<p>You saw the patterns others missed — Isaac on the altar foreshadowing Calvary, the ladder at Bethel pointing to Christ, Joseph\'s suffering becoming salvation. The whole story connects.</p>';
+            }
+
+            narrative += '<p>You descended with the angels on Jacob\'s ladder, revealing that heaven\'s attention never wavers from earth. You watched a deceiver become Israel.</p>';
+
+            if (STATE.stats.love >= 85) {
+                narrative += '<p>And in Egypt, you witnessed the moment that defines redemption: Joseph weeping over the brothers who sold him, choosing mercy over vengeance. Power used for forgiveness — this is how God\'s people rule.</p>';
+            }
+
+            narrative += '<p>"Ye thought evil against me; but God meant it unto good." This truth will echo through every suffering saint\'s journey. The patriarchs proved it first.</p>';
+
+            narrative += '<p>From stars to pit to palace — the covenant continues. And somewhere ahead, the Seed approaches.</p>';
+
+            return narrative;
+        }
+
+        // Menu Functions
+        function toggleMenu() {
+            document.getElementById('menuModal').classList.toggle('active');
+        }
+
+        function saveGame() {
+            localStorage.setItem('gcg_ep5_save', JSON.stringify(STATE));
+        }
+
+        function restartEpisode() {
+            if (confirm('Restart Episode 5? All progress will be lost.')) {
+                localStorage.removeItem('gcg_ep5_save');
+                location.reload();
+            }
+        }
+
+        function returnToTitle() {
+            var modal = document.getElementById('menuModal');
+            if (modal.classList.contains('active')) {
+                modal.classList.remove('active');
+            }
+            showScreen('titleScreen');
+            checkSavedGame();
+            // Reset background
+            var bg = document.getElementById('bgLayer');
+            bg.classList.remove('moriah', 'bethel', 'pit', 'egypt');
+            bg.classList.add('desert');
+        }
+
+        // Init
+        init();
+    </script>
+</body>
+</html>
