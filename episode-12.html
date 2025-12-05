@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Great Controversy: The Game - Episode 12</title>
+    <meta name="description" content="Episode 12: The Advent Movement. Through disappointment to discovery. The final message for the final generation.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #050505;
+            --bg-medium: #080808;
+            --advent-gold: #d4a03a;
+            --advent-amber: #c9a227;
+            --midnight-blue: #1a237e;
+            --disappointment-gray: #4a4a4a;
+            --sanctuary-white: #fff8dc;
+            --sabbath-blue: #1565c0;
+            --cornfield-gold: #daa520;
+            --vision-purple: #7b1fa2;
+            --dawn-orange: #ff8f00;
+            --angel-white: #f5f5f5;
+            --text-primary: #e8e0d8;
+            --text-secondary: #b8a898;
+            --text-dim: #7a6a5a;
+            --text-gold: #d4a03a;
+            --success: #4a6a4a;
+            --faith-color: #ffd700;
+            --wisdom-color: #9b59b6;
+            --courage-color: #e74c3c;
+            --love-color: #e91e63;
+            --truth-color: #3498db;
+            --patience-color: #1abc9c;
+            --hope-color: #f39c12;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Crimson Pro', Georgia, serif; background: var(--bg-dark); color: var(--text-primary); min-height: 100vh; overflow-x: hidden; }
+        .celestial-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden; transition: all 1.5s ease; }
+        .celestial-bg.study::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at 50% 30%, rgba(212, 160, 58, 0.15) 0%, transparent 50%), linear-gradient(180deg, #0a0805 0%, #080705 40%, #050403 100%); }
+        .celestial-bg.midnight::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at 50% 20%, rgba(26, 35, 126, 0.2) 0%, transparent 50%), linear-gradient(180deg, #050508 0%, #080810 40%, #030305 100%); }
+        .celestial-bg.disappointment::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at 50% 50%, rgba(74, 74, 74, 0.15) 0%, transparent 40%), linear-gradient(180deg, #080808 0%, #0a0a0a 40%, #050505 100%); }
+        .celestial-bg.cornfield::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at 50% 70%, rgba(218, 165, 32, 0.15) 0%, transparent 40%), linear-gradient(180deg, #0a0805 0%, #080705 40%, #050403 100%); }
+        .celestial-bg.sanctuary::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at 50% 30%, rgba(255, 248, 220, 0.1) 0%, transparent 40%), linear-gradient(180deg, #08080a 0%, #0a0a0c 40%, #050508 100%); }
+        .celestial-bg.sabbath::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at 50% 50%, rgba(21, 101, 192, 0.15) 0%, transparent 40%), linear-gradient(180deg, #050508 0%, #08080a 40%, #030305 100%); }
+        .celestial-bg.vision::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at 50% 30%, rgba(123, 31, 162, 0.15) 0%, transparent 40%), linear-gradient(180deg, #080508 0%, #0a080a 40%, #050305 100%); }
+        .celestial-bg.angels::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at 50% 20%, rgba(245, 245, 245, 0.08) 0%, transparent 40%), linear-gradient(180deg, #0a0a0a 0%, #0c0c0c 40%, #080808 100%); }
+        .celestial-bg.dawn::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at 50% 100%, rgba(255, 143, 0, 0.15) 0%, transparent 50%), linear-gradient(180deg, #080805 0%, #0a0808 40%, #080505 100%); }
+        .stars { position: absolute; width: 100%; height: 100%; background-image: radial-gradient(1px 1px at 20px 30px, rgba(212, 160, 58, 0.3), transparent), radial-gradient(1px 1px at 90px 40px, rgba(212, 160, 58, 0.3), transparent), radial-gradient(1px 1px at 150px 80px, rgba(255, 248, 220, 0.4), transparent); background-size: 200px 200px; animation: twinkle 8s ease-in-out infinite; }
+        @keyframes twinkle { 0%, 100% { opacity: 0.3; } 50% { opacity: 0.5; } }
+        .light-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at 50% 0%, rgba(255, 248, 220, 0.1) 0%, transparent 50%); opacity: 0; pointer-events: none; transition: opacity 1s ease; }
+        .light-overlay.active { opacity: 1; }
+        .tear-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(180deg, transparent 0%, rgba(74, 74, 74, 0.1) 100%); opacity: 0; pointer-events: none; transition: opacity 1s ease; }
+        .tear-overlay.active { opacity: 1; }
+        .game-container { max-width: 900px; margin: 0 auto; padding: 20px; min-height: 100vh; display: flex; flex-direction: column; }
+        .game-header { text-align: center; padding: 20px 0; border-bottom: 1px solid rgba(212, 160, 58, 0.3); margin-bottom: 20px; }
+        .game-title { font-family: 'Cinzel', serif; font-size: 1.8rem; font-weight: 600; color: var(--advent-gold); text-transform: uppercase; letter-spacing: 3px; text-shadow: 0 0 30px rgba(212, 160, 58, 0.3); margin-bottom: 5px; }
+        .game-subtitle { font-family: 'Orbitron', sans-serif; font-size: 0.7rem; color: var(--advent-amber); text-transform: uppercase; letter-spacing: 4px; }
+        .screen { display: none; flex: 1; animation: fadeIn 0.5s ease-out; }
+        .screen.active { display: flex; flex-direction: column; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .title-screen { justify-content: center; align-items: center; text-align: center; }
+        .episode-number { font-family: 'Orbitron', sans-serif; font-size: 0.9rem; color: var(--advent-gold); text-transform: uppercase; letter-spacing: 4px; margin-bottom: 10px; }
+        .main-title { font-family: 'Cinzel', serif; font-size: 2.8rem; font-weight: 700; color: var(--advent-gold); text-transform: uppercase; letter-spacing: 6px; margin-bottom: 10px; text-shadow: 0 0 50px rgba(212, 160, 58, 0.3); }
+        .main-subtitle { font-family: 'Cinzel', serif; font-size: 1.3rem; color: var(--text-secondary); margin-bottom: 30px; }
+        .tagline { font-family: 'Crimson Pro', serif; font-size: 1.1rem; color: var(--text-dim); font-style: italic; margin-bottom: 30px; max-width: 500px; }
+        .episode-intro { background: rgba(212, 160, 58, 0.08); border: 1px solid rgba(212, 160, 58, 0.3); border-radius: 8px; padding: 25px; margin-bottom: 30px; max-width: 600px; text-align: left; }
+        .episode-intro p { color: var(--text-secondary); line-height: 1.8; margin-bottom: 15px; }
+        .episode-intro p:last-child { margin-bottom: 0; }
+        .title-buttons { display: flex; flex-direction: column; gap: 15px; width: 280px; }
+        .btn { font-family: 'Orbitron', sans-serif; font-size: 0.85rem; padding: 15px 30px; border: none; border-radius: 4px; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; transition: all 0.3s ease; }
+        .btn-primary { background: linear-gradient(135deg, var(--advent-gold) 0%, var(--advent-amber) 100%); color: var(--bg-dark); box-shadow: 0 4px 20px rgba(212, 160, 58, 0.3); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 30px rgba(212, 160, 58, 0.5); }
+        .btn-secondary { background: transparent; color: var(--advent-gold); border: 1px solid var(--advent-gold); }
+        .btn-secondary:hover { background: rgba(212, 160, 58, 0.1); }
+        .btn-secondary:disabled { opacity: 0.3; cursor: not-allowed; }
+        .btn-advent { background: linear-gradient(135deg, var(--advent-gold) 0%, var(--dawn-orange) 100%); color: var(--bg-dark); box-shadow: 0 4px 20px rgba(212, 160, 58, 0.3); }
+        .import-section { max-width: 500px; margin: 0 auto; padding: 30px 0; }
+        .section-title { font-family: 'Cinzel', serif; font-size: 1.6rem; color: var(--advent-gold); text-align: center; margin-bottom: 30px; }
+        .import-options { display: flex; flex-direction: column; gap: 20px; }
+        .import-option { background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(212, 160, 58, 0.3); border-radius: 12px; padding: 25px; cursor: pointer; transition: all 0.3s ease; }
+        .import-option:hover { border-color: var(--advent-gold); background: rgba(212, 160, 58, 0.1); }
+        .import-option h3 { font-family: 'Cinzel', serif; color: var(--advent-gold); margin-bottom: 10px; }
+        .import-option p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; }
+        .import-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+        .import-stat { text-align: center; }
+        .import-stat-name { font-family: 'Orbitron', sans-serif; font-size: 0.6rem; color: var(--text-dim); text-transform: uppercase; }
+        .import-stat-value { font-family: 'Orbitron', sans-serif; font-size: 1rem; font-weight: 600; }
+        .stats-panel { background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(212, 160, 58, 0.3); border-radius: 8px; padding: 15px; margin-bottom: 20px; }
+        .stats-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        .character-name { font-family: 'Cinzel', serif; font-size: 1.1rem; color: var(--advent-gold); }
+        .episode-indicator { font-family: 'Orbitron', sans-serif; font-size: 0.65rem; color: var(--advent-amber); text-transform: uppercase; letter-spacing: 1px; }
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+        .stat-item { text-align: center; }
+        .stat-name { font-family: 'Orbitron', sans-serif; font-size: 0.55rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+        .stat-value { font-family: 'Orbitron', sans-serif; font-size: 1.1rem; font-weight: 600; }
+        .stat-faith { color: var(--faith-color); }
+        .stat-wisdom { color: var(--wisdom-color); }
+        .stat-courage { color: var(--courage-color); }
+        .stat-love { color: var(--love-color); }
+        .stat-truth { color: var(--truth-color); }
+        .stat-patience { color: var(--patience-color); }
+        .stat-hope { color: var(--hope-color); }
+        .advent-panel { background: linear-gradient(135deg, rgba(212, 160, 58, 0.1) 0%, rgba(255, 143, 0, 0.05) 100%); border: 1px solid rgba(212, 160, 58, 0.4); border-radius: 8px; padding: 12px 20px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; }
+        .advent-label { font-family: 'Orbitron', sans-serif; font-size: 0.7rem; color: var(--advent-gold); text-transform: uppercase; letter-spacing: 2px; }
+        .advent-value { font-family: 'Cinzel', serif; font-size: 1.1rem; color: var(--advent-gold); font-weight: 600; }
+        .phase-indicator { font-family: 'Orbitron', sans-serif; font-size: 0.8rem; color: var(--text-gold); }
+        .influence-panel { background: rgba(212, 160, 58, 0.08); border: 1px solid rgba(212, 160, 58, 0.3); border-radius: 8px; padding: 15px; margin-bottom: 20px; }
+        .influence-title { font-family: 'Orbitron', sans-serif; font-size: 0.7rem; color: var(--advent-gold); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+        .influence-title::before { content: '⭐'; font-size: 1rem; }
+        .influence-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+        .influence-item { display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: rgba(0, 0, 0, 0.2); border-radius: 4px; }
+        .influence-avatar { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; flex-shrink: 0; }
+        .influence-avatar.pioneer { background: linear-gradient(135deg, var(--advent-gold), var(--cornfield-gold)); }
+        .influence-avatar.prophetess { background: linear-gradient(135deg, var(--vision-purple), var(--advent-gold)); }
+        .influence-avatar.believers { background: linear-gradient(135deg, var(--sabbath-blue), var(--sanctuary-white)); }
+        .influence-avatar.world { background: linear-gradient(135deg, var(--disappointment-gray), #666); }
+        .influence-info { flex: 1; min-width: 0; }
+        .influence-name { font-family: 'Cinzel', serif; font-size: 0.85rem; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .influence-status { font-size: 0.7rem; color: var(--text-dim); }
+        .influence-bar { width: 100%; height: 4px; background: rgba(255, 255, 255, 0.1); border-radius: 2px; margin-top: 4px; overflow: hidden; }
+        .influence-fill { height: 100%; border-radius: 2px; transition: width 0.5s ease; }
+        .influence-fill.gold { background: var(--advent-gold); }
+        .influence-fill.purple { background: var(--vision-purple); }
+        .influence-fill.blue { background: var(--sabbath-blue); }
+        .influence-fill.gray { background: var(--disappointment-gray); }
+        .story-panel { flex: 1; display: flex; flex-direction: column; }
+        .story-content { background: rgba(0, 0, 0, 0.4); border: 1px solid rgba(212, 160, 58, 0.2); border-radius: 12px; padding: 30px; margin-bottom: 20px; flex: 1; transition: all 0.5s ease; }
+        .story-content.study-scene { border-color: rgba(212, 160, 58, 0.4); background: rgba(10, 8, 5, 0.6); }
+        .story-content.midnight-scene { border-color: rgba(26, 35, 126, 0.4); background: rgba(5, 5, 15, 0.6); }
+        .story-content.disappointment-scene { border-color: rgba(74, 74, 74, 0.4); background: rgba(8, 8, 8, 0.6); }
+        .story-content.cornfield-scene { border-color: rgba(218, 165, 32, 0.4); background: rgba(10, 8, 5, 0.6); }
+        .story-content.sanctuary-scene { border-color: rgba(255, 248, 220, 0.3); background: rgba(8, 8, 12, 0.6); }
+        .story-content.sabbath-scene { border-color: rgba(21, 101, 192, 0.4); background: rgba(5, 5, 12, 0.6); }
+        .story-content.vision-scene { border-color: rgba(123, 31, 162, 0.4); background: rgba(8, 5, 10, 0.6); }
+        .story-content.angels-scene { border-color: rgba(245, 245, 245, 0.3); background: rgba(10, 10, 10, 0.6); }
+        .story-content.dawn-scene { border-color: rgba(255, 143, 0, 0.4); background: rgba(10, 8, 5, 0.6); }
+        .scene-location { font-family: 'Orbitron', sans-serif; font-size: 0.7rem; color: var(--advent-gold); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+        .scene-location::before, .scene-location::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(212, 160, 58, 0.3), transparent); }
+        .story-text { font-size: 1.15rem; line-height: 1.9; color: var(--text-primary); margin-bottom: 25px; }
+        .story-text p { margin-bottom: 15px; }
+        .story-text .speaker { font-family: 'Cinzel', serif; font-weight: 600; }
+        .story-text .speaker.miller { color: var(--cornfield-gold); }
+        .story-text .speaker.ellen { color: var(--vision-purple); }
+        .story-text .speaker.edson { color: var(--advent-gold); }
+        .story-text .speaker.bates { color: var(--sabbath-blue); }
+        .story-text .speaker.angel { color: var(--angel-white); }
+        .story-text em { color: var(--text-secondary); font-style: italic; }
+        .story-text .prophecy { color: var(--advent-gold); text-shadow: 0 0 8px rgba(212, 160, 58, 0.4); }
+        .story-text .scripture { color: var(--sanctuary-white); text-shadow: 0 0 8px rgba(255, 248, 220, 0.4); }
+        .story-text .sanctuary { color: var(--sanctuary-white); }
+        .story-text .sabbath { color: var(--sabbath-blue); text-shadow: 0 0 8px rgba(21, 101, 192, 0.4); }
+        .story-text .disappointment { color: var(--disappointment-gray); }
+        .story-text .vision { color: var(--vision-purple); text-shadow: 0 0 8px rgba(123, 31, 162, 0.4); }
+        .story-text .number { color: var(--advent-gold); font-weight: 600; font-size: 1.1em; }
+        .story-text .date { color: var(--dawn-orange); font-weight: 600; }
+        .phase-marker { background: rgba(212, 160, 58, 0.15); border: 1px solid rgba(212, 160, 58, 0.4); border-radius: 8px; padding: 15px; margin: 20px 0; text-align: center; }
+        .phase-marker h4 { font-family: 'Orbitron', sans-serif; font-size: 0.8rem; color: var(--advent-gold); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 5px; }
+        .phase-marker .phase-name { font-family: 'Cinzel', serif; font-size: 1.6rem; color: var(--advent-gold); font-weight: 700; }
+        .phase-marker p { color: var(--text-dim); font-size: 0.9rem; margin-top: 8px; font-style: italic; }
+        .choices-container { margin-top: auto; }
+        .choices-label { font-family: 'Orbitron', sans-serif; font-size: 0.7rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; }
+        .choice-btn { display: block; width: 100%; text-align: left; padding: 18px 20px; margin-bottom: 10px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(212, 160, 58, 0.3); border-radius: 8px; color: var(--text-primary); font-family: 'Crimson Pro', serif; font-size: 1.05rem; cursor: pointer; transition: all 0.3s ease; position: relative; overflow: hidden; }
+        .choice-btn::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--advent-gold); opacity: 0; transition: opacity 0.3s ease; }
+        .choice-btn:hover { background: rgba(212, 160, 58, 0.15); border-color: var(--advent-gold); transform: translateX(5px); }
+        .choice-btn:hover::before { opacity: 1; }
+        .choice-btn.advent-choice { border-color: rgba(212, 160, 58, 0.5); background: rgba(212, 160, 58, 0.08); }
+        .choice-btn.advent-choice:hover { background: rgba(212, 160, 58, 0.15); }
+        .choice-letter { font-family: 'Orbitron', sans-serif; font-size: 0.75rem; color: var(--advent-gold); margin-right: 12px; }
+        .choice-preview { display: block; font-size: 0.8rem; color: var(--text-dim); margin-top: 8px; padding-left: 25px; font-style: italic; }
+        .consequence-display { background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(212, 160, 58, 0.3); border-radius: 12px; padding: 30px; margin: 20px 0; animation: slideIn 0.5s ease-out; }
+        @keyframes slideIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .consequence-title { font-family: 'Cinzel', serif; font-size: 1.2rem; color: var(--advent-gold); text-align: center; margin-bottom: 20px; }
+        .stat-changes { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-bottom: 20px; }
+        .stat-change { padding: 8px 16px; border-radius: 20px; font-family: 'Orbitron', sans-serif; font-size: 0.75rem; display: flex; align-items: center; gap: 6px; }
+        .stat-change.positive { background: rgba(107, 142, 78, 0.2); border: 1px solid var(--success); color: var(--success); }
+        .stat-change.advent { background: rgba(212, 160, 58, 0.2); border: 1px solid var(--advent-gold); color: var(--advent-gold); }
+        .advent-notice { background: rgba(212, 160, 58, 0.15); border: 1px solid rgba(212, 160, 58, 0.4); border-radius: 8px; padding: 15px; margin-top: 15px; text-align: center; }
+        .advent-notice h4 { font-family: 'Cinzel', serif; color: var(--advent-gold); margin-bottom: 8px; }
+        .advent-notice p { color: var(--text-secondary); font-size: 0.9rem; font-style: italic; }
+        .continue-btn { display: block; width: 100%; max-width: 300px; margin: 20px auto 0; }
+        .episode-summary { padding: 30px 0; }
+        .summary-header { text-align: center; margin-bottom: 40px; }
+        .summary-title { font-family: 'Cinzel', serif; font-size: 2rem; color: var(--advent-gold); margin-bottom: 10px; }
+        .summary-subtitle { font-family: 'Orbitron', sans-serif; font-size: 0.8rem; color: var(--advent-amber); text-transform: uppercase; letter-spacing: 3px; }
+        .summary-section { background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(212, 160, 58, 0.3); border-radius: 12px; padding: 25px; margin-bottom: 20px; }
+        .summary-section-title { font-family: 'Cinzel', serif; font-size: 1.1rem; color: var(--advent-gold); margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        .final-stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 15px; }
+        .final-stat { text-align: center; padding: 15px; background: rgba(255, 255, 255, 0.03); border-radius: 8px; }
+        .final-stat-name { font-family: 'Orbitron', sans-serif; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        .final-stat-value { font-family: 'Orbitron', sans-serif; font-size: 1.5rem; font-weight: 600; }
+        .final-stat-change { font-size: 0.75rem; margin-top: 4px; }
+        .phase-journey { display: flex; justify-content: space-around; align-items: center; padding: 20px 0; flex-wrap: wrap; gap: 10px; }
+        .journey-phase { text-align: center; }
+        .journey-phase .icon { font-size: 2rem; margin-bottom: 5px; }
+        .journey-phase .name { font-family: 'Orbitron', sans-serif; font-size: 0.65rem; color: var(--text-secondary); }
+        .journey-arrow { color: var(--advent-gold); font-size: 1.2rem; }
+        .star-decoration { text-align: center; padding: 25px; margin: 20px 0; }
+        .star-symbol { font-size: 3rem; margin-bottom: 10px; }
+        .star-inscription { font-family: 'Cinzel', serif; font-size: 1.2rem; color: var(--advent-gold); letter-spacing: 2px; }
+        .star-decoration p { color: var(--text-secondary); font-style: italic; margin-top: 10px; }
+        .narrative-summary { font-size: 1.05rem; line-height: 1.8; color: var(--text-secondary); }
+        .narrative-summary p { margin-bottom: 15px; }
+        .to-be-continued { text-align: center; padding: 30px; margin-top: 20px; }
+        .to-be-continued h3 { font-family: 'Cinzel', serif; font-size: 1.3rem; color: var(--advent-gold); margin-bottom: 10px; }
+        .to-be-continued p { color: var(--text-dim); font-style: italic; }
+        .menu-btn { position: fixed; top: 20px; right: 20px; width: 44px; height: 44px; background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(212, 160, 58, 0.4); border-radius: 8px; color: var(--advent-gold); font-size: 1.2rem; cursor: pointer; z-index: 100; display: none; align-items: center; justify-content: center; transition: all 0.3s ease; }
+        .menu-btn:hover { background: rgba(212, 160, 58, 0.2); }
+        .menu-btn.visible { display: flex; }
+        .menu-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.9); z-index: 200; display: none; align-items: center; justify-content: center; }
+        .menu-modal.active { display: flex; }
+        .menu-content { background: var(--bg-medium); border: 1px solid rgba(212, 160, 58, 0.4); border-radius: 12px; padding: 30px; text-align: center; max-width: 350px; width: 90%; }
+        .menu-title { font-family: 'Cinzel', serif; font-size: 1.3rem; color: var(--advent-gold); margin-bottom: 25px; }
+        .menu-buttons { display: flex; flex-direction: column; gap: 12px; }
+        .menu-buttons .btn { width: 100%; }
+        .game-footer { text-align: center; padding: 20px 0; margin-top: auto; border-top: 1px solid rgba(212, 160, 58, 0.2); }
+        .footer-text { font-family: 'Orbitron', sans-serif; font-size: 0.6rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 2px; }
+        .footer-text a { color: var(--advent-gold); text-decoration: none; }
+        @media (max-width: 768px) {
+            .main-title { font-size: 2rem; letter-spacing: 3px; }
+            .stats-grid { grid-template-columns: repeat(4, 1fr); gap: 5px; }
+            .stat-name { font-size: 0.5rem; }
+            .stat-value { font-size: 0.9rem; }
+            .influence-grid { grid-template-columns: 1fr; }
+            .story-content { padding: 20px; }
+            .story-text { font-size: 1.05rem; }
+            .choice-btn { padding: 15px; font-size: 0.95rem; }
+            .final-stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .phase-journey { flex-direction: column; }
+            .journey-arrow { transform: rotate(90deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="celestial-bg study" id="bgLayer">
+        <div class="stars"></div>
+        <div class="light-overlay" id="lightOverlay"></div>
+        <div class="tear-overlay" id="tearOverlay"></div>
+    </div>
+    <button class="menu-btn" id="menuBtn" onclick="toggleMenu()">☰</button>
+    <div class="menu-modal" id="menuModal">
+        <div class="menu-content">
+            <h2 class="menu-title">Game Menu</h2>
+            <div class="menu-buttons">
+                <button class="btn btn-secondary" onclick="saveGame()">Save Progress</button>
+                <button class="btn btn-secondary" onclick="toggleMenu()">Resume Game</button>
+                <button class="btn btn-secondary" onclick="restartEpisode()">Restart Episode</button>
+                <button class="btn btn-secondary" onclick="returnToTitle()">Main Menu</button>
+            </div>
+        </div>
+    </div>
+    <div class="game-container">
+        <header class="game-header">
+            <h1 class="game-title">The Great Controversy</h1>
+            <p class="game-subtitle">Episode 12: The Advent Movement</p>
+        </header>
+        <div class="screen active" id="titleScreen">
+            <div class="title-screen">
+                <div class="episode-number">Episode XII</div>
+                <h1 class="main-title">The Advent Movement</h1>
+                <h2 class="main-subtitle">Through Disappointment to Discovery</h2>
+                <p class="tagline">"Unto two thousand and three hundred days; then shall the sanctuary be cleansed." — Daniel 8:14</p>
+                <div class="episode-intro">
+                    <p>A farmer in New York opens the book of Daniel. He calculates dates, cross-references prophecies, and reaches an astonishing conclusion: Jesus is coming in 1844.</p>
+                    <p>Thousands believe. October 22 arrives. Christ does not come. The Great Disappointment shatters hearts — but from the ashes, understanding rises.</p>
+                    <p>The sanctuary. The Sabbath. The Three Angels. The final message for the final generation.</p>
+                </div>
+                <div class="title-buttons">
+                    <button class="btn btn-advent" onclick="showImportScreen()">Begin Episode 12</button>
+                    <button class="btn btn-secondary" id="continueBtn" onclick="continueGame()" disabled>Continue Saved Game</button>
+                </div>
+            </div>
+        </div>
+        <div class="screen" id="importScreen">
+            <div class="import-section">
+                <h2 class="section-title">Character Import</h2>
+                <div class="import-options">
+                    <div class="import-option" id="importFromPrev" onclick="importFromPrevious()">
+                        <h3>Import from Previous Episodes</h3>
+                        <p>Continue your journey. The Reformation continues. The final message emerges.</p>
+                        <div class="import-stats" id="prevStats" style="display: none;"></div>
+                    </div>
+                    <div class="import-option" onclick="startFresh()">
+                        <h3>Start Fresh</h3>
+                        <p>Begin Episode 12 with default stats. Stand with the Advent pioneers.</p>
+                        <div class="import-stats">
+                            <div class="import-stat"><div class="import-stat-name">Faith</div><div class="import-stat-value stat-faith">95</div></div>
+                            <div class="import-stat"><div class="import-stat-name">Patience</div><div class="import-stat-value stat-patience">90</div></div>
+                            <div class="import-stat"><div class="import-stat-name">Truth</div><div class="import-stat-value stat-truth">92</div></div>
+                            <div class="import-stat"><div class="import-stat-name">Hope</div><div class="import-stat-value stat-hope">96</div></div>
+                        </div>
+                    </div>
+                    <div class="import-option" onclick="showNameInput()">
+                        <h3>Custom Character</h3>
+                        <p>Enter a name and walk with the pioneers through disappointment to triumph.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="screen" id="nameScreen">
+            <div class="import-section">
+                <h2 class="section-title">Name Your Character</h2>
+                <div style="max-width: 400px; margin: 0 auto;">
+                    <label style="display: block; font-family: Orbitron, sans-serif; font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px;">Your Name</label>
+                    <input type="text" id="customName" placeholder="Enter your name..." maxlength="20" style="width: 100%; padding: 15px 20px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(212, 160, 58, 0.3); border-radius: 4px; color: var(--text-primary); font-family: Crimson Pro, serif; font-size: 1.1rem;">
+                    <button class="btn btn-advent" style="width: 100%; margin-top: 20px;" onclick="confirmCustomName()">Begin Episode 12</button>
+                </div>
+            </div>
+        </div>
+        <div class="screen" id="gameScreen">
+            <div class="stats-panel" id="statsPanel">
+                <div class="stats-header">
+                    <span class="character-name" id="displayName">-</span>
+                    <span class="episode-indicator">Episode 12: The Advent Movement</span>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-item"><div class="stat-name">Faith</div><div class="stat-value stat-faith" id="statFaith">50</div></div>
+                    <div class="stat-item"><div class="stat-name">Wisdom</div><div class="stat-value stat-wisdom" id="statWisdom">50</div></div>
+                    <div class="stat-item"><div class="stat-name">Courage</div><div class="stat-value stat-courage" id="statCourage">50</div></div>
+                    <div class="stat-item"><div class="stat-name">Love</div><div class="stat-value stat-love" id="statLove">50</div></div>
+                    <div class="stat-item"><div class="stat-name">Truth</div><div class="stat-value stat-truth" id="statTruth">50</div></div>
+                    <div class="stat-item"><div class="stat-name">Patience</div><div class="stat-value stat-patience" id="statPatience">50</div></div>
+                    <div class="stat-item"><div class="stat-name">Hope</div><div class="stat-value stat-hope" id="statHope">50</div></div>
+                    <div class="stat-item"><div class="stat-name">Advent</div><div class="stat-value" style="color: var(--advent-gold);" id="statAdvent">0</div></div>
+                </div>
+            </div>
+            <div class="advent-panel" id="adventPanel">
+                <span class="advent-label">Advent Points</span>
+                <span class="advent-value" id="adventDisplay">0</span>
+                <span class="phase-indicator" id="currentPhase">Discovery</span>
+            </div>
+            <div class="influence-panel" id="influencePanel">
+                <div class="influence-title">Those in Your Sphere</div>
+                <div class="influence-grid" id="influenceGrid"></div>
+            </div>
+            <div class="story-panel">
+                <div class="story-content" id="storyContent"></div>
+                <div class="choices-container" id="choicesContainer"></div>
+            </div>
+        </div>
+        <div class="screen" id="consequenceScreen">
+            <div class="consequence-display" id="consequenceDisplay"></div>
+        </div>
+        <div class="screen" id="summaryScreen">
+            <div class="episode-summary" id="episodeSummary"></div>
+        </div>
+        <footer class="game-footer">
+            <p class="footer-text">Seven Cubed Seven Labs | <a href="https://sevencubedseven.com">7³×7 = 2,401</a></p>
+        </footer>
+    </div>
+    <script>
+        var STATE = {
+            screen: 'title', characterName: '', stats: { faith: 95, wisdom: 90, courage: 92, love: 90, truth: 92, patience: 90, hope: 96 },
+            baseStats: {}, adventPoints: 0, currentPhase: 'Discovery', currentScene: 0, choices: [],
+            beings: [
+                { name: 'William Miller', status: 'studying', influence: 70, avatar: '📖', type: 'pioneer' },
+                { name: 'Ellen White', status: 'young', influence: 50, avatar: '👁', type: 'prophetess' },
+                { name: 'The Believers', status: 'awakening', influence: 60, avatar: '⭐', type: 'believers' },
+                { name: 'The World', status: 'mocking', influence: 70, avatar: '🌍', type: 'world' }
+            ],
+            episodeComplete: false
+        };
+        var SCENES = [
+            { location: 'Low Hampton, New York — 1818', locationClass: 'study', contentClass: 'study-scene', phase: 'Discovery', phaseMarker: true,
+                content: '<p><em>A farmer named <span class="prophecy">William Miller</span> opens the Bible. Once a deist, he has found faith — but he wants to understand Scripture systematically.</em></p><p><em>For two years, he studies. Verse by verse. Book by book. He reaches Daniel chapter 8:</em></p><p><span class="scripture">"Unto <span class="number">two thousand and three hundred</span> days; then shall the sanctuary be cleansed."</span></p><p><em>Using the day-year principle, Miller calculates backward and forward. The 2300 days began in 457 BC with the decree to restore Jerusalem. They end in...</em></p><p><span class="speaker miller">"1843 or 1844. About the year 1843, Jesus Christ will return to earth."</span></p><p><em>Miller is terrified. If this is true, he must warn the world.</em></p>',
+                choices: [
+                    { letter: 'A', text: '2300 years, calculated precisely. From 457 BC to 1844 AD. Miller\'s math was right — his interpretation would need refinement.', preview: 'See the precision', effects: { wisdom: 18, truth: 15, faith: 12 }, influence: { target: 'William Miller', change: 15, type: 'gold' }, isAdvent: true, response: 'Miller\'s calculation was sound. The prophecy did point to 1844. What happened then would be understood later — but the date itself was correct.' },
+                    { letter: 'B', text: 'A farmer with no theological training — yet he uncovered what scholars missed. God uses the humble to confound the wise.', preview: 'See the pattern', effects: { faith: 18, hope: 15, wisdom: 12 }, influence: { target: 'The Believers', change: 12, type: 'blue' }, isAdvent: true, response: 'A farmer, not a seminary professor. God\'s pattern: fishermen become apostles, farmers become prophetic teachers. Humility opens understanding.' },
+                    { letter: 'C', text: 'Miller was terrified by what he found. True discovery carries weight — if you truly believe, you must act.', preview: 'See the burden', effects: { courage: 18, love: 15, faith: 12 }, influence: { target: 'William Miller', change: 15, type: 'gold' }, isAdvent: true, response: 'Miller didn\'t want fame. He wanted to hide. But conviction compels action. If Jesus is truly coming, silence would be criminal.' },
+                    { letter: 'D', text: 'Pray: "Father, give us Miller\'s diligence. Help us study with the urgency of those who expect Christ\'s soon return."', preview: 'Pray for diligence', effects: { faith: 18, wisdom: 18, hope: 12 }, influence: { target: 'William Miller', change: 18, type: 'gold' }, isPrayer: true, isAdvent: true, response: 'Miller studied for 14 years before speaking. Thorough preparation. Your prayer invokes that same dedication — study as if eternity depends on understanding.' }
+                ]
+            },
+            { location: 'America — The Midnight Cry', locationClass: 'midnight', contentClass: 'midnight-scene', phase: 'Proclamation', phaseMarker: true,
+                content: '<p><em>1840-1844. Miller begins preaching. The message spreads like fire across America.</em></p><p><span class="speaker miller">"Get ready! The bridegroom cometh! Go ye out to meet him!"</span></p><p><em><span class="number">100,000</span> believers join the movement. Camp meetings draw thousands. The <span class="prophecy">"Midnight Cry"</span> goes forth.</em></p><p><em>In August 1844, Samuel Snow refines the calculation: <span class="date">October 22, 1844</span> — the Day of Atonement that year. The exact day.</em></p><p><em>Believers sell farms, close businesses, settle debts. They truly believe Jesus is coming in weeks.</em></p><p><span class="scripture">"At midnight there was a cry made, Behold, the bridegroom cometh; go ye out to meet him."</span></p>',
+                choices: [
+                    { letter: 'A', text: 'The Midnight Cry — Matthew 25 coming alive. The parable of the Ten Virgins becoming reality. "Behold, the bridegroom cometh!"', preview: 'See the fulfillment', effects: { faith: 20, hope: 18, wisdom: 12 }, influence: { target: 'The Believers', change: 18, type: 'blue' }, isAdvent: true, response: 'The parable predicted this moment. A cry at midnight. Virgins awakened. The movement WAS the fulfillment — whether they understood it completely or not.' },
+                    { letter: 'B', text: '100,000 believers. Farms sold. Debts settled. This was not casual interest — this was all-consuming conviction.', preview: 'See the commitment', effects: { courage: 20, faith: 18, love: 12 }, influence: { target: 'William Miller', change: 15, type: 'gold' }, isAdvent: true, response: 'Would you sell your farm if you truly believed Jesus was coming in two weeks? The Millerites did. Their faith was not theoretical — it was total.' },
+                    { letter: 'C', text: 'October 22, 1844 — the Day of Atonement. The most solemn day in the Hebrew calendar. God\'s timing is never accidental.', preview: 'See the timing', effects: { wisdom: 20, truth: 18, faith: 12 }, influence: { target: 'The Believers', change: 15, type: 'blue' }, isAdvent: true, response: 'Day of Atonement — when the High Priest entered the Most Holy Place. The date was exact. What happened on that day would be understood later.' },
+                    { letter: 'D', text: 'Pray: "Father, give us the Advent pioneers\' urgency. May we live as those who truly expect Christ\'s return."', preview: 'Pray for urgency', effects: { hope: 22, faith: 18, courage: 12 }, influence: { target: 'The Believers', change: 18, type: 'blue' }, isPrayer: true, isAdvent: true, response: 'The Millerites lived with their eyes on heaven. Every decision filtered through eternity. Your prayer asks for that same lens — present choices, eternal stakes.' }
+                ]
+            },
+            { location: 'October 22, 1844 — The Great Disappointment', locationClass: 'disappointment', contentClass: 'disappointment-scene', phase: 'Disappointment', phaseMarker: true,
+                content: '<p><em>The believers gather before dawn. They sing. They pray. They wait.</em></p><p><em>Morning passes. Noon passes. Evening comes.</em></p><p><em>Midnight strikes. <span class="disappointment">Christ has not come.</span></em></p><p><em>The weeping is indescribable. Hearts shatter. Some lose their minds. The mocking of the world is merciless.</em></p><p><span class="speaker miller">"I waited all Tuesday, and dear Jesus did not come. I waited all the forenoon of Wednesday, and was well in body as I ever was, but after 12 o\'clock I began to feel faint..."</span></p><p><em>It is called <span class="disappointment">The Great Disappointment</span>. The most bitter sorrow the Advent believers have ever known.</em></p><p><em>Yet some remember the verse: "Though it tarry, wait for it."</em></p>',
+                choices: [
+                    { letter: 'A', text: 'The Great Disappointment — not the end, but the crucible. God often leads through valleys before mountaintops.', preview: 'See the pattern', effects: { patience: 22, faith: 18, hope: 12 }, influence: { target: 'The Believers', change: -10, type: 'gray' }, isAdvent: true, response: 'The disciples at Calvary knew this heartbreak. Hope died on Friday. Understanding came Sunday. The pattern holds: disappointment often precedes revelation.' },
+                    { letter: 'B', text: 'They wept because they truly believed. False faith doesn\'t produce real tears. Their disappointment proves their sincerity.', preview: 'See the authenticity', effects: { love: 20, faith: 18, wisdom: 12 }, influence: { target: 'William Miller', change: 10, type: 'gold' }, isAdvent: true, response: 'Cynics don\'t weep when predictions fail. Only true believers know this grief. Their tears testified to the genuineness of their hope.' },
+                    { letter: 'C', text: '"Though it tarry, wait for it." Some kept faith even in midnight darkness. These would become the remnant.', preview: 'See the faithful few', effects: { faith: 22, patience: 18, hope: 15 }, influence: { target: 'Ellen White', change: 15, type: 'purple' }, isAdvent: true, response: 'Not all abandoned. A faithful remnant held on — waiting for light. From these few, the truth would emerge. Always a remnant. Always.' },
+                    { letter: 'D', text: 'Pray: "Father, when disappointment comes, help us hold faith like the pioneers. May we trust Your timing even when we don\'t understand."', preview: 'Pray for endurance', effects: { patience: 22, faith: 20, hope: 18 }, influence: { target: 'The Believers', change: 15, type: 'blue' }, isPrayer: true, isAdvent: true, response: 'Your disappointments echo theirs. Job\'s question is eternal: "Though He slay me, yet will I trust Him." May that faith be yours in every midnight.' }
+                ]
+            },
+            { location: 'The Cornfield — October 23, 1844', locationClass: 'cornfield', contentClass: 'cornfield-scene', phase: 'Revelation', phaseMarker: true,
+                content: '<p><em>The morning after. Hiram Edson walks through his cornfield, praying, grieving, confused.</em></p><p><em>Suddenly, he stops. A flash of understanding.</em></p><p><span class="speaker edson">"Heaven seemed open to my view, and I saw distinctly that instead of our High Priest coming out of the Most Holy Place of the heavenly sanctuary to come to this earth on the tenth day of the seventh month, at the end of the 2300 days, He for the first time entered on that day into the second apartment of that sanctuary; and that He had a work to perform in the Most Holy Place before coming to this earth."</span></p><p><em>The sanctuary! Not on earth — <span class="sanctuary">in heaven</span>. The cleansing was not destruction — it was judgment. Christ entered the Most Holy Place.</em></p><p><em><span class="prophecy">The date was right. The event was misunderstood.</span></em></p>',
+                choices: [
+                    { letter: 'A', text: 'The sanctuary in HEAVEN. Not earth. Christ entered the Most Holy Place to begin investigative judgment. The date was right!', preview: 'See the revelation', effects: { truth: 25, wisdom: 22, faith: 15 }, influence: { target: 'The Believers', change: 20, type: 'blue' }, isAdvent: true, response: 'The pioneers had been looking down when they should have looked up. The heavenly sanctuary — where Christ ministers still. The judgment of the living began.' },
+                    { letter: 'B', text: 'From crushing disappointment to staggering revelation — in one day. God was not late. They were early in understanding.', preview: 'See the redemption', effects: { hope: 22, faith: 20, wisdom: 15 }, influence: { target: 'William Miller', change: 15, type: 'gold' }, isAdvent: true, response: 'Twenty-four hours from despair to breakthrough. The timing of revelation follows the timing of dependence. They needed to be emptied to be filled.' },
+                    { letter: 'C', text: 'A cornfield became a classroom. God teaches in unexpected places when hearts are ready to learn.', preview: 'See the method', effects: { faith: 20, patience: 18, wisdom: 15 }, influence: { target: 'Ellen White', change: 12, type: 'purple' }, isAdvent: true, response: 'Moses at a bush. Elijah in a cave. Edson in a cornfield. God\'s classroom has no walls. Revelation comes to those walking and praying.' },
+                    { letter: 'D', text: 'Pray: "Father, when we misunderstand Your timing, give us cornfield revelations. Turn our disappointments into discoveries."', preview: 'Pray for understanding', effects: { wisdom: 22, faith: 20, hope: 18 }, influence: { target: 'The Believers', change: 18, type: 'blue' }, isPrayer: true, isAdvent: true, response: 'Every disappointment holds a cornfield. Every wrong interpretation can become right understanding. Ask for eyes to see what you missed.' }
+                ]
+            },
+            { location: 'The Heavenly Sanctuary — Understanding Unveiled', locationClass: 'sanctuary', contentClass: 'sanctuary-scene', phase: 'Understanding',
+                content: '<p><em>The pioneers study the earthly sanctuary — the pattern shown to Moses. Two apartments. Two phases of ministry.</em></p><p><em><span class="sanctuary">Holy Place:</span> Daily ministry. Confession, forgiveness, mediation.<br><span class="sanctuary">Most Holy Place:</span> Once yearly. The Day of Atonement. Final judgment.</em></p><p><em>In 1844, Christ moved from the Holy Place to the Most Holy Place in the <span class="sanctuary">heavenly sanctuary</span>.</em></p><p><em>The investigative judgment began — examining the records of all who have ever professed faith. Who truly accepted Christ? Who is genuine?</em></p><p><span class="scripture">"The hour of His judgment is come."</span></p><p><em>We are living in the Day of Atonement. The final examination before Christ returns.</em></p>',
+                choices: [
+                    { letter: 'A', text: 'Two apartments. Two phases. Daily ministry and Day of Atonement. The earthly pattern reveals the heavenly reality.', preview: 'See the pattern', effects: { truth: 22, wisdom: 20, faith: 15 }, influence: { target: 'The Believers', change: 18, type: 'blue' }, isAdvent: true, response: 'Moses saw the pattern. The pioneers understood the reality. The earthly sanctuary was always a teaching model — pointing to Christ\'s work in heaven.' },
+                    { letter: 'B', text: 'The investigative judgment — God reviewing every case before the universe. Transparency before return. Justice before vindication.', preview: 'See the judgment', effects: { wisdom: 22, truth: 18, courage: 12 }, influence: { target: 'Ellen White', change: 15, type: 'purple' }, isAdvent: true, response: 'God hides nothing. Every case examined openly. The universe watches. When Christ returns, all will see the justice of every decision. Perfect transparency.' },
+                    { letter: 'C', text: 'We live in the Day of Atonement — the most solemn time in history. The judgment is happening NOW. This changes everything.', preview: 'See the urgency', effects: { faith: 22, hope: 18, courage: 15 }, influence: { target: 'The Believers', change: 18, type: 'blue' }, isAdvent: true, response: 'Not future. Present. Right now, heaven examines. Right now, cases close. This is not academic theology — this is present reality demanding response.' },
+                    { letter: 'D', text: 'Pray: "Father, I submit to Your investigation. Search me, know my heart. Let my record show genuine faith in Christ alone."', preview: 'Prayer of submission', effects: { faith: 25, love: 18, truth: 15 }, influence: { target: 'Ellen White', change: 15, type: 'purple' }, influenceSecondary: { target: 'The Believers', change: 12, type: 'blue' }, isPrayer: true, isAdvent: true, response: 'The prayer of the Day of Atonement. "Examine me, O God." Those who invite investigation have nothing to hide. Surrender is safety.' }
+                ]
+            },
+            { location: 'Washington, New Hampshire — The Sabbath Truth', locationClass: 'sabbath', contentClass: 'sabbath-scene', phase: 'Recovery', phaseMarker: true,
+                content: '<p><em>While studying the sanctuary, the pioneers discover another truth. The ark in the Most Holy Place contains the <span class="sabbath">Ten Commandments</span>.</em></p><p><em>The fourth commandment: <span class="scripture">"Remember the sabbath day, to keep it holy... the <span class="sabbath">seventh day</span> is the sabbath of the LORD."</span></em></p><p><em>Rachel Oakes Preston, a Seventh Day Baptist, shares the Sabbath truth with the Advent believers. Joseph Bates investigates. He is convinced.</em></p><p><span class="speaker bates">"The seventh day is the Sabbath of the Lord thy God. There is not a single passage in the New Testament that authorizes Sunday keeping."</span></p><p><em>The Sabbath — lost for centuries, preserved by the faithful few, now <span class="sabbath">recovered</span> by the Advent people.</em></p><p><em>The Waldenses kept it in the Alps. Now it returns to those who will take it to the world.</em></p>',
+                choices: [
+                    { letter: 'A', text: 'The ark contains the commandments. The Sabbath is in the heart of the law. In the Most Holy Place. Central to the judgment.', preview: 'See the connection', effects: { truth: 25, wisdom: 20, faith: 15 }, influence: { target: 'The Believers', change: 20, type: 'blue' }, isAdvent: true, response: 'The Sabbath is not peripheral — it\'s in the ark, in the Most Holy Place, at the center of God\'s throne. The judgment reveals commandment-keepers.' },
+                    { letter: 'B', text: 'The Waldenses preserved it. The Advent pioneers recovered it. The chain from Creation to the 144,000 is unbroken.', preview: 'See the continuity', effects: { hope: 22, truth: 18, faith: 15 }, influence: { target: 'William Miller', change: 12, type: 'gold' }, isAdvent: true, response: 'From Eden to Sinai to the Alps to America — the Sabbath chain never broke. God always had witnesses. You are the next link.' },
+                    { letter: 'C', text: '"Not a single passage authorizes Sunday." Bates searched and found nothing. The change was human, not divine.', preview: 'See the evidence', effects: { truth: 22, courage: 18, wisdom: 15 }, influence: { target: 'The Believers', change: 18, type: 'blue' }, isAdvent: true, response: 'Bates challenged anyone to find biblical authorization for Sunday. None could. The emperor changed it, not God. Human tradition versus divine command.' },
+                    { letter: 'D', text: 'Pray: "Father, thank You for preserving the Sabbath through centuries of darkness. Help me keep it as a sign between You and me."', preview: 'Receive the sign', effects: { faith: 22, love: 20, truth: 15 }, influence: { target: 'Ellen White', change: 15, type: 'purple' }, isPrayer: true, isAdvent: true, response: 'The Sabbath is a sign — of Creation, of redemption, of sanctification. To keep it is to declare allegiance. To abandon it is to accept a counterfeit.' }
+                ]
+            },
+            { location: 'Portland, Maine — Ellen\'s First Vision', locationClass: 'vision', contentClass: 'vision-scene', phase: 'Prophecy', phaseMarker: true,
+                content: '<p><em>December 1844. Ellen Harmon, 17 years old, fragile from a childhood injury, prays with other women.</em></p><p><em>Suddenly, she is caught away in <span class="vision">vision</span>.</em></p><p><span class="speaker ellen">"While praying, the power of God came upon me as I had never felt it before. I seemed to be surrounded with light, and to be rising higher and higher from the earth..."</span></p><p><em>She sees the Advent people on a <span class="vision">narrow path</span>, traveling toward the Holy City. A bright light shines behind them — the Midnight Cry. Those who denied it fell off the path into darkness.</em></p><p><em>At the end: the <span class="vision">City of God</span>. Jesus. The tree of life. Victory.</em></p><p><em>The remnant would have a prophetic guide.</em></p>',
+                choices: [
+                    { letter: 'A', text: 'A 17-year-old girl. Frail. Unlikely. Yet God chose her to guide the remnant. Weakness is God\'s preferred canvas.', preview: 'See the choice', effects: { faith: 22, love: 18, hope: 15 }, influence: { target: 'Ellen White', change: 25, type: 'purple' }, isAdvent: true, response: 'Moses stammered. David was youngest. Ellen was sick and young. God\'s pattern: the unlikely chosen, the weak made strong, the humble exalted.' },
+                    { letter: 'B', text: 'The narrow path with a light behind them. The Midnight Cry validated. Those who denied it fell. Stay on the path.', preview: 'See the path', effects: { truth: 22, courage: 18, faith: 15 }, influence: { target: 'The Believers', change: 18, type: 'blue' }, isAdvent: true, response: 'The vision confirmed: the 1844 experience was of God. Not a mistake to deny but a foundation to build on. Those who rejected it lost their way.' },
+                    { letter: 'C', text: 'The City of God at the end. Jesus. The tree of life. The destination confirmed. The journey is worth every trial.', preview: 'See the destination', effects: { hope: 25, faith: 20, love: 15 }, influence: { target: 'Ellen White', change: 20, type: 'purple' }, isAdvent: true, response: 'The vision ended where the journey ends: Jesus, the City, the tree of life. Everything between now and then is preparation. Keep your eyes on the prize.' },
+                    { letter: 'D', text: 'Pray: "Father, thank You for prophetic guidance. Help me follow the light and stay on the narrow path until I see Your City."', preview: 'Pray for guidance', effects: { faith: 22, hope: 22, wisdom: 15 }, influence: { target: 'Ellen White', change: 22, type: 'purple' }, influenceSecondary: { target: 'The Believers', change: 15, type: 'blue' }, isPrayer: true, isAdvent: true, response: 'The gift of prophecy guides the remnant. Your prayer claims that guidance — eyes on the path, light behind, City ahead. Stay the course.' }
+                ]
+            },
+            { location: 'The Three Angels — The Final Message', locationClass: 'angels', contentClass: 'angels-scene', phase: 'Commission', phaseMarker: true,
+                content: '<p><em>All the truths converge. The pioneers understand: they are to proclaim the <span class="prophecy">Three Angels\' Messages</span> of Revelation 14.</em></p><p><span class="speaker angel"><span class="scripture">"Fear God, and give glory to Him; for <span class="prophecy">the hour of His judgment is come</span>."</span></span></p><p><span class="speaker angel"><span class="scripture">"Babylon is fallen, is fallen..."</span></span></p><p><span class="speaker angel"><span class="scripture">"If any man worship the beast and his image, and receive his mark in his forehead, or in his hand, the same shall drink of the wine of the wrath of God..."</span></span></p><p><em>The final message. The everlasting gospel. The hour of judgment. The fall of Babylon. The warning against the mark.</em></p><p><em>This is the message for the last generation. This is why the Advent movement exists. <span class="prophecy">This is the 144,000\'s commission.</span></em></p>',
+                choices: [
+                    { letter: 'A', text: 'Three messages for the final generation. Judgment announced. Babylon exposed. The mark warned against. Complete truth for complete times.', preview: 'See the commission', effects: { truth: 25, courage: 20, faith: 18 }, influence: { target: 'The Believers', change: 22, type: 'blue' }, isAdvent: true, response: 'The Three Angels\' Messages are the final call. Every doctrine fits within them. Every truth serves them. This is the framework for the remnant\'s mission.' },
+                    { letter: 'B', text: '"The hour of His judgment IS come." Present tense. Not future. Right now. The first angel announces what began in 1844.', preview: 'See the timing', effects: { wisdom: 22, truth: 20, faith: 15 }, influence: { target: 'Ellen White', change: 18, type: 'purple' }, isAdvent: true, response: 'The judgment hour IS come. Present reality. The first angel proclaims what the sanctuary truth explains. 1844 changed everything. We live in judgment time.' },
+                    { letter: 'C', text: 'The 144,000\'s commission — to proclaim these messages to every nation, tongue, and people. This is why you were prepared.', preview: 'See the purpose', effects: { courage: 25, hope: 20, love: 15 }, influence: { target: 'The Believers', change: 22, type: 'blue' }, influenceSecondary: { target: 'Ellen White', change: 15, type: 'purple' }, isAdvent: true, response: 'This is the mission. Everything before was preparation. The 144,000 will give this message with latter rain power. You were born for this hour.' },
+                    { letter: 'D', text: 'Pray: "Father, anoint me to proclaim the Three Angels\' Messages. Let my voice join the angels\' cry before the end comes."', preview: 'Accept the commission', effects: { faith: 25, courage: 22, hope: 20 }, influence: { target: 'The Believers', change: 25, type: 'blue' }, influenceSecondary: { target: 'Ellen White', change: 18, type: 'purple' }, isPrayer: true, isAdvent: true, response: 'Your prayer is your commission. The messages must go. The warning must sound. Heaven waits for human voices. Will you be one?' }
+                ]
+            }
+        ];
+        function init() { checkSavedGame(); checkPreviousSaves(); }
+        function checkSavedGame() { var saved = localStorage.getItem('gcg_ep12_save'); if (saved) { document.getElementById('continueBtn').disabled = false; } }
+        function checkPreviousSaves() {
+            var prevEps = ['gcg_ep11_save', 'gcg_ep10_save', 'gcg_ep9_save', 'gcg_ep8_save', 'gcg_ep7_save', 'gcg_ep6_save', 'gcg_ep5_save', 'gcg_ep4_save', 'gcg_ep3_save', 'gcg_ep2_save', 'gcg_save'];
+            var epNames = ['Episode 11', 'Episode 10', 'Episode 9', 'Episode 8', 'Episode 7', 'Episode 6', 'Episode 5', 'Episode 4', 'Episode 3', 'Episode 2', 'Episode 1'];
+            for (var i = 0; i < prevEps.length; i++) { var saved = localStorage.getItem(prevEps[i]); if (saved) { var data = JSON.parse(saved); if (data.episodeComplete) { displayPrevStats(data, epNames[i]); return; } } }
+        }
+        function displayPrevStats(data, epName) {
+            var statsDiv = document.getElementById('prevStats'); statsDiv.style.display = 'grid';
+            statsDiv.innerHTML = '<div class="import-stat"><div class="import-stat-name">Faith</div><div class="import-stat-value stat-faith">' + data.stats.faith + '</div></div><div class="import-stat"><div class="import-stat-name">Patience</div><div class="import-stat-value stat-patience">' + data.stats.patience + '</div></div><div class="import-stat"><div class="import-stat-name">Truth</div><div class="import-stat-value stat-truth">' + data.stats.truth + '</div></div><div class="import-stat"><div class="import-stat-name">Hope</div><div class="import-stat-value stat-hope">' + data.stats.hope + '</div></div>';
+            document.getElementById('importFromPrev').querySelector('p').innerHTML = 'Continue as <strong>' + data.characterName + '</strong> from ' + epName + '.';
+        }
+        function showScreen(screenId) { var screens = document.querySelectorAll('.screen'); for (var i = 0; i < screens.length; i++) { screens[i].classList.remove('active'); } document.getElementById(screenId).classList.add('active'); STATE.screen = screenId; var menuBtn = document.getElementById('menuBtn'); if (screenId === 'gameScreen' || screenId === 'consequenceScreen') { menuBtn.classList.add('visible'); } else { menuBtn.classList.remove('visible'); } }
+        function showImportScreen() { showScreen('importScreen'); }
+        function importFromPrevious() { var prevEps = ['gcg_ep11_save', 'gcg_ep10_save', 'gcg_ep9_save', 'gcg_ep8_save', 'gcg_ep7_save', 'gcg_ep6_save', 'gcg_ep5_save', 'gcg_ep4_save', 'gcg_ep3_save', 'gcg_ep2_save', 'gcg_save']; for (var i = 0; i < prevEps.length; i++) { var saved = localStorage.getItem(prevEps[i]); if (saved) { var data = JSON.parse(saved); if (data.episodeComplete) { useImportedData(data); return; } } } alert('No completed previous episode found.'); }
+        function useImportedData(data) { STATE.characterName = data.characterName; STATE.stats = JSON.parse(JSON.stringify(data.stats)); STATE.baseStats = JSON.parse(JSON.stringify(data.stats)); startGame(); }
+        function startFresh() { STATE.characterName = 'Faithful One'; STATE.stats = { faith: 95, wisdom: 90, courage: 92, love: 90, truth: 92, patience: 90, hope: 96 }; STATE.baseStats = JSON.parse(JSON.stringify(STATE.stats)); startGame(); }
+        function showNameInput() { showScreen('nameScreen'); }
+        function confirmCustomName() { var name = document.getElementById('customName').value.trim() || 'Faithful One'; STATE.characterName = name; STATE.stats = { faith: 95, wisdom: 90, courage: 92, love: 90, truth: 92, patience: 90, hope: 96 }; STATE.baseStats = JSON.parse(JSON.stringify(STATE.stats)); startGame(); }
+        function startGame() { STATE.currentScene = 0; STATE.choices = []; STATE.episodeComplete = false; STATE.adventPoints = 0; STATE.currentPhase = 'Discovery'; STATE.beings = [ { name: 'William Miller', status: 'studying', influence: 70, avatar: '📖', type: 'pioneer' }, { name: 'Ellen White', status: 'young', influence: 50, avatar: '👁', type: 'prophetess' }, { name: 'The Believers', status: 'awakening', influence: 60, avatar: '⭐', type: 'believers' }, { name: 'The World', status: 'mocking', influence: 70, avatar: '🌍', type: 'world' } ]; showScreen('gameScreen'); updateStatsDisplay(); updateInfluenceDisplay(); updateAdventDisplay(); displayScene(0); }
+        function continueGame() { var saved = localStorage.getItem('gcg_ep12_save'); if (saved) { STATE = JSON.parse(saved); updateStatsDisplay(); updateInfluenceDisplay(); updateAdventDisplay(); updateBackground(); if (STATE.episodeComplete) { showSummary(); } else { showScreen('gameScreen'); displayScene(STATE.currentScene); } } }
+        function updateStatsDisplay() { document.getElementById('statFaith').textContent = STATE.stats.faith; document.getElementById('statWisdom').textContent = STATE.stats.wisdom; document.getElementById('statCourage').textContent = STATE.stats.courage; document.getElementById('statLove').textContent = STATE.stats.love; document.getElementById('statTruth').textContent = STATE.stats.truth; document.getElementById('statPatience').textContent = STATE.stats.patience; document.getElementById('statHope').textContent = STATE.stats.hope; document.getElementById('statAdvent').textContent = STATE.adventPoints; document.getElementById('displayName').textContent = STATE.characterName; }
+        function updateAdventDisplay() { document.getElementById('adventDisplay').textContent = STATE.adventPoints; document.getElementById('currentPhase').textContent = STATE.currentPhase; }
+        function updateBackground() { var bg = document.getElementById('bgLayer'); var lightOverlay = document.getElementById('lightOverlay'); var tearOverlay = document.getElementById('tearOverlay'); bg.classList.remove('study', 'midnight', 'disappointment', 'cornfield', 'sanctuary', 'sabbath', 'vision', 'angels', 'dawn'); lightOverlay.classList.remove('active'); tearOverlay.classList.remove('active'); var scene = SCENES[STATE.currentScene]; if (scene) { bg.classList.add(scene.locationClass); if (scene.locationClass === 'sanctuary' || scene.locationClass === 'angels' || scene.locationClass === 'vision') { lightOverlay.classList.add('active'); } if (scene.locationClass === 'disappointment') { tearOverlay.classList.add('active'); } } else { bg.classList.add('study'); } }
+        function updateInfluenceDisplay() { var grid = document.getElementById('influenceGrid'); var html = ''; for (var i = 0; i < STATE.beings.length; i++) { var being = STATE.beings[i]; var fillClass = 'gold'; if (being.type === 'prophetess') fillClass = 'purple'; if (being.type === 'believers') fillClass = 'blue'; if (being.type === 'world') fillClass = 'gray'; html += '<div class="influence-item"><div class="influence-avatar ' + being.type + '">' + being.avatar + '</div><div class="influence-info"><div class="influence-name">' + being.name + '</div><div class="influence-status">' + being.status + '</div><div class="influence-bar"><div class="influence-fill ' + fillClass + '" style="width: ' + being.influence + '%;"></div></div></div></div>'; } grid.innerHTML = html; }
+        function displayScene(sceneIndex) { if (sceneIndex >= SCENES.length) { STATE.episodeComplete = true; saveGame(); showSummary(); return; } var scene = SCENES[sceneIndex]; var storyContent = document.getElementById('storyContent'); var choicesContainer = document.getElementById('choicesContainer'); STATE.currentPhase = scene.phase; updateAdventDisplay(); updateBackground(); updateBeingsForScene(sceneIndex); storyContent.classList.remove('study-scene', 'midnight-scene', 'disappointment-scene', 'cornfield-scene', 'sanctuary-scene', 'sabbath-scene', 'vision-scene', 'angels-scene', 'dawn-scene'); if (scene.contentClass) storyContent.classList.add(scene.contentClass); var storyHtml = '<div class="scene-location">' + scene.location + '</div>'; if (scene.phaseMarker) { var desc = ''; if (scene.phase === 'Discovery') desc = 'The prophecy unveiled'; if (scene.phase === 'Proclamation') desc = 'The Midnight Cry'; if (scene.phase === 'Disappointment') desc = 'The bitter trial'; if (scene.phase === 'Revelation') desc = 'Light from heaven'; if (scene.phase === 'Understanding') desc = 'The sanctuary opened'; if (scene.phase === 'Recovery') desc = 'Lost truth restored'; if (scene.phase === 'Prophecy') desc = 'The gift confirmed'; if (scene.phase === 'Commission') desc = 'The final message'; storyHtml += '<div class="phase-marker"><h4>Phase</h4><div class="phase-name">' + scene.phase + '</div><p>' + desc + '</p></div>'; } storyHtml += '<div class="story-text">' + scene.content + '</div>'; storyContent.innerHTML = storyHtml; var choicesHtml = '<div class="choices-label">How do you respond?</div>'; for (var i = 0; i < scene.choices.length; i++) { var choice = scene.choices[i]; var btnClass = choice.isAdvent ? 'choice-btn advent-choice' : 'choice-btn'; choicesHtml += '<button class="' + btnClass + '" onclick="makeChoice(' + sceneIndex + ', ' + i + ')"><span class="choice-letter">[' + choice.letter + ']</span>' + choice.text; if (choice.preview) { var prefix = ''; if (choice.isPrayer) prefix += '🙏 '; if (choice.isAdvent) prefix += '⭐ '; choicesHtml += '<span class="choice-preview">' + prefix + choice.preview + '</span>'; } choicesHtml += '</button>'; } choicesContainer.innerHTML = choicesHtml; }
+        function updateBeingsForScene(sceneIndex) { var miller = STATE.beings.find(function(b) { return b.name === 'William Miller'; }); var ellen = STATE.beings.find(function(b) { return b.name === 'Ellen White'; }); var believers = STATE.beings.find(function(b) { return b.name === 'The Believers'; }); var world = STATE.beings.find(function(b) { return b.name === 'The World'; }); if (sceneIndex >= 1) { if (miller) miller.status = 'preaching'; if (believers) believers.status = 'expecting'; } if (sceneIndex >= 2) { if (miller) miller.status = 'grieving'; if (believers) believers.status = 'heartbroken'; if (world) world.status = 'mocking louder'; } if (sceneIndex >= 3) { if (miller) miller.status = 'understanding'; if (believers) believers.status = 'recovering'; } if (sceneIndex >= 4) { if (believers) believers.status = 'studying sanctuary'; } if (sceneIndex >= 5) { if (believers) believers.status = 'keeping Sabbath'; } if (sceneIndex >= 6) { if (ellen) ellen.status = 'prophesying'; if (believers) believers.status = 'guided'; } if (sceneIndex >= 7) { if (miller) miller.status = 'legacy'; if (ellen) ellen.status = 'commissioned'; if (believers) believers.status = 'commissioned'; if (world) world.status = 'warned'; } updateInfluenceDisplay(); }
+        function makeChoice(sceneIndex, choiceIndex) { var scene = SCENES[sceneIndex]; var choice = scene.choices[choiceIndex]; STATE.choices.push({ scene: sceneIndex, choice: choiceIndex, letter: choice.letter, isPrayer: choice.isPrayer || false, isAdvent: choice.isAdvent || false }); if (choice.isAdvent) { STATE.adventPoints++; } var statChanges = []; if (choice.effects) { for (var stat in choice.effects) { if (choice.effects.hasOwnProperty(stat)) { var change = choice.effects[stat]; STATE.stats[stat] = Math.max(0, Math.min(100, STATE.stats[stat] + change)); if (change !== 0) { statChanges.push({ stat: stat, change: change }); } } } } if (choice.influence) { applyInfluence(choice.influence.target, choice.influence.change, choice.influence.type); } if (choice.influenceSecondary) { applyInfluence(choice.influenceSecondary.target, choice.influenceSecondary.change, choice.influenceSecondary.type); } showConsequence(choice, statChanges, sceneIndex); }
+        function applyInfluence(targetName, change, type) { for (var i = 0; i < STATE.beings.length; i++) { if (STATE.beings[i].name === targetName) { STATE.beings[i].influence = Math.max(0, Math.min(100, STATE.beings[i].influence + change)); break; } } }
+        function showConsequence(choice, statChanges, sceneIndex) { showScreen('consequenceScreen'); var display = document.getElementById('consequenceDisplay'); var title = 'Truth Advances'; if (choice.isPrayer) title = 'Prayer of the Advent'; if (choice.isAdvent && !choice.isPrayer) title = 'The Light Dawns'; var html = '<h3 class="consequence-title">' + title + '</h3>'; if (statChanges.length > 0) { html += '<div class="stat-changes">'; for (var i = 0; i < statChanges.length; i++) { var sc = statChanges[i]; var sign = sc.change > 0 ? '+' : ''; var cls = sc.change > 0 ? 'positive' : 'advent'; var statName = sc.stat.charAt(0).toUpperCase() + sc.stat.slice(1); html += '<div class="stat-change ' + cls + '">' + statName + ' ' + sign + sc.change + '</div>'; } html += '</div>'; } html += '<p style="text-align: center; color: var(--text-secondary); font-size: 1.05rem; line-height: 1.8; margin: 20px 0;">' + choice.response + '</p>'; if (choice.isAdvent) { html += '<div class="advent-notice"><h4>⭐ Advent Point Earned</h4><p>You stand with the pioneers through disappointment to discovery.</p></div>'; } html += '<button class="btn btn-advent continue-btn" onclick="continueStory(' + (sceneIndex + 1) + ')">Continue</button>'; display.innerHTML = html; updateStatsDisplay(); updateInfluenceDisplay(); updateAdventDisplay(); saveGame(); }
+        function continueStory(nextScene) { STATE.currentScene = nextScene; showScreen('gameScreen'); displayScene(nextScene); }
+        function showSummary() { showScreen('summaryScreen'); var summary = document.getElementById('episodeSummary'); var bg = document.getElementById('bgLayer'); bg.classList.remove('study', 'midnight', 'disappointment', 'cornfield', 'sanctuary', 'sabbath', 'vision', 'angels'); bg.classList.add('dawn'); document.getElementById('lightOverlay').classList.add('active'); document.getElementById('tearOverlay').classList.remove('active'); var baseStats = STATE.baseStats || { faith: 95, wisdom: 90, courage: 92, love: 90, truth: 92, patience: 90, hope: 96 }; var endingTitle = 'Witness of the Advent'; var endingDesc = 'You walked with the pioneers through disappointment and discovery. The sanctuary opened. The Sabbath returned. The message crystallized. You are ready.'; if (STATE.adventPoints >= 7) { endingTitle = 'Heir of the Pioneers'; endingDesc = 'Through every phase — discovery, proclamation, disappointment, revelation — you stood with the Advent believers. Their faith is your inheritance. Their mission is your commission. You carry the Three Angels\' Messages.'; } else if (STATE.stats.truth >= 100) { endingTitle = 'Guardian of Present Truth'; endingDesc = 'Sanctuary, Sabbath, Second Coming. The truths that define God\'s remnant are etched in your heart. You understand what the pioneers discovered. Present truth for present times.'; } else if (STATE.stats.hope >= 100) { endingTitle = 'Bearer of Blessed Hope'; endingDesc = 'The Great Disappointment could not kill your hope. Like the pioneers, you look up. The path leads to the City. Jesus is coming. "Even so, come Lord Jesus."'; } else if (STATE.stats.patience >= 100) { endingTitle = 'Patience of the Saints'; endingDesc = '"Here is the patience of the saints." Through waiting and trial, your endurance deepened. Disappointment became discovery. You have the patience required for the final crisis.'; } var html = '<div class="summary-header"><h2 class="summary-title">Episode Complete</h2><p class="summary-subtitle">The Advent Movement</p></div>'; html += '<div class="star-decoration"><div class="star-symbol">⭐</div><div class="star-inscription">THE HOUR OF HIS JUDGMENT IS COME</div><p>Fear God and give glory to Him</p></div>'; html += '<div class="summary-section" style="text-align: center; border-color: var(--advent-gold);"><h3 style="font-family: Cinzel, serif; font-size: 1.5rem; color: var(--advent-gold); margin-bottom: 15px;">' + endingTitle + '</h3><p style="color: var(--text-secondary); line-height: 1.8;">' + endingDesc + '</p></div>'; html += '<div class="summary-section" style="text-align: center;"><div style="font-family: Cinzel, serif; font-size: 3rem; color: var(--advent-gold);">' + STATE.adventPoints + '</div><div style="color: var(--text-secondary);">Advent Points Earned</div><p style="margin-top: 15px; color: var(--text-dim); font-style: italic;">Through disappointment to discovery. Through darkness to dawn. You were there.</p></div>'; html += '<div class="summary-section"><h4 class="summary-section-title">⭐ Through the Advent</h4><div class="phase-journey"><div class="journey-phase"><div class="icon">📖</div><div class="name">Discovery</div></div><div class="journey-arrow">→</div><div class="journey-phase"><div class="icon">🌙</div><div class="name">Midnight Cry</div></div><div class="journey-arrow">→</div><div class="journey-phase"><div class="icon">😢</div><div class="name">Disappointment</div></div><div class="journey-arrow">→</div><div class="journey-phase"><div class="icon">✨</div><div class="name">Revelation</div></div><div class="journey-arrow">→</div><div class="journey-phase"><div class="icon">📜</div><div class="name">Commission</div></div></div></div>'; html += '<div class="summary-section"><h4 class="summary-section-title">⭐ Truths Recovered</h4><div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; text-align: center;">'; html += '<div style="padding: 15px; background: rgba(255, 248, 220, 0.1); border-radius: 8px; border: 1px solid rgba(255, 248, 220, 0.3);"><div style="font-size: 1.5rem; margin-bottom: 5px;">🏛</div><div style="color: var(--sanctuary-white);">The Sanctuary</div><div style="font-size: 0.8rem; color: var(--text-dim);">Christ\'s ministry in heaven</div></div>'; html += '<div style="padding: 15px; background: rgba(21, 101, 192, 0.1); border-radius: 8px; border: 1px solid rgba(21, 101, 192, 0.3);"><div style="font-size: 1.5rem; margin-bottom: 5px;">📅</div><div style="color: var(--sabbath-blue);">The Sabbath</div><div style="font-size: 0.8rem; color: var(--text-dim);">Seal of God restored</div></div>'; html += '<div style="padding: 15px; background: rgba(245, 245, 245, 0.05); border-radius: 8px; border: 1px solid rgba(245, 245, 245, 0.2);"><div style="font-size: 1.5rem; margin-bottom: 5px;">👼</div><div style="color: var(--angel-white);">Three Angels</div><div style="font-size: 0.8rem; color: var(--text-dim);">The final message</div></div>'; html += '</div></div>'; html += '<div class="summary-section"><h4 class="summary-section-title">⭐ Refined by Trial</h4><div class="final-stats-grid">'; var statNames = ['faith', 'wisdom', 'courage', 'love', 'truth', 'patience', 'hope']; var statColors = ['#ffd700', '#9b59b6', '#e74c3c', '#e91e63', '#3498db', '#1abc9c', '#f39c12']; for (var s = 0; s < statNames.length; s++) { var sName = statNames[s]; var sVal = STATE.stats[sName]; var sBase = baseStats[sName] || 90; var sChange = sVal - sBase; var changeStr = sChange >= 0 ? '+' + sChange : '' + sChange; var changeColor = sChange >= 0 ? 'var(--success)' : 'var(--advent-gold)'; html += '<div class="final-stat"><div class="final-stat-name" style="color: ' + statColors[s] + ';">' + sName.charAt(0).toUpperCase() + sName.slice(1) + '</div><div class="final-stat-value" style="color: ' + statColors[s] + ';">' + sVal + '</div><div class="final-stat-change" style="color: ' + changeColor + ';">' + changeStr + '</div></div>'; } html += '</div></div>'; html += '<div class="summary-section"><h4 class="summary-section-title">⭐ The Pioneers</h4><div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">'; for (var b = 0; b < STATE.beings.length; b++) { var being = STATE.beings[b]; html += '<div style="padding: 15px; background: rgba(0,0,0,0.2); border-radius: 8px; text-align: center;"><div style="font-size: 1.5rem; margin-bottom: 5px;">' + being.avatar + '</div><div style="font-family: Cinzel, serif; color: var(--advent-gold);">' + being.name + '</div><div style="font-size: 0.8rem; color: var(--text-dim);">' + being.status + '</div></div>'; } html += '</div></div>'; html += '<div class="summary-section"><h4 class="summary-section-title">⭐ What You Witnessed</h4><div class="narrative-summary"><p>As ' + STATE.characterName + ', you walked with William Miller as he discovered the 2300-day prophecy. You felt the hope of the Midnight Cry and the agony of the Great Disappointment.</p><p>You stood in Edson\'s cornfield when heaven opened understanding. You saw the sanctuary in heaven, Christ\'s ministry in the Most Holy Place. You received the Sabbath truth preserved through centuries.</p><p>You heard Ellen White\'s first vision. You understood the Three Angels\' Messages — the final call to a dying world.</p><p>The Advent movement is not history. It is destiny. The message goes forward until Jesus comes.</p></div></div>'; html += '<div class="to-be-continued"><h3>The Story Concludes...</h3><p>Episode 13: The Second Coming — The Final Episode</p><p style="margin-top: 10px; color: var(--text-dim);">"Even so, come Lord Jesus."</p><button class="btn btn-primary" style="margin-top: 20px;" onclick="returnToTitle()">Return to Title</button></div>'; summary.innerHTML = html; }
+        function toggleMenu() { document.getElementById('menuModal').classList.toggle('active'); }
+        function saveGame() { localStorage.setItem('gcg_ep12_save', JSON.stringify(STATE)); }
+        function restartEpisode() { if (confirm('Restart Episode 12? All progress will be lost.')) { localStorage.removeItem('gcg_ep12_save'); location.reload(); } }
+        function returnToTitle() { var modal = document.getElementById('menuModal'); if (modal.classList.contains('active')) { modal.classList.remove('active'); } showScreen('titleScreen'); checkSavedGame(); var bg = document.getElementById('bgLayer'); bg.classList.remove('midnight', 'disappointment', 'cornfield', 'sanctuary', 'sabbath', 'vision', 'angels', 'dawn'); bg.classList.add('study'); document.getElementById('lightOverlay').classList.remove('active'); document.getElementById('tearOverlay').classList.remove('active'); }
+        init();
+    </script>
+</body>
+</html>
