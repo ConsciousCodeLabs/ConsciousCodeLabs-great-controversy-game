@@ -1,0 +1,2588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Great Controversy: The Game - Episode 8</title>
+    <meta name="description" content="Episode 8: The Cross. The axis of cosmic history. Gethsemane to Calvary.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #030305;
+            --bg-medium: #080810;
+            --bg-light: #0a0a12;
+            --blood-red: #8b0000;
+            --blood-dark: #4a0000;
+            --blood-glow: #dc143c;
+            --cross-brown: #3d2314;
+            --crown-gold: #b8860b;
+            --nail-gray: #4a4a4a;
+            --darkness: #000000;
+            --glory-white: #fffaf0;
+            --glory-gold: #ffd700;
+            --tear-blue: #4a6fa5;
+            --garden-green: #1a3a1a;
+            --olive-dark: #2d3a1f;
+            --stone-gray: #3a3a3a;
+            --sunrise-gold: #ffb347;
+            --text-primary: #e8e0f0;
+            --text-secondary: #a89ab8;
+            --text-dim: #6a5a7a;
+            --text-blood: #c44536;
+            --danger: #c44536;
+            --success: #6b8e4e;
+            --warning: #d4a03a;
+            --faith-color: #ffd700;
+            --wisdom-color: #9b59b6;
+            --courage-color: #e74c3c;
+            --love-color: #e91e63;
+            --truth-color: #3498db;
+            --patience-color: #1abc9c;
+            --hope-color: #f39c12;
+            --sorrow-color: #4a6fa5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Crimson Pro', Georgia, serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Background Themes */
+        .celestial-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            transition: all 2s ease;
+        }
+
+        .celestial-bg.gethsemane::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 30% 30%, rgba(45, 58, 31, 0.3) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 70%, rgba(26, 58, 26, 0.2) 0%, transparent 40%),
+                linear-gradient(180deg, #050508 0%, #0a100a 40%, #050805 100%);
+        }
+
+        .celestial-bg.trial::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 50% 30%, rgba(58, 58, 58, 0.2) 0%, transparent 50%),
+                linear-gradient(180deg, #050505 0%, #0a0808 40%, #080505 100%);
+        }
+
+        .celestial-bg.scourging::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 50% 50%, rgba(139, 0, 0, 0.15) 0%, transparent 50%),
+                linear-gradient(180deg, #080305 0%, #0a0505 40%, #050303 100%);
+            animation: bloodPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes bloodPulse {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+
+        .celestial-bg.via-dolorosa::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 50% 80%, rgba(61, 35, 20, 0.2) 0%, transparent 50%),
+                linear-gradient(180deg, #080508 0%, #0a0805 40%, #050503 100%);
+        }
+
+        .celestial-bg.calvary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 50% 20%, rgba(139, 0, 0, 0.2) 0%, transparent 60%),
+                radial-gradient(ellipse at 50% 60%, rgba(0, 0, 0, 0.5) 0%, transparent 50%),
+                linear-gradient(180deg, #0a0305 0%, #080303 40%, #050202 100%);
+        }
+
+        .celestial-bg.darkness::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000000;
+            animation: totalDarkness 5s ease-in-out infinite;
+        }
+
+        @keyframes totalDarkness {
+            0%, 100% { opacity: 0.95; }
+            50% { opacity: 1; }
+        }
+
+        .celestial-bg.finished::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 50% 0%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(139, 0, 0, 0.15) 0%, transparent 40%),
+                linear-gradient(180deg, #0a0508 0%, #080305 40%, #050203 100%);
+        }
+
+        .celestial-bg.tomb::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 50% 50%, rgba(58, 58, 58, 0.15) 0%, transparent 50%),
+                linear-gradient(180deg, #030303 0%, #050505 40%, #020202 100%);
+        }
+
+        /* No stars in this episode - this is the hour of darkness */
+        .stars {
+            display: none;
+        }
+
+        /* Blood drop overlay */
+        .blood-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(139, 0, 0, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 80% 60%, rgba(139, 0, 0, 0.08) 0%, transparent 15%),
+                radial-gradient(circle at 50% 80%, rgba(139, 0, 0, 0.1) 0%, transparent 25%);
+            opacity: 0;
+            transition: opacity 2s ease;
+            pointer-events: none;
+        }
+
+        .blood-overlay.active {
+            opacity: 1;
+        }
+
+        /* Cross shadow */
+        .cross-shadow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(0deg, transparent 45%, rgba(0, 0, 0, 0.3) 50%, transparent 55%),
+                linear-gradient(90deg, transparent 48%, rgba(0, 0, 0, 0.2) 50%, transparent 52%);
+            opacity: 0;
+            transition: opacity 2s ease;
+            pointer-events: none;
+        }
+
+        .cross-shadow.active {
+            opacity: 1;
+        }
+
+        .game-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .game-header {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(139, 0, 0, 0.3);
+            margin-bottom: 20px;
+        }
+
+        .game-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--blood-glow);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 0 0 30px rgba(139, 0, 0, 0.4);
+            margin-bottom: 5px;
+        }
+
+        .game-subtitle {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            color: var(--text-blood);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+
+        .screen {
+            display: none;
+            flex: 1;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .screen.active {
+            display: flex;
+            flex-direction: column;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Title Screen */
+        .title-screen {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .episode-number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            color: var(--blood-red);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 10px;
+        }
+
+        .main-title {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--blood-glow);
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 50px rgba(139, 0, 0, 0.5);
+            animation: sacredGlow 4s ease-in-out infinite;
+        }
+
+        @keyframes sacredGlow {
+            0%, 100% { text-shadow: 0 0 30px rgba(139, 0, 0, 0.4); }
+            50% { text-shadow: 0 0 60px rgba(139, 0, 0, 0.6), 0 0 100px rgba(255, 215, 0, 0.2); }
+        }
+
+        .main-subtitle {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        .tagline {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.1rem;
+            color: var(--text-dim);
+            font-style: italic;
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+
+        .sacred-notice {
+            background: rgba(139, 0, 0, 0.1);
+            border: 1px solid rgba(139, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .sacred-notice h4 {
+            font-family: 'Cinzel', serif;
+            color: var(--blood-glow);
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .sacred-notice p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        .episode-intro {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(139, 0, 0, 0.2);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            max-width: 600px;
+            text-align: left;
+        }
+
+        .episode-intro p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .episode-intro p:last-child {
+            margin-bottom: 0;
+        }
+
+        .title-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 280px;
+        }
+
+        .btn {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--blood-red) 0%, var(--blood-dark) 100%);
+            color: var(--text-primary);
+            box-shadow: 0 4px 20px rgba(139, 0, 0, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(139, 0, 0, 0.6);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--blood-glow);
+            border: 1px solid var(--blood-red);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(139, 0, 0, 0.1);
+        }
+
+        .btn-secondary:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .btn-sacred {
+            background: linear-gradient(135deg, var(--blood-dark) 0%, #1a0000 100%);
+            color: var(--glory-white);
+            border: 1px solid var(--blood-red);
+            box-shadow: 0 4px 20px rgba(139, 0, 0, 0.4);
+        }
+
+        .btn-sacred:hover {
+            box-shadow: 0 6px 30px rgba(139, 0, 0, 0.6);
+        }
+
+        /* Import Screen */
+        .import-section {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 30px 0;
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6rem;
+            color: var(--blood-glow);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .import-options {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .import-option {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(139, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .import-option:hover {
+            border-color: var(--blood-glow);
+            background: rgba(139, 0, 0, 0.1);
+        }
+
+        .import-option h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--blood-glow);
+            margin-bottom: 10px;
+        }
+
+        .import-option p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .import-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .import-stat {
+            text-align: center;
+        }
+
+        .import-stat-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.6rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+        }
+
+        .import-stat-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        /* Stats Panel */
+        .stats-panel {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(139, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stats-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .character-name {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            color: var(--glory-gold);
+        }
+
+        .episode-indicator {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.65rem;
+            color: var(--blood-red);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.55rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .stat-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .stat-faith { color: var(--faith-color); }
+        .stat-wisdom { color: var(--wisdom-color); }
+        .stat-courage { color: var(--courage-color); }
+        .stat-love { color: var(--love-color); }
+        .stat-truth { color: var(--truth-color); }
+        .stat-patience { color: var(--patience-color); }
+        .stat-hope { color: var(--hope-color); }
+        .stat-sorrow { color: var(--sorrow-color); }
+
+        /* Witness Panel */
+        .witness-panel {
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.3) 100%);
+            border: 1px solid rgba(139, 0, 0, 0.4);
+            border-radius: 8px;
+            padding: 12px 20px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .witness-label {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            color: var(--blood-red);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .witness-value {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            color: var(--glory-gold);
+            font-weight: 600;
+        }
+
+        .station-indicator {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            color: var(--text-blood);
+        }
+
+        /* Influence Panel */
+        .influence-panel {
+            background: rgba(139, 0, 0, 0.08);
+            border: 1px solid rgba(139, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .influence-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            color: var(--blood-glow);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .influence-title::before {
+            content: '✝';
+            font-size: 1rem;
+        }
+
+        .influence-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .influence-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 12px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+        }
+
+        .influence-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .influence-avatar.savior { background: linear-gradient(135deg, var(--glory-white), var(--blood-red)); }
+        .influence-avatar.disciple { background: linear-gradient(135deg, var(--tear-blue), var(--stone-gray)); }
+        .influence-avatar.enemy { background: linear-gradient(135deg, var(--blood-dark), var(--darkness)); }
+        .influence-avatar.witness { background: linear-gradient(135deg, var(--sorrow-color), var(--tear-blue)); }
+
+        .influence-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .influence-name {
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            color: var(--text-primary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .influence-status {
+            font-size: 0.7rem;
+            color: var(--text-dim);
+        }
+
+        .influence-bar {
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            margin-top: 4px;
+            overflow: hidden;
+        }
+
+        .influence-fill {
+            height: 100%;
+            border-radius: 2px;
+            transition: width 0.5s ease;
+        }
+
+        .influence-fill.divine { background: var(--glory-gold); }
+        .influence-fill.sorrow { background: var(--sorrow-color); }
+        .influence-fill.darkness { background: var(--blood-dark); }
+
+        /* Story Panel */
+        .story-panel {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .story-content {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(139, 0, 0, 0.2);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 20px;
+            flex: 1;
+            transition: all 0.8s ease;
+        }
+
+        .story-content.gethsemane-scene {
+            border-color: rgba(45, 58, 31, 0.4);
+            background: rgba(10, 16, 10, 0.6);
+        }
+
+        .story-content.trial-scene {
+            border-color: rgba(58, 58, 58, 0.4);
+            background: rgba(10, 8, 8, 0.6);
+        }
+
+        .story-content.scourging-scene {
+            border-color: rgba(139, 0, 0, 0.5);
+            background: rgba(15, 5, 5, 0.6);
+        }
+
+        .story-content.calvary-scene {
+            border-color: rgba(139, 0, 0, 0.4);
+            background: rgba(10, 3, 5, 0.7);
+        }
+
+        .story-content.darkness-scene {
+            border-color: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        .story-content.finished-scene {
+            border-color: rgba(255, 215, 0, 0.3);
+            background: rgba(10, 5, 8, 0.6);
+        }
+
+        .scene-location {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            color: var(--blood-red);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .scene-location::before,
+        .scene-location::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(139, 0, 0, 0.3), transparent);
+        }
+
+        .story-text {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: var(--text-primary);
+            margin-bottom: 25px;
+        }
+
+        .story-text p {
+            margin-bottom: 15px;
+        }
+
+        .story-text .speaker {
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+        }
+
+        .story-text .speaker.jesus {
+            color: var(--glory-white);
+            text-shadow: 0 0 10px rgba(255, 250, 240, 0.4);
+        }
+
+        .story-text .speaker.father {
+            color: var(--glory-gold);
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+        }
+
+        .story-text .speaker.enemy {
+            color: var(--blood-dark);
+        }
+
+        .story-text .speaker.crowd {
+            color: var(--text-blood);
+        }
+
+        .story-text .speaker.disciple {
+            color: var(--tear-blue);
+        }
+
+        .story-text em {
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .story-text .agony {
+            color: var(--blood-glow);
+            font-weight: 500;
+        }
+
+        .story-text .blood {
+            color: var(--blood-red);
+        }
+
+        .story-text .glory {
+            color: var(--glory-gold);
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+        }
+
+        .story-text .holy {
+            color: var(--glory-white);
+            text-shadow: 0 0 10px rgba(255, 250, 240, 0.5);
+        }
+
+        .story-text .darkness {
+            color: var(--text-dim);
+        }
+
+        .story-text .cry {
+            color: var(--text-blood);
+            font-weight: 500;
+            font-size: 1.1em;
+        }
+
+        .story-text .finished {
+            color: var(--glory-gold);
+            font-weight: 600;
+            font-size: 1.2em;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+        }
+
+        /* Station Marker */
+        .station-marker {
+            background: rgba(139, 0, 0, 0.15);
+            border: 1px solid rgba(139, 0, 0, 0.4);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .station-marker h4 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            color: var(--blood-red);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+
+        .station-marker .station-name {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6rem;
+            color: var(--blood-glow);
+            font-weight: 700;
+        }
+
+        .station-marker p {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        /* Scripture Display */
+        .scripture-display {
+            background: rgba(255, 215, 0, 0.05);
+            border-left: 3px solid var(--glory-gold);
+            padding: 15px 20px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+
+        .scripture-display .verse {
+            color: var(--glory-white);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .scripture-display .reference {
+            color: var(--text-dim);
+            font-size: 0.85rem;
+            margin-top: 10px;
+            display: block;
+        }
+
+        /* Choices */
+        .choices-container {
+            margin-top: auto;
+        }
+
+        .choices-label {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .choice-btn {
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: 18px 20px;
+            margin-bottom: 10px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(139, 0, 0, 0.3);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.05rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .choice-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--blood-red);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .choice-btn:hover {
+            background: rgba(139, 0, 0, 0.1);
+            border-color: var(--blood-glow);
+            transform: translateX(5px);
+        }
+
+        .choice-btn:hover::before {
+            opacity: 1;
+        }
+
+        .choice-btn.witness-choice {
+            border-color: rgba(74, 111, 165, 0.4);
+            background: rgba(74, 111, 165, 0.08);
+        }
+
+        .choice-btn.witness-choice:hover {
+            background: rgba(74, 111, 165, 0.15);
+        }
+
+        .choice-btn.witness-choice::before {
+            background: var(--tear-blue);
+        }
+
+        .choice-btn.prayer-choice {
+            border-color: rgba(255, 215, 0, 0.3);
+            background: rgba(255, 215, 0, 0.05);
+        }
+
+        .choice-btn.prayer-choice:hover {
+            background: rgba(255, 215, 0, 0.1);
+        }
+
+        .choice-btn.prayer-choice::before {
+            background: var(--glory-gold);
+        }
+
+        .choice-letter {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.75rem;
+            color: var(--blood-glow);
+            margin-right: 12px;
+        }
+
+        .choice-preview {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            margin-top: 8px;
+            padding-left: 25px;
+            font-style: italic;
+        }
+
+        /* Consequence Display */
+        .consequence-display {
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(139, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 30px;
+            margin: 20px 0;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .consequence-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            color: var(--blood-glow);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .stat-changes {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stat-change {
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .stat-change.positive {
+            background: rgba(107, 142, 78, 0.2);
+            border: 1px solid var(--success);
+            color: var(--success);
+        }
+
+        .stat-change.sorrow {
+            background: rgba(74, 111, 165, 0.2);
+            border: 1px solid var(--sorrow-color);
+            color: var(--sorrow-color);
+        }
+
+        .witness-notice {
+            background: rgba(74, 111, 165, 0.15);
+            border: 1px solid rgba(74, 111, 165, 0.4);
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .witness-notice h4 {
+            font-family: 'Cinzel', serif;
+            color: var(--tear-blue);
+            margin-bottom: 8px;
+        }
+
+        .witness-notice p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        .continue-btn {
+            display: block;
+            width: 100%;
+            max-width: 300px;
+            margin: 20px auto 0;
+        }
+
+        /* Summary Screen */
+        .episode-summary {
+            padding: 30px 0;
+        }
+
+        .summary-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .summary-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            color: var(--glory-gold);
+            margin-bottom: 10px;
+        }
+
+        .summary-subtitle {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            color: var(--blood-red);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .summary-section {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(139, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        .summary-section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            color: var(--blood-glow);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .final-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 15px;
+        }
+
+        .final-stat {
+            text-align: center;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+        }
+
+        .final-stat-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .final-stat-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .final-stat-change {
+            font-size: 0.75rem;
+            margin-top: 4px;
+        }
+
+        .stations-journey {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 20px 0;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .journey-station {
+            text-align: center;
+        }
+
+        .journey-station .icon {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+
+        .journey-station .name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.65rem;
+            color: var(--text-secondary);
+        }
+
+        .journey-arrow {
+            color: var(--blood-red);
+            font-size: 1.2rem;
+        }
+
+        .cross-decoration {
+            text-align: center;
+            padding: 30px;
+            margin: 20px 0;
+        }
+
+        .cross-symbol {
+            font-size: 4rem;
+            color: var(--blood-glow);
+            text-shadow: 0 0 30px rgba(139, 0, 0, 0.5);
+            margin-bottom: 15px;
+        }
+
+        .cross-inscription {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: var(--glory-gold);
+            letter-spacing: 3px;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+        }
+
+        .cross-decoration p {
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-top: 15px;
+        }
+
+        .narrative-summary {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+
+        .narrative-summary p {
+            margin-bottom: 15px;
+        }
+
+        .to-be-continued {
+            text-align: center;
+            padding: 30px;
+            margin-top: 20px;
+        }
+
+        .to-be-continued h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: var(--glory-gold);
+            margin-bottom: 10px;
+        }
+
+        .to-be-continued p {
+            color: var(--text-dim);
+            font-style: italic;
+        }
+
+        /* Menu */
+        .menu-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 44px;
+            height: 44px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(139, 0, 0, 0.4);
+            border-radius: 8px;
+            color: var(--blood-glow);
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 100;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .menu-btn:hover {
+            background: rgba(139, 0, 0, 0.2);
+        }
+
+        .menu-btn.visible {
+            display: flex;
+        }
+
+        .menu-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 200;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .menu-modal.active {
+            display: flex;
+        }
+
+        .menu-content {
+            background: var(--bg-medium);
+            border: 1px solid rgba(139, 0, 0, 0.4);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            max-width: 350px;
+            width: 90%;
+        }
+
+        .menu-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: var(--blood-glow);
+            margin-bottom: 25px;
+        }
+
+        .menu-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .menu-buttons .btn {
+            width: 100%;
+        }
+
+        /* Footer */
+        .game-footer {
+            text-align: center;
+            padding: 20px 0;
+            margin-top: auto;
+            border-top: 1px solid rgba(139, 0, 0, 0.2);
+        }
+
+        .footer-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.6rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .footer-text a {
+            color: var(--blood-glow);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.2rem;
+                letter-spacing: 4px;
+            }
+
+            .main-subtitle {
+                font-size: 1rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 5px;
+            }
+
+            .stat-name {
+                font-size: 0.5rem;
+            }
+
+            .stat-value {
+                font-size: 0.9rem;
+            }
+
+            .influence-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .story-content {
+                padding: 20px;
+            }
+
+            .story-text {
+                font-size: 1.05rem;
+            }
+
+            .choice-btn {
+                padding: 15px;
+                font-size: 0.95rem;
+            }
+
+            .final-stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .import-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stations-journey {
+                flex-direction: column;
+            }
+
+            .journey-arrow {
+                transform: rotate(90deg);
+            }
+
+            .cross-symbol {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="celestial-bg gethsemane" id="bgLayer">
+        <div class="blood-overlay" id="bloodOverlay"></div>
+        <div class="cross-shadow" id="crossShadow"></div>
+    </div>
+
+    <button class="menu-btn" id="menuBtn" onclick="toggleMenu()">☰</button>
+
+    <div class="menu-modal" id="menuModal">
+        <div class="menu-content">
+            <h2 class="menu-title">Game Menu</h2>
+            <div class="menu-buttons">
+                <button class="btn btn-secondary" onclick="saveGame()">Save Progress</button>
+                <button class="btn btn-secondary" onclick="toggleMenu()">Resume Game</button>
+                <button class="btn btn-secondary" onclick="restartEpisode()">Restart Episode</button>
+                <button class="btn btn-secondary" onclick="returnToTitle()">Main Menu</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="game-container">
+        <header class="game-header">
+            <h1 class="game-title">The Great Controversy</h1>
+            <p class="game-subtitle">Episode 8: The Cross</p>
+        </header>
+
+        <!-- Title Screen -->
+        <div class="screen active" id="titleScreen">
+            <div class="title-screen">
+                <div class="episode-number">Episode VIII</div>
+                <h1 class="main-title">The Cross</h1>
+                <h2 class="main-subtitle">The Axis of Cosmic History</h2>
+                <p class="tagline">"It is finished." — John 19:30</p>
+                
+                <div class="sacred-notice">
+                    <h4>✝ Sacred Ground</h4>
+                    <p>You are about to witness what angels longed to understand. From Gethsemane to Golgotha, every step is holy ground. The Lamb of God, slain from the foundation of the world, now walks the Via Dolorosa.</p>
+                </div>
+
+                <div class="episode-intro">
+                    <p>All prophecy converges here. Every lamb slain since Abel pointed forward to this day. The seed of the woman will bruise the serpent's head — but His heel will be bruised.</p>
+                    <p>You cannot save Him. You cannot stop this. You can only watch — with the angels, with the unfallen worlds, with the Father Himself — as Love completes its work.</p>
+                    <p><em>What will you witness at the Cross?</em></p>
+                </div>
+
+                <div class="title-buttons">
+                    <button class="btn btn-sacred" onclick="showImportScreen()">Begin Episode 8</button>
+                    <button class="btn btn-secondary" id="continueBtn" onclick="continueGame()" disabled>Continue Saved Game</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Import Screen -->
+        <div class="screen" id="importScreen">
+            <div class="import-section">
+                <h2 class="section-title">Character Import</h2>
+                
+                <div class="import-options">
+                    <div class="import-option" id="importFromPrev" onclick="importFromPrevious()">
+                        <h3>Import from Previous Episodes</h3>
+                        <p>Continue with your character from the Prophets. Your stats and growth carry forward into this sacred hour.</p>
+                        <div class="import-stats" id="prevStats" style="display: none;"></div>
+                    </div>
+
+                    <div class="import-option" onclick="startFresh()">
+                        <h3>Start Fresh</h3>
+                        <p>Begin Episode 8 with default stats. You have watched the ages unfold. Now witness the culmination.</p>
+                        <div class="import-stats">
+                            <div class="import-stat">
+                                <div class="import-stat-name">Faith</div>
+                                <div class="import-stat-value stat-faith">85</div>
+                            </div>
+                            <div class="import-stat">
+                                <div class="import-stat-name">Courage</div>
+                                <div class="import-stat-value stat-courage">80</div>
+                            </div>
+                            <div class="import-stat">
+                                <div class="import-stat-name">Love</div>
+                                <div class="import-stat-value stat-love">85</div>
+                            </div>
+                            <div class="import-stat">
+                                <div class="import-stat-name">Hope</div>
+                                <div class="import-stat-value stat-hope">80</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="import-option" onclick="showNameInput()">
+                        <h3>Custom Character</h3>
+                        <p>Enter a name and stand at the foot of the Cross.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Name Input Screen -->
+        <div class="screen" id="nameScreen">
+            <div class="import-section">
+                <h2 class="section-title">Name Your Character</h2>
+                <div style="max-width: 400px; margin: 0 auto;">
+                    <label style="display: block; font-family: Orbitron, sans-serif; font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px;">Your Name</label>
+                    <input type="text" id="customName" placeholder="Enter your angelic name..." maxlength="20" style="width: 100%; padding: 15px 20px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(139, 0, 0, 0.3); border-radius: 4px; color: var(--text-primary); font-family: Crimson Pro, serif; font-size: 1.1rem;">
+                    <button class="btn btn-sacred" style="width: 100%; margin-top: 20px;" onclick="confirmCustomName()">Begin Episode 8</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div class="screen" id="gameScreen">
+            <div class="stats-panel" id="statsPanel">
+                <div class="stats-header">
+                    <span class="character-name" id="displayName">-</span>
+                    <span class="episode-indicator">Episode 8: The Cross</span>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-name">Faith</div>
+                        <div class="stat-value stat-faith" id="statFaith">50</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-name">Wisdom</div>
+                        <div class="stat-value stat-wisdom" id="statWisdom">50</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-name">Courage</div>
+                        <div class="stat-value stat-courage" id="statCourage">50</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-name">Love</div>
+                        <div class="stat-value stat-love" id="statLove">50</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-name">Truth</div>
+                        <div class="stat-value stat-truth" id="statTruth">50</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-name">Patience</div>
+                        <div class="stat-value stat-patience" id="statPatience">50</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-name">Hope</div>
+                        <div class="stat-value stat-hope" id="statHope">50</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-name">Witness</div>
+                        <div class="stat-value stat-sorrow" id="statWitness">0</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="witness-panel" id="witnessPanel">
+                <span class="witness-label">Witness Points</span>
+                <span class="witness-value" id="witnessDisplay">0</span>
+                <span class="station-indicator" id="currentStation">Gethsemane</span>
+            </div>
+
+            <div class="influence-panel" id="influencePanel">
+                <div class="influence-title">Those in Your Sphere</div>
+                <div class="influence-grid" id="influenceGrid"></div>
+            </div>
+
+            <div class="story-panel">
+                <div class="story-content" id="storyContent"></div>
+                <div class="choices-container" id="choicesContainer"></div>
+            </div>
+        </div>
+
+        <!-- Consequence Screen -->
+        <div class="screen" id="consequenceScreen">
+            <div class="consequence-display" id="consequenceDisplay"></div>
+        </div>
+
+        <!-- Summary Screen -->
+        <div class="screen" id="summaryScreen">
+            <div class="episode-summary" id="episodeSummary"></div>
+        </div>
+
+        <footer class="game-footer">
+            <p class="footer-text">Seven Cubed Seven Labs | <a href="https://sevencubedseven.com">7³×7 = 2,401</a></p>
+        </footer>
+    </div>
+
+    <script>
+        // ==========================================
+        // THE GREAT CONTROVERSY: THE GAME
+        // Episode 8: The Cross
+        // ==========================================
+
+        var STATE = {
+            screen: 'title',
+            characterName: '',
+            stats: {
+                faith: 85,
+                wisdom: 78,
+                courage: 80,
+                love: 85,
+                truth: 82,
+                patience: 78,
+                hope: 80
+            },
+            baseStats: {},
+            witnessPoints: 0,
+            currentStation: 'Gethsemane',
+            currentScene: 0,
+            choices: [],
+            beings: [
+                { name: 'Jesus', status: 'Lamb of God', influence: 100, avatar: '✝', type: 'savior' },
+                { name: 'The Disciples', status: 'watching', influence: 60, avatar: '👁', type: 'disciple' },
+                { name: 'Mary', status: 'weeping', influence: 70, avatar: '💧', type: 'witness' },
+                { name: 'The Universe', status: 'watching', influence: 80, avatar: '🌌', type: 'witness' }
+            ],
+            episodeComplete: false
+        };
+
+        var SCENES = [
+            // Scene 0: Gethsemane - The Agony
+            {
+                location: 'Gethsemane — The Agony',
+                locationClass: 'gethsemane',
+                contentClass: 'gethsemane-scene',
+                station: 'Gethsemane',
+                stationMarker: true,
+                content: '<p><em>The night presses down like a weight. Beyond Jerusalem\'s walls, in a garden of olive trees, the Son of God kneels alone. The disciples sleep. And the cup of humanity\'s sin is lifted to His lips.</em></p><p><span class="speaker jesus">Jesus:</span> "<span class="agony">Father, if it be possible, let this cup pass from me: nevertheless not as I will, but as thou wilt.</span>"</p><p><em>You see what the disciples cannot — the full weight of every sin ever committed, pressing upon One who has never sinned. The darkness gathers. Satan whispers that God has abandoned Him. And from His brow falls something that has never fallen before:</em></p><p><span class="blood">Blood. Great drops of blood, falling to the ground.</span></p><p><em>He rises. Falls again. Three times He returns to the same prayer. The cup does not pass. The Father\'s silence is the answer — not abandonment, but trust. The plan will hold.</em></p>',
+                choices: [
+                    {
+                        letter: 'A',
+                        text: 'Kneel in the shadows of the garden. Watch the blood fall. Bear witness to agony beyond comprehension.',
+                        preview: 'Silent witness to the weight of sin',
+                        effects: { love: 15, faith: 12, wisdom: 10 },
+                        influence: { target: 'Jesus', change: 5, type: 'divine' },
+                        isWitness: true,
+                        response: 'The blood falls like tears from heaven. Every sin you\'ve ever witnessed — and every sin you will witness — presses on these shoulders. Yet He rises again to pray.'
+                    },
+                    {
+                        letter: 'B',
+                        text: '"Not as I will, but as thou wilt." — This is not passive resignation. This is active trust. He CHOOSES the Cross.',
+                        preview: 'Perceive the choice within surrender',
+                        effects: { wisdom: 15, faith: 12, courage: 10 },
+                        influence: { target: 'Jesus', change: 5, type: 'divine' },
+                        isWitness: true,
+                        response: 'He is not dragged to Calvary. He walks. Every step is a choice. Every breath is consent renewed. The Cross is not happening TO Him — He is choosing it.'
+                    },
+                    {
+                        letter: 'C',
+                        text: 'Watch Satan\'s assault. He whispers that the plan has failed, that humanity isn\'t worth it, that the Father has forsaken Him.',
+                        preview: 'See the spiritual warfare',
+                        effects: { truth: 15, courage: 12, wisdom: 10 },
+                        influence: { target: 'Jesus', change: 5, type: 'divine' },
+                        influenceSecondary: { target: 'The Universe', change: 8, type: 'divine' },
+                        isWitness: true,
+                        response: 'Satan unleashes everything. Every doubt. Every fear. Every accusation. And Jesus answers with submission — not to Satan, but to the Father. Faith wins over feeling.'
+                    },
+                    {
+                        letter: 'D',
+                        text: 'Pray: "Father, I witness what You witness. Your Son dying for enemies. Help me understand this love."',
+                        preview: 'Enter the Father\'s grief',
+                        effects: { love: 20, faith: 15, hope: 10 },
+                        influence: { target: 'Jesus', change: 5, type: 'divine' },
+                        influenceSecondary: { target: 'The Universe', change: 10, type: 'divine' },
+                        isPrayer: true,
+                        isWitness: true,
+                        response: 'Your prayer rises into silence. The Father watches what you watch. But He could stop it — and doesn\'t. Because He loves the ones His Son is dying for.'
+                    }
+                ]
+            },
+            // Scene 1: The Arrest
+            {
+                location: 'Gethsemane — The Betrayal',
+                locationClass: 'gethsemane',
+                contentClass: 'gethsemane-scene',
+                station: 'Gethsemane',
+                content: '<p><em>Torches flicker through the olive trees. The mob approaches — soldiers, temple guards, a familiar figure leading them.</em></p><p><span class="speaker enemy">Judas:</span> <em>(embracing Jesus)</em> "Hail, Master."</p><p><span class="speaker jesus">Jesus:</span> "Friend, wherefore art thou come? ... <span class="holy">Betrayest thou the Son of man with a kiss?</span>"</p><p><em>Peter draws his sword. One swing. An ear falls. And Jesus —</em></p><p><span class="speaker jesus">Jesus:</span> "Put up thy sword... Thinkest thou that I cannot now pray to my Father, and he shall presently give me <span class="glory">more than twelve legions of angels</span>? But how then shall the scriptures be fulfilled?"</p><p><em>He heals the wounded servant. The one who came to arrest Him is restored by His touch. Then all the disciples flee. He is alone with His enemies.</em></p>',
+                choices: [
+                    {
+                        letter: 'A',
+                        text: '"Friend." He calls His betrayer FRIEND. Even now, the door of grace remains open for Judas.',
+                        preview: 'Witness love addressing betrayal',
+                        effects: { love: 20, wisdom: 12, patience: 10 },
+                        influence: { target: 'Jesus', change: 5, type: 'divine' },
+                        isWitness: true,
+                        response: '"Friend." Not enemy. Not traitor. Friend. The grace in that single word could have saved Judas — if only he had received it. Love leaves doors open until the last moment.'
+                    },
+                    {
+                        letter: 'B',
+                        text: 'Twelve legions of angels — 72,000 warriors — stand ready. One word and they descend. But the word is never spoken.',
+                        preview: 'Count the waiting angels',
+                        effects: { courage: 15, faith: 15, wisdom: 10 },
+                        influence: { target: 'The Universe', change: 10, type: 'divine' },
+                        isWitness: true,
+                        response: 'Every angel in heaven strains against the command to wait. Twelve legions. Each one capable of destroying worlds. All held back by love\'s higher plan.'
+                    },
+                    {
+                        letter: 'C',
+                        text: 'He heals the servant\'s ear — the man who came to arrest Him. Mercy in the moment of capture.',
+                        preview: 'See healing given to enemies',
+                        effects: { love: 15, truth: 12, hope: 12 },
+                        influence: { target: 'Jesus', change: 5, type: 'divine' },
+                        isWitness: true,
+                        response: 'The last miracle before the Cross is healing an enemy. This is who He is. This is what the Cross will accomplish for all who will receive it.'
+                    },
+                    {
+                        letter: 'D',
+                        text: 'Watch the disciples flee. Every one of them. The loneliness of Jesus becomes complete.',
+                        preview: 'Witness the abandonment',
+                        effects: { patience: 15, love: 12, truth: 10 },
+                        influence: { target: 'The Disciples', change: -5, type: 'sorrow' },
+                        influenceSecondary: { target: 'Jesus', change: 5, type: 'divine' },
+                        isWitness: true,
+                        response: 'They promised to die with Him. Now they run. And Jesus — though abandoned by every human friend — walks forward alone. For them. For us.'
+                    }
+                ]
+            },
+            // Scene 2: The Trials
+            {
+                location: 'Jerusalem — The Trial',
+                locationClass: 'trial',
+                contentClass: 'trial-scene',
+                station: 'Trial',
+                stationMarker: true,
+                content: '<p><em>Through the night, they pass Him from court to court. Annas. Caiaphas. The Sanhedrin. False witnesses contradict themselves. The high priest demands:</em></p><p><span class="speaker enemy">Caiaphas:</span> "I adjure thee by the living God, that thou tell us whether thou be the Christ, the Son of God."</p><p><span class="speaker jesus">Jesus:</span> "<span class="holy">Thou hast said</span>: nevertheless I say unto you, Hereafter shall ye see the Son of man <span class="glory">sitting on the right hand of power, and coming in the clouds of heaven</span>."</p><p><em>The high priest tears his robes. "Blasphemy!" They blindfold Him. They strike Him. They spit in His face. And they ask:</em></p><p><span class="speaker enemy">"Prophesy unto us, thou Christ, Who is he that smote thee?"</span></p><p><em>He says nothing. The Creator of their hands endures their fists.</em></p>',
+                choices: [
+                    {
+                        letter: 'A',
+                        text: 'He could have named every man who struck Him — and their secret sins. Instead, He absorbs the blows in silence.',
+                        preview: 'Witness the restrained power',
+                        effects: { patience: 20, truth: 12, wisdom: 10 },
+                        influence: { target: 'Jesus', change: 5, type: 'divine' },
+                        isWitness: true,
+                        response: 'The hands that shaped the universe hang bound. The eyes that see all hearts are blindfolded. The mouth that spoke creation into existence stays silent. Power perfected in restraint.'
+                    },
+                    {
+                        letter: 'B',
+                        text: '"Thou hast said" — even now, He speaks truth. Even at the cost of His life, He cannot deny who He is.',
+                        preview: 'Hear truth that seals death',
+                        effects: { truth: 20, courage: 15, faith: 10 },
+                        influence: { target: 'Jesus', change: 5, type: 'divine' },
+                        influenceSecondary: { target: 'The Universe', change: 8, type: 'divine' },
+                        isWitness: true,
+                        response: 'He could have evaded the question. He could have equivocated. Instead, He speaks truth that ensures His death. Truth is worth dying for — because Truth is WHO HE IS.'
+                    },
+                    {
+                        letter: 'C',
+                        text: 'They demand proof that He is prophet — while prophecy fulfills around them. Isaiah 53 lives before their eyes.',
+                        preview: 'See prophecy fulfilling',
+                        effects: { wisdom: 20, truth: 12, faith: 12 },
+                        influence: { target: 'The Universe', change: 12, type: 'divine' },
+                        isWitness: true,
+                        response: '"Despised and rejected of men... he opened not his mouth." Every blow fulfills scripture. Every mockery completes prophecy. They prove He is Messiah by their persecution.'
+                    },
+                    {
+                        letter: 'D',
+                        text: 'Pray: "Father, they know not what they do. Let this scene be evidence of grace, not only of guilt."',
+                        preview: 'Pray for the persecutors',
+                        effects: { love: 20, faith: 15, hope: 12 },
+                        influence: { target: 'Jesus', change: 5, type: 'divine' },
+                        isPrayer: true,
+                        isWitness: true,
+                        response: 'Your prayer echoes what Jesus will soon pray from the Cross. Even now, grace extends to those who strike God in the face. This is the scandal of divine love.'
+                    }
+                ]
+            },
+            // Scene 3: The Scourging
+            {
+                location: 'Pilate\'s Court — The Scourging',
+                locationClass: 'scourging',
+                contentClass: 'scourging-scene',
+                station: 'Scourging',
+                stationMarker: true,
+                content: '<p><em>Pilate finds no fault. But the crowd demands blood. And so the Roman scourge falls — leather straps embedded with bone and metal, designed to tear flesh from bone.</em></p><p><em>Forty stripes minus one. Each blow rips deeper. "By his stripes we are healed" — the prophet wrote. Now you watch those stripes form.</em></p><p><em>They press a crown of thorns into His brow. Purple robe for mockery. Reed for a scepter. They bow in false worship, then rise to strike.</em></p><p><span class="speaker enemy">"Hail, King of the Jews!"</span></p><p><em>Pilate brings Him out, hoping pity will satisfy them:</em></p><p><span class="speaker enemy">Pilate:</span> "<span class="blood">Ecce homo</span> — Behold the Man."</p><p><span class="speaker crowd">"Crucify him! Crucify him!"</span></p>',
+                choices: [
+                    {
+                        letter: 'A',
+                        text: 'Watch the stripes form. Count them if you can. Each one represents healing for someone — perhaps for you.',
+                        preview: 'Witness the purchase of healing',
+                        effects: { love: 20, faith: 15, hope: 15 },
+                        influence: { target: 'Jesus', change: 5, type: 'divine' },
+                        isWitness: true,
+                        response: 'The stripes multiply. The blood flows. And with each blow, healing is stored for generations yet unborn. Disease, trauma, brokenness — paid for in advance.'
+                    },
+                    {
+                        letter: 'B',
+                        text: '"Ecce homo" — Behold the Man. Pilate speaks more truth than he knows. THIS is what a true human looks like: love absorbing hatred.',
+                        preview: 'See true humanity revealed',
+                        effects: { wisdom: 20, truth: 15, love: 10 },
+                        influence: { target: 'Jesus', change: 5, type: 'divine' },
+                        influenceSecondary: { target: 'The Universe', change: 10, type: 'divine' },
+                        isWitness: true,
+                        response: 'This broken, bleeding figure is humanity as God intended — not the ones wielding whips, but the One absorbing them for love. Behold the Man.'
+                    },
+                    {
+                        letter: 'C',
+                        text: 'The crown of thorns — Genesis 3 reversed. The curse on the ground now pressed into the Redeemer\'s brow.',
+                        preview: 'See the curse becoming crown',
+                        effects: { wisdom: 18, truth: 15, faith: 12 },
+                        influence: { target: 'The Universe', change: 12, type: 'divine' },
+                        isWitness: true,
+                        response: 'Thorns came because of sin. Now sin\'s curse becomes salvation\'s crown. What Adam\'s fall produced, the Second Adam absorbs. The symbolism is devastating and deliberate.'
+                    },
+                    {
+                        letter: 'D',
+                        text: 'Close your eyes against the horror — and hear heaven weeping. All creation groans.',
+                        preview: 'Hear the cosmic grief',
+                        effects: { love: 18, patience: 12, hope: 10 },
+                        influence: { target: 'The Universe', change: 15, type: 'divine' },
+                        isWitness: true,
+                        response: 'The unfallen worlds watch in horror. Angels veil their faces. The Father Himself turns away from what He must allow. All creation participates in this grief.'
+                    }
+                ]
+            },
+            // Scene 4: The Via Dolorosa
+            {
+                location: 'The Via Dolorosa — The Way of Suffering',
+                locationClass: 'via-dolorosa',
+                contentClass: 'calvary-scene',
+                station: 'Via Dolorosa',
+                content: '<p><em>The crossbeam weighs perhaps 100 pounds. After the scourging, after the sleepless night, after the loss of blood — He carries it through the streets of Jerusalem.</em></p><p><em>He falls. Once. Twice. Three times. Simon of Cyrene is compelled to carry the cross behind Him. Women weep along the road.</em></p><p><span class="speaker jesus">Jesus:</span> "Daughters of Jerusalem, weep not for me, but weep for yourselves, and for your children."</p><p><em>Even now, even dying, He thinks of others. He warns of judgment coming. He ministers while walking to His execution.</em></p><p><em>The hill of Golgotha rises ahead. The Place of the Skull. The altar has been prepared since Genesis 22. The Lamb approaches.</em></p>',
+                choices: [
+                    {
+                        letter: 'A',
+                        text: 'Walk the Via Dolorosa with Him. Every step is chosen. Every fall is for someone. Every rise is resurrection rehearsed.',
+                        preview: 'Walk the Way of Suffering',
+                        effects: { courage: 18, love: 15, patience: 12 },
+                        influence: { target: 'Jesus', change: 5, type: 'divine' },
+                        isWitness: true,
+                        response: 'The stones of Jerusalem receive His blood. The steps He takes, you will never have to take — because He takes them for you. The Way of Suffering leads to the Way of Life.'
+                    },
+                    {
+                        letter: 'B',
+                        text: 'Watch Simon carry the cross. He didn\'t volunteer — but he\'s forever linked to the Savior. Compelled grace.',
+                        preview: 'See the reluctant disciple',
+                        effects: { wisdom: 15, truth: 12, hope: 12 },
+                        influence: { target: 'The Disciples', change: 8, type: 'divine' },
+                        isWitness: true,
+                        response: 'Simon of Cyrene — compelled into glory. He didn\'t choose this. But his name is written forever with Christ\'s journey. Sometimes grace grabs us before we\'re ready.'
+                    },
+                    {
+                        letter: 'C',
+                        text: 'Hear His warning to the women. Even now, He is Prophet. Even dying, He speaks truth that will save lives in AD 70.',
+                        preview: 'Hear the dying Prophet',
+                        effects: { truth: 18, wisdom: 15, faith: 10 },
+                        influence: { target: 'Jesus', change: 5, type: 'divine' },
+                        isWitness: true,
+                        response: 'He thinks not of Himself but of them — and their children, and the destruction coming. The Shepherd warns the flock with His final breaths. Love ministers while dying.'
+                    },
+                    {
+                        letter: 'D',
+                        text: 'Pray: "Father, this road leads to my freedom. Let me never forget what freedom cost."',
+                        preview: 'Consecrate the memory',
+                        effects: { faith: 18, love: 15, hope: 15 },
+                        influence: { target: 'Jesus', change: 5, type: 'divine' },
+                        isPrayer: true,
+                        isWitness: true,
+                        response: 'The prayer becomes a vow. You will not forget. The blood on these stones will never be abstract theology. This is the price tag on your soul.'
+                    }
+                ]
+            },
+            // Scene 5: The Crucifixion
+            {
+                location: 'Golgotha — The Crucifixion',
+                locationClass: 'calvary',
+                contentClass: 'calvary-scene',
+                station: 'Calvary',
+                stationMarker: true,
+                content: '<p><em>They stretch Him on the wood. The nails are driven — through wrists, through feet. The cross is lifted, dropped into its hole. And between two thieves, the Lamb of God is displayed before heaven, earth, and hell.</em></p><p><span class="speaker jesus">Jesus:</span> "<span class="holy">Father, forgive them; for they know not what they do.</span>"</p><p><em>His first words from the Cross are intercession for His murderers.</em></p><p><em>They cast lots for His garments. They mock: "He saved others; himself he cannot save." The inscription above His head reads in three languages:</em></p><p><span class="glory">JESUS OF NAZARETH, THE KING OF THE JEWS</span></p><p><em>One thief rails. The other repents. And Jesus promises:</em></p><p><span class="speaker jesus">"Verily I say unto thee, Today shalt thou be with me in <span class="glory">paradise</span>."</span></p>',
+                choices: [
+                    {
+                        letter: 'A',
+                        text: '"Father, forgive them." His first act on the Cross is intercession. While they drive nails, He prays for their pardon.',
+                        preview: 'Hear intercession from the Cross',
+                        effects: { love: 25, faith: 15, hope: 15 },
+                        influence: { target: 'Jesus', change: 10, type: 'divine' },
+                        influenceSecondary: { target: 'The Universe', change: 15, type: 'divine' },
+                        isWitness: true,
+                        response: '"Father, forgive them." Not later, when the pain subsides. Now. While the hammer falls. This is the heart of God displayed. This is what heaven is made of.'
+                    },
+                    {
+                        letter: 'B',
+                        text: '"He saved others; himself he cannot save." They speak truth they don\'t understand. He COULD save Himself — but then He couldn\'t save us.',
+                        preview: 'Hear mocking become prophecy',
+                        effects: { wisdom: 20, truth: 15, love: 15 },
+                        influence: { target: 'Jesus', change: 5, type: 'divine' },
+                        isWitness: true,
+                        response: 'The mockers preach the gospel by accident. It is precisely because He COULD save Himself that His choice not to becomes the salvation of the world. The weakness is the power.'
+                    },
+                    {
+                        letter: 'C',
+                        text: 'Watch the thief transform. One moment mocking, the next believing. And Jesus grants him paradise with nothing but faith.',
+                        preview: 'Witness deathbed salvation',
+                        effects: { hope: 25, faith: 18, love: 12 },
+                        influence: { target: 'Jesus', change: 5, type: 'divine' },
+                        isWitness: true,
+                        response: 'No baptism. No good works. No lifetime of service. Just faith in his final moments — and paradise is promised. This is grace. This is the scandal that offends religion and saves sinners.'
+                    },
+                    {
+                        letter: 'D',
+                        text: 'Stand with Mary at the foot of the Cross. A sword pierces her soul too. The mother watches her Son die.',
+                        preview: 'Share the mother\'s grief',
+                        effects: { love: 20, patience: 15, truth: 10 },
+                        influence: { target: 'Mary', change: 15, type: 'sorrow' },
+                        isWitness: true,
+                        response: 'Simeon\'s prophecy fulfills. The sword pierces Mary\'s heart as nails pierce His hands. She who held Him as an infant now watches Him die. Some griefs have no words.'
+                    }
+                ]
+            },
+            // Scene 6: The Darkness
+            {
+                location: 'Golgotha — The Three Hours of Darkness',
+                locationClass: 'darkness',
+                contentClass: 'darkness-scene',
+                station: 'Darkness',
+                stationMarker: true,
+                content: '<p><em>At noon, the sun refuses to shine. Darkness covers the land for three hours. This is not eclipse — this is creation itself turning away from what it cannot bear to witness.</em></p><p><em>In that darkness, something happens that will never be fully explained. The Father withdraws His presence. The Son experiences what sin ultimately produces: complete separation from God.</em></p><p><em>And from the darkness comes a cry that echoes through eternity:</em></p><p><span class="speaker jesus"><span class="cry">"Eli, Eli, lama sabachthani? — My God, my God, why hast thou forsaken me?"</span></span></p><p><em>This is not theater. This is not quotation. This is the Son of God experiencing the full consequence of sin — so that you never have to.</em></p>',
+                choices: [
+                    {
+                        letter: 'A',
+                        text: 'Enter the darkness. There are no words here. Only the weight of what sin costs — and what love pays.',
+                        preview: 'Stand in the absolute darkness',
+                        effects: { faith: 20, love: 20, truth: 15 },
+                        influence: { target: 'Jesus', change: 10, type: 'divine' },
+                        influenceSecondary: { target: 'The Universe', change: 15, type: 'divine' },
+                        isWitness: true,
+                        response: 'The darkness is complete. No star shines. No moon reflects. Creation itself refuses to illuminate what is happening. In this darkness, salvation is being forged.'
+                    },
+                    {
+                        letter: 'B',
+                        text: '"My God, my God, WHY?" — He who knew no sin became sin for us. For the first time in eternity, Father and Son are separated.',
+                        preview: 'Hear the cry of desolation',
+                        effects: { truth: 25, wisdom: 18, faith: 15 },
+                        influence: { target: 'Jesus', change: 10, type: 'divine' },
+                        influenceSecondary: { target: 'The Universe', change: 20, type: 'divine' },
+                        isWitness: true,
+                        response: 'This is what sin does. This is where sin leads. Complete separation from God. And Jesus drinks this cup — TO THE BOTTOM — so we never have to taste it.'
+                    },
+                    {
+                        letter: 'C',
+                        text: 'Understand: He could have come down. At any moment. One thought and it ends. But He stayed.',
+                        preview: 'Comprehend the voluntary suffering',
+                        effects: { courage: 25, love: 18, wisdom: 12 },
+                        influence: { target: 'Jesus', change: 10, type: 'divine' },
+                        isWitness: true,
+                        response: 'Every second on that Cross is voluntary. Every breath is consent renewed. He STAYS because love won\'t leave. He endures because you\'re worth it.'
+                    },
+                    {
+                        letter: 'D',
+                        text: 'Weep. There is nothing else to do. The Creator dies. The eternal Son experiences death. Let the tears fall.',
+                        preview: 'Release the grief',
+                        effects: { love: 25, hope: 15, patience: 12 },
+                        influence: { target: 'Mary', change: 10, type: 'sorrow' },
+                        influenceSecondary: { target: 'The Universe', change: 10, type: 'divine' },
+                        isWitness: true,
+                        response: 'The tears of angels fall like rain. Mary weeps. John weeps. Heaven itself groans. And somehow, even the grief is grace — because He who sees your tears knows their taste.'
+                    }
+                ]
+            },
+            // Scene 7: It Is Finished
+            {
+                location: 'Golgotha — It Is Finished',
+                locationClass: 'finished',
+                contentClass: 'finished-scene',
+                station: 'Finished',
+                stationMarker: true,
+                content: '<p><em>The darkness lifts. Three hours of separation end. And Jesus speaks — not a groan, not a whisper, but a shout of triumph:</em></p><p><span class="speaker jesus"><span class="finished">"TETELESTAI! — IT IS FINISHED!"</span></span></p><p><em>The Greek word means "paid in full." The debt is cancelled. The sacrifice is accepted. The work is complete.</em></p><p><span class="speaker jesus">"Father, into thy hands I commend my spirit."</span></p><p><em>And He bows His head and gives up the ghost.</em></p><p><em>The veil of the Temple — sixty feet high, four inches thick — tears from top to bottom. God opens the way. The earth quakes. Rocks split. Tombs open. And a Roman centurion who has overseen countless executions falls to his knees:</em></p><p><span class="speaker enemy">"<span class="glory">Truly this was the Son of God.</span>"</span></p>',
+                choices: [
+                    {
+                        letter: 'A',
+                        text: '"TETELESTAI!" — Not a whimper but a war cry. The battle is won. The debt is paid. Victory is sealed.',
+                        preview: 'Hear the shout of victory',
+                        effects: { faith: 25, hope: 25, courage: 15 },
+                        influence: { target: 'Jesus', change: 15, type: 'divine' },
+                        influenceSecondary: { target: 'The Universe', change: 20, type: 'divine' },
+                        isWitness: true,
+                        response: 'PAID IN FULL. The word was stamped on receipts when debts were cleared. Every sin — past, present, future — PAID IN FULL. This is the receipt. This is the victory cry.'
+                    },
+                    {
+                        letter: 'B',
+                        text: 'Watch the veil tear. From TOP to bottom — not human hands but divine. The way into God\'s presence is open.',
+                        preview: 'See the access opened',
+                        effects: { wisdom: 25, truth: 18, hope: 15 },
+                        influence: { target: 'The Universe', change: 25, type: 'divine' },
+                        isWitness: true,
+                        response: 'For centuries, only the high priest entered — once a year, with blood, in fear. Now the veil lies torn. The way is open. Come boldly. The blood has made a way.'
+                    },
+                    {
+                        letter: 'C',
+                        text: 'Hear the centurion\'s confession. The pagan executioner sees what the priests missed. "Truly this was the Son of God."',
+                        preview: 'Witness the enemy\'s confession',
+                        effects: { hope: 25, faith: 18, love: 15 },
+                        influence: { target: 'The Disciples', change: 15, type: 'divine' },
+                        isWitness: true,
+                        response: 'The one who drove the nails now bows in worship. The executioner becomes a witness. If he can be saved, anyone can. The Cross turns enemies into worshippers.'
+                    },
+                    {
+                        letter: 'D',
+                        text: 'Worship. Fall before the Cross. Let "It is finished" echo in your spirit until everything changes.',
+                        preview: 'Worship at the foot of the Cross',
+                        effects: { faith: 30, love: 25, hope: 20 },
+                        influence: { target: 'Jesus', change: 20, type: 'divine' },
+                        influenceSecondary: { target: 'The Universe', change: 25, type: 'divine' },
+                        isPrayer: true,
+                        isWitness: true,
+                        response: 'Worship is the only response that makes sense. The Lamb is slain. The price is paid. The work is done. And nothing will ever be the same again.'
+                    }
+                ]
+            }
+        ];
+
+        // Initialize
+        function init() {
+            checkSavedGame();
+            checkPreviousSaves();
+        }
+
+        function checkSavedGame() {
+            var saved = localStorage.getItem('gcg_ep8_save');
+            if (saved) {
+                document.getElementById('continueBtn').disabled = false;
+            }
+        }
+
+        function checkPreviousSaves() {
+            var prevEps = ['gcg_ep7_save', 'gcg_ep6_save', 'gcg_ep5_save', 'gcg_ep4_save', 'gcg_ep3_save', 'gcg_ep2_save', 'gcg_save'];
+            var epNames = ['Episode 7', 'Episode 6', 'Episode 5', 'Episode 4', 'Episode 3', 'Episode 2', 'Episode 1'];
+            
+            for (var i = 0; i < prevEps.length; i++) {
+                var saved = localStorage.getItem(prevEps[i]);
+                if (saved) {
+                    var data = JSON.parse(saved);
+                    if (data.episodeComplete) {
+                        displayPrevStats(data, epNames[i]);
+                        return;
+                    }
+                }
+            }
+        }
+
+        function displayPrevStats(data, epName) {
+            var statsDiv = document.getElementById('prevStats');
+            statsDiv.style.display = 'grid';
+            statsDiv.innerHTML = 
+                '<div class="import-stat"><div class="import-stat-name">Faith</div><div class="import-stat-value stat-faith">' + data.stats.faith + '</div></div>' +
+                '<div class="import-stat"><div class="import-stat-name">Courage</div><div class="import-stat-value stat-courage">' + data.stats.courage + '</div></div>' +
+                '<div class="import-stat"><div class="import-stat-name">Love</div><div class="import-stat-value stat-love">' + data.stats.love + '</div></div>' +
+                '<div class="import-stat"><div class="import-stat-name">Hope</div><div class="import-stat-value stat-hope">' + data.stats.hope + '</div></div>';
+            document.getElementById('importFromPrev').querySelector('p').innerHTML = 
+                'Continue as <strong>' + data.characterName + '</strong> from ' + epName + '.';
+        }
+
+        // Screen Management
+        function showScreen(screenId) {
+            var screens = document.querySelectorAll('.screen');
+            for (var i = 0; i < screens.length; i++) {
+                screens[i].classList.remove('active');
+            }
+            document.getElementById(screenId).classList.add('active');
+            STATE.screen = screenId;
+
+            var menuBtn = document.getElementById('menuBtn');
+            if (screenId === 'gameScreen' || screenId === 'consequenceScreen') {
+                menuBtn.classList.add('visible');
+            } else {
+                menuBtn.classList.remove('visible');
+            }
+        }
+
+        function showImportScreen() {
+            showScreen('importScreen');
+        }
+
+        function importFromPrevious() {
+            var prevEps = ['gcg_ep7_save', 'gcg_ep6_save', 'gcg_ep5_save', 'gcg_ep4_save', 'gcg_ep3_save', 'gcg_ep2_save', 'gcg_save'];
+            
+            for (var i = 0; i < prevEps.length; i++) {
+                var saved = localStorage.getItem(prevEps[i]);
+                if (saved) {
+                    var data = JSON.parse(saved);
+                    if (data.episodeComplete) {
+                        useImportedData(data);
+                        return;
+                    }
+                }
+            }
+            alert('No completed previous episode found. Please complete an earlier episode first, or start fresh.');
+        }
+
+        function useImportedData(data) {
+            STATE.characterName = data.characterName;
+            STATE.stats = JSON.parse(JSON.stringify(data.stats));
+            STATE.baseStats = JSON.parse(JSON.stringify(data.stats));
+            startGame();
+        }
+
+        function startFresh() {
+            STATE.characterName = 'Faithful One';
+            STATE.stats = {
+                faith: 85,
+                wisdom: 78,
+                courage: 80,
+                love: 85,
+                truth: 82,
+                patience: 78,
+                hope: 80
+            };
+            STATE.baseStats = JSON.parse(JSON.stringify(STATE.stats));
+            startGame();
+        }
+
+        function showNameInput() {
+            showScreen('nameScreen');
+        }
+
+        function confirmCustomName() {
+            var name = document.getElementById('customName').value.trim() || 'Faithful One';
+            STATE.characterName = name;
+            STATE.stats = {
+                faith: 85,
+                wisdom: 78,
+                courage: 80,
+                love: 85,
+                truth: 82,
+                patience: 78,
+                hope: 80
+            };
+            STATE.baseStats = JSON.parse(JSON.stringify(STATE.stats));
+            startGame();
+        }
+
+        function startGame() {
+            STATE.currentScene = 0;
+            STATE.choices = [];
+            STATE.episodeComplete = false;
+            STATE.witnessPoints = 0;
+            STATE.currentStation = 'Gethsemane';
+            STATE.beings = [
+                { name: 'Jesus', status: 'Lamb of God', influence: 100, avatar: '✝', type: 'savior' },
+                { name: 'The Disciples', status: 'watching', influence: 60, avatar: '👁', type: 'disciple' },
+                { name: 'Mary', status: 'weeping', influence: 70, avatar: '💧', type: 'witness' },
+                { name: 'The Universe', status: 'watching', influence: 80, avatar: '🌌', type: 'witness' }
+            ];
+            showScreen('gameScreen');
+            updateStatsDisplay();
+            updateInfluenceDisplay();
+            updateWitnessDisplay();
+            displayScene(0);
+        }
+
+        function continueGame() {
+            var saved = localStorage.getItem('gcg_ep8_save');
+            if (saved) {
+                STATE = JSON.parse(saved);
+                updateStatsDisplay();
+                updateInfluenceDisplay();
+                updateWitnessDisplay();
+                updateBackground();
+                if (STATE.episodeComplete) {
+                    showSummary();
+                } else {
+                    showScreen('gameScreen');
+                    displayScene(STATE.currentScene);
+                }
+            }
+        }
+
+        // Display Functions
+        function updateStatsDisplay() {
+            document.getElementById('statFaith').textContent = STATE.stats.faith;
+            document.getElementById('statWisdom').textContent = STATE.stats.wisdom;
+            document.getElementById('statCourage').textContent = STATE.stats.courage;
+            document.getElementById('statLove').textContent = STATE.stats.love;
+            document.getElementById('statTruth').textContent = STATE.stats.truth;
+            document.getElementById('statPatience').textContent = STATE.stats.patience;
+            document.getElementById('statHope').textContent = STATE.stats.hope;
+            document.getElementById('statWitness').textContent = STATE.witnessPoints;
+            document.getElementById('displayName').textContent = STATE.characterName;
+        }
+
+        function updateWitnessDisplay() {
+            document.getElementById('witnessDisplay').textContent = STATE.witnessPoints;
+            document.getElementById('currentStation').textContent = STATE.currentStation;
+        }
+
+        function updateBackground() {
+            var bg = document.getElementById('bgLayer');
+            var bloodOverlay = document.getElementById('bloodOverlay');
+            var crossShadow = document.getElementById('crossShadow');
+            
+            bg.classList.remove('gethsemane', 'trial', 'scourging', 'via-dolorosa', 'calvary', 'darkness', 'finished', 'tomb');
+            bloodOverlay.classList.remove('active');
+            crossShadow.classList.remove('active');
+            
+            var scene = SCENES[STATE.currentScene];
+            if (scene) {
+                bg.classList.add(scene.locationClass);
+                
+                // Activate overlays for certain scenes
+                if (scene.locationClass === 'scourging' || scene.locationClass === 'calvary') {
+                    bloodOverlay.classList.add('active');
+                }
+                if (scene.locationClass === 'calvary' || scene.locationClass === 'darkness' || scene.locationClass === 'finished') {
+                    crossShadow.classList.add('active');
+                }
+            } else {
+                bg.classList.add('gethsemane');
+            }
+        }
+
+        function updateInfluenceDisplay() {
+            var grid = document.getElementById('influenceGrid');
+            var html = '';
+            
+            for (var i = 0; i < STATE.beings.length; i++) {
+                var being = STATE.beings[i];
+                var fillClass = 'divine';
+                if (being.type === 'disciple') fillClass = 'sorrow';
+                if (being.type === 'witness') fillClass = being.name === 'Mary' ? 'sorrow' : 'divine';
+                
+                html += '<div class="influence-item">';
+                html += '<div class="influence-avatar ' + being.type + '">' + being.avatar + '</div>';
+                html += '<div class="influence-info">';
+                html += '<div class="influence-name">' + being.name + '</div>';
+                html += '<div class="influence-status">' + being.status + '</div>';
+                html += '<div class="influence-bar"><div class="influence-fill ' + fillClass + '" style="width: ' + being.influence + '%;"></div></div>';
+                html += '</div></div>';
+            }
+            grid.innerHTML = html;
+        }
+
+        function displayScene(sceneIndex) {
+            if (sceneIndex >= SCENES.length) {
+                STATE.episodeComplete = true;
+                saveGame();
+                showSummary();
+                return;
+            }
+
+            var scene = SCENES[sceneIndex];
+            var storyContent = document.getElementById('storyContent');
+            var choicesContainer = document.getElementById('choicesContainer');
+
+            // Update station
+            STATE.currentStation = scene.station;
+            updateWitnessDisplay();
+
+            // Update background
+            updateBackground();
+
+            // Update beings status based on scene
+            updateBeingsForScene(sceneIndex);
+
+            // Update story content class
+            storyContent.classList.remove('gethsemane-scene', 'trial-scene', 'scourging-scene', 'calvary-scene', 'darkness-scene', 'finished-scene');
+            if (scene.contentClass) storyContent.classList.add(scene.contentClass);
+
+            var storyHtml = '<div class="scene-location">' + scene.location + '</div>';
+            
+            // Add station marker if applicable
+            if (scene.stationMarker) {
+                var desc = '';
+                if (scene.station === 'Gethsemane') desc = 'The garden of agony';
+                if (scene.station === 'Trial') desc = 'False witnesses and true confession';
+                if (scene.station === 'Scourging') desc = 'By His stripes we are healed';
+                if (scene.station === 'Via Dolorosa') desc = 'The Way of Suffering';
+                if (scene.station === 'Calvary') desc = 'The Place of the Skull';
+                if (scene.station === 'Darkness') desc = 'Separation from the Father';
+                if (scene.station === 'Finished') desc = 'TETELESTAI — Paid in Full';
+                
+                storyHtml += '<div class="station-marker">';
+                storyHtml += '<h4>Station</h4>';
+                storyHtml += '<div class="station-name">' + scene.station + '</div>';
+                storyHtml += '<p>' + desc + '</p>';
+                storyHtml += '</div>';
+            }
+            
+            storyHtml += '<div class="story-text">' + scene.content + '</div>';
+            storyContent.innerHTML = storyHtml;
+
+            var choicesHtml = '<div class="choices-label">How do you respond?</div>';
+            for (var i = 0; i < scene.choices.length; i++) {
+                var choice = scene.choices[i];
+                var btnClass = 'choice-btn';
+                if (choice.isPrayer) btnClass = 'choice-btn prayer-choice';
+                else if (choice.isWitness) btnClass = 'choice-btn witness-choice';
+                
+                choicesHtml += '<button class="' + btnClass + '" onclick="makeChoice(' + sceneIndex + ', ' + i + ')">';
+                choicesHtml += '<span class="choice-letter">[' + choice.letter + ']</span>';
+                choicesHtml += choice.text;
+                if (choice.preview) {
+                    var prefix = '';
+                    if (choice.isPrayer) prefix += '🙏 ';
+                    if (choice.isWitness) prefix += '✝ ';
+                    choicesHtml += '<span class="choice-preview">' + prefix + choice.preview + '</span>';
+                }
+                choicesHtml += '</button>';
+            }
+            choicesContainer.innerHTML = choicesHtml;
+        }
+
+        function updateBeingsForScene(sceneIndex) {
+            var jesus = STATE.beings.find(function(b) { return b.name === 'Jesus'; });
+            var disciples = STATE.beings.find(function(b) { return b.name === 'The Disciples'; });
+            var mary = STATE.beings.find(function(b) { return b.name === 'Mary'; });
+            var universe = STATE.beings.find(function(b) { return b.name === 'The Universe'; });
+            
+            // Update statuses based on progression
+            if (sceneIndex >= 1) { // After arrest
+                if (disciples) disciples.status = 'fled';
+            }
+            if (sceneIndex >= 3) { // After scourging
+                if (jesus) jesus.status = 'suffering';
+                if (mary) mary.status = 'grieving';
+            }
+            if (sceneIndex >= 5) { // At Calvary
+                if (jesus) jesus.status = 'crucified';
+                if (mary) mary.status = 'at the Cross';
+                if (disciples) disciples.status = 'John remains';
+            }
+            if (sceneIndex >= 6) { // Darkness
+                if (jesus) jesus.status = 'forsaken';
+                if (universe) universe.status = 'in darkness';
+            }
+            if (sceneIndex >= 7) { // Finished
+                if (jesus) jesus.status = 'victorious';
+                if (universe) universe.status = 'transformed';
+            }
+            
+            updateInfluenceDisplay();
+        }
+
+        function makeChoice(sceneIndex, choiceIndex) {
+            var scene = SCENES[sceneIndex];
+            var choice = scene.choices[choiceIndex];
+
+            STATE.choices.push({
+                scene: sceneIndex,
+                choice: choiceIndex,
+                letter: choice.letter,
+                isPrayer: choice.isPrayer || false,
+                isWitness: choice.isWitness || false
+            });
+
+            if (choice.isWitness) {
+                STATE.witnessPoints++;
+            }
+
+            // Apply stat effects
+            var statChanges = [];
+            if (choice.effects) {
+                for (var stat in choice.effects) {
+                    if (choice.effects.hasOwnProperty(stat)) {
+                        var change = choice.effects[stat];
+                        STATE.stats[stat] = Math.max(0, Math.min(100, STATE.stats[stat] + change));
+                        if (change !== 0) {
+                            statChanges.push({ stat: stat, change: change });
+                        }
+                    }
+                }
+            }
+
+            // Apply influence effects
+            var influenceChanges = [];
+            if (choice.influence) {
+                applyInfluence(choice.influence.target, choice.influence.change, choice.influence.type);
+                influenceChanges.push(choice.influence);
+            }
+            if (choice.influenceSecondary) {
+                applyInfluence(choice.influenceSecondary.target, choice.influenceSecondary.change, choice.influenceSecondary.type);
+                influenceChanges.push(choice.influenceSecondary);
+            }
+
+            showConsequence(choice, statChanges, influenceChanges, sceneIndex);
+        }
+
+        function applyInfluence(targetName, change, type) {
+            for (var i = 0; i < STATE.beings.length; i++) {
+                if (STATE.beings[i].name === targetName) {
+                    STATE.beings[i].influence = Math.max(0, Math.min(100, STATE.beings[i].influence + change));
+                    break;
+                }
+            }
+        }
+
+        function showConsequence(choice, statChanges, influenceChanges, sceneIndex) {
+            showScreen('consequenceScreen');
+            var display = document.getElementById('consequenceDisplay');
+
+            var title = 'Sacred Witness';
+            if (choice.isPrayer) title = 'Prayer at the Cross';
+
+            var html = '<h3 class="consequence-title">' + title + '</h3>';
+
+            if (statChanges.length > 0) {
+                html += '<div class="stat-changes">';
+                for (var i = 0; i < statChanges.length; i++) {
+                    var sc = statChanges[i];
+                    var sign = sc.change > 0 ? '+' : '';
+                    var cls = sc.change > 0 ? 'positive' : 'sorrow';
+                    var statName = sc.stat.charAt(0).toUpperCase() + sc.stat.slice(1);
+                    html += '<div class="stat-change ' + cls + '">' + statName + ' ' + sign + sc.change + '</div>';
+                }
+                html += '</div>';
+            }
+
+            html += '<p style="text-align: center; color: var(--text-secondary); font-size: 1.05rem; line-height: 1.8; margin: 20px 0;">' + choice.response + '</p>';
+
+            // Add witness notice
+            if (choice.isWitness) {
+                html += '<div class="witness-notice"><h4>✝ Witness Point Earned</h4><p>You have stood at the Cross. What is seen cannot be unseen. What is witnessed changes the witness.</p></div>';
+            }
+
+            html += '<button class="btn btn-sacred continue-btn" onclick="continueStory(' + (sceneIndex + 1) + ')">Continue</button>';
+
+            display.innerHTML = html;
+            updateStatsDisplay();
+            updateInfluenceDisplay();
+            updateWitnessDisplay();
+            saveGame();
+        }
+
+        function continueStory(nextScene) {
+            STATE.currentScene = nextScene;
+            showScreen('gameScreen');
+            displayScene(nextScene);
+        }
+
+        function showSummary() {
+            showScreen('summaryScreen');
+            var summary = document.getElementById('episodeSummary');
+
+            // Reset background to finished
+            var bg = document.getElementById('bgLayer');
+            var bloodOverlay = document.getElementById('bloodOverlay');
+            var crossShadow = document.getElementById('crossShadow');
+            bg.classList.remove('gethsemane', 'trial', 'scourging', 'via-dolorosa', 'calvary', 'darkness');
+            bg.classList.add('finished');
+            bloodOverlay.classList.remove('active');
+            crossShadow.classList.add('active');
+
+            // Calculate results
+            var baseStats = STATE.baseStats || { faith: 85, wisdom: 78, courage: 80, love: 85, truth: 82, patience: 78, hope: 80 };
+            
+            // Determine ending
+            var endingTitle = 'Witness of Calvary';
+            var endingDesc = 'You walked from Gethsemane to Golgotha. You watched the Lamb of God become the sacrifice that ends all sacrifices. You stood at the foot of the Cross as "It is finished" echoed through eternity.';
+
+            if (STATE.witnessPoints >= 7) {
+                endingTitle = 'Bearer of the Cross';
+                endingDesc = 'You witnessed every station of the Cross. From blood sweat to crown of thorns, from scourging to crucifixion, from darkness to dawn — you saw it all. The Cross is now written on your heart forever.';
+            } else if (STATE.stats.love >= 100) {
+                endingTitle = 'Heart of Calvary';
+                endingDesc = 'You understand what you witnessed: perfect love, perfectly displayed. "Greater love hath no man than this" — and you have seen that love in action.';
+            } else if (STATE.stats.faith >= 100) {
+                endingTitle = 'Voice of Tetelestai';
+                endingDesc = 'You heard the shout that shook the universe: "IT IS FINISHED!" And you know it is true. Paid in full. Done. Complete. Victory is sealed.';
+            } else if (STATE.stats.hope >= 100) {
+                endingTitle = 'Child of the Torn Veil';
+                endingDesc = 'You saw the veil tear. The way is open. Access to God is granted through blood. And you have walked through that opening into the presence of the Father.';
+            }
+
+            var html = '<div class="summary-header">';
+            html += '<h2 class="summary-title">Episode Complete</h2>';
+            html += '<p class="summary-subtitle">The Cross</p>';
+            html += '</div>';
+
+            // Cross decoration
+            html += '<div class="cross-decoration">';
+            html += '<div class="cross-symbol">✝</div>';
+            html += '<div class="cross-inscription">TETELESTAI</div>';
+            html += '<p>"It is finished."</p>';
+            html += '</div>';
+
+            // Ending Card
+            html += '<div class="summary-section" style="text-align: center; border-color: var(--blood-red);">';
+            html += '<h3 style="font-family: Cinzel, serif; font-size: 1.5rem; color: var(--glory-gold); margin-bottom: 15px;">' + endingTitle + '</h3>';
+            html += '<p style="color: var(--text-secondary); line-height: 1.8;">' + endingDesc + '</p>';
+            html += '</div>';
+
+            // Witness counter
+            html += '<div class="summary-section" style="text-align: center;">';
+            html += '<div style="font-family: Cinzel, serif; font-size: 3rem; color: var(--blood-glow);">' + STATE.witnessPoints + '</div>';
+            html += '<div style="color: var(--text-secondary);">Witness Points</div>';
+            html += '<p style="margin-top: 15px; color: var(--text-dim); font-style: italic;">Every station of the Cross, watched and remembered. What is witnessed changes the witness.</p>';
+            html += '</div>';
+
+            // Stations journey
+            html += '<div class="summary-section">';
+            html += '<h4 class="summary-section-title">✝ The Way of the Cross</h4>';
+            html += '<div class="stations-journey">';
+            html += '<div class="journey-station"><div class="icon">🌿</div><div class="name">Gethsemane</div></div>';
+            html += '<div class="journey-arrow">→</div>';
+            html += '<div class="journey-station"><div class="icon">⚖</div><div class="name">Trial</div></div>';
+            html += '<div class="journey-arrow">→</div>';
+            html += '<div class="journey-station"><div class="icon">🩸</div><div class="name">Scourging</div></div>';
+            html += '<div class="journey-arrow">→</div>';
+            html += '<div class="journey-station"><div class="icon">🛣</div><div class="name">Via Dolorosa</div></div>';
+            html += '<div class="journey-arrow">→</div>';
+            html += '<div class="journey-station"><div class="icon">✝</div><div class="name">Calvary</div></div>';
+            html += '</div></div>';
+
+            // Stats
+            html += '<div class="summary-section">';
+            html += '<h4 class="summary-section-title">✝ Transformed by Witness</h4>';
+            html += '<div class="final-stats-grid">';
+            var statNames = ['faith', 'wisdom', 'courage', 'love', 'truth', 'patience', 'hope'];
+            var statColors = ['#ffd700', '#9b59b6', '#e74c3c', '#e91e63', '#3498db', '#1abc9c', '#f39c12'];
+            for (var s = 0; s < statNames.length; s++) {
+                var sName = statNames[s];
+                var sVal = STATE.stats[sName];
+                var sBase = baseStats[sName] || 80;
+                var sChange = sVal - sBase;
+                var changeStr = sChange >= 0 ? '+' + sChange : '' + sChange;
+                var changeColor = sChange >= 0 ? 'var(--success)' : 'var(--sorrow-color)';
+                html += '<div class="final-stat">';
+                html += '<div class="final-stat-name" style="color: ' + statColors[s] + ';">' + sName.charAt(0).toUpperCase() + sName.slice(1) + '</div>';
+                html += '<div class="final-stat-value" style="color: ' + statColors[s] + ';">' + sVal + '</div>';
+                html += '<div class="final-stat-change" style="color: ' + changeColor + ';">' + changeStr + '</div>';
+                html += '</div>';
+            }
+            html += '</div></div>';
+
+            // Scripture
+            html += '<div class="summary-section">';
+            html += '<div class="scripture-display">';
+            html += '<div class="verse">"But God commendeth his love toward us, in that, while we were yet sinners, Christ died for us."</div>';
+            html += '<span class="reference">— Romans 5:8</span>';
+            html += '</div></div>';
+
+            // Narrative
+            html += '<div class="summary-section">';
+            html += '<h4 class="summary-section-title">✝ What You Witnessed</h4>';
+            html += '<div class="narrative-summary">' + generateNarrative() + '</div>';
+            html += '</div>';
+
+            // Next Episode
+            html += '<div class="to-be-continued">';
+            html += '<h3>The Story Continues...</h3>';
+            html += '<p>Episode 9: The Early Church — Coming Soon</p>';
+            html += '<p style="margin-top: 10px; color: var(--text-dim);">The tomb is empty. The Spirit descends. A small band of witnesses will turn the world upside down.</p>';
+            html += '<button class="btn btn-primary" style="margin-top: 20px;" onclick="returnToTitle()">Return to Title</button>';
+            html += '</div>';
+
+            summary.innerHTML = html;
+        }
+
+        function generateNarrative() {
+            var narrative = '<p>As ' + STATE.characterName + ', you walked the Via Dolorosa from Gethsemane to Golgotha. You witnessed what angels longed to understand: the death of the Son of God for the sins of the world.</p>';
+
+            narrative += '<p>You saw the blood sweat fall in the garden, where "Not my will but Thine" became the hinge of history. You watched the betrayer\'s kiss, the disciples flee, and the Lamb stand alone before wolves.</p>';
+
+            if (STATE.stats.love >= 90) {
+                narrative += '<p>At the Cross, you understood what you were seeing: love beyond comprehension. "Father, forgive them" — prayed for murderers while being murdered. The thief dying beside Him — welcomed into paradise on nothing but faith.</p>';
+            }
+
+            if (STATE.stats.truth >= 90) {
+                narrative += '<p>You saw the darkness — three hours when even the sun could not bear to shine. You heard the cry that still echoes: "My God, my God, why hast thou forsaken me?" And you understood: He was forsaken so we never would be.</p>';
+            }
+
+            narrative += '<p>Then came the shout that changed everything: "TETELESTAI — IT IS FINISHED!" Not a whisper of defeat but a war cry of victory. The debt paid. The sacrifice complete. The way opened.</p>';
+
+            narrative += '<p>The Cross is now written on your heart. You have seen what sin costs. You have seen what love pays. And nothing will ever be the same again.</p>';
+
+            return narrative;
+        }
+
+        // Menu Functions
+        function toggleMenu() {
+            document.getElementById('menuModal').classList.toggle('active');
+        }
+
+        function saveGame() {
+            localStorage.setItem('gcg_ep8_save', JSON.stringify(STATE));
+        }
+
+        function restartEpisode() {
+            if (confirm('Restart Episode 8? All progress will be lost.')) {
+                localStorage.removeItem('gcg_ep8_save');
+                location.reload();
+            }
+        }
+
+        function returnToTitle() {
+            var modal = document.getElementById('menuModal');
+            if (modal.classList.contains('active')) {
+                modal.classList.remove('active');
+            }
+            showScreen('titleScreen');
+            checkSavedGame();
+            // Reset background
+            var bg = document.getElementById('bgLayer');
+            var bloodOverlay = document.getElementById('bloodOverlay');
+            var crossShadow = document.getElementById('crossShadow');
+            bg.classList.remove('trial', 'scourging', 'via-dolorosa', 'calvary', 'darkness', 'finished', 'tomb');
+            bg.classList.add('gethsemane');
+            bloodOverlay.classList.remove('active');
+            crossShadow.classList.remove('active');
+        }
+
+        // Init
+        init();
+    </script>
+</body>
+</html>
